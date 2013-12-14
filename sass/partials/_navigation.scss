@@ -40,8 +40,9 @@ body > nav {
     font-size: .9em;
     ul {
       @include horizontal-list(0);
-      float: left;
-      display: block;
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
       padding-top: .15em;
     }
     ul.subscription {
