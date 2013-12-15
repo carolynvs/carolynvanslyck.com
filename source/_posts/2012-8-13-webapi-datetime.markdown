@@ -35,9 +35,8 @@ UTC in a single location. To do this I modified my DbContext to identify any Dat
 if the DateTimeKind is Local or Unspecified.
 <script src="https://gist.github.com/3344800.js?file=AutoConvertToUtcDataContext.cs"></script>
 
-<p>Here's a generic converter that I'm using in my 
-    DbContext to handle the UTC conversions. It can identify a DateTime? or DateTime property on your model, caches the reflected type 
-    information and automatically converts all DateTime properties to UTC.</p>
+<p>Here's a generic converter that I'm using in my DbContext to handle the UTC conversions. It can identify a DateTime?
+or DateTime property on your model, caches the reflected type information and automatically converts all DateTime properties to UTC.</p>
 <script src="https://gist.github.com/3344800.js?file=Carolynvs.UtcDateTimeConverter.cs"></script>
 
 <p>I am makings use of 2 extension methods on the Object type, Get and Set which allows me to dynamically get and set values on my model.</p>
