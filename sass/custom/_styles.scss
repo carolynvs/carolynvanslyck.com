@@ -34,8 +34,9 @@
   }
 }
 
-/* Blog */
+/* Blog */d
 code {
+  white-space: pre;
   font-family: $mono;
   font-size: 0.9em;
   color: black;
@@ -56,6 +57,10 @@ code {
 
 .comments-link {
   text-align: right;
+}
+
+.gist table.lines {
+  width: 100%;
 }
 
 /* Font Awesome */
