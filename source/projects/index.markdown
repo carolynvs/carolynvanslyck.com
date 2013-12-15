@@ -7,8 +7,7 @@ sidebar: false
 footer: true
 ---
 
-
-<p style="text-align: center; font-weight: bold;">
+<p class="center">
     <a href="https://github.com/carolynvs">My open-source projects</a> are available on GitHub.
 </p>
 <div class="projects">

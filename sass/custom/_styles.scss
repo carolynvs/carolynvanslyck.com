@@ -35,22 +35,26 @@
 }
 
 /* Blog */
-pre {
-  overflow-x: auto;
-}
+//pre {
+//  overflow-x: auto;
+//}
+//
+//code {
+//  font-family: $mono;
+//  font-size: 0.9em;
+//  display: inline-block;
+//  border: 1px dashed SteelBlue;
+//  background-color: WhiteSmoke;
+//  padding: 1em;
+//}
+//
+//.gist-data {
+//  max-height: 20em;
+//  max-width: 60em;
+//}
 
-code {
-  font-family: $mono;
-  font-size: 0.9em;
-  display: inline-block;
-  border: 1px dashed SteelBlue;
-  background-color: WhiteSmoke;
-  padding: 1em;
-}
-
-.gist-data {
-  max-height: 20em;
-  max-width: 60em;
+.comments-link {
+  text-align: right;
 }
 
 /* Font Awesome */

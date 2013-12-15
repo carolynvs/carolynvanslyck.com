@@ -1,29 +1,40 @@
 ---
-layout: default
+layout: page
+title: Blog
+comments: false
+sharing: false
 ---
+<div>
+    <p>Whenever I waste more than a few hours figuring something out... it goes here. Call it what you will: code graveyard, diary or blog. I hope it helps someone else out on their next Google search.</p>
 
-<div class="blog-index">
-  {% assign index = true %}
-  {% for post in paginator.posts %}
-  {% assign content = post.content %}
-    <article>
-      {% include article.html %}
-    </article>
-  {% endfor %}
-  <div class="pagination">
-    {% if paginator.next_page %}
-      <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
-    {% endif %}
-    <a href="/blog/archives">Blog Archives</a>
-    {% if paginator.previous_page %}
-    <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
-    {% endif %}
-  </div>
+    <h2>Development</h2>
+    <ul>
+        <li><a href="2013/01/mixing-http-https-in-mvc/">Using both HTTP and HTTPS in ASP.NET MVC</a></li>
+        <li><a href="2013/01/webapi-route-testing/">Unit testing your ASP.NET Web API routes</a></li>
+        <li><a href="2013/01/webapi-mixed-rest-rpc-routing/">Mixing REST and RPC style methods on an ASP.NET Web API Controller</a></li>
+        <li><a href="2012/12/entity-framework-generic-methods/">Using Generic Methods in Entity Framework Queries</a></li>
+        <li><a href="2012/10/unit-testing-mvc-bundles/">Unit Testing ASP.NET MVC Bundles</a></li>
+        <li><a href="2012/09/compile-time-support-for-mvc-views/">How to get compile-time checking of ASP.NET MVC views</a></li>
+        <li><a href="2012/09/when-to-implement-equality/">When should I implement GetHashCode, Equals, IEquatable and IComparable?</a></li>
+        <li><a href="2012/08/webapi-datetime/">Working with DateTime in ASP.NET Web API</a></li>
+
+    </ul>
+
+    <h2>Windows Azure</h2>
+    <ul>
+        <li><a href="2013/02/setting-up-jenkins-on-azure/">Setting up Jenkins on Windows Azure</a></li>
+        <li><a href="2012/08/intellitrace-newrelic-azure-performance/">Intellitrace, New Relic and Windows Azure</a></li>
+    </ul>
+
+    <h2>Web Sites</h2>
+    <ul>
+        <li><a href="2012/12/knockout-observables/">Knockout Obserbables</a></li>
+        <li><a href="2012/02/page-too-wide-on-mobile-browser/">Why is my web page is too wide in a mobile phone browser?</a></li>
+        <li><a href="2012/02/google-analytics-ignore-your-traffic/">How do I make Google Analytics ignore my traffic?</a></li>
+    </ul>
+
+    <h2>Tech Support</h2>
+    <ul>
+        <li><a href="2012/02/windows7-macbook-air/">How do I install Windows 7 on a MacBook Air?</a> (No bootable device detected)</li>
+    </ul>
 </div>
-<aside class="sidebar">
-  {% if site.blog_index_asides.size %}
-    {% include_array blog_index_asides %}
-  {% else %}
-    {% include_array default_asides %}
-  {% endif %}
-</aside>
