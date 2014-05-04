@@ -43,9 +43,38 @@ footer: true
         </div>
         <div class="technologies">Java, Atlassian Stash, Git</div>
         <div class="description">
-            <p>A pre-receive hook plugin for <a href="https://www.atlassian.com/software/stash">Atlassian Stash</a>. It rejects merge commits where all the parents for the commit are from the same branch. Merges which involve multiple branches, e.g. merging a feature branch into master, are allowed.</p>
+            <p>A pre-receive hook plugin for Atlassian Stash. It rejects merge commits where all the parents for the commit are from the same branch. Merges which involve multiple branches, e.g. merging a feature branch into master, are allowed.</p>
             <p>The goal is to prevent unnecessary merge commits, e.g. "Merge branch 'master' of mygitserver:owner/repo", from polluting a repository. I developed this because I personally prefer to pull using --rebase and wanted to enforce this policy on my Stash repositories.</p>
             <p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">Download the latest version from Atlassian Marketplace</a></p>
+        </div>
+    </div>
+    
+    <div class="project">
+        <div class="title">
+            <a href="https://bitbucket.org/carolynvs/bamboo-trade-depot">
+                <img src="{{root_url}}/images/trade-depot.png" alt="Cargo Ship" title="Trade Depot"/>
+                Trade Depot for Atlassian Bamboo
+            </a>
+        </div>
+        <div class="technologies">Java, Atlassian Bamboo, REST</div>
+        <div class="description">
+        	<p>Trade Depot is a plugin for Atlassian Bamboo which enables importing and exporting individual plans. It exposes a REST API using straightforward json so that you can create plan templates, automate the creation and maintenance of plans, copy plans to another server, etc.</p>
+        	<p>Ideally functionality like this would <a href="https://jira.atlassian.com/browse/BAM-1223">provided directly by Bamboo</a>, however as that feature request was resolved after 7 years with "you will need to write your own", I decided to take them up on their offer.</p>     	
+        	<p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.trade_depot">Download the beta from Atlassian Marketplace</a></p>
+        </div>
+    </div>
+    
+    <div class="project">
+        <div class="title">
+            <a href="https://bitbucket.org/carolynvs/stash-force-field">
+                <img src="{{root_url}}/images/force-field.png" alt="Force Field" title="Force Field"/>
+                Force Field for Atlassian Stash
+            </a>
+        </div>
+        <div class="technologies">Java, Atlassian Stash, Git</div>
+        <div class="description">
+        	<p>Force Field is a pre-receive hook plugin for Atlassian Stash. It protects specific branches from force pushes, e.g git push --force.     	
+        	<p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.force-field">Download the latest version from Atlassian Marketplace</a></p>
         </div>
     </div>
 </div>
