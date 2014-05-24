@@ -89,7 +89,7 @@ footer: true
         <div class="title">
             <a href="https://bitbucket.org/carolynvs/stash-force-field">
                 <img src="{{root_url}}/images/force-field.png" alt="Force Field" title="Force Field"/>
-                Force Field for Atlassian Stash
+                Force Field for Stash
             </a>
         </div>
         <div class="technologies">Java, Atlassian Stash, Git</div>
