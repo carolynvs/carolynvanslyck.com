@@ -66,7 +66,7 @@ footer: true
     <li>After X Deployment Failures</li></ul>
 
 	
-        	<p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.trade_depot">Download the beta from Atlassian Marketplace</a></p>
+        	<p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.deployment-notifications">Download the latest version from Atlassian Marketplace</a></p>
         </div>
     </div>
     
