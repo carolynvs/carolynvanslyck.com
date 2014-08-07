@@ -34,7 +34,17 @@
   }
 }
 
-/* Blog */d
+/* Blog */
+article blockquote {
+	font-size: 1em;
+}
+
+.entry-content > aside {
+    border: thin solid grey;
+    background-color: #F7F5EF;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
 code {
   white-space: pre;
   font-family: $mono;
