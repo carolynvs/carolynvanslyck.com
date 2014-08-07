@@ -6,9 +6,9 @@ comments: false
 categories: atlassian
 ---
 
-I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian's great SDK, and the ability to view the core application's source code as a reference, developing plugins is very straightforward. My first plugin, [Reject Merge Commits Hook for Stash](https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook), was completed and deployed to the marketplace in just a single weekend and after that ... I was hooked.
+I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian's great SDK, and the ability to view the core application's source code as a reference, developing plugins is very straightforward. My [first plugin](https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook), was completed and deployed to the marketplace in just a single weekend and after that ... I was hooked.
 
-I have now published four plugins on the marketplace, some trivial while others really dig into the guts of the core application. This post is the first in a series on writing plugins for Atlassian, sharing some of my lessons learned and consolidating what can be sparse documentation into a more useful format.
+I have now [published four plugins](https://marketplace.atlassian.com/vendors/1211016) on the marketplace, some trivial while others really dig into the guts of the core application. This post is the first in a series on writing plugins for Atlassian, sharing some of my lessons learned and consolidating what can be sparse documentation into a more useful format.
 
 ---
 
@@ -69,13 +69,15 @@ Also I can't help but recommend that you use a real command line terminal instea
 ### Download Source
 I recommend downloading the source code for the application you are extending. To download the source, purchase a starter license then go to [my.atlasian.com](http://my.atlassian.com) and there will be a link to source from your license entry.
 
-<aside>While not strictly necessary, I have a much easier time understanding which classes are available and how they should be used by reading the source code than their online class documentation. This also enables you to debug into the core application. Note that the license is purely to gain access to the source code, as the SDK automatically generates temporary development licenses and doesn't require or use a real or evaluation license.</aside>
+<aside>While not strictly necessary, I have a much easier time understanding which classes are available and how they should be used by reading the source code than their online class documentation. This also enables you to debug into the core application. 
+
+Note that the license is purely to gain access to the source code, as the SDK automatically generates temporary development licenses and doesn't require or use a real or evaluation license.</aside>
 
 ### Install Java IDE
 While you could go commando and just use your favorite text editor, I prefer an IDE. [JetBrains IntelliJ IDEA](http://www.jetbrains.com/idea/) is free, can debug your plugin code and has all the nifty refactorings that have I come to expect from developing in C# with ReSharper.
 
 ## Create an Empty Plugin
-The SDK provides a command for each application which scaffolds an empty plugin. From the command line run the appropriate command for the application you are extending: e.g. `atlas-create-bamboo-plugin` or `atlas-create-stash-plugin`. The SDK will then ask you a series of questions (below).
+The SDK provides a command which scaffolds an empty plugin for each application. From the command line run the appropriate command for the application you are extending: e.g. `atlas-create-bamboo-plugin` or `atlas-create-stash-plugin`. The SDK will then ask you a series of questions:
 
 * **groupId**: Plugin namespace prefix, e.g. com.carolynvs.plugins.bamboo
 * **artifactId**: Plugin name, e.g. trade_depot
