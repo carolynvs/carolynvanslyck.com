@@ -2,7 +2,7 @@
 layout: post
 title: "Create an Atlassian Plugin"
 date: 2014-08-07
-comments: false
+comments: true
 categories: atlassian
 ---
 
@@ -79,10 +79,10 @@ While you could go commando and just use your favorite text editor, I prefer an 
 ## Create an Empty Plugin
 The SDK provides a command which scaffolds an empty plugin for each application. From the command line run the appropriate command for the application you are extending: e.g. `atlas-create-bamboo-plugin` or `atlas-create-stash-plugin`. The SDK will then ask you a series of questions:
 
-* **groupId**: Plugin namespace prefix, e.g. com.carolynvs.plugins.bamboo
+* **groupId**: Plugin namespace prefix, e.g. com.carolynvs
 * **artifactId**: Plugin name, e.g. trade_depot
 * **version**: Plugin Version, e.g. 1.0.SNAPSHOT. You may change this at any point by editing your pom.xml. I recommend accepting the default.
-* **package**: This should be groupId.artifactId, e.g. com.carolynvs.plugins.bamboo.trade_depot
+* **package**: This should be groupId.artifactId, e.g. com.carolynvs.trade_depot
 
 <aside>If you are unfamiliar with Maven and Java, check out [Maven Naming Conventions](http://maven.apache.org/guides/mini/guide-naming-conventions.html) and [Naming a Java Package](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html). The SDK will not validate what you enter and if it is not valid, your plugin won't compile and you will need to start over.</aside>
 
