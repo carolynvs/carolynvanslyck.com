@@ -45,6 +45,12 @@ article blockquote {
     padding: 0.5em 1em 0.5em 1em;
 }
 
+article pre {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
 code {
   white-space: pre;
   font-family: $mono;
@@ -58,7 +64,6 @@ code {
 
 .gist {
   font-size: .9em;
-  overflow-x: scroll;
 }
 
 .line-numbers {
