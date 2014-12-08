@@ -70,7 +70,18 @@ This is a new cross-platform OWIN web server for ASP.NET. It is quite unfortunat
         }
     }
 
-<aside>At the time of writing there is an [open issue](https://github.com/aspnet/KestrelHttpServer/issues/10) with running Kestrel on Linux. What I did to work around it is compile Kestrel (v0.11.29), and copy the resulting libuv.so.11 to ~/.kpm/packages/Microsoft.AspNet.Server.Kestrel/1.0.0-alpha3/native/darwin/universal/libuv.dylib. If you trust me and don't feel like building libuv yourself, [download the file that I built](/downloads/libuv.0.11.29.tar.gz).</aside>
+<aside>At the time of writing there is an [open issue](https://github.com/aspnet/KestrelHttpServer/issues/10) with running Kestrel on Linux. ~~What I did to work around it is compile Kestrel (v0.11.29), and copy the resulting libuv.so.1 to ~/.kpm/packages/Microsoft.AspNet.Server.Kestrel/1.0.0-alpha3/native/darwin/universal/libuv.dylib. If you trust me and don't feel like building libuv yourself, [download the file that I built](/downloads/libuv.0.11.29.tar.gz).~~
+
+UPDATE: Here are updated instructions for installing a compatible version of libuv, taken from http://www.ganshani.com/blog/2014/12/shell-script-to-setup-net-on-linux :
+
+    wget http://dist.libuv.org/dist/v1.0.0-rc2/libuv-v1.0.0-rc2.tar.gz
+    tar -xvf libuv-v1.0.0-rc2.tar.gz
+    cd libuv-v1.0.0-rc2/
+    ./gyp_uv.py -f make -Duv_library=shared_library
+    make -C out
+    sudo cp out/Debug/lib.target/libuv.so /usr/lib/libuv.so.1.0.0-rc2
+    sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
+</aside>
 
 ## k10, Core CLR, Cloud CLR... pick a name already! ##
 In keeping with their love of the letter 'k', k10, a.k.a Core CLR, a.k.a. Cloud Optimized CLR, is Microsoft's new .NET Framework. I hear that k10 is a code name and that by the time it releases it will be called ".NET Core Framework" Traditionally the .NET Framework has been optimized for running on a desktop machine. It includes the entire BCL (Base Class Library), had a heavy footprint (200MB), and was not designed with cross-platform concerns in mind. k10's framework has been broken down into discrete packages, e.g. `System.Runtime`, `System.Text.RegularExpressions`, allowing you to pick and choose which aspects of the framework you require and deploy them WITH your application, i.e. you do not use a system level .NET Framework installation, instead you are referencing these packages just as you would any NuGet package.
