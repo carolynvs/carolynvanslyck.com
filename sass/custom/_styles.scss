@@ -51,7 +51,7 @@ article pre {
   padding: 0;
 }
 
-code {
+code, li pre code, p pre code {
   white-space: pre;
   font-family: $mono;
   font-size: 0.9em;
@@ -60,6 +60,7 @@ code {
   border: 1px dashed SteelBlue;
   background-color: WhiteSmoke;
   padding: 1em;
+  margin: 0 0;
 }
 
 .gist {
