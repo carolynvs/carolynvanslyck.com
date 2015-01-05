@@ -3,7 +3,7 @@ layout: post
 title: "Migrating a large codebase to Git with Atlassian Stash"
 date: 2014-2-13
 comments: true
-categories: git 
+categories: git atlassian stash 
 ---
 
 This was originally a guest blog post on [atlassian.com](https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/).

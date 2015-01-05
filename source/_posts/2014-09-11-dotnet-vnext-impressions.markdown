@@ -3,7 +3,7 @@ layout: post
 title: "First Impression of .NET vNext"
 date: 2014-09-11
 comments: true
-categories: vnext
+categories: dotnet vnext
 ---
 
 When ASP.NET vNext was first announced, I was scratching my head over how it would impact developing .NET in non-Windows environments. There was a lot of hype, snippets of info coming from multiple sources, and nothing I could try out for myself. Well now that the [Visual Studio 2014 CTP](http://www.visualstudio.com/en-us/downloads/visual-studio-14-ctp-vs.aspx) is out, I finally can! 

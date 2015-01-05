@@ -3,7 +3,7 @@ layout: post
 title: "KPM Restore Throws AggregateException"
 date: 2015-01-02 11:32
 comments: true
-categories: vnext
+categories: dotnet vnext
 ---
 
 While I was migrating a legacy codebase from .NET 4.5 to vNext (.NET 5), I started getting this error when restoring my dependencies via `kpm restore` or building inside VS 2015.

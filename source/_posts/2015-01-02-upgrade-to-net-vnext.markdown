@@ -3,7 +3,7 @@ layout: post
 title: "Upgrade to .NET vNext"
 date: 2015-01-02 12:13
 comments: true
-categories: vnext
+categories: dotnet vnext
 ---
 
 While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade [BytesForHealth](http://bytesforhealth.com) to .NET vNext (.NET 5).
