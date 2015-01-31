@@ -30,6 +30,7 @@ footer: true
         </div>
         <div class="technologies">C#, REST</div>
         <p class="description"><a href="http://nutritionix.com">Nutritionix</a> is one of the nutrition data sources for Bytes for Health. This is the .NET client library I wrote for their API.</p>
+        <p class="center"><a href="http://www.nuget.org/packages/nutritionix">Download from NuGet</a></p>
     </div>
   		
     <a id="atlassian"></a>
