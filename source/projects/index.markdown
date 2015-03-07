@@ -99,4 +99,18 @@ footer: true
         	<p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.force-field">Download the latest version from Atlassian Marketplace</a></p>
         </div>
     </div>
+
+    <div class="project">
+        <div class="title">
+            <a href="/projects/gitversion/">
+                <img src="{{root_url}}/images/gitversion.png" alt="Happy Tree" title="GitVersion for Bamboo"/>
+                GitVersion for Bamboo
+            </a>
+        </div>
+        <div class="technologies">Java, Atlassian Bamboo, Git</div>
+        <div class="description">
+            <p>Integrates <a href="http://particularlabs.github.io/GitVersion/">GitVersion</a> into Bamboo, provides a task which generates a <a href="http://semver.org">semantic version<a/> for your build and deployments.
+            <p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.gitversion">Download the latest version from Atlassian Marketplace</a></p>
+        </div>
+    </div>
 </div>
