@@ -113,4 +113,18 @@ footer: true
             <p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.gitversion">Download the latest version from Atlassian Marketplace</a></p>
         </div>
     </div>
+
+    <div class="project">
+        <div class="title">
+            <a href="/projects/right-hook/">
+                <img src="{{root_url}}/images/right-hook.png" alt="Lightning Fist of Fury" title="Right Hook! for Stash"/>
+                Right Hook! for Stash
+            </a>
+        </div>
+        <div class="technologies">Java, Atlassian Stash</div>
+        <div class="description">
+            <p><span style="font-style: italic">Chuck Norris has the only hook you'll ever need!</span> This Stash plugin prints a fact about Chuck Norris on each push.</p>
+            <p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.right-hook">Download the latest version from Atlassian Marketplace</a></p>
+        </div>
+    </div>
 </div>
