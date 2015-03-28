@@ -123,7 +123,7 @@ footer: true
         </div>
         <div class="technologies">Java, Atlassian Stash</div>
         <div class="description">
-            <p><span style="font-style: italic">Chuck Norris has the only hook you'll ever need!</span> This Stash plugin prints a fact about Chuck Norris on each push.</p>
+            <p><em>Chuck Norris has the only hook you'll ever need!</em> This Stash plugin prints a fact about Chuck Norris on each push.</p>
             <p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.right-hook">Download the latest version from Atlassian Marketplace</a></p>
         </div>
     </div>

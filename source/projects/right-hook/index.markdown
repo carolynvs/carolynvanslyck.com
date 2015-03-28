@@ -15,4 +15,6 @@ footer: true
 
 Right Hook! for Stash is a plugin which prints a fact about Chuck Norris on every push.
 
+<img src="/images/right-hook/push.png" style="box-shadow: none" />
+
 All the jokes are sourced from [The Internet Chuck Norris Database](http://www.icndb.com), so if you run into an off-color or NSFW joke, don't look at me!
