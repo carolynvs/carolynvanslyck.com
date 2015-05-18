@@ -49,7 +49,7 @@ Whenever I would search for help with Git-SVN, I saw mentions of something calle
 SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use "pure Git" and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn't need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible... because we already had!
 
 <figure style="text-align:center">
-<img src="http://subgit.com/img/subgit.png"/>
+<img src="/images/migrating-from-svn-to-git/subgit.png"/>
 <figcaption>Image courtesy of <a href="http://subgit.com">SubGit</a></figcaption>
 </figure>
 
