@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>GitVersion for Bamboo - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="GitVersion for Bamboo Download the latest version from Atlassian Marketplace
+View the Source Code
+Report a bug or request a feature GitVersion for &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvs.github.io/projects/gitversion">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   class="no-sidebar"  >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">GitVersion for Bamboo</h1>
+    
+  </header>
+  
+  <p><img src="/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+
+<ul>
+<li><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.gitversion">Download the latest version from Atlassian Marketplace</a></li>
+<li><a href="http://stash.carolynvanslyck.com/projects/BAM/repos/gitversion">View the Source Code</a></li>
+<li><a href="http://jira.carolynvanslyck.com/browse/GITVER">Report a bug or request a feature</a></li>
+</ul>
+
+
+<p>GitVersion for Bamboo is a plugin which integrates <a href="http://particularlabs.github.io/GitVersion/">GitVersion</a> with Atlassian Bamboo. This gives you a couple benefits over using the tool directly in your build scripts:</p>
+
+<ul>
+<li>Every GitVersion generated value is persisted in the Bamboo build metadata and can be used at any point in the build.</li>
+<li>Seamlessly transfers a version number from the build to a deployment, enabling you to use the version number for your releases without relying on Bamboo build number.</li>
+<li>If you have builds on multiple platforms, you can use GitVersion to generate a version number on a Windows build agent and the value is available to your MacOS and Linux build agents.</li>
+</ul>
+
+
+<p><aside><a href="http://particularlabs.github.io/GitVersion/">GitVersion</a> is a tool which automates generating unique, <a href="http://semver.org/">semantic versions</a>. It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.</aside></p>
+
+<h2>Quick Start</h2>
+
+<ol>
+<li>Install GitVersion on your build agent(s). <code>choco install gitvesrion.portable</code></li>
+<li>Install the <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.gitversion">GitVersion plugin</a> on your Bamboo master.</li>
+<li>From the Bamboo Administration page, select System Capabilities and click the &ldquo;Detect Capabilities&rdquo; button.</li>
+<li>In a Bamboo plan, edit your tasks and insert the GitVersion task after your Source Code Checkout task. <img src="/images/gitversion/task-definition.png" alt="image" /></li>
+<li>Run a build and when it completes, go to the results of the job which contains the GitVersion task. On the Metadata tab you will see all the new variables available to you to use. <img src="/images/gitversion/job-metadata.png" alt="image" /></li>
+</ol>
+
+
+<h2>Version Deployments</h2>
+
+<ol>
+<li>In your deployment project, edit the Release Versioning</li>
+<li>Enter the GitVersion variable you would like to use: ${bamboo.GitVersion.SemVer} or 1.0.0.${bamboo.GitVersion.BuildMetadata} <img src="/images/gitversion/release-versioning.png" alt="image" /></li>
+<li>Create a new release and verify that it is using your new versioning scheme.</li>
+</ol>
+
+
+<h2>Use GitVersion with Linux/Mac Builds</h2>
+
+<ol>
+<li>Add a Windows build agent to your Bamboo installation</li>
+<li>Install GitVersion on the agent</li>
+<li>Add GitVersion as a capability to the agent in Bamboo</li>
+<li>In your plan, add a job which calls the GitVersion task</li>
+</ol>
+
+
+<p>Now when Bamboo executes your plan, it will first run that job on the Windows agent, generating a number and saving the metadata in the plan results. Your plan then continues executing as normal on the other build agents. Subsequent jobs and deployments can then access the GitVersion variables.</p>
+
+  
+    <footer>
+      
+      
+    </footer>
+  
+</article>
+
+</div>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

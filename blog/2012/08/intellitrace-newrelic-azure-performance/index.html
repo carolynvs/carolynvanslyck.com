@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Intellitrace, New Relic and Windows Azure - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="I recently discovered Intellitrace and think it&#8217;s the bee&#8217;s knees. It was especially helpful debugging issues on Windows Azure. Since I &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvs.github.io/blog/2012/08/intellitrace-newrelic-azure-performance">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Intellitrace, New Relic and Windows Azure</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-01T00:00:00-05:00" pubdate data-updated="true">Aug 1<span>st</span>, 2012</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I recently discovered Intellitrace and think it&#8217;s the bee&#8217;s knees. It was especially helpful
+    debugging issues on Windows Azure. Since I couldn&#8217;t attach a debugger to my site, and it was
+    working fine on my development machine, being able to view errors and other information
+    (that Elmah wasn&#8217;t pickup up) seemed like a huge win. So I decided to leave Intellitrace
+    enabled on my web role and moved on with my life.</p>
+
+
+<p>Fast forward to last week when I learned that New Relic standard edition is free for Azure users.
+    SIGN ME UP! I had been having performance problems lately that I couldn&#8217;t pin-point and New Relic
+    was just the right tool to figure them out. But I couldn&#8217;t get it working, for DAYS. Not my finest moment&#8230;
+    After working with New Relic tech support, I learned that you can&#8217;t have Intellitrace and New Relic
+    running at the same time. So Intellitrace was &#8220;winning&#8221; and I wasn&#8217;t receiving any data on New Relic.</p>
+
+
+<p>Problem solved right? Even more than I realized. After disabling Intellitrace, not only did New Relic
+    start working (like a charm) but my app performance increased 5x. Pages that would take 5-6s went
+    down to 800ms - 1.3s. I had previously looked at CPU and memory usage on my instance and a single
+    page request would spike the CPU to 100% and memory usage was almost maxed out. Now a page would
+    spike to 10% CPU and memory is comfortably at 50%. I may even try downgrading from a Small to Extra Small instance just for kicks. :)</p>
+
+
+<p>Lessons learned?</p>
+
+
+<ul>
+    <li>Only turn on Intellitrace on development and staging.</li>
+    <li>If you swap staging and production, make sure to disable Intellitrace before swapping.</li>
+    <li>Pay attention to the level of tracing you have turned on in your Azure project settings.</li>
+    <li>New Relic doesn&#8217;t work with Intellitrace enabled&#8230;</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-01T00:00:00-05:00" pubdate data-updated="true">Aug 1<span>st</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/02/windows7-macbook-air/" title="Previous Post: Installing Windows 7 on a MacBook Air">&laquo; Installing Windows 7 on a MacBook Air</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/08/webapi-datetime/" title="Next Post: Working with DateTime in ASP.NET Web API">Working with DateTime in ASP.NET Web API &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/devops-days-chicago-2015/">DevOps Days Chicago 2015</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/paket-dependency-manager/">Paket: A More Capable Dependency Manager</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/right-hook/">Right Hook!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'carolynvanslyck';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://carolynvs.github.io/blog/2012/08/intellitrace-newrelic-azure-performance/';
+        var disqus_url = 'http://carolynvs.github.io/blog/2012/08/intellitrace-newrelic-azure-performance/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

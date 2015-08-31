@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How do I make Google Analytics ignore my traffic? - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="Originally I tried having Google ignore my IP address but since it does
+change from time to time and I also enjoy checking my site at work too&hellip &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvs.github.io/blog/2012/02/google-analytics-ignore-your-traffic">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How Do I Make Google Analytics Ignore My Traffic?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-26T00:00:00-06:00" pubdate data-updated="true">Feb 26<span>th</span>, 2012</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Originally I tried having Google ignore my IP address but since it does
+change from time to time and I also enjoy checking my site at work too&hellip; I
+needed something more robust. When you only get a handful of visitors a
+week, it is important to not have your own traffic skewing the reports!</p>
+
+<p>After setting up your special page and tweaking your Google Analytics settings, whenever you want to view your
+website, go first to this special web page and then all of your traffic will
+be excluded from your reports.</p>
+
+<ol>
+<li><p>Add a page to your site that isn&rsquo;t linked to from anywhere and update your robots.txt to disallow that page. In this example created a page named nogoogle.html at the root of my site.</p>
+
+<pre><code> User-agent: *
+ Disallow: /nogoogle.html
+ Allow: /
+</code></pre></li>
+<li><p>Add the following script to the header of your page and replace UA-XXXXXXX-X with your own Google Analytics code.</p>
+
+<pre><code> &lt;script&gt;
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', '&lt;strong&gt;UA-XXXXXXX-X&lt;/strong&gt;']);
+     _gaq.push(['_setVar','test_value']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+ &lt;/script&gt;
+</code></pre></li>
+<li><p>Now in your Google Analytics report settings page, add a Custom Filter to exclude any traffic that has this special cookie.
+<img src="/blog/images/google_analytics_ignore_your_traffic.png" alt="Exclude User Defined with a Filter Pattern of test_value" /></p>
+
+<pre><code>      Name of Filter: Exclude me
+      Filter Type: Custom filter &gt; Exclude
+      Filter Field: User Defined
+      Filter Pattern: test_value
+      Case Sensitive: No
+</code></pre></li>
+<li><p>If you develop your site locally, you will need one more filter to exclude traffic to your development web server. Replace &ldquo;localhost&rdquo; with the name of the development server.
+<img src="/blog/images/google_analytics_ignore_localhost.png" alt="Exclude Hostname with a Filter Pattern of localhost" /></p>
+
+<pre><code>  Name of Filter: Exclude Localhost
+  Filter Type: Custom filter &gt; Exclude
+  Filter Field: Hostname
+  Filter Pattern: localhost
+  Case Sensitive: No
+</code></pre></li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-26T00:00:00-06:00" pubdate data-updated="true">Feb 26<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/02/page-too-wide-on-mobile-browser/" title="Next Post: Why is my web page is too wide in a mobile phone browser?">Why is my web page is too wide in a mobile phone browser? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/devops-days-chicago-2015/">DevOps Days Chicago 2015</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/paket-dependency-manager/">Paket: A More Capable Dependency Manager</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/right-hook/">Right Hook!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'carolynvanslyck';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://carolynvs.github.io/blog/2012/02/google-analytics-ignore-your-traffic/';
+        var disqus_url = 'http://carolynvs.github.io/blog/2012/02/google-analytics-ignore-your-traffic/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: bamboo | Carolyn Van Slyck]]></title>
+  <link href="http://carolynvs.github.io/blog/categories/bamboo/atom.xml" rel="self"/>
+  <link href="http://carolynvs.github.io/"/>
+  <updated>2015-08-30T22:54:13-05:00</updated>
+  <id>http://carolynvs.github.io/</id>
+  <author>
+    <name><![CDATA[Carolyn Van Slyck]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A Better Force Clean Checkout in Bamboo]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/05/bamboo-force-clean-checkout/"/>
+    <updated>2015-05-07T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/05/bamboo-force-clean-checkout</id>
+    <content type="html"><![CDATA[<p>Recently, I was asked for help to alter one of our builds to &ldquo;run dirty&rdquo;. They use npm and were incurring a significant cost by starting with a fresh checkout on every build. By leaving the node_modules diretory around between builds, it would shave 4 minutes off the build time.</p>
+
+<p>While I could have simply unchecked &ldquo;Force Clean Checkout&rdquo; on our Source Code Checkout task in Bamboo, that would have made dealing with the occasional need to do a clean build a bit awkward. In order to do a clean build, someone would have to:</p>
+
+<ol>
+<li>Have admin rights on the plan</li>
+<li>Edit the definition to check &ldquo;Force Clean Checkout&rdquo;</li>
+<li>Run a build</li>
+<li>Then (hopefully) remember flip it back again.</li>
+</ol>
+
+
+<p>A bit clunky&hellip; plus it would affect all builds, not just the single branch that needed the clean build.</p>
+
+<p><aside>
+Actually I never use the &ldquo;Force Clean Checkout&rdquo; option because what that does is remove the entire repository, then do a fresh clone. Instead all my builds run git clean after the Source Code Checkout task.
+</aside></p>
+
+<p>What I wanted was a push button method for someone with build rights to force a clean build on a single branch. Here&rsquo;s how it works:</p>
+
+<ol>
+<li><p>Add a plan variable, force_clean, with a value of false.</p>
+
+<p><img src="/images/bamboo-force-clean-checkout/force-clean-variable.png" alt="image" /></p></li>
+<li><p>Add a Script task before the Source Code Checkout task.
+In it, check if force_clean = true, then clean the working directory.</p>
+
+<p><img src="/images/bamboo-force-clean-checkout/force-clean-task.png" alt="image" /></p></li>
+<li><p>Now to force a clean build, use &ldquo;Run Customized&hellip;&rdquo; and override force_clean to true! Simple.</p>
+
+<p><img src="/images/bamboo-force-clean-checkout/run-customized.png" alt="image" /></p>
+
+<p><img src="/images/bamboo-force-clean-checkout/override-force-clean.png" alt="image" /></p></li>
+</ol>
+
+
+<p><aside>
+I also use this to workaround a limitation in Bamboo, where new tags are not picked up in a build without a fresh clone. <em>Shakes fist at the Atlassian Overlords</em><br/><br/>
+Since <a href="/blog/2015/03/gitversion-for-bamboo/">some of my builds rely upon tags to generate a version number</a>, I use this force clean trick to remove the source directory before the Source Code Checkout task. That way when we need to pickup a new tag, we just force a clean build.
+</aside></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GitVersion for Bamboo]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/"/>
+    <updated>2015-03-06T06:42:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo</id>
+    <content type="html"><![CDATA[<p><img src="http://carolynvs.github.io/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+
+<p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
+
+<p>GitVersion is a tool which automates generating unique, <a href="http://semver.org/">semantic versions</a>. It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.</p>
+
+<p>What I like about GitVersion is the flexibility it provides. Instead of generating a single version number, &ldquo;take it or leave it&rdquo;, GitVersion provides over a dozen variables that you can choose from to build your own version number. If you are lucky and can just use pure semver, great!, use the FullSemVer variable and call it a day. However if you are perhaps like me, working on a legacy code base with an existing versioning scheme, it&rsquo;s still incredibly useful.</p>
+
+<p>Here is the output of running gitversion.exe from my repository:</p>
+
+<pre><code>{
+  "Major":1,
+  "Minor":3,
+  "Patch":4,
+  "PreReleaseTag":"bamboo",
+  "PreReleaseTagWithDash":"-bamboo",
+  "BuildMetaData":61,
+  "FullBuildMetaData":"61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
+  "MajorMinorPatch":"1.3.4",
+  "SemVer":"1.3.4-bamboo",
+  "LegacySemVer":"1.3.4-bamboo",
+  "LegacySemVerPadded":"1.3.4-bamboo",
+  "AssemblySemVer":"1.3.4.0",
+  "AssemblyFileSemVer":"1.3.4.0",
+  "FullSemVer":"1.3.4-bamboo+61",
+  "InformationalVersion":"1.3.4-bamboo+61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
+  "ClassicVersion":"1.3.4.61",
+  "ClassicVersionWithTag":"1.3.4.61-bamboo",
+  "BranchName":"feature/bamboo",
+  "Sha":"3474397158a37e9b9525345d8205d1e4f8eca06a",
+  "NuGetVersionV2":"1.3.4-bamboo",
+  "NuGetVersion":"1.3.4-bamboo"
+}
+</code></pre>
+
+<p>At work we are (still!) <a href="blog/2014/02/migrating-from-svn-to-git/">transioning from svn to git</a>. Previously we would use the svn revision as the 4th part of our version number, e.g. 1.0.0.{svn rev}. With git that&rsquo;s not available as we just have a commit hash which doens&rsquo;t fit the bill. So we are using GitVersion to generate just the last number for us by using the BuildMetadata variable. BuildMetadata represents the number of commits on a branch since the last release tag. So if when we started working on v15.2.0, the first commit is tagged and each new commit will result in a unique, increasing version number: first commit = 15.2.0.0, second commit = 15.2.0.1 &hellip;</p>
+
+<p>Is that a good idea? Shouldn&rsquo;t we have simply jumped onto the semver bandwagon? Probably. However sometimes things are beyond a peon&rsquo;s control and it&rsquo;s nice that I don&rsquo;t have to boil the ocean just to get a number.</p>
+]]></content>
+  </entry>
+  
+</feed>

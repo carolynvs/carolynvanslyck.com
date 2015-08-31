@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>GitVersion for Bamboo - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: GitVersion for Bamboo. Check out the link for info on how to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">GitVersion for Bamboo</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-06T06:42:00-06:00" pubdate data-updated="true">Mar 6<span>th</span>, 2015</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img src="/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+
+<p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
+
+<p>GitVersion is a tool which automates generating unique, <a href="http://semver.org/">semantic versions</a>. It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.</p>
+
+<p>What I like about GitVersion is the flexibility it provides. Instead of generating a single version number, &ldquo;take it or leave it&rdquo;, GitVersion provides over a dozen variables that you can choose from to build your own version number. If you are lucky and can just use pure semver, great!, use the FullSemVer variable and call it a day. However if you are perhaps like me, working on a legacy code base with an existing versioning scheme, it&rsquo;s still incredibly useful.</p>
+
+<p>Here is the output of running gitversion.exe from my repository:</p>
+
+<pre><code>{
+  "Major":1,
+  "Minor":3,
+  "Patch":4,
+  "PreReleaseTag":"bamboo",
+  "PreReleaseTagWithDash":"-bamboo",
+  "BuildMetaData":61,
+  "FullBuildMetaData":"61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
+  "MajorMinorPatch":"1.3.4",
+  "SemVer":"1.3.4-bamboo",
+  "LegacySemVer":"1.3.4-bamboo",
+  "LegacySemVerPadded":"1.3.4-bamboo",
+  "AssemblySemVer":"1.3.4.0",
+  "AssemblyFileSemVer":"1.3.4.0",
+  "FullSemVer":"1.3.4-bamboo+61",
+  "InformationalVersion":"1.3.4-bamboo+61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
+  "ClassicVersion":"1.3.4.61",
+  "ClassicVersionWithTag":"1.3.4.61-bamboo",
+  "BranchName":"feature/bamboo",
+  "Sha":"3474397158a37e9b9525345d8205d1e4f8eca06a",
+  "NuGetVersionV2":"1.3.4-bamboo",
+  "NuGetVersion":"1.3.4-bamboo"
+}
+</code></pre>
+
+<p>At work we are (still!) <a href="blog/2014/02/migrating-from-svn-to-git/">transioning from svn to git</a>. Previously we would use the svn revision as the 4th part of our version number, e.g. 1.0.0.{svn rev}. With git that&rsquo;s not available as we just have a commit hash which doens&rsquo;t fit the bill. So we are using GitVersion to generate just the last number for us by using the BuildMetadata variable. BuildMetadata represents the number of commits on a branch since the last release tag. So if when we started working on v15.2.0, the first commit is tagged and each new commit will result in a unique, increasing version number: first commit = 15.2.0.0, second commit = 15.2.0.1 &hellip;</p>
+
+<p>Is that a good idea? Shouldn&rsquo;t we have simply jumped onto the semver bandwagon? Probably. However sometimes things are beyond a peon&rsquo;s control and it&rsquo;s nice that I don&rsquo;t have to boil the ocean just to get a number.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-06T06:42:00-06:00" pubdate data-updated="true">Mar 6<span>th</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/atlassian/'>atlassian</a>, <a class='category' href='/blog/categories/bamboo/'>bamboo</a>, <a class='category' href='/blog/categories/git/'>git</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/01/upgrade-to-net-vnext/" title="Previous Post: Upgrade to .NET vNext">&laquo; Upgrade to .NET vNext</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/03/right-hook/" title="Next Post: Right Hook!">Right Hook! &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/devops-days-chicago-2015/">DevOps Days Chicago 2015</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/paket-dependency-manager/">Paket: A More Capable Dependency Manager</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/right-hook/">Right Hook!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'carolynvanslyck';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/';
+        var disqus_url = 'http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

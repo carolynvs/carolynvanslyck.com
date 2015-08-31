@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Unit testing your ASP.NET Web API routes - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="When your API is purely RESTful, your routes are pretty simple and there isn&#8217;t much need to test. But if you are like me and decided to mix RPC &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvs.github.io/blog/2013/01/webapi-route-testing">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Unit Testing Your ASP.NET Web API Routes</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-06T00:00:00-06:00" pubdate data-updated="true">Jan 6<span>th</span>, 2013</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>When your API is purely RESTful, your routes are pretty simple and there isn&#8217;t much need to test. But if you are like me and decided to <a href="webapi_mixed_rest_rpc_routing.html">mix RPC and RESTful style methods on the same controller</a>, then some tests are in order.</p>
+
+
+
+
+<p><p>I had been using the RouteTestingExtensions from <a href="http://mvccontrib.codeplex.com/">MvcContrib</a> to test my MVC routes. It allows you to assert that a URL was routed to the expected controller and action. I modified it to work with Web API routes and contributed it to the sister project, <a href="http://github.com/WebApiContrib/WebAPIContrib">WebApiContrib</a>. The package, <a href="http://nuget.org/packages/WebApiContrib.Testing">WebApiContrib.Testing</a> is available via NuGet.</p>
+
+<p><p>Below is an example of how to use this extension method to validate your url:</p>
+<script src="https://gist.github.com/4471039.js"></script></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-06T00:00:00-06:00" pubdate data-updated="true">Jan 6<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/webapi-mixed-rest-rpc-routing/" title="Previous Post: Mixing REST and RPC style methods on an ASP.NET Web API Controller">&laquo; Mixing REST and RPC style methods on an ASP.NET Web API Controller</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/01/mixing-http-https-in-mvc/" title="Next Post: Using both HTTP and HTTPS in ASP.NET MVC">Using both HTTP and HTTPS in ASP.NET MVC &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/devops-days-chicago-2015/">DevOps Days Chicago 2015</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/paket-dependency-manager/">Paket: A More Capable Dependency Manager</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/right-hook/">Right Hook!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'carolynvanslyck';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://carolynvs.github.io/blog/2013/01/webapi-route-testing/';
+        var disqus_url = 'http://carolynvs.github.io/blog/2013/01/webapi-route-testing/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

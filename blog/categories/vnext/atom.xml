@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: vnext | Carolyn Van Slyck]]></title>
+  <link href="http://carolynvs.github.io/blog/categories/vnext/atom.xml" rel="self"/>
+  <link href="http://carolynvs.github.io/"/>
+  <updated>2015-08-30T22:54:13-05:00</updated>
+  <id>http://carolynvs.github.io/</id>
+  <author>
+    <name><![CDATA[Carolyn Van Slyck]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Upgrade to .NET vNext]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext/"/>
+    <updated>2015-01-02T12:13:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext</id>
+    <content type="html"><![CDATA[<p>While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade <a href="http://bytesforhealth.com">BytesForHealth</a> to .NET vNext (.NET 5).</p>
+
+<p><aside>This is just my first step towards migrating, I&rsquo;m sticking with the .NET Framework and am not making changes to work with .NET Core. Once I get this working, I&rsquo;ll start refactoring to only use Core packages.</aside></p>
+
+<p>Here are some of the steps I took to upgrade:</p>
+
+<ol>
+
+  <li>Install Visual Studio 2015 Preview.</li>
+  
+  <li><a href="https://github.com/aspnet/Home#install-the-k-version-manager-kvm">Install KVM</a>.
+    <br />
+    <pre><code class="list-code">iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.ps1')"</code></pre></li>
+    
+  <li>Verify that you are using at least the beta of KPM: <code>kpm --version</code> should return <code>1.0.0-beta1-10662</code>. If not run <code>kvm upgrade</code> to get the latest KRE and then <code>kvm use 1.0.0-beta1 -x86 -r CLR -p</code> to set it as the active version.</li>
+  
+  <li>Open Visual Studio and create a ASP.NET Class Library (vnext) project. Take that kproj file and copy it into your each of your project directories, name it after the project and if you like overkill, update the project's guid to match the original in the csproj. Now edit your solution file and tweak the project reference to use the kproj file instead of the csproj file and update the project type guids from FAE04EC0-301F-11D3-BF4B-00C04F79EFBC to 8BB2217D-0F2D-49D1-97BC-3654ED321F3B.</li>
+  
+  <li>Rename packages.config to <a href="https://github.com/aspnet/Home/wiki/Project.json-file">project.json</a>. Add <code>{ "dependencies": {</code> at the top and using some creative find/replace, alter your packages xml to the new json format.
+  <br/>
+  <b>Before</b>
+  <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;packages&gt;
+    &lt;package id="AutoMapper" version="2.2.1" targetFramework="net45" /&gt;
+    &lt;package id="Microsoft.AspNet.Mvc" version="4.0.20710.0" targetFramework="net45" /&gt;
+&lt;/packages&gt;
+</code></pre>
+<br/>
+<b>After</b><pre><code>{
+  "dependencies": {
+    "AutoMapper": "2.2.1",
+    "Microsoft.AspNet.Mvc": "4.0.20710.0"
+  }
+}</code></pre></li>
+
+<li>Using your original csproj, find .NET Framework references (e.g. System.Web, or just look for anything without a packages hintpath), and add them to the frameworkassemblies section in project.json.
+
+<br/>
+<pre><code>{
+  "dependencies": {
+    "AutoMapper": "2.2.1",
+      "Microsoft.AspNet.Mvc": "4.0.20710.0"
+  },
+  "frameworks": {
+    "net45": {
+      "frameworkAssemblies": {
+        "System.Web": "4.0.0.0"
+      }
+    }
+  }
+}
+</code></pre></li>
+
+<li>Using your original csproj file, find project references and add them as dependencies in your project.json file. The name of the dependency will be the name of the project. For example if ProjectA references ProjectB, then it should have the following line in its project.json dependencies section <code>"ProjectB": ""</code>.
+<li>Delete your old csproj files.</li>
+<li>If all of your source code is in a single directory and at the same level, i.e. not nested, then you can skip this next step. Otherwise you will need to add a global.json to the root of your solution. In order for projects to reference each other when they are not in the same directory, add a hint path for where the projects can be found.
+<br/>
+<pre><code>{
+  "sources": ["Src", "Src/ReallyAwesomeStuff", "RandomDir"]
+}</code></pre>
+</ol>
+
+
+<p>You should now be able to build your solution using Visual Studio. You can build individual projects by first running <code>kpm restore</code> in the soluiton directory, then by running <code>kpm build</code> from within each project directory. If it builds with Visual Studio but not via the command line, review step 3 and make sure you are using the latest version of the KRE.</p>
+
+<p><aside>
+To learn more about building outside of Visual Studio, check out <a href="http://blog.maartenballiauw.be/post/2014/12/19/Building-future-NET-projects-is-quite-pleasant.aspx">Building future .NET projects is quite pleasant</a> for a breakdown of what the builds currently look like for some of Microsoft&rsquo;s projects on GitHub. It&rsquo;s not quite clear yet if <a href="https://github.com/sakeproject/sake">sake</a> is going to be the recommended build tool for all .NET projects or if it&rsquo;s only an internal tool; there&rsquo;s very little documentation and guidance at this point and I&rsquo;ve seen <a href="http://forums.dotnetfoundation.org/t/compiling-net-core-code-on-linux-os-x/302/6">musings about open-sourcing msbuild</a>&hellip; so things are still up in the air.
+</aside></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[KPM Restore Throws AggregateException]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/01/kpm-restore-throws-aggregateexception/"/>
+    <updated>2015-01-02T11:32:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/01/kpm-restore-throws-aggregateexception</id>
+    <content type="html"><![CDATA[<p>While I was migrating a legacy codebase from .NET 4.5 to vNext (.NET 5), I started getting this error when restoring my dependencies via <code>kpm restore</code> or building inside VS 2015.</p>
+
+<pre><code>System.AggregateException: One or more errors occurred. ---&gt; System.NullReferenceException: Object reference not set to an instance of an object. 
+at Microsoft.Framework.PackageManager.Restore.NuGet.PackageFeed.&lt;OpenNuspecStreamAsync&gt;d__1.MoveNext()
+</code></pre>
+
+<p>Turns out there was a trailing space after one of my dependencies, e.g.</p>
+
+<pre><code>{
+  "dependencies": {
+    "Microsoft.AspNet.Mvc ": "4.0.0.0"
+  }
+}
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First Impression of .NET vNext]]></title>
+    <link href="http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions/"/>
+    <updated>2014-09-11T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions</id>
+    <content type="html"><![CDATA[<p>When ASP.NET vNext was first announced, I was scratching my head over how it would impact developing .NET in non-Windows environments. There was a lot of hype, snippets of info coming from multiple sources, and nothing I could try out for myself. Well now that the <a href="http://www.visualstudio.com/en-us/downloads/visual-studio-14-ctp-vs.aspx">Visual Studio 2014 CTP</a> is out, I finally can!</p>
+
+<p><aside>If you have an Azure account, I recommend using their Visual Studio 2014 VM image to test things out without wreaking havoc on your day-to-day machine.</aside></p>
+
+<p>Here are my first impressions:</p>
+
+<h2>What the heck is it?</h2>
+
+<p>vNext is Microsoft&rsquo;s term for the upcoming version of .NET which is based on their new OSS compiler (Roslyn). It includes both plain old .NET and ASP.NET. The goal is to make .NET development easier, truly cross platform and cloud friendly.</p>
+
+<p>To that end, vNext means:</p>
+
+<ul>
+<li>Microsoft&rsquo;s now includes Mono in their test matrix. Their partnership with Xamarin should help Mono keep pace with .NET development. Xamarin still maintains Mono, and Mono is still the .NET platform for non-Microsoft operating systems.</li>
+<li>An improved development experience outside of Visual Studio. They are adding command line tools, and simplifying project management so that developing in say Sublime on OS X is not only possible but a good experience.</li>
+<li>Decoupling ASP.NET from IIS, System.Web and removes remaining impediments to running .NET websites on Linux.</li>
+<li>Adding the Roslyn compiler and C# 6 goodies.</li>
+</ul>
+
+
+<h2>It is finally easy to get up and running on Linux/Mac!</h2>
+
+<p>You no longer need to build Mono yourself, or wait months for an up-to-date package. WOOHOO! Here are the steps I used (<a href="http://www.mono-project.com/docs/getting-started/install/linux/">taken from the Mono install doc</a>) to install the latest version of Mono (3.8) on Ubuntu.</p>
+
+<script src="https://gist.github.com/carolynvs/4520736f6017ca252a44.js"></script>
+
+
+<p>Run <code>mono --version</code> to verify. You should see something like this <code>Mono JIT compiler version 3.8.0</code>.</p>
+
+<h2>Worst naming ever, k all the things!</h2>
+
+<p>For some reason, all the new commands and associated concepts start with the letter &lsquo;k&rsquo; and god help you if you need to search the web using these terms, they are too generic and often already had another meaning, such as &lsquo;kvm&rsquo;&hellip; <a href="http://weblogs.asp.net/imranbaloch/k-kvm-kpm-klr-kre-in-asp-net-vnext">Read this for an explanation of all the k&rsquo;s</a>.</p>
+
+<p>On a Windows + Visual Studio environment, learning these commands is not necessary. However if you are targeting cross-platform or would like to develop on a different operating system than what you are running in production, these commands handle everything that previously was performed by msbuild, NuGet, etc.</p>
+
+<ul>
+<li>k &ndash; executes commands such as <code>k run</code> which runs a console application, <code>k kestrel</code> which starts the Kestrel web server. Think of it as &ldquo;rake for .NET&rdquo;. Your project file defines commands <code>web</code>, <code>kestrel</code>, <code>foobar</code> and you use k to execute them.</li>
+<li>kpm &ndash; manages dependencies, e.g. <code>kpm restore</code> to restore dependencies, <code>kpm build</code> to compile and build your package.</li>
+</ul>
+
+
+<h2>Bye Bye IIS</h2>
+
+<p>Previously, if you wanted to use ASP.NET, you had to host on Windows + IIS. Though other frameworks, such as NancyFX, have always worked on Linux/Mono. Now with vNext you can finally use the ASP.NET MVC or WebAPI cross-platform without the IIS requirement.</p>
+
+<p>Just a few options for hosting include:</p>
+
+<p><strong>Self Hosting</strong></p>
+
+<p>Rather than hosting your application in a web server, your process will bind to a port and serve itself directly. To configure add the following to the commands section of your project.json and start your server using <code>k web</code>.</p>
+
+<pre><code>{
+    "dependencies": {...},
+    "commands": {
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001"
+    }
+}
+</code></pre>
+
+<p><strong>Helios</strong></p>
+
+<p>Helios is an <a href="http://owin.org/">OWIN</a> web server for IIS. <a href="http://blogs.msdn.com/b/webdev/archive/2014/02/18/introducing-asp-net-project-helios.aspx">Read more about project Helios</a>.</p>
+
+<p><strong>Kestrel</strong></p>
+
+<p>This is a new cross-platform OWIN web server for ASP.NET. It is quite unfortunate that they chose this as the name is already used by the <a href="https://github.com/twitter/kestrel">Kestrel queue framework</a>. Make sure to use &ldquo;kestrel vNext&rdquo; when searching for more info on it&hellip; To configure add the following to the commands section of your project.json and start your server using <code>k kestrel</code>.</p>
+
+<pre><code>{
+    "dependencies": {...},
+    "commands": {
+        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
+    }
+}
+</code></pre>
+
+<p><aside>At the time of writing there is an <a href="https://github.com/aspnet/KestrelHttpServer/issues/10">open issue</a> with running Kestrel on Linux. <del>What I did to work around it is compile Kestrel (v0.11.29), and copy the resulting libuv.so.1 to ~/.kpm/packages/Microsoft.AspNet.Server.Kestrel/1.0.0-alpha3/native/darwin/universal/libuv.dylib. If you trust me and don&rsquo;t feel like building libuv yourself, <a href="/downloads/libuv.0.11.29.tar.gz">download the file that I built</a>.</del></p>
+
+<p>UPDATE: Here are updated instructions for installing a compatible version of libuv, taken from <a href="http://www.ganshani.com/blog/2014/12/shell-script-to-setup-net-on-linux">http://www.ganshani.com/blog/2014/12/shell-script-to-setup-net-on-linux</a> :</p>
+
+<pre><code>wget http://dist.libuv.org/dist/v1.0.0-rc2/libuv-v1.0.0-rc2.tar.gz
+tar -xvf libuv-v1.0.0-rc2.tar.gz
+cd libuv-v1.0.0-rc2/
+./gyp_uv.py -f make -Duv_library=shared_library
+make -C out
+sudo cp out/Debug/lib.target/libuv.so /usr/lib/libuv.so.1.0.0-rc2
+sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
+</code></pre>
+
+<p></aside></p>
+
+<h2>k10, Core CLR, Cloud CLR&hellip; pick a name already!</h2>
+
+<p>In keeping with their love of the letter &lsquo;k&rsquo;, k10, a.k.a Core CLR, a.k.a. Cloud Optimized CLR, is Microsoft&rsquo;s new .NET Framework. I hear that k10 is a code name and that by the time it releases it will be called &ldquo;.NET Core Framework&rdquo; Traditionally the .NET Framework has been optimized for running on a desktop machine. It includes the entire BCL (Base Class Library), had a heavy footprint (200MB), and was not designed with cross-platform concerns in mind. k10&rsquo;s framework has been broken down into discrete packages, e.g. <code>System.Runtime</code>, <code>System.Text.RegularExpressions</code>, allowing you to pick and choose which aspects of the framework you require and deploy them WITH your application, i.e. you do not use a system level .NET Framework installation, instead you are referencing these packages just as you would any NuGet package.</p>
+
+<p>This is a game changer; the most obvious being that it reduces memory usage and start-up times (hence the moniker Cloud Optimized CLR). Even more powerful though is that you can deploy applications to the same server, each providing its own .NET Framework, without affecting one other. A single server could host a legacy application based on the desktop .NET Framework, another application which only pulls in the latest nightly version of ASP.NET vNExt, and perhaps another which uses your own custom build of the .NET Framework.</p>
+
+<p>In both the frameworks, desktop and k10, dependencies on tightly coupled modules such as <code>System.Web</code>, have been removed to enable cross-platform development. Let&rsquo;s say you have an existing ASP.NET 4 application that you would like to run on Linux. You would need to upgrade to the latest version of ASP.NET (which is platform agnostic and tested against Mono) but do not need to switch to k10.</p>
+
+<p>Keep in mind that because the entire BCL is not included in k10, existing assemblies will not &ldquo;just work&rdquo; with it. Similar to how you could only reference assemblies that were built with the Compact Framework in mind, you cannot reference an assembly from k10 that wasn&rsquo;t also built for k10. This means that 99% of the packages on NuGet are off-limits for now, severely limiting how quickly or feasibly you could upgrade an existing code-base.</p>
+
+<h2>Simplified Project Management</h2>
+
+<p>I really like the new project file format, project.json, as it is human readable and doesn&rsquo;t require an IDE to manage. This file is the master definition of your project, replacing the traditional csproj file. It does not list individual files anymore which is a great improvement in and of itself. It is used to list dependencies, define &lsquo;k&rsquo; commands, build configuration, etc. <a href="https://github.com/aspnet/Home/wiki/Project.json-file">Checkout the official doc</a>.</p>
+
+<script src="https://gist.github.com/carolynvs/f9d1a4b4f09542778bf8.js"></script>
+
+
+<p>Now if you use Visual Studio, you will see that a few extra files are created. Don&rsquo;t worry, they aren&rsquo;t necessary or even used on other platforms and appear to simply exist to help Visual Studio work with vNext. They don&rsquo;t store duplicate data such as references or files. So let VS create them and check in both the <code>*.kproj</code> and <code>sln</code> files. Ignore the <code>ide.sln</code> directory as that contains temporary build artifacts.</p>
+
+<h2>Final Thoughts</h2>
+
+<p>I love developing in C# and I am really excited about where things are heading. Why?</p>
+
+<p>Because my main complaint about ASP.NET is requiring Windows/IIS for hosting.  Now with vNext I&rsquo;m deploying to Linux which is an environment I am much more comfortable securing, maintaining and licensing.</p>
+
+<p>I think that one day soon, .NET will be a viable cross-platform alternative to Java. A girl can dream, right?</p>
+]]></content>
+  </entry>
+  
+</feed>

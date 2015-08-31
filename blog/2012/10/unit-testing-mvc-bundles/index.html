@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Unit Testing ASP.NET MVC Bundles - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="In order to unit test your bundles you must assign BundleTable.MapPathMethod to a function which mocks mapping from the bundle item&#8217;s virtual &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvs.github.io/blog/2012/10/unit-testing-mvc-bundles">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Unit Testing ASP.NET MVC Bundles</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-26T00:00:00-05:00" pubdate data-updated="true">Oct 26<span>th</span>, 2012</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In order to unit test your bundles you must assign <b>BundleTable.MapPathMethod</b> to a function which mocks mapping from the bundle item&#8217;s virtual path to the physical path of the file. I created a simple method (see MapBundleItemPath below) that uses a hard-coded string to find the root physical path of the MVC project. If your tests are run on multiple environments, you should replace the implementation to dynamically discover the project&#8217;s path.</p>
+
+
+
+
+<p>There is one &#8220;catchall&#8221; test which validates that all bundles registered in my BundleTable have at least one file. This is helpful because it will catch major problems with any registered bundle, even if you didn&#8217;t explicitly write a test for the bundle.</p>
+
+
+
+
+<p>I prefer to also have a test per bundle because when a bundle item virtual path doesn&#8217;t resolve to a valid physical file, the bundle silently ignores the error. This means that when you move a file, you can easily break a bundle and not realize it until you are testing your application in the web browser.</p>
+
+
+
+
+<script src="https://gist.github.com/3961521.js?file=BundleConfigFixture.cs"></script>
+
+
+
+
+<h4>Caveats</h4>
+
+
+<p>I am not testing the dependency order of my files and am assuming that I don&#8217;t have duplicate file names in a bundle (e.g. path1/common.js and path2/common.js in the same bundle). You may want to tweak how you validate the contents of your bundles if you have to deal with more complex scenarios.</p>
+
+
+
+
+<h2>Best Practice</h2>
+
+
+<p>While not necessary to unit test your bundles, I recommend creating a static class containing all of your bundles so that you can safely reference them in your views without using hard-coded strings. </p>
+
+
+<script src="https://gist.github.com/3961521.js?file=Bundles.cs"></script>
+
+
+<script src="https://gist.github.com/3961521.js?file=BundleConfig.cs"></script>
+
+
+<script src="https://gist.github.com/3961521.js?file=_Layout.cshtml"></script>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-26T00:00:00-05:00" pubdate data-updated="true">Oct 26<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/compile-time-support-for-mvc-views/" title="Previous Post: How to get compile-time checking of ASP.NET MVC views">&laquo; How to get compile-time checking of ASP.NET MVC views</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/12/entity-framework-generic-methods/" title="Next Post: Using Generic Methods in Entity Framework Queries">Using Generic Methods in Entity Framework Queries &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/devops-days-chicago-2015/">DevOps Days Chicago 2015</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/paket-dependency-manager/">Paket: A More Capable Dependency Manager</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/right-hook/">Right Hook!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'carolynvanslyck';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://carolynvs.github.io/blog/2012/10/unit-testing-mvc-bundles/';
+        var disqus_url = 'http://carolynvs.github.io/blog/2012/10/unit-testing-mvc-bundles/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

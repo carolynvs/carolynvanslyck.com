@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>First Impression of .NET vNext - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="When ASP.NET vNext was first announced, I was scratching my head over how it would impact developing .NET in non-Windows environments. There was a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">First Impression of .NET vNext</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-11T00:00:00-05:00" pubdate data-updated="true">Sep 11<span>th</span>, 2014</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>When ASP.NET vNext was first announced, I was scratching my head over how it would impact developing .NET in non-Windows environments. There was a lot of hype, snippets of info coming from multiple sources, and nothing I could try out for myself. Well now that the <a href="http://www.visualstudio.com/en-us/downloads/visual-studio-14-ctp-vs.aspx">Visual Studio 2014 CTP</a> is out, I finally can!</p>
+
+<p><aside>If you have an Azure account, I recommend using their Visual Studio 2014 VM image to test things out without wreaking havoc on your day-to-day machine.</aside></p>
+
+<p>Here are my first impressions:</p>
+
+<h2>What the heck is it?</h2>
+
+<p>vNext is Microsoft&rsquo;s term for the upcoming version of .NET which is based on their new OSS compiler (Roslyn). It includes both plain old .NET and ASP.NET. The goal is to make .NET development easier, truly cross platform and cloud friendly.</p>
+
+<p>To that end, vNext means:</p>
+
+<ul>
+<li>Microsoft&rsquo;s now includes Mono in their test matrix. Their partnership with Xamarin should help Mono keep pace with .NET development. Xamarin still maintains Mono, and Mono is still the .NET platform for non-Microsoft operating systems.</li>
+<li>An improved development experience outside of Visual Studio. They are adding command line tools, and simplifying project management so that developing in say Sublime on OS X is not only possible but a good experience.</li>
+<li>Decoupling ASP.NET from IIS, System.Web and removes remaining impediments to running .NET websites on Linux.</li>
+<li>Adding the Roslyn compiler and C# 6 goodies.</li>
+</ul>
+
+
+<h2>It is finally easy to get up and running on Linux/Mac!</h2>
+
+<p>You no longer need to build Mono yourself, or wait months for an up-to-date package. WOOHOO! Here are the steps I used (<a href="http://www.mono-project.com/docs/getting-started/install/linux/">taken from the Mono install doc</a>) to install the latest version of Mono (3.8) on Ubuntu.</p>
+
+<script src="https://gist.github.com/carolynvs/4520736f6017ca252a44.js"></script>
+
+
+<p>Run <code>mono --version</code> to verify. You should see something like this <code>Mono JIT compiler version 3.8.0</code>.</p>
+
+<h2>Worst naming ever, k all the things!</h2>
+
+<p>For some reason, all the new commands and associated concepts start with the letter &lsquo;k&rsquo; and god help you if you need to search the web using these terms, they are too generic and often already had another meaning, such as &lsquo;kvm&rsquo;&hellip; <a href="http://weblogs.asp.net/imranbaloch/k-kvm-kpm-klr-kre-in-asp-net-vnext">Read this for an explanation of all the k&rsquo;s</a>.</p>
+
+<p>On a Windows + Visual Studio environment, learning these commands is not necessary. However if you are targeting cross-platform or would like to develop on a different operating system than what you are running in production, these commands handle everything that previously was performed by msbuild, NuGet, etc.</p>
+
+<ul>
+<li>k &ndash; executes commands such as <code>k run</code> which runs a console application, <code>k kestrel</code> which starts the Kestrel web server. Think of it as &ldquo;rake for .NET&rdquo;. Your project file defines commands <code>web</code>, <code>kestrel</code>, <code>foobar</code> and you use k to execute them.</li>
+<li>kpm &ndash; manages dependencies, e.g. <code>kpm restore</code> to restore dependencies, <code>kpm build</code> to compile and build your package.</li>
+</ul>
+
+
+<h2>Bye Bye IIS</h2>
+
+<p>Previously, if you wanted to use ASP.NET, you had to host on Windows + IIS. Though other frameworks, such as NancyFX, have always worked on Linux/Mono. Now with vNext you can finally use the ASP.NET MVC or WebAPI cross-platform without the IIS requirement.</p>
+
+<p>Just a few options for hosting include:</p>
+
+<p><strong>Self Hosting</strong></p>
+
+<p>Rather than hosting your application in a web server, your process will bind to a port and serve itself directly. To configure add the following to the commands section of your project.json and start your server using <code>k web</code>.</p>
+
+<pre><code>{
+    "dependencies": {...},
+    "commands": {
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001"
+    }
+}
+</code></pre>
+
+<p><strong>Helios</strong></p>
+
+<p>Helios is an <a href="http://owin.org/">OWIN</a> web server for IIS. <a href="http://blogs.msdn.com/b/webdev/archive/2014/02/18/introducing-asp-net-project-helios.aspx">Read more about project Helios</a>.</p>
+
+<p><strong>Kestrel</strong></p>
+
+<p>This is a new cross-platform OWIN web server for ASP.NET. It is quite unfortunate that they chose this as the name is already used by the <a href="https://github.com/twitter/kestrel">Kestrel queue framework</a>. Make sure to use &ldquo;kestrel vNext&rdquo; when searching for more info on it&hellip; To configure add the following to the commands section of your project.json and start your server using <code>k kestrel</code>.</p>
+
+<pre><code>{
+    "dependencies": {...},
+    "commands": {
+        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
+    }
+}
+</code></pre>
+
+<p><aside>At the time of writing there is an <a href="https://github.com/aspnet/KestrelHttpServer/issues/10">open issue</a> with running Kestrel on Linux. <del>What I did to work around it is compile Kestrel (v0.11.29), and copy the resulting libuv.so.1 to ~/.kpm/packages/Microsoft.AspNet.Server.Kestrel/1.0.0-alpha3/native/darwin/universal/libuv.dylib. If you trust me and don&rsquo;t feel like building libuv yourself, <a href="/downloads/libuv.0.11.29.tar.gz">download the file that I built</a>.</del></p>
+
+<p>UPDATE: Here are updated instructions for installing a compatible version of libuv, taken from <a href="http://www.ganshani.com/blog/2014/12/shell-script-to-setup-net-on-linux">http://www.ganshani.com/blog/2014/12/shell-script-to-setup-net-on-linux</a> :</p>
+
+<pre><code>wget http://dist.libuv.org/dist/v1.0.0-rc2/libuv-v1.0.0-rc2.tar.gz
+tar -xvf libuv-v1.0.0-rc2.tar.gz
+cd libuv-v1.0.0-rc2/
+./gyp_uv.py -f make -Duv_library=shared_library
+make -C out
+sudo cp out/Debug/lib.target/libuv.so /usr/lib/libuv.so.1.0.0-rc2
+sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
+</code></pre>
+
+<p></aside></p>
+
+<h2>k10, Core CLR, Cloud CLR&hellip; pick a name already!</h2>
+
+<p>In keeping with their love of the letter &lsquo;k&rsquo;, k10, a.k.a Core CLR, a.k.a. Cloud Optimized CLR, is Microsoft&rsquo;s new .NET Framework. I hear that k10 is a code name and that by the time it releases it will be called &ldquo;.NET Core Framework&rdquo; Traditionally the .NET Framework has been optimized for running on a desktop machine. It includes the entire BCL (Base Class Library), had a heavy footprint (200MB), and was not designed with cross-platform concerns in mind. k10&rsquo;s framework has been broken down into discrete packages, e.g. <code>System.Runtime</code>, <code>System.Text.RegularExpressions</code>, allowing you to pick and choose which aspects of the framework you require and deploy them WITH your application, i.e. you do not use a system level .NET Framework installation, instead you are referencing these packages just as you would any NuGet package.</p>
+
+<p>This is a game changer; the most obvious being that it reduces memory usage and start-up times (hence the moniker Cloud Optimized CLR). Even more powerful though is that you can deploy applications to the same server, each providing its own .NET Framework, without affecting one other. A single server could host a legacy application based on the desktop .NET Framework, another application which only pulls in the latest nightly version of ASP.NET vNExt, and perhaps another which uses your own custom build of the .NET Framework.</p>
+
+<p>In both the frameworks, desktop and k10, dependencies on tightly coupled modules such as <code>System.Web</code>, have been removed to enable cross-platform development. Let&rsquo;s say you have an existing ASP.NET 4 application that you would like to run on Linux. You would need to upgrade to the latest version of ASP.NET (which is platform agnostic and tested against Mono) but do not need to switch to k10.</p>
+
+<p>Keep in mind that because the entire BCL is not included in k10, existing assemblies will not &ldquo;just work&rdquo; with it. Similar to how you could only reference assemblies that were built with the Compact Framework in mind, you cannot reference an assembly from k10 that wasn&rsquo;t also built for k10. This means that 99% of the packages on NuGet are off-limits for now, severely limiting how quickly or feasibly you could upgrade an existing code-base.</p>
+
+<h2>Simplified Project Management</h2>
+
+<p>I really like the new project file format, project.json, as it is human readable and doesn&rsquo;t require an IDE to manage. This file is the master definition of your project, replacing the traditional csproj file. It does not list individual files anymore which is a great improvement in and of itself. It is used to list dependencies, define &lsquo;k&rsquo; commands, build configuration, etc. <a href="https://github.com/aspnet/Home/wiki/Project.json-file">Checkout the official doc</a>.</p>
+
+<script src="https://gist.github.com/carolynvs/f9d1a4b4f09542778bf8.js"></script>
+
+
+<p>Now if you use Visual Studio, you will see that a few extra files are created. Don&rsquo;t worry, they aren&rsquo;t necessary or even used on other platforms and appear to simply exist to help Visual Studio work with vNext. They don&rsquo;t store duplicate data such as references or files. So let VS create them and check in both the <code>*.kproj</code> and <code>sln</code> files. Ignore the <code>ide.sln</code> directory as that contains temporary build artifacts.</p>
+
+<h2>Final Thoughts</h2>
+
+<p>I love developing in C# and I am really excited about where things are heading. Why?</p>
+
+<p>Because my main complaint about ASP.NET is requiring Windows/IIS for hosting.  Now with vNext I&rsquo;m deploying to Linux which is an environment I am much more comfortable securing, maintaining and licensing.</p>
+
+<p>I think that one day soon, .NET will be a viable cross-platform alternative to Java. A girl can dream, right?</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-11T00:00:00-05:00" pubdate data-updated="true">Sep 11<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/dotnet/'>dotnet</a>, <a class='category' href='/blog/categories/vnext/'>vnext</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/08/atlassian-plugin-getting-started/" title="Previous Post: Create an Atlassian Plugin">&laquo; Create an Atlassian Plugin</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/01/kpm-restore-throws-aggregateexception/" title="Next Post: KPM Restore Throws AggregateException">KPM Restore Throws AggregateException &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/devops-days-chicago-2015/">DevOps Days Chicago 2015</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/paket-dependency-manager/">Paket: A More Capable Dependency Manager</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/right-hook/">Right Hook!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'carolynvanslyck';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions/';
+        var disqus_url = 'http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

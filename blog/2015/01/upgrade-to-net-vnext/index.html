@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Upgrade to .NET vNext - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade BytesForHealth to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Upgrade to .NET vNext</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-02T12:13:00-06:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2015</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade <a href="http://bytesforhealth.com">BytesForHealth</a> to .NET vNext (.NET 5).</p>
+
+<p><aside>This is just my first step towards migrating, I&rsquo;m sticking with the .NET Framework and am not making changes to work with .NET Core. Once I get this working, I&rsquo;ll start refactoring to only use Core packages.</aside></p>
+
+<p>Here are some of the steps I took to upgrade:</p>
+
+<ol>
+
+  <li>Install Visual Studio 2015 Preview.</li>
+  
+  <li><a href="https://github.com/aspnet/Home#install-the-k-version-manager-kvm">Install KVM</a>.
+    <br />
+    <pre><code class="list-code">iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.ps1')"</code></pre></li>
+    
+  <li>Verify that you are using at least the beta of KPM: <code>kpm --version</code> should return <code>1.0.0-beta1-10662</code>. If not run <code>kvm upgrade</code> to get the latest KRE and then <code>kvm use 1.0.0-beta1 -x86 -r CLR -p</code> to set it as the active version.</li>
+  
+  <li>Open Visual Studio and create a ASP.NET Class Library (vnext) project. Take that kproj file and copy it into your each of your project directories, name it after the project and if you like overkill, update the project&#8217;s guid to match the original in the csproj. Now edit your solution file and tweak the project reference to use the kproj file instead of the csproj file and update the project type guids from FAE04EC0-301F-11D3-BF4B-00C04F79EFBC to 8BB2217D-0F2D-49D1-97BC-3654ED321F3B.</li>
+  
+  <li>Rename packages.config to <a href="https://github.com/aspnet/Home/wiki/Project.json-file">project.json</a>. Add <code>{ "dependencies": {</code> at the top and using some creative find/replace, alter your packages xml to the new json format.
+  <br/>
+  <b>Before</b>
+  <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;packages&gt;
+    &lt;package id="AutoMapper" version="2.2.1" targetFramework="net45" /&gt;
+    &lt;package id="Microsoft.AspNet.Mvc" version="4.0.20710.0" targetFramework="net45" /&gt;
+&lt;/packages&gt;
+</code></pre>
+<br/>
+<b>After</b><pre><code>{
+  "dependencies": {
+    "AutoMapper": "2.2.1",
+    "Microsoft.AspNet.Mvc": "4.0.20710.0"
+  }
+}</code></pre></li>
+
+<li>Using your original csproj, find .NET Framework references (e.g. System.Web, or just look for anything without a packages hintpath), and add them to the frameworkassemblies section in project.json.
+
+<br/>
+<pre><code>{
+  "dependencies": {
+    "AutoMapper": "2.2.1",
+      "Microsoft.AspNet.Mvc": "4.0.20710.0"
+  },
+  "frameworks": {
+    "net45": {
+      "frameworkAssemblies": {
+        "System.Web": "4.0.0.0"
+      }
+    }
+  }
+}
+</code></pre></li>
+
+<li>Using your original csproj file, find project references and add them as dependencies in your project.json file. The name of the dependency will be the name of the project. For example if ProjectA references ProjectB, then it should have the following line in its project.json dependencies section <code>"ProjectB": ""</code>.
+<li>Delete your old csproj files.</li>
+<li>If all of your source code is in a single directory and at the same level, i.e. not nested, then you can skip this next step. Otherwise you will need to add a global.json to the root of your solution. In order for projects to reference each other when they are not in the same directory, add a hint path for where the projects can be found.
+<br/>
+<pre><code>{
+  "sources": ["Src", "Src/ReallyAwesomeStuff", "RandomDir"]
+}</code></pre>
+</ol>
+
+
+<p>You should now be able to build your solution using Visual Studio. You can build individual projects by first running <code>kpm restore</code> in the soluiton directory, then by running <code>kpm build</code> from within each project directory. If it builds with Visual Studio but not via the command line, review step 3 and make sure you are using the latest version of the KRE.</p>
+
+<p><aside>
+To learn more about building outside of Visual Studio, check out <a href="http://blog.maartenballiauw.be/post/2014/12/19/Building-future-NET-projects-is-quite-pleasant.aspx">Building future .NET projects is quite pleasant</a> for a breakdown of what the builds currently look like for some of Microsoft&rsquo;s projects on GitHub. It&rsquo;s not quite clear yet if <a href="https://github.com/sakeproject/sake">sake</a> is going to be the recommended build tool for all .NET projects or if it&rsquo;s only an internal tool; there&rsquo;s very little documentation and guidance at this point and I&rsquo;ve seen <a href="http://forums.dotnetfoundation.org/t/compiling-net-core-code-on-linux-os-x/302/6">musings about open-sourcing msbuild</a>&hellip; so things are still up in the air.
+</aside></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-02T12:13:00-06:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/dotnet/'>dotnet</a>, <a class='category' href='/blog/categories/vnext/'>vnext</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/01/kpm-restore-throws-aggregateexception/" title="Previous Post: KPM Restore Throws AggregateException">&laquo; KPM Restore Throws AggregateException</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/03/gitversion-for-bamboo/" title="Next Post: GitVersion for Bamboo">GitVersion for Bamboo &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/devops-days-chicago-2015/">DevOps Days Chicago 2015</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/paket-dependency-manager/">Paket: A More Capable Dependency Manager</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/right-hook/">Right Hook!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'carolynvanslyck';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext/';
+        var disqus_url = 'http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

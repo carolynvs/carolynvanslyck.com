@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Carolyn Van Slyck]]></title>
+  <link href="http://carolynvs.github.io/atom.xml" rel="self"/>
+  <link href="http://carolynvs.github.io/"/>
+  <updated>2015-08-30T22:54:13-05:00</updated>
+  <id>http://carolynvs.github.io/</id>
+  <author>
+    <name><![CDATA[Carolyn Van Slyck]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[DevOps Days Chicago 2015]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/08/devops-days-chicago-2015/"/>
+    <updated>2015-08-27T19:56:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/08/devops-days-chicago-2015</id>
+    <content type="html"><![CDATA[<p>I just attended <a href="http://www.devopsdays.org/events/2015-chicago/">DevOps Days Chicago 2015</a> and <strong>loved</strong> it. My usual MO for a conferences is to go with friends and keep to myself. So I was quite surprised that I came away having met dozens of people and bubbling with excitement about the experience.</p>
+
+<p>DevOps Days is a two day event with presentations in the morning, followed by ignite or lightning talks, and then the rest of the day is dedicated to open spaces. I had never heard of open spaces and honestly my gut reaction was that it sounded like something that I would <em>hate</em>. Unstructured social interactions with strangers? <em>Eek!</em> I could not have been more wrong and this turned out to be my favorite part of the conference.</p>
+
+<p>It starts with a call for suggestions. Anyone can come up to the front and write down a topic on a sticky note. They don&rsquo;t need to (and really shouldn&rsquo;t) have prepared anything, be a subject expert and aren&rsquo;t required to lead, or even attend, the discussion. Just throw out an idea and whoever is interested raises their hand to show their support. The conference organizers go through the suggestions and find appropriately sized venues and times for each. Some only get a handful of participants and they&rsquo;ll meet up in a small conference room, while those that drew a larger crowd remain in the main conference area.</p>
+
+<p>Below is a sample of the topics:</p>
+
+<ul>
+<li>Share your DevOps war stories!</li>
+<li>When would I use a virtual machine vs. Docker?</li>
+<li>Are you using DevOps tools on Windows? Come commiserate with me!</li>
+<li>Let&rsquo;s talk about the challenges of DevOps in an enterprise environment.</li>
+<li>Postmortem experiences and best practices.</li>
+<li>How do you handle blogging on behalf of your company?</li>
+</ul>
+
+
+<p>There were so many topics that it was a tough choice deciding on which to attend. At times I didn&rsquo;t have much to contribute but enjoyed listening, such as during the war stories and postmortem discussions. Whereas in others, I had <em>a lot</em> to share, mostly around my PTSD from attempting to tackle DevOps from the ground up in an enterprise Windows environment. Maybe I did have some war stories after all&hellip; 😂</p>
+
+<p>So instead of avoiding eye contact and pretending to look at &ldquo;important things&rdquo; on my phone, the small group of people, all interested in the same topic, helped create a very inclusive, comfortable atmosphere in which it was easy to participate. Some had a lot of experience and could assist with questions like <em>&ldquo;How do I start doing postmortems?&rdquo;</em>. Others could quickly chime in with their preferred tools and tricks for working with Chef/Puppet/Ansible/SaltStack on Windows. Also it was okay to simply admit <em>&ldquo;We really want to embrace DevOps but there is only so much that can be done when it is just us peons who are bought in&rdquo;</em>, without any good answer on how to fix things.</p>
+
+<p>At the beginning of the conference, they stressed that your badge was stamped with &ldquo;Participant&rdquo; rather than &ldquo;Attendee&rdquo; for a reason, and in the end that is really why I enjoyed DevOps Days so much more than any other conference. Instead of passively absorbing the talks, grabbing swag from the sponsors, then slipping away quietly into the night with no one the wiser that you were even there, I came away having met new people, learned that I wasn&rsquo;t the only one struggling, helped others by sharing my experiences and left sure in the knowledge that I had made an impact. If I hadn&rsquo;t attended, the conference would have went a little different, and I am looking forward to playing my part next year.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Paket: A More Capable Dependency Manager]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/08/paket-dependency-manager/"/>
+    <updated>2015-08-15T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/08/paket-dependency-manager</id>
+    <content type="html"><![CDATA[<p>Some days I feel like a NuGet apologist. I hear myself saying &ldquo;just wait until NuGet 3, then X will be easy&rdquo;
+and then once it comes out, they still missed the mark. Maybe I&rsquo;m just crazy and am using NuGet wrong,
+architecting things ass-backward&hellip; but rather than continue fighting with NuGet as it stands today, I&rsquo;ve switched to Paket.</p>
+
+<p><em>Switched to what?</em> <strong><a href="http://fsprojects.github.io/Paket/">Paket</a></strong>, an alternative .NET dependency manager which has some pretty nifty features baked in
+that has made me jump ship.</p>
+
+<h2>Better Control over Dependencies</h2>
+
+<p>Paket overall better meets my expectations and desires when it comes to versioning. By default,
+Paket attempts to use the most recent available version, which 99% of the time is what I want. Though
+you can change that by dropping a <code>!</code> in front of your version constraint to use the
+NuGet style pessimistic resolution.</p>
+
+<p>Below are a few examples from the <a href="http://fsprojects.github.io/Paket/nuget-dependencies.html">Paket NuGet Dependencies page</a></p>
+
+<pre><code>nuget Example 1.2.3             // exactly 1.2.3
+nuget Example != 1.2.3          // a.k.a NuGet style, exactly 1.2.3, using the min version dependencies
+nuget Example &gt;= 1.2.3          // at least 1.2.3
+nuget Example &lt; 1.2.3           // less than 1.2.3
+nuget Example &gt;= 1.2.3 &lt; 1.5    // at least 1.2.3 but less than 1.5
+nuget Example ~&gt; 1.2.3          // 1.2.3 &lt;= x &lt; 1.3
+nuget Example ~&gt; 1.2.3-alpha1   // 1.2.3-alpha1 &lt;= x &lt; 1.3
+</code></pre>
+
+<h2>Version Free Paths</h2>
+
+<p>By default, Paket doesn&rsquo;t install dependencies into a folder with the version number in the path.
+So when I update a dependency, I don&rsquo;t have to dork around with my project files.</p>
+
+<pre><code>packages/cool-dependency/lib/net45/CoolStuff.dll
+</code></pre>
+
+<h2>Only Manage Your Immediate Dependencies</h2>
+
+<p>Paket handles your dependencies dependencies for you. Take a look at most projects packages.config file
+and you&rsquo;ll see a dozen packages with no distinction between a dependency you care about and everything
+else that came along for the ride with that dependency. This means less micromanagement, as you are only
+dealing with your direct dependencies.</p>
+
+<h2>The Holy Grail of Wildcard Versions</h2>
+
+<p>So this brings us back to the problem that NuGet couldn&rsquo;t help me with and ultimately caused me to
+jump ship to Paket&hellip;</p>
+
+<p><em>How do I keep two closely related packages in sync without micromanaging their versions in lock step?</em></p>
+
+<p>It&rsquo;s not uncommon for me to have a project that relies pretty heavily on another, and they often
+are developed in tandem. With NuGet what I always really wanted was wildcard versions,
+e.g. <code>1.5.*</code> or just give me the latest damn version without having to change all my packages.config and
+csproj files on every new release!</p>
+
+<p>With the above Paket features, this is finally possible! 😃</p>
+
+<ol>
+<li>Make some breaking changes in ProjectA.</li>
+<li>Publish a pre-release version of ProjectA to MyGet.</li>
+<li>See the CI build for ProjectB fail because with Paket, my builds are using the latest available version of ProjectA.</li>
+<li>Run <code>paket update</code> on my dev machine from within ProjectB and I&rsquo;m in business.
+I don&rsquo;t need to edit any additional files to pick up the latest changes.</li>
+</ol>
+
+
+<h2>What about vNext, .NET 5 and Rainbows?!</h2>
+
+<p>I won&rsquo;t lie. I&rsquo;m still closely watching every NuGet release and communication about the new project types shipping
+with the next version of .NET (January 2016): file system based, no csproj files, project.json and global.json. The ability to reference
+a NuGet package, then by magic detect that the code is on my local machine and use that instead of the package is an <em>extremely</em>
+compelling feature. That removes a lot of the friction when developing packages side-by-side,
+and if I can somehow do that with Paket, please let me know!</p>
+
+<p>But today? Today I&rsquo;m tired of waiting, apologizing, feature requests closed as &lsquo;won&rsquo;t fix&rsquo; and feeling ignored.
+Paket is actively maintained, responsive to the community and addresses NuGet&rsquo;s shortcomings <strong>today</strong>;
+so that&rsquo;s what I&rsquo;m going to use.</p>
+
+<p>Heh, if I&rsquo;m coming off a little bitter, well let&rsquo;s just say that I&rsquo;ve wasted a
+depressing number of hours struggling to get NuGet to do that little scenario above&hellip; When I stumbled upon Paket,
+gave it a go, and it just freaking worked the first time, I laughed and cried at the same time, kicking myself for not discovering it sooner.</p>
+
+<p>So if the Paket devs are reading this, <em>waves</em>, thanks for saving me and my sanity. Keep up the good work.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Better Force Clean Checkout in Bamboo]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/05/bamboo-force-clean-checkout/"/>
+    <updated>2015-05-07T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/05/bamboo-force-clean-checkout</id>
+    <content type="html"><![CDATA[<p>Recently, I was asked for help to alter one of our builds to &ldquo;run dirty&rdquo;. They use npm and were incurring a significant cost by starting with a fresh checkout on every build. By leaving the node_modules diretory around between builds, it would shave 4 minutes off the build time.</p>
+
+<p>While I could have simply unchecked &ldquo;Force Clean Checkout&rdquo; on our Source Code Checkout task in Bamboo, that would have made dealing with the occasional need to do a clean build a bit awkward. In order to do a clean build, someone would have to:</p>
+
+<ol>
+<li>Have admin rights on the plan</li>
+<li>Edit the definition to check &ldquo;Force Clean Checkout&rdquo;</li>
+<li>Run a build</li>
+<li>Then (hopefully) remember flip it back again.</li>
+</ol>
+
+
+<p>A bit clunky&hellip; plus it would affect all builds, not just the single branch that needed the clean build.</p>
+
+<p><aside>
+Actually I never use the &ldquo;Force Clean Checkout&rdquo; option because what that does is remove the entire repository, then do a fresh clone. Instead all my builds run git clean after the Source Code Checkout task.
+</aside></p>
+
+<p>What I wanted was a push button method for someone with build rights to force a clean build on a single branch. Here&rsquo;s how it works:</p>
+
+<ol>
+<li><p>Add a plan variable, force_clean, with a value of false.</p>
+
+<p><img src="http://carolynvs.github.io/images/bamboo-force-clean-checkout/force-clean-variable.png" alt="image" /></p></li>
+<li><p>Add a Script task before the Source Code Checkout task.
+In it, check if force_clean = true, then clean the working directory.</p>
+
+<p><img src="http://carolynvs.github.io/images/bamboo-force-clean-checkout/force-clean-task.png" alt="image" /></p></li>
+<li><p>Now to force a clean build, use &ldquo;Run Customized&hellip;&rdquo; and override force_clean to true! Simple.</p>
+
+<p><img src="http://carolynvs.github.io/images/bamboo-force-clean-checkout/run-customized.png" alt="image" /></p>
+
+<p><img src="http://carolynvs.github.io/images/bamboo-force-clean-checkout/override-force-clean.png" alt="image" /></p></li>
+</ol>
+
+
+<p><aside>
+I also use this to workaround a limitation in Bamboo, where new tags are not picked up in a build without a fresh clone. <em>Shakes fist at the Atlassian Overlords</em><br/><br/>
+Since <a href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/">some of my builds rely upon tags to generate a version number</a>, I use this force clean trick to remove the source directory before the Source Code Checkout task. That way when we need to pickup a new tag, we just force a clean build.
+</aside></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Right Hook!]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/03/right-hook/"/>
+    <updated>2015-03-27T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/03/right-hook</id>
+    <content type="html"><![CDATA[<p><img src="http://carolynvs.github.io/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
+
+<p>I was recently invited to join Atlassian Allstars program, which I would love to link to but they don&rsquo;t appear to have a public page so&hellip; oops maybe I wasn&rsquo;t supposed to let anyone know about it. <em>First rule of Atlassian Allstars is you don&rsquo;t talk about Atlassian Allstars!</em> In my ongoing quest to earn enough achievment points to be a part of the <span style="text-decoration: line-through">Atlassian Justice League</span> Atlassian Customer Advisory panel&hellip; I took on the <a href="https://developer.atlassian.com/blog/2015/01/beer-o-clock-stash-plugin-tutorial/">Stash: Beer-o-Clock challenge</a>.</p>
+
+<p>I decided to create a Stash repository hook that prints out a Chuck Norris quote every time you push. I whipped up the plugin in short order and tweeted a screenshot to claim my achievos.</p>
+
+<blockquote class="twitter-tweet tw-align-center" lang="en"><p>I just built an <a href="https://twitter.com/Atlassian">@atlassian</a> <a href="https://twitter.com/hashtag/stash?src=hash">#stash</a> hook that quotes Chuck Norris with every push: Right Hook <a href="http://t.co/pIxN4mHarn">http://t.co/pIxN4mHarn</a> <a href="http://t.co/2YAj749CkE">http://t.co/2YAj749CkE</a></p>&mdash; Carolyn Van Slyck (@carolynvs) <a href="https://twitter.com/carolynvs/status/581064247330779137">March 26, 2015</a></blockquote>
+
+
+<script async src="http://carolynvs.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>Who would have guessed that would become my most popular tweet to date? Other than Chuck Norris that is. :&ndash;) So by popular demand I give you&hellip; <strong><a href="http://carolynvs.github.io/projects/right-hook/">Right Hook!</a></strong> Install, enjoy and feel free to fork and use for your own evil purposes.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GitVersion for Bamboo]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/"/>
+    <updated>2015-03-06T06:42:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo</id>
+    <content type="html"><![CDATA[<p><img src="http://carolynvs.github.io/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+
+<p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="http://carolynvs.github.io/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
+
+<p>GitVersion is a tool which automates generating unique, <a href="http://semver.org/">semantic versions</a>. It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.</p>
+
+<p>What I like about GitVersion is the flexibility it provides. Instead of generating a single version number, &ldquo;take it or leave it&rdquo;, GitVersion provides over a dozen variables that you can choose from to build your own version number. If you are lucky and can just use pure semver, great!, use the FullSemVer variable and call it a day. However if you are perhaps like me, working on a legacy code base with an existing versioning scheme, it&rsquo;s still incredibly useful.</p>
+
+<p>Here is the output of running gitversion.exe from my repository:</p>
+
+<pre><code>{
+  "Major":1,
+  "Minor":3,
+  "Patch":4,
+  "PreReleaseTag":"bamboo",
+  "PreReleaseTagWithDash":"-bamboo",
+  "BuildMetaData":61,
+  "FullBuildMetaData":"61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
+  "MajorMinorPatch":"1.3.4",
+  "SemVer":"1.3.4-bamboo",
+  "LegacySemVer":"1.3.4-bamboo",
+  "LegacySemVerPadded":"1.3.4-bamboo",
+  "AssemblySemVer":"1.3.4.0",
+  "AssemblyFileSemVer":"1.3.4.0",
+  "FullSemVer":"1.3.4-bamboo+61",
+  "InformationalVersion":"1.3.4-bamboo+61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
+  "ClassicVersion":"1.3.4.61",
+  "ClassicVersionWithTag":"1.3.4.61-bamboo",
+  "BranchName":"feature/bamboo",
+  "Sha":"3474397158a37e9b9525345d8205d1e4f8eca06a",
+  "NuGetVersionV2":"1.3.4-bamboo",
+  "NuGetVersion":"1.3.4-bamboo"
+}
+</code></pre>
+
+<p>At work we are (still!) <a href="blog/2014/02/migrating-from-svn-to-git/">transioning from svn to git</a>. Previously we would use the svn revision as the 4th part of our version number, e.g. 1.0.0.{svn rev}. With git that&rsquo;s not available as we just have a commit hash which doens&rsquo;t fit the bill. So we are using GitVersion to generate just the last number for us by using the BuildMetadata variable. BuildMetadata represents the number of commits on a branch since the last release tag. So if when we started working on v15.2.0, the first commit is tagged and each new commit will result in a unique, increasing version number: first commit = 15.2.0.0, second commit = 15.2.0.1 &hellip;</p>
+
+<p>Is that a good idea? Shouldn&rsquo;t we have simply jumped onto the semver bandwagon? Probably. However sometimes things are beyond a peon&rsquo;s control and it&rsquo;s nice that I don&rsquo;t have to boil the ocean just to get a number.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Upgrade to .NET vNext]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext/"/>
+    <updated>2015-01-02T12:13:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext</id>
+    <content type="html"><![CDATA[<p>While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade <a href="http://bytesforhealth.com">BytesForHealth</a> to .NET vNext (.NET 5).</p>
+
+<p><aside>This is just my first step towards migrating, I&rsquo;m sticking with the .NET Framework and am not making changes to work with .NET Core. Once I get this working, I&rsquo;ll start refactoring to only use Core packages.</aside></p>
+
+<p>Here are some of the steps I took to upgrade:</p>
+
+<ol>
+
+  <li>Install Visual Studio 2015 Preview.</li>
+  
+  <li><a href="https://github.com/aspnet/Home#install-the-k-version-manager-kvm">Install KVM</a>.
+    <br />
+    <pre><code class="list-code">iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.ps1')"</code></pre></li>
+    
+  <li>Verify that you are using at least the beta of KPM: <code>kpm --version</code> should return <code>1.0.0-beta1-10662</code>. If not run <code>kvm upgrade</code> to get the latest KRE and then <code>kvm use 1.0.0-beta1 -x86 -r CLR -p</code> to set it as the active version.</li>
+  
+  <li>Open Visual Studio and create a ASP.NET Class Library (vnext) project. Take that kproj file and copy it into your each of your project directories, name it after the project and if you like overkill, update the project&#8217;s guid to match the original in the csproj. Now edit your solution file and tweak the project reference to use the kproj file instead of the csproj file and update the project type guids from FAE04EC0-301F-11D3-BF4B-00C04F79EFBC to 8BB2217D-0F2D-49D1-97BC-3654ED321F3B.</li>
+  
+  <li>Rename packages.config to <a href="https://github.com/aspnet/Home/wiki/Project.json-file">project.json</a>. Add <code>{ "dependencies": {</code> at the top and using some creative find/replace, alter your packages xml to the new json format.
+  <br/>
+  <b>Before</b>
+  <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;packages&gt;
+    &lt;package id="AutoMapper" version="2.2.1" targetFramework="net45" /&gt;
+    &lt;package id="Microsoft.AspNet.Mvc" version="4.0.20710.0" targetFramework="net45" /&gt;
+&lt;/packages&gt;
+</code></pre>
+<br/>
+<b>After</b><pre><code>{
+  "dependencies": {
+    "AutoMapper": "2.2.1",
+    "Microsoft.AspNet.Mvc": "4.0.20710.0"
+  }
+}</code></pre></li>
+
+<li>Using your original csproj, find .NET Framework references (e.g. System.Web, or just look for anything without a packages hintpath), and add them to the frameworkassemblies section in project.json.
+
+<br/>
+<pre><code>{
+  "dependencies": {
+    "AutoMapper": "2.2.1",
+      "Microsoft.AspNet.Mvc": "4.0.20710.0"
+  },
+  "frameworks": {
+    "net45": {
+      "frameworkAssemblies": {
+        "System.Web": "4.0.0.0"
+      }
+    }
+  }
+}
+</code></pre></li>
+
+<li>Using your original csproj file, find project references and add them as dependencies in your project.json file. The name of the dependency will be the name of the project. For example if ProjectA references ProjectB, then it should have the following line in its project.json dependencies section <code>"ProjectB": ""</code>.
+<li>Delete your old csproj files.</li>
+<li>If all of your source code is in a single directory and at the same level, i.e. not nested, then you can skip this next step. Otherwise you will need to add a global.json to the root of your solution. In order for projects to reference each other when they are not in the same directory, add a hint path for where the projects can be found.
+<br/>
+<pre><code>{
+  "sources": ["Src", "Src/ReallyAwesomeStuff", "RandomDir"]
+}</code></pre>
+</ol>
+
+
+<p>You should now be able to build your solution using Visual Studio. You can build individual projects by first running <code>kpm restore</code> in the soluiton directory, then by running <code>kpm build</code> from within each project directory. If it builds with Visual Studio but not via the command line, review step 3 and make sure you are using the latest version of the KRE.</p>
+
+<p><aside>
+To learn more about building outside of Visual Studio, check out <a href="http://blog.maartenballiauw.be/post/2014/12/19/Building-future-NET-projects-is-quite-pleasant.aspx">Building future .NET projects is quite pleasant</a> for a breakdown of what the builds currently look like for some of Microsoft&rsquo;s projects on GitHub. It&rsquo;s not quite clear yet if <a href="https://github.com/sakeproject/sake">sake</a> is going to be the recommended build tool for all .NET projects or if it&rsquo;s only an internal tool; there&rsquo;s very little documentation and guidance at this point and I&rsquo;ve seen <a href="http://forums.dotnetfoundation.org/t/compiling-net-core-code-on-linux-os-x/302/6">musings about open-sourcing msbuild</a>&hellip; so things are still up in the air.
+</aside></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[KPM Restore Throws AggregateException]]></title>
+    <link href="http://carolynvs.github.io/blog/2015/01/kpm-restore-throws-aggregateexception/"/>
+    <updated>2015-01-02T11:32:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2015/01/kpm-restore-throws-aggregateexception</id>
+    <content type="html"><![CDATA[<p>While I was migrating a legacy codebase from .NET 4.5 to vNext (.NET 5), I started getting this error when restoring my dependencies via <code>kpm restore</code> or building inside VS 2015.</p>
+
+<pre><code>System.AggregateException: One or more errors occurred. ---&gt; System.NullReferenceException: Object reference not set to an instance of an object. 
+at Microsoft.Framework.PackageManager.Restore.NuGet.PackageFeed.&lt;OpenNuspecStreamAsync&gt;d__1.MoveNext()
+</code></pre>
+
+<p>Turns out there was a trailing space after one of my dependencies, e.g.</p>
+
+<pre><code>{
+  "dependencies": {
+    "Microsoft.AspNet.Mvc ": "4.0.0.0"
+  }
+}
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First Impression of .NET vNext]]></title>
+    <link href="http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions/"/>
+    <updated>2014-09-11T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions</id>
+    <content type="html"><![CDATA[<p>When ASP.NET vNext was first announced, I was scratching my head over how it would impact developing .NET in non-Windows environments. There was a lot of hype, snippets of info coming from multiple sources, and nothing I could try out for myself. Well now that the <a href="http://www.visualstudio.com/en-us/downloads/visual-studio-14-ctp-vs.aspx">Visual Studio 2014 CTP</a> is out, I finally can!</p>
+
+<p><aside>If you have an Azure account, I recommend using their Visual Studio 2014 VM image to test things out without wreaking havoc on your day-to-day machine.</aside></p>
+
+<p>Here are my first impressions:</p>
+
+<h2>What the heck is it?</h2>
+
+<p>vNext is Microsoft&rsquo;s term for the upcoming version of .NET which is based on their new OSS compiler (Roslyn). It includes both plain old .NET and ASP.NET. The goal is to make .NET development easier, truly cross platform and cloud friendly.</p>
+
+<p>To that end, vNext means:</p>
+
+<ul>
+<li>Microsoft&rsquo;s now includes Mono in their test matrix. Their partnership with Xamarin should help Mono keep pace with .NET development. Xamarin still maintains Mono, and Mono is still the .NET platform for non-Microsoft operating systems.</li>
+<li>An improved development experience outside of Visual Studio. They are adding command line tools, and simplifying project management so that developing in say Sublime on OS X is not only possible but a good experience.</li>
+<li>Decoupling ASP.NET from IIS, System.Web and removes remaining impediments to running .NET websites on Linux.</li>
+<li>Adding the Roslyn compiler and C# 6 goodies.</li>
+</ul>
+
+
+<h2>It is finally easy to get up and running on Linux/Mac!</h2>
+
+<p>You no longer need to build Mono yourself, or wait months for an up-to-date package. WOOHOO! Here are the steps I used (<a href="http://www.mono-project.com/docs/getting-started/install/linux/">taken from the Mono install doc</a>) to install the latest version of Mono (3.8) on Ubuntu.</p>
+
+<script src="https://gist.github.com/carolynvs/4520736f6017ca252a44.js"></script>
+
+
+<p>Run <code>mono --version</code> to verify. You should see something like this <code>Mono JIT compiler version 3.8.0</code>.</p>
+
+<h2>Worst naming ever, k all the things!</h2>
+
+<p>For some reason, all the new commands and associated concepts start with the letter &lsquo;k&rsquo; and god help you if you need to search the web using these terms, they are too generic and often already had another meaning, such as &lsquo;kvm&rsquo;&hellip; <a href="http://weblogs.asp.net/imranbaloch/k-kvm-kpm-klr-kre-in-asp-net-vnext">Read this for an explanation of all the k&rsquo;s</a>.</p>
+
+<p>On a Windows + Visual Studio environment, learning these commands is not necessary. However if you are targeting cross-platform or would like to develop on a different operating system than what you are running in production, these commands handle everything that previously was performed by msbuild, NuGet, etc.</p>
+
+<ul>
+<li>k &ndash; executes commands such as <code>k run</code> which runs a console application, <code>k kestrel</code> which starts the Kestrel web server. Think of it as &ldquo;rake for .NET&rdquo;. Your project file defines commands <code>web</code>, <code>kestrel</code>, <code>foobar</code> and you use k to execute them.</li>
+<li>kpm &ndash; manages dependencies, e.g. <code>kpm restore</code> to restore dependencies, <code>kpm build</code> to compile and build your package.</li>
+</ul>
+
+
+<h2>Bye Bye IIS</h2>
+
+<p>Previously, if you wanted to use ASP.NET, you had to host on Windows + IIS. Though other frameworks, such as NancyFX, have always worked on Linux/Mono. Now with vNext you can finally use the ASP.NET MVC or WebAPI cross-platform without the IIS requirement.</p>
+
+<p>Just a few options for hosting include:</p>
+
+<p><strong>Self Hosting</strong></p>
+
+<p>Rather than hosting your application in a web server, your process will bind to a port and serve itself directly. To configure add the following to the commands section of your project.json and start your server using <code>k web</code>.</p>
+
+<pre><code>{
+    "dependencies": {...},
+    "commands": {
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001"
+    }
+}
+</code></pre>
+
+<p><strong>Helios</strong></p>
+
+<p>Helios is an <a href="http://owin.org/">OWIN</a> web server for IIS. <a href="http://blogs.msdn.com/b/webdev/archive/2014/02/18/introducing-asp-net-project-helios.aspx">Read more about project Helios</a>.</p>
+
+<p><strong>Kestrel</strong></p>
+
+<p>This is a new cross-platform OWIN web server for ASP.NET. It is quite unfortunate that they chose this as the name is already used by the <a href="https://github.com/twitter/kestrel">Kestrel queue framework</a>. Make sure to use &ldquo;kestrel vNext&rdquo; when searching for more info on it&hellip; To configure add the following to the commands section of your project.json and start your server using <code>k kestrel</code>.</p>
+
+<pre><code>{
+    "dependencies": {...},
+    "commands": {
+        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
+    }
+}
+</code></pre>
+
+<p><aside>At the time of writing there is an <a href="https://github.com/aspnet/KestrelHttpServer/issues/10">open issue</a> with running Kestrel on Linux. <del>What I did to work around it is compile Kestrel (v0.11.29), and copy the resulting libuv.so.1 to ~/.kpm/packages/Microsoft.AspNet.Server.Kestrel/1.0.0-alpha3/native/darwin/universal/libuv.dylib. If you trust me and don&rsquo;t feel like building libuv yourself, <a href="http://carolynvs.github.io/downloads/libuv.0.11.29.tar.gz">download the file that I built</a>.</del></p>
+
+<p>UPDATE: Here are updated instructions for installing a compatible version of libuv, taken from <a href="http://www.ganshani.com/blog/2014/12/shell-script-to-setup-net-on-linux">http://www.ganshani.com/blog/2014/12/shell-script-to-setup-net-on-linux</a> :</p>
+
+<pre><code>wget http://dist.libuv.org/dist/v1.0.0-rc2/libuv-v1.0.0-rc2.tar.gz
+tar -xvf libuv-v1.0.0-rc2.tar.gz
+cd libuv-v1.0.0-rc2/
+./gyp_uv.py -f make -Duv_library=shared_library
+make -C out
+sudo cp out/Debug/lib.target/libuv.so /usr/lib/libuv.so.1.0.0-rc2
+sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
+</code></pre>
+
+<p></aside></p>
+
+<h2>k10, Core CLR, Cloud CLR&hellip; pick a name already!</h2>
+
+<p>In keeping with their love of the letter &lsquo;k&rsquo;, k10, a.k.a Core CLR, a.k.a. Cloud Optimized CLR, is Microsoft&rsquo;s new .NET Framework. I hear that k10 is a code name and that by the time it releases it will be called &ldquo;.NET Core Framework&rdquo; Traditionally the .NET Framework has been optimized for running on a desktop machine. It includes the entire BCL (Base Class Library), had a heavy footprint (200MB), and was not designed with cross-platform concerns in mind. k10&rsquo;s framework has been broken down into discrete packages, e.g. <code>System.Runtime</code>, <code>System.Text.RegularExpressions</code>, allowing you to pick and choose which aspects of the framework you require and deploy them WITH your application, i.e. you do not use a system level .NET Framework installation, instead you are referencing these packages just as you would any NuGet package.</p>
+
+<p>This is a game changer; the most obvious being that it reduces memory usage and start-up times (hence the moniker Cloud Optimized CLR). Even more powerful though is that you can deploy applications to the same server, each providing its own .NET Framework, without affecting one other. A single server could host a legacy application based on the desktop .NET Framework, another application which only pulls in the latest nightly version of ASP.NET vNExt, and perhaps another which uses your own custom build of the .NET Framework.</p>
+
+<p>In both the frameworks, desktop and k10, dependencies on tightly coupled modules such as <code>System.Web</code>, have been removed to enable cross-platform development. Let&rsquo;s say you have an existing ASP.NET 4 application that you would like to run on Linux. You would need to upgrade to the latest version of ASP.NET (which is platform agnostic and tested against Mono) but do not need to switch to k10.</p>
+
+<p>Keep in mind that because the entire BCL is not included in k10, existing assemblies will not &ldquo;just work&rdquo; with it. Similar to how you could only reference assemblies that were built with the Compact Framework in mind, you cannot reference an assembly from k10 that wasn&rsquo;t also built for k10. This means that 99% of the packages on NuGet are off-limits for now, severely limiting how quickly or feasibly you could upgrade an existing code-base.</p>
+
+<h2>Simplified Project Management</h2>
+
+<p>I really like the new project file format, project.json, as it is human readable and doesn&rsquo;t require an IDE to manage. This file is the master definition of your project, replacing the traditional csproj file. It does not list individual files anymore which is a great improvement in and of itself. It is used to list dependencies, define &lsquo;k&rsquo; commands, build configuration, etc. <a href="https://github.com/aspnet/Home/wiki/Project.json-file">Checkout the official doc</a>.</p>
+
+<script src="https://gist.github.com/carolynvs/f9d1a4b4f09542778bf8.js"></script>
+
+
+<p>Now if you use Visual Studio, you will see that a few extra files are created. Don&rsquo;t worry, they aren&rsquo;t necessary or even used on other platforms and appear to simply exist to help Visual Studio work with vNext. They don&rsquo;t store duplicate data such as references or files. So let VS create them and check in both the <code>*.kproj</code> and <code>sln</code> files. Ignore the <code>ide.sln</code> directory as that contains temporary build artifacts.</p>
+
+<h2>Final Thoughts</h2>
+
+<p>I love developing in C# and I am really excited about where things are heading. Why?</p>
+
+<p>Because my main complaint about ASP.NET is requiring Windows/IIS for hosting.  Now with vNext I&rsquo;m deploying to Linux which is an environment I am much more comfortable securing, maintaining and licensing.</p>
+
+<p>I think that one day soon, .NET will be a viable cross-platform alternative to Java. A girl can dream, right?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Create an Atlassian Plugin]]></title>
+    <link href="http://carolynvs.github.io/blog/2014/08/atlassian-plugin-getting-started/"/>
+    <updated>2014-08-07T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2014/08/atlassian-plugin-getting-started</id>
+    <content type="html"><![CDATA[<p>I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian&rsquo;s great SDK, and the ability to view the core application&rsquo;s source code as a reference, developing plugins is very straightforward. My <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">first plugin</a>, was completed and deployed to the marketplace in just a single weekend and after that &hellip; I was hooked.</p>
+
+<p>I have now <a href="https://marketplace.atlassian.com/vendors/1211016">published four plugins</a> on the marketplace, some trivial while others really dig into the guts of the core application. This post is the first in a series on writing plugins for Atlassian, sharing some of my lessons learned and consolidating what can be sparse documentation into a more useful format.</p>
+
+<hr />
+
+<ul>
+<li>Getting Started: Create an Atlassian Plugin</li>
+<li>Anatomy of Plugin <em>coming soon!</em></li>
+<li>Unit Testing <em>coming soon!</em></li>
+<li>Wired / Integration Testing <em>coming soon!</em></li>
+<li>Dependency Injection: Using Core Atlassian Classes from your Plugin <em>coming soon!</em></li>
+<li>Accessing the Database <em>coming soon!</em></li>
+<li>SDK Development Tools <em>coming soon!</em></li>
+<li>Building and Testing your Plugin on a Build Server <em>coming soon!</em></li>
+<li>Publishing your Plugin to the Marketplace <em>coming soon!</em></li>
+</ul>
+
+
+<hr />
+
+<p>So you have an idea for a plugin, or perhaps filed a feature request / bug report with Atlassian and are tired of waiting, what next?</p>
+
+<h2>Plugin Types</h2>
+
+<p>Before you start developing a plugin there are a few questions you need to consider:</p>
+
+<ol>
+<li>Do you need to alter the core application&rsquo;s behavior? <strong><em>You must use a server plugin.</em></strong></li>
+<li>Do you want use your plugin on Atlassian&rsquo;s OnDemand? <strong><em>You must use a cloud (Connect) plugin.</em></strong></li>
+</ol>
+
+
+<p><aside>I have not yet written a cloud (Connect) plugin, so this series will focus solely on server plugins.</aside></p>
+
+<p><strong>Server</strong></p>
+
+<p>Server plugins can be deployed to an Atlassian application instance that is hosted on your own server. While there are some limitations, for the most part they have access to the same code that the core application itself is written in.</p>
+
+<ul>
+<li>Hosted on the application server</li>
+<li>Written in Java</li>
+<li>May access most of the application&rsquo;s internal classes</li>
+<li>May save data to the application&rsquo;s database</li>
+</ul>
+
+
+<p><strong>Cloud</strong></p>
+
+<p>Cloud plugins can be deployed to Atlassian OnDemand cloud hosted applications. They use the <a href="https://developer.atlassian.com/static/connect/docs/guides/introduction.html">Connect plugin framework</a>. A Connect plugin is hosted on a server external to the application server and is similar to a hosted div or iframe. Your plugin will look like it is part of the application but all code is executed on your server and has very limited access to the core application.</p>
+
+<ul>
+<li>Hosted externally from the application server</li>
+<li>Written in any language</li>
+<li>Interacts with the core application via its public REST api</li>
+</ul>
+
+
+<h2>Setup</h2>
+
+<h3>Install SDK</h3>
+
+<p>First step is to download and install the SDK on your machine (<a href="https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Windows+System">Windows</a>, <a href="https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Linux+or+Mac+System">Linux or Mac</a>).</p>
+
+<p><strong>Windows Tips</strong></p>
+
+<p>I develop plugins both on Windows and Mac; the experience is mostly the same. When on Windows, I prefer bash over cmd and wrote <a href="https://github.com/carolynvs/atlassian-plugin-sdk">wrapper shell scripts</a> for the batch files provided by the SDK. This lets me stay in bash and use the sdk commands exactly the same as I would on Mac or Linux, e.g. <code>atlas-run-standalone --product Jira</code>.</p>
+
+<p>Also I can&rsquo;t help but recommend that you use a real command line terminal instead of cmd.exe. <a href="https://github.com/cbucher/console">Console</a> is easy to use and lets you copy/paste, resize, maximize, use tabs, etc.</p>
+
+<blockquote><p>Friends don&rsquo;t let friends use cmd.exe.</p></blockquote>
+
+<h3>Download Source</h3>
+
+<p>I recommend downloading the source code for the application you are extending. To download the source, purchase a starter license then go to <a href="http://my.atlassian.com">my.atlasian.com</a> and there will be a link to source from your license entry.</p>
+
+<p><aside>While not strictly necessary, I have a much easier time understanding which classes are available and how they should be used by reading the source code than their online class documentation. This also enables you to debug into the core application.</p>
+
+<p>Note that the license is purely to gain access to the source code, as the SDK automatically generates temporary development licenses and doesn&rsquo;t require or use a real or evaluation license.</aside></p>
+
+<h3>Install Java IDE</h3>
+
+<p>While you could go commando and just use your favorite text editor, I prefer an IDE. <a href="http://www.jetbrains.com/idea/">JetBrains IntelliJ IDEA</a> is free, can debug your plugin code and has all the nifty refactorings that have I come to expect from developing in C# with ReSharper.</p>
+
+<h2>Create an Empty Plugin</h2>
+
+<p>The SDK provides a command which scaffolds an empty plugin for each application. From the command line run the appropriate command for the application you are extending: e.g. <code>atlas-create-bamboo-plugin</code> or <code>atlas-create-stash-plugin</code>. The SDK will then ask you a series of questions:</p>
+
+<ul>
+<li><strong>groupId</strong>: Plugin namespace prefix, e.g. com.carolynvs</li>
+<li><strong>artifactId</strong>: Plugin name, e.g. trade_depot</li>
+<li><strong>version</strong>: Plugin Version, e.g. 1.0.SNAPSHOT. You may change this at any point by editing your pom.xml. I recommend accepting the default.</li>
+<li><strong>package</strong>: This should be groupId.artifactId, e.g. com.carolynvs.trade_depot</li>
+</ul>
+
+
+<p><aside>If you are unfamiliar with Maven and Java, check out <a href="http://maven.apache.org/guides/mini/guide-naming-conventions.html">Maven Naming Conventions</a> and <a href="http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html">Naming a Java Package</a>. The SDK will not validate what you enter and if it is not valid, your plugin won&rsquo;t compile and you will need to start over.</aside></p>
+
+<p>At this point you have a skeleton plugin with a sample plugin defined. I recommend committing this to source control before making any changes as it is in a deployable state and will help you identify where you went wrong if you run into problems after making customizations.</p>
+
+<p>Now let&rsquo;s verify that our plugin works and see it in action:</p>
+
+<ol>
+<li>Change into your newly created plugin directory.</li>
+<li>Execute <code>atlas-run</code> and wait until you see the following output from the command line &ldquo;[INFO] bamboo started successfully in 374s at <a href="http://localhost:6990/bamboo">http://localhost:6990/bamboo</a>&rdquo;.</li>
+<li>Open your web browser and go to the URL from step 1.</li>
+<li>Login using user: admin, password: admin.</li>
+<li>Go to the Addons view in the Administration area of the application. You should see entries for your plugin and your plugin&rsquo;s tests.</li>
+</ol>
+
+
+<p>Hurray! You now have an empty plugin with everything you need to start developing.</p>
+
+<p>Coming soon&hellip; Part 2: Anatomy of an Atlassian Plugin</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Migrating a large codebase to Git with Atlassian Stash]]></title>
+    <link href="http://carolynvs.github.io/blog/2014/02/migrating-from-svn-to-git/"/>
+    <updated>2014-02-13T00:00:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2014/02/migrating-from-svn-to-git</id>
+    <content type="html"><![CDATA[<p>This was originally a guest blog post on <a href="https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/">atlassian.com</a>.</p>
+
+<h2>Redefining what is possible</h2>
+
+<p>I work at a large software company which is heavily invested in Subversion. In my division alone, we have 3 repositories, each with 100+ projects. I don&rsquo;t even know how many repositories and projects we have across the company but it is enough that we have an entire team dedicated to managing our source control, CI and build infrastructure.</p>
+
+<p>The general thought on Git has been that while it may have won the &ldquo;DVCS Wars&rdquo;, we could never use it because:</p>
+
+<BLOCKQUOTE>
+<p>Everyone knows Subversion.</p>
+
+<p>All of our shared infrastructure relies on interacting with Subversion.</p>
+
+<p>It would be impossible to migrate all of our repositories to Git.</p>
+
+<p>Git is too hard for a &#8216;Joe SixPack&#8217; developer</p>
+
+<p><strong>&#8230; unthinkable!</strong></p>
+</BLOCKQUOTE>
+
+
+<p>I have been using Git for the past two years and while I must admit that I hated it at first (mostly because I tried to muddle my way through using my knowledge of Subversion), I am now a convert. I see a lot of value in the workflows that it opens up and if I ever have to manually resolve another Subversion tree conflict, someone is going to get hurt. :&ndash;) The idea of going back to using Subversion and giving up everything I had come to rely on was unthinkable. So I set off on a crazy journey to bring Git to my company.</p>
+
+<p><em>NOTE: At my company we simply call our Subversion projects &ldquo;repositories&rdquo;, ignoring that they are usually hosted together inside a Subversion repository. Each project, once imported into Git, is a separate repository so going forward, I will refer to them as repositories.</em></p>
+
+<h2>Git-SVN is not Git</h2>
+
+<p>My first thought was to use Git-SVN, mostly because Git-TFS had served me well in the past. It had added appeal because <a href="http://blogs.atlassian.com/2013/12/git-svn-tips-and-tricks/">no one had to know that I was using Git-SVN</a>. While this does work, it was frustrating on many levels. The main problem being that Git-SVN isn&rsquo;t really Git.</p>
+
+<p>On a superficial level, the commands are not the same. Instead of <code>git pull</code>, it is <code>git svn rebase</code>, <code>git push</code> is <code>git svn dcommit</code>, etc. Why is it <code>dcommit</code> instead of <code>commit</code>? The world may never know.</p>
+
+<p>If it had just been syntax differences, I would have stuck with it. However, as I tried to use Git-SVN with my normal workflow, I quickly realized that this &hellip; is &hellip; not &hellip; Git. For example, I had to worry about how I would merge master into my feature branch so that the last changeset on the branch had a Git-SVN reference to my target svn branch. Otherwise my next push (sorry, I mean <code>git svn dcommit</code>) intended for that feature branch could accidentally end up on trunk. Why? Because <a href="http://stackoverflow.com/questions/4168411/how-does-git-svn-know-which-branch-to-dcommit-to">Git-SVN does not track remotes in the same way as Git</a>. Instead Git-SVN relies on metadata injected into the commit messages, where it appends the path of the repository and the svn revision number.</p>
+
+<p>That said, I did use Git-SVN exclusively everyday for 2 months and its merge capabilities saved my bacon more than once. I do not mean to bash it unnecessarily, only to call out the troubles I ran into thinking that I could simply use Git-SVN just like Git.</p>
+
+<p>Eventually other developers at my company noticed that I was using Git and wanted to try it as well which was all part of my evil plan. However they quickly decided it wasn&rsquo;t worth the effort, as they would have to repeat the same work that I had just done to configure and import each repository into their own local Git-SVN repository: refining what history should be imported, crafting .gitignore and .gitattributes files, making coffee while importing our giant repositories, etc.</p>
+
+<h2>Removing the big bang from our migration</h2>
+
+<p>Whenever I would search for help with Git-SVN, I saw mentions of something called <a href="http://subgit.com">SubGit</a>. It initially appeared to be yet another git-to-svn importer but once I realized what SubGit <strong>really</strong> did, that was a turning point in my git crusade.</p>
+
+<p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use &ldquo;pure Git&rdquo; and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn&rsquo;t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible&hellip; because we already had!</p>
+
+<figure style="text-align:center">
+<img src="http://carolynvs.github.io/images/migrating-from-svn-to-git/subgit.png"/>
+<figcaption>Image courtesy of <a href="http://subgit.com">SubGit</a></figcaption>
+</figure>
+
+
+<p>I spent a few days testing out the best way to migrate our Subversion repositories to Git. For example, one repository is a 400MB Subversion checkout (excluding the .svn directory overhead). With over 14 years of history, if I had attempted to import the entire repository into Git, it would have taken weeks and been too large to clone easily. So I settled on only importing history from our last release, which took 14 hours to import and the resulting Git repository is a manageable 600MB. Honestly I have still not figured out what our long term strategy should be with respect to history, other than keeping the original Subversion repositories for any &ldquo;archaeological digs&rdquo; that may arise.</p>
+
+<p>Additionally, SubGit can do some interesting things like translating svn-ignore properties to <code>.gitignore</code> files, or creating a <code>.gitattributes</code> file for you. However this significantly increased import time, and long term I wanted to manage these settings independently in Git without them being synchronized back to Subversion properties so I disabled those features.</p>
+
+<p>Eventually I came up with a standard configuration for importing a repository, making the process pretty painless and repeatable. After I had road tested this for a few weeks, I was sure I had finally found a solution to our migration problem. We could stand up these Git mirrors and slowly migrate repositories, teams and infrastructure. The migration could take as long as it needed as neither Subversion nor Git were impacted by the presence of the other. In fact, we plan on migrating our repositories over the course of a year. This really took the pressure off of those in charge of the migration and will allow us to move at a pace that makes sense for our business.</p>
+
+<h2>Stash + SubGit go together like peas and carrots</h2>
+
+<p>The next step was selecting a Git server, as a bare Git repository only gets you so far and we needed security, web views of changesets, code reviews&hellip; basically everything that our current setup of VisualSVN, FishEye and Crucible provided. I was delighted to learn that <a href="https://www.atlassian.com/software/stash">Atlassian Stash</a> not only had the functionality of FishEye and Crucible baked-in, it also has a <a href="https://marketplace.atlassian.com/plugins/org.tmatesoft.subgit.stash-svn-importer">plugin for SubGit</a>. The plugin provides a simple UI for bootstrapping a new Git repository from a Subversion repository, handles the initial configuration and ensures that the SubGit synchronization service is always running. Stash has all the features of GitHub (which is what most of our developers were familiar with) plus some extras that in my opinion are must haves in an enterprise environment. There are lots useful plugins such as the Reject Force Push Hook or the <a href="https://marketplace.atlassian.com/plugins/com.risingoak.stash.plugins.stash-enforce-author-hook">Enforce Author Hook</a> which verifies that the Git author on every commit matches the authenticated user.</p>
+
+<p>Another concern was ensuring that people who were not yet using Git didn&rsquo;t see oddball commits from the Git side. I had a few developers who were working directly off of master and every time they pulled, it was creating merge commits that were being synched back to Subversion. Our policy was to use <code>git pull -- rebase</code> but whenever someone forgot, it would pollute the Subversion repository with empty commits and confusing messages like &ldquo;Merging master into origin/master&hellip;&rdquo;. In a single weekend, I was able to write a Stash plugin, <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">Reject Merge Commits Hook</a>, a pre-receive hook that identifies &ldquo;unnecessary&rdquo; merge commits and rejects the push. The plugin development experience was surprisingly easy, once I learned a bit of Java. Over time it will become more important that we can easily fill any gaps with a plugin and enforce our company policies without too much trouble.</p>
+
+<h2>SourceTree teaches old developers new tricks</h2>
+
+<p>We kicked off our migration with 10 developers from two teams, a handful of our most active repositories and I thought that the biggest obstacles to the great Git experiment were behind me. I could not have been more off-base! Due to my background with Linux, even though I am a Windows developer by day, I am pretty comfortable in a command line terminal. I didn&rsquo;t anticipate that my fellow developers would find the switch from TortoiseSVN to Git a confusing awkward mess.</p>
+
+<p>What everyone wanted was big friendly buttons that they could mentally map to what they were familiar with: <code>git pull</code> &rarr; <code>svn update</code>, <code>git commit &amp;&amp; git push</code> &rarr; <code>svn commit</code>, etc. Every Git Windows client that we tried was lacking in a critical area:</p>
+
+<ul>
+<li>Git for Visual Studio doesn&rsquo;t support blame and in general feels like they have shoehorned Git into the existing TFS interface</li>
+<li>Git Extensions is ugly and clunky</li>
+<li>TortiseGit is close but doesn&rsquo;t provide a view of the repository&rsquo;s overall state</li>
+<li>GitHub for Windows is so limited that it is a total non-starter</li>
+</ul>
+
+
+<p><em>What good were all my efforts to migrate us to Git if the developers rejected it as too complicated?</em></p>
+
+<p><a href="http://www.sourcetreeapp.com">Atlassian SourceTree</a> to the rescue! With few exceptions, a developer can do everything they need in a single UI. Not only that but it provides persistent visual clues as to the state of the repository. You can always see how many commits you are behind/ahead, the current branch, if you are in the middle of a rebase or merge, which files are staged or modified, and it even integrates nicely with our preferred diff tool, Beyond Compare.</p>
+
+<p>Unfortunately, there are still some missing features that will hold up our rollout until they are implemented in the Windows client. Mainly the lack of a <a href="https://jira.atlassian.com/browse/SRCTREEWIN-391">tree view of the file hierarchy</a> and interactive rebase support.</p>
+
+<h2>Git is the new normal</h2>
+
+<p>All of this could not have come at a more opportune time for us. We have just embarked on an enormous effort which involves forking some of our repositories while pulling in the new features that are still being developed on the original repositories into our rapidly diverging fork. This would have been impossible with Subversion, a merge nightmare filled with tree-conflicts and regret. With Git, we are merging two months worth of features without blinking an eye.</p>
+
+<p>Instead of wasting time coordinating &ldquo;who&rsquo;s working where&rdquo; across teams and forks, we are charging forward and people are already taking for granted all of their new found freedom. Previously we would delay any refactoring efforts until our &ldquo;bug fix&rdquo; sprint when it was less likely to cause merge problems. Now developers can refactor without fear, when it makes the most sense, during feature development.</p>
+
+<h2>Mission Accomplished!</h2>
+
+<p>I am still working on changing developer workflows now that we aren&rsquo;t forced to all work on trunk. Encouraging the use of feature branches, so developers can commit and push regularly, instead of sitting on local changes because the feature isn&rsquo;t ready to be integrated. I knew we were finally getting the hang of things when one of the developers who had struggled the most with learning Git confided to me that he hated it when he had to work on a repository that wasn&rsquo;t yet mirrored in Git.</p>
+
+<p>Now here I am, ramping up teams on Git as quickly as I can. Did I mention that this whole Git migration is not my day job? Always a sucker for punishment, I have already switched my sights to pushing for our CI builds to do more: building feature branches,  requiring good builds before a pull request can be accepted, automatically merging bug fixes into master, triggering deployments to various environments. Obviously it would be silly to take a moment, sit back and appreciate all that we have accomplished in a few short months. Right?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Setting up Jenkins on Windows Azure]]></title>
+    <link href="http://carolynvs.github.io/blog/2013/02/setting-up-jenkins-on-azure/"/>
+    <updated>2013-02-02T00:00:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2013/02/setting-up-jenkins-on-azure</id>
+    <content type="html"><![CDATA[<p>I have used a few different continuous integration (ci) servers before and really like Jenkins. So when running my suite of unit and integration tests started taking more than a minute, it was time for a ci server, specifically Jenkins. Originally I installed Jenkins on my dev machine but it required annoying config tweaks to not interfere with my existing IIS configuration and really needed a home of its own. Since I have been happily hosting my website on Windows Azure and an extra-small node is only $9/month&#8230; it seemed like a better option than scrounging up physical hardware.</p>
+
+
+
+
+<p>Since I ran into a few unexpected difficulties, like getting mercurial+ssh+jenkins to play nice, here is the full rundown on how I setup my ci server. I know it seems like a lot of steps but I was able to set this up in less than 2 hours. Plus having a CI server is well worth the time investment!</p>
+
+
+
+
+<h2>Provisioning an Azure Virtual Machine</h2>
+
+
+<ol>
+    <li>Create a VM from the gallery, making sure to select the latest platform image. For some reason MS still has old images up with RC builds and other cruft.</li>
+    <li>Once your VM is ready, click on the VM and select &#8220;Connect&#8221;, save the RDP file to your drive so that you can easily connect later.</li>
+    <li>Right click on the RDP file and select &#8220;Edit&#8230;&#8221;, then in the Remote Desktop settings uncheck &#8220;Always as for credentials&#8221; if you want to be able to save them. Otherwise, even if you check &#8220;Remember&#8221; when entering your password later, it will continue to prompt you for your password.</li>
+    <li>Back in the Azure management portal, go to your VM&#8217;s Endpoints and add a new endpoint for Jenkins, on TCP port 8080. This will allow you to connect to Jenkins remotely, e.g. mybuildserver.cloudapp.net:8080.<br/><img src="http://carolynvs.github.io/blog/images/azure_vm_jenkins_endpoint.png" alt="Configure your endpoint to use TCP port 8080"/></li>
+</ol>
+
+
+
+
+<h2>Virtual Machine Housekeeping</h2>
+
+
+<p>Next we need to prep the VM a bit before we can install Jenkins as the VM is pretty bare-bones by default.</p>
+
+
+<ol>
+    <li>Disable Internet Explorer Enhanced Security for administrators so that you can use IE without throwing a chair. You can find it in the properties for your Local Server in Server Manager.<br/><img src="http://carolynvs.github.io/blog/images/disable_ie_enhanced_security.png" alt="Turn off IE Enhanced Security Configuration in Server Manager"/></li>
+    <li>Proceed to download your browser of choice and then our prerequisites:
+        <ul>
+            <li><a href="http://mercurial.selenic.com/downloads/">Mercurial</a> (you must use x86 in order to work with Jenkins)</li>
+            <li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY and Plink (x86)</a></li>
+            <li><a href="http://jenkins-ci.org/content/thank-you-downloading-windows-installer">Jenkins</a> (beware of v1.500 which has a bug related to windows plug-ins, go for v1.499 or the latest version)</li>
+        </ul>
+    </li>
+    <li>Since my application is a web app, I installed IIS with IIS Management Console. Server Manager &raquo; Local Server &raquo; Roles and Features &raquo; Tasks &raquo; Add Roles and Features.<br/><img src="http://carolynvs.github.io/blog/images/enable_iis_with_mgmt.png" alt="Add Roles and Features Wizard - Select IIS and IIS Management Console."/></li>
+    <li>Jenkins requires .NET 3.5 which is not installed by default and .NET 4.5 will not cut it. The Jenkins installer will fail because the service will be unable to start if you forget this step.<br/><img src="http://carolynvs.github.io/blog/images/enable_net3_5.png" alt="Add Roles and Features Wizard - Select .NET Framework 3.5 Features"/></li>
+</ol>
+
+
+
+
+<h2>Configure Mercurial (Hg) with SSH</h2>
+
+
+<p>My source code is on BitBucket, more specifically Mercurial. I ran into trouble using SSH when Jenkins would clone my repository and hang. The problem is that when Jenkins is running as a windows service, it will not be able to accept the host&#8217;s ssh keys and hangs waiting for user input. The workaround is to connect once using the console, and then copy the keys from your user to the default windows service user in the registry. If you are using SSH and git, I believe a similar situation can occur.</p>
+
+
+<ol>
+    <li>Install mercurial.</li>
+    <li>Copy the putty and plink executables to C:\Program Files (x86)\Putty.</li>
+    <li>Copy your ppk (putty private key) to your VM. This is the key you will use to clone your mercurial repository. As a side note, you may want to use a <a href="https://confluence.atlassian.com/display/BITBUCKET/Using+Deployment+Keys">BitBucket Deployment Key</a>.</li>
+    <li>Open a command window and run &#8220;C:\Program Files (x86)\Putty\putty&#8221; bitbucket.org . When prompted, press Y (yes) to accept the bitbucket SSH host keys.</li>
+    <li>Open regedit and navigate to the ssh keys you just accepted. Right click on SshHostKeys and export.<br/> <img src="http://carolynvs.github.io/blog/images/regedit_export_bitbucket_ssh_keys.png" alt="Regedit - Export HKCU/Software/SimonTatham/PuTTY"/>SshHostKeys></li>
+    <li>Now right click on the exported .reg file and select &#8220;Edit&#8221;. Change HKEY_CURRENT_USER to HKEY_USERS&#46;DEFAULT . Save and import the registry key by double clicking on it.<br/>
+<pre><code>Windows Registry Editor Version 5.00
+
+[HKEY_USERS\.DEFAULT\Software\SimonTatham\PuTTY\SshHostKeys]
+"rsa2@22:bitbucket.org"="0x23,0xb9b88df3578371a7eb80c78bcda14fb30da436f11ca932a5fd5a8b6adfcc681df7a59cb4cb7ac966d9eac11daa38ebdbc0a6582a210ed4ee95a8d101c4abc925e942ab47535d64f9a5b3b68035c2ea1e900d709a1e8ea938718f532f9805a190446b92bac3040126225ae9d8374bc2008f106979d631734c7453f78c70091f4783b288869cb3c1941a784cd9baad823be27333833dc1f488a45b85952be75cf0a64965662302e3915378dcd5cfcd3ec903d804a29dff2fdf19df5deba4534b09e4dea6e44f152e339b3c43be98ddadfc56533192e216a3d673f00b4aa9cc9e7870acd8b6adb7e0feb77f2292fc2dede94819def3eb1e785541a06ab31ccf725f"
+</code></pre>
+        <img src="http://carolynvs.github.io/blog/images/edit_bitbucket_registry_key.png" alt="Notepad - Change HKEY_CURRENT_USER to HKEY_USERS\.DEFAULT"/></li>
+    <li>Create a new file, mercurial.ini, in your Mercurial installation directory, e.g. C:\Program Files (x86)\Mercurial. Add the following section so that when mercurial connects via ssh it uses plink and our SSH key.<br/>
+<pre><code>[ui]
+ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\deployment_key.ppk"</code></pre>
+        <img src="http://carolynvs.github.io/blog/images/edit_mercurial_ini.png" alt="Notepad - mercurial.ini"/></li>
+</ol>
+
+
+
+
+<h2>Running Jenkins as a Windows Service</h2>
+
+
+<p>Onto the easy part! I kind of lied a bit when I hinted that getting Jenkins to run on Azure was the difficult part. Actually the hardest part was getting mercurial to work with SSH when running under the user account of the Jenkins windows server. So now that you have that working the rest is easy sailing!</p>
+
+
+<ol>
+    <li>Install Jenkins. This is automatically create a Jenkins windows service, start it and open a browser to the Jenkins page (http://localhost:8080).</li>
+    <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Securing+Jenkins">Secure Jenkins</a>.</li>
+    <li>Install the mercurial plug-in.</li>
+    <li>Create a job that checks out your repository. Run it and verify that mercurial doesn&#8217;t hang.</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using both HTTP and HTTPS in ASP.NET MVC]]></title>
+    <link href="http://carolynvs.github.io/blog/2013/01/mixing-http-https-in-mvc/"/>
+    <updated>2013-01-17T00:00:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2013/01/mixing-http-https-in-mvc</id>
+    <content type="html"><![CDATA[<p>I recently added a secured payment page to my MVC site using the <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute%28v=vs.108%29.aspx">RequireHttps</a> attribute and quickly noticed that once the user went to the page, all other pages were now being served up via https as well. I prefer to only use https when necessary and wanted the user to be redirected back to http for any pages that didn&#8217;t require https.</p>
+
+
+
+
+<p>Below is the code for my RequireHttp attribute. It can be placed on either a controller or action and will redirect from https to http when necessary.</p>
+
+
+
+
+<script src="https://gist.github.com/4558181.js"></script>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Unit testing your ASP.NET Web API routes]]></title>
+    <link href="http://carolynvs.github.io/blog/2013/01/webapi-route-testing/"/>
+    <updated>2013-01-06T00:00:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2013/01/webapi-route-testing</id>
+    <content type="html"><![CDATA[<p>When your API is purely RESTful, your routes are pretty simple and there isn&#8217;t much need to test. But if you are like me and decided to <a href="webapi_mixed_rest_rpc_routing.html">mix RPC and RESTful style methods on the same controller</a>, then some tests are in order.</p>
+
+
+
+
+<p><p>I had been using the RouteTestingExtensions from <a href="http://mvccontrib.codeplex.com/">MvcContrib</a> to test my MVC routes. It allows you to assert that a URL was routed to the expected controller and action. I modified it to work with Web API routes and contributed it to the sister project, <a href="http://github.com/WebApiContrib/WebAPIContrib">WebApiContrib</a>. The package, <a href="http://nuget.org/packages/WebApiContrib.Testing">WebApiContrib.Testing</a> is available via NuGet.</p>
+
+<p><p>Below is an example of how to use this extension method to validate your url:</p>
+<script src="https://gist.github.com/4471039.js"></script></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mixing REST and RPC style methods on an ASP.NET Web API Controller]]></title>
+    <link href="http://carolynvs.github.io/blog/2013/01/webapi-mixed-rest-rpc-routing/"/>
+    <updated>2013-01-03T00:00:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2013/01/webapi-mixed-rest-rpc-routing</id>
+    <content type="html"><![CDATA[<p>I wanted to have an API controller that had the normal RESTful actions (Get/Put/Post/Delete) and also some RPC style actions. This used to work in the MVC 4 Beta but now in RTM I would get the following error <i>&#8220;Multiple actions were found that match the request: Get() on type CarController and Blue() on type CarController&#8221;</i>.</p>
+
+
+
+
+<p>While I can understand that Microsoft is trying to encourage RESTful web services, it doesn&#8217;t seem too farfetched to want simple filter methods on top of a normally RESTful controller. Since I didn&#8217;t want to split my RPC style actions into a separate controller&#8230; a workaround had to be found! There is an <a href="http://aspnetwebstack.codeplex.com/workitem/184">open work item</a> that may eventually make it back into the next release. In the meantime I found this <a href="http://stackoverflow.com/a/11253940/808818">StackOverflow answer</a> and modified to get it working for the following routes:</p>
+
+
+
+
+<ul>
+    <li><b>/api/car</b> (GET all cars)</li>
+    <li><b>/api/car/blue</b> (GET all blue cars)</li>
+    <li><b>/api/car/15</b> (GET/POST/DELETE a specific car)</li>
+</ul>
+
+
+
+
+<p>Here is a sample RouteConfig that will allow you to mix REST style actions with RPC style actions on the same controller.</p>
+
+
+<script src="https://gist.github.com/4444243.js"></script>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Knockout Observables]]></title>
+    <link href="http://carolynvs.github.io/blog/2012/12/knockout-observables/"/>
+    <updated>2012-12-11T00:00:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2012/12/knockout-observables</id>
+    <content type="html"><![CDATA[<p>I sometimes run into a bug where can&#8217;t figure out why Knockout is changing the value of my variables. After digging around, it always is caused by me passing an object in the constructor when newing up an observable or changing its value. When setting the value of an observable or observableArray, remember that if you pass it an array, date or object, when your observable is changed, the value of your variable will also be changed.</p>
+
+
+
+
+<p>If you don&#8217;t want that to happen, pass a copy of your variable.</p>
+
+
+
+
+<script src="https://gist.github.com/4264028.js"></script>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Generic Methods in Entity Framework Queries]]></title>
+    <link href="http://carolynvs.github.io/blog/2012/12/entity-framework-generic-methods/"/>
+    <updated>2012-12-10T00:00:00-06:00</updated>
+    <id>http://carolynvs.github.io/blog/2012/12/entity-framework-generic-methods</id>
+    <content type="html"><![CDATA[<p>Many of my models have a common property that I wanted to use in Entity Framework queries. After creating a generic method to encapsulate the filter logic, everything compiled but at runtime I ran into the following error:</p>
+
+
+<p style="font-style: italic">
+    Unable to cast the type &#8216;FooBar&#8217; to type &#8216;IFooBar&#8217;. LINQ to Entities only supports casting EDM primitive or enumeration types.
+</p>
+
+
+<p>Thanks to <a href="http://stackoverflow.com/questions/13700505/where-is-the-cast-here-linq-to-entities-only-supports-casting-entity-data-model">this StackOverflow post</a>, I found the solution. When specifying the constraints on your generic parameter, include &#8220;class&#8221; as the first constraint. Success!</p>
+
+
+
+
+<script src="https://gist.github.com/4255487.js?file=EntityFrameworkGenericMethod.cs"></script>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Unit Testing ASP.NET MVC Bundles]]></title>
+    <link href="http://carolynvs.github.io/blog/2012/10/unit-testing-mvc-bundles/"/>
+    <updated>2012-10-26T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2012/10/unit-testing-mvc-bundles</id>
+    <content type="html"><![CDATA[<p>In order to unit test your bundles you must assign <b>BundleTable.MapPathMethod</b> to a function which mocks mapping from the bundle item&#8217;s virtual path to the physical path of the file. I created a simple method (see MapBundleItemPath below) that uses a hard-coded string to find the root physical path of the MVC project. If your tests are run on multiple environments, you should replace the implementation to dynamically discover the project&#8217;s path.</p>
+
+
+
+
+<p>There is one &#8220;catchall&#8221; test which validates that all bundles registered in my BundleTable have at least one file. This is helpful because it will catch major problems with any registered bundle, even if you didn&#8217;t explicitly write a test for the bundle.</p>
+
+
+
+
+<p>I prefer to also have a test per bundle because when a bundle item virtual path doesn&#8217;t resolve to a valid physical file, the bundle silently ignores the error. This means that when you move a file, you can easily break a bundle and not realize it until you are testing your application in the web browser.</p>
+
+
+
+
+<script src="https://gist.github.com/3961521.js?file=BundleConfigFixture.cs"></script>
+
+
+
+
+<h4>Caveats</h4>
+
+
+<p>I am not testing the dependency order of my files and am assuming that I don&#8217;t have duplicate file names in a bundle (e.g. path1/common.js and path2/common.js in the same bundle). You may want to tweak how you validate the contents of your bundles if you have to deal with more complex scenarios.</p>
+
+
+
+
+<h2>Best Practice</h2>
+
+
+<p>While not necessary to unit test your bundles, I recommend creating a static class containing all of your bundles so that you can safely reference them in your views without using hard-coded strings. </p>
+
+
+<script src="https://gist.github.com/3961521.js?file=Bundles.cs"></script>
+
+
+<script src="https://gist.github.com/3961521.js?file=BundleConfig.cs"></script>
+
+
+<script src="https://gist.github.com/3961521.js?file=_Layout.cshtml"></script>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to get compile-time checking of ASP.NET MVC views]]></title>
+    <link href="http://carolynvs.github.io/blog/2012/09/compile-time-support-for-mvc-views/"/>
+    <updated>2012-09-07T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2012/09/compile-time-support-for-mvc-views</id>
+    <content type="html"><![CDATA[<h2>The Backstory</h2>
+
+
+<p>
+    When I first got started with ASP.NET MVC, I immediately noticed that my views were not checked for errors at compile time.
+    The thought of random runtime errors in my views was unacceptable! A bit of searching turned up the BuildMvcViews project
+    flag. Simply unload your MVC project, open the csproj file and switch BuildMvcViews to true. Reload your project and
+    now you views will have a test compilation performed during each build. If life were that simple, I wouldn&#8217;t be writing about it&#8230;
+</p>
+
+
+<p>
+    After a while, I noticed that my build times were terribly slow, about 30 seconds for a small, 4 project solution.
+    After turning on detailed build output, I saw that the BuilMvcViews task was taking 24 seconds!
+</p>
+
+
+<p>
+    I then stumbled upon Razor Generator. It is a VS extension + nuget package that compiles your views to code when you save and
+    instructs ASP.NET to use the precompiled view instead of dynamically building one from the cshtml at runtime. Now all of my views
+    were compiled to code which seemed quite nice. The build was lightning fast again and I had my compile-time support. It will even
+    check if your view has been updated since being compiled and optionally serve up the new dynamic view. That is incredibly helpful as
+    it allows you to edit the view while debugging and without rebuilding.
+</p>
+
+
+
+
+<h2>The Solution</h2>
+
+
+<ol>
+    <li>Install the <a href="http://razorgenerator.codeplex.com/">Razor Generator</a> Visual Studio extension</li>
+    <li>Install the RazorGenerator.Mvc nuget package to your MVC project.</li>
+    <li>Convert all your views to use the RazorGenerator. Use the Package Manager Console command
+        &#8220;Enable-RazorGenerator&#8221; to set the CustomTool to &#8220;RazorGenerator&#8221; for every view in your project.</li>
+    <li>Note that the RazorGenerator.Mvc package added a new file to your App_Start folder, RazorGeneratorMvcStart. This class
+        instructs ASP.NET to use the precompiled views unless the cshtml file is has been changed. In production this flag will be
+        false (since the requests aren&#8217;t local) so you won&#8217;t have a performance hit doing file timestamp comparisons.
+    </li>
+</ol>
+
+
+
+
+<p>
+    If motivated, one could change their production deployment to exclude the cshtml files, since the views are compiled into your assemblies. That would keep the deployment small and slightly improve performance since all the views are precompiled.
+</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[When should I implement GetHashCode, Equals, IEquatable and IComparable?]]></title>
+    <link href="http://carolynvs.github.io/blog/2012/09/when-to-implement-equality/"/>
+    <updated>2012-09-04T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2012/09/when-to-implement-equality</id>
+    <content type="html"><![CDATA[<ul style="list-style-type: none">
+    <li><strong>GetHashCode and Equals</strong>
+        <p>I am implementing another equality or comparison interface, I want LINQ set operations to work (e.g. Union, Intersect, Except)
+            or will be using Object.Equals. When I implement anything equality related, this is the first task. I always override GetHashCode
+            and Equals together, never just one or the other.</p></li>
+    <li><strong>Equality Operators</strong>
+        <p>I am using the equals (==) or not equals (!=) operators on my objects and I want to compare equality, not references.</p>
+    </li>
+    <li><strong>IEquatable&lt;T&gt;</strong>
+        <p>I am using my object in a List&lt;T&gt; or Dictionary&lt;T&gt; so that Contains, IndexOf, Remove, etc works.</p>
+    </li>
+    <li><strong>IComparable</strong>
+        <p>I need to sort my objects, either manually or via List.Sort or LINQ&#8217;s OrderBy. I prefer to implement the generic IComparable&lt;T&gt;
+            interface over plain old IComparable.</p>
+    </li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Working with DateTime in ASP.NET Web API]]></title>
+    <link href="http://carolynvs.github.io/blog/2012/08/webapi-datetime/"/>
+    <updated>2012-08-13T00:00:00-05:00</updated>
+    <id>http://carolynvs.github.io/blog/2012/08/webapi-datetime</id>
+    <content type="html"><![CDATA[<p>I was writing a website that tracked and displayed timestamps, and I only cared about what the time was on the client&#8217;s machine. 
+    The server or database time was irrelevant. This seemed easy, just generate the timestamps on the client and I was all set, right? Wrong!</p>
+
+
+
+
+<h3>Client: JavaScript</h3>
+
+
+<p>I was first convinced by old StackOverflow answers to use a Date utility instead of the built in Date constructor in JavaScript. 
+    That was completely unnecessary since I was working with <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> dates 
+    which are now supported in all the major browsers. Most of my parsing errors went away when I moved to simply calling 
+    new Date(&#8216;2012-08-13T22:57:24.716Z&#8217;). I also made sure when sending timestamps in my requests to call 
+    <a href="http://www.w3schools.com/jsref/jsref_toisostring.asp">toISOString()</a> on the date object first. Now I am always 
+    sending UTC dates to my sever, instead of local dates.</p>
+
+
+
+
+<h3>Server: Web API</h3>
+
+
+<p>I&#8217;m using ASP.NET Web API RC (which comes with MVC 4). I found that when the timestamps were passed into my actions, the UTC 
+    date had been helpfully converted into a DateTime which was in my server&#8217;s local time. Gee, thanks&#8230; 
+    Note to self, call <a href="http://msdn.microsoft.com/en-us/library/system.datetime.touniversaltime.aspx">ToUniversalTime()</a>
+    on my incoming DateTime objects. I also made sure that I was never using DateTime.Now and instead used DateTime.UtcNow 
+    if I needed to generate a timestamp on the server.</p>
+
+
+
+
+<h3>Database: Entity Framework</h3>
+
+
+<p>So I was saving my UTC DateTime values in SQL Server successfully but when reading the values out (using Entity Framework code first), 
+    the DateTime&#8217;s were no longer UTC and instead were coming out with a DateTimeKind of Unspecified, which when serialized to JSON and 
+    sent back to the client is treated as a local time. To fix this, you can simply call 
+    <a href="http://msdn.microsoft.com/en-us/library/system.datetime.specifykind.aspx">DateTime.SpecifyKind</a>(timestamp, DateTimeKind.Utc) 
+    for any timestamps read from the database.</p>
+
+
+
+
+<p><p>Since my model had timestamps everywhere, I simplified things by forcing all my timestamps to be read from and written to the database as
+UTC in a single location. To do this I modified my DbContext to identify any DateTime properties on the model and set the DateTime to UTC
+if the DateTimeKind is Local or Unspecified.
+<script src="https://gist.github.com/3344800.js?file=AutoConvertToUtcDataContext.cs"></script></p>
+
+<p><p>Here&rsquo;s a generic converter that I&rsquo;m using in my DbContext to handle the UTC conversions. It can identify a DateTime?
+or DateTime property on your model, caches the reflected type information and automatically converts all DateTime properties to UTC.</p>
+<script src="https://gist.github.com/3344800.js?file=Carolynvs.UtcDateTimeConverter.cs"></script></p>
+
+<p><p>I am makings use of 2 extension methods on the Object type, Get and Set which allows me to dynamically get and set values on my model.</p>
+<script src="https://gist.github.com/3344755.js?file=Carolynvs.ObjectExtensions.cs"></script></p>
+]]></content>
+  </entry>
+  
+</feed>
