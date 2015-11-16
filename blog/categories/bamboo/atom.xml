@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: bamboo | Carolyn Van Slyck]]></title>
-  <link href="http://carolynvs.github.io/blog/categories/bamboo/atom.xml" rel="self"/>
-  <link href="http://carolynvs.github.io/"/>
-  <updated>2015-08-30T22:54:13-05:00</updated>
-  <id>http://carolynvs.github.io/</id>
+  <link href="http://www.carolynvanslyck.com/blog/categories/bamboo/atom.xml" rel="self"/>
+  <link href="http://www.carolynvanslyck.com/"/>
+  <updated>2015-11-16T12:53:18-06:00</updated>
+  <id>http://www.carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A Better Force Clean Checkout in Bamboo]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/05/bamboo-force-clean-checkout/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/05/bamboo-force-clean-checkout/"/>
     <updated>2015-05-07T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/05/bamboo-force-clean-checkout</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/05/bamboo-force-clean-checkout</id>
     <content type="html"><![CDATA[<p>Recently, I was asked for help to alter one of our builds to &ldquo;run dirty&rdquo;. They use npm and were incurring a significant cost by starting with a fresh checkout on every build. By leaving the node_modules diretory around between builds, it would shave 4 minutes off the build time.</p>
 
 <p>While I could have simply unchecked &ldquo;Force Clean Checkout&rdquo; on our Source Code Checkout task in Bamboo, that would have made dealing with the occasional need to do a clean build a bit awkward. In order to do a clean build, someone would have to:</p>
@@ -63,10 +63,10 @@ Since <a href="/blog/2015/03/gitversion-for-bamboo/">some of my builds rely upon
   
   <entry>
     <title type="html"><![CDATA[GitVersion for Bamboo]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/"/>
     <updated>2015-03-06T06:42:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo</id>
-    <content type="html"><![CDATA[<p><img src="http://carolynvs.github.io/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+    <id>http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo</id>
+    <content type="html"><![CDATA[<p><img src="http://www.carolynvanslyck.com/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
 
 <p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: stash | Carolyn Van Slyck]]></title>
-  <link href="http://carolynvs.github.io/blog/categories/stash/atom.xml" rel="self"/>
-  <link href="http://carolynvs.github.io/"/>
-  <updated>2015-08-30T22:54:13-05:00</updated>
-  <id>http://carolynvs.github.io/</id>
+  <link href="http://www.carolynvanslyck.com/blog/categories/stash/atom.xml" rel="self"/>
+  <link href="http://www.carolynvanslyck.com/"/>
+  <updated>2015-11-16T12:53:18-06:00</updated>
+  <id>http://www.carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Right Hook!]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/03/right-hook/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/03/right-hook/"/>
     <updated>2015-03-27T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/03/right-hook</id>
-    <content type="html"><![CDATA[<p><img src="http://carolynvs.github.io/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
+    <id>http://www.carolynvanslyck.com/blog/2015/03/right-hook</id>
+    <content type="html"><![CDATA[<p><img src="http://www.carolynvanslyck.com/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
 
 <p>I was recently invited to join Atlassian Allstars program, which I would love to link to but they don&rsquo;t appear to have a public page so&hellip; oops maybe I wasn&rsquo;t supposed to let anyone know about it. <em>First rule of Atlassian Allstars is you don&rsquo;t talk about Atlassian Allstars!</em> In my ongoing quest to earn enough achievment points to be a part of the <span style="text-decoration: line-through">Atlassian Justice League</span> Atlassian Customer Advisory panel&hellip; I took on the <a href="https://developer.atlassian.com/blog/2015/01/beer-o-clock-stash-plugin-tutorial/">Stash: Beer-o-Clock challenge</a>.</p>
 
@@ -27,7 +27,7 @@
 <blockquote class="twitter-tweet tw-align-center" lang="en"><p>I just built an <a href="https://twitter.com/Atlassian">@atlassian</a> <a href="https://twitter.com/hashtag/stash?src=hash">#stash</a> hook that quotes Chuck Norris with every push: Right Hook <a href="http://t.co/pIxN4mHarn">http://t.co/pIxN4mHarn</a> <a href="http://t.co/2YAj749CkE">http://t.co/2YAj749CkE</a></p>&mdash; Carolyn Van Slyck (@carolynvs) <a href="https://twitter.com/carolynvs/status/581064247330779137">March 26, 2015</a></blockquote>
 
 
-<script async src="http://carolynvs.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="http://www.carolynvanslyck.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 <p>Who would have guessed that would become my most popular tweet to date? Other than Chuck Norris that is. :&ndash;) So by popular demand I give you&hellip; <strong><a href="/projects/right-hook/">Right Hook!</a></strong> Install, enjoy and feel free to fork and use for your own evil purposes.</p>
@@ -36,9 +36,9 @@
   
   <entry>
     <title type="html"><![CDATA[Migrating a large codebase to Git with Atlassian Stash]]></title>
-    <link href="http://carolynvs.github.io/blog/2014/02/migrating-from-svn-to-git/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git/"/>
     <updated>2014-02-13T00:00:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2014/02/migrating-from-svn-to-git</id>
+    <id>http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git</id>
     <content type="html"><![CDATA[<p>This was originally a guest blog post on <a href="https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/">atlassian.com</a>.</p>
 
 <h2>Redefining what is possible</h2>
@@ -83,7 +83,7 @@
 <p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use &ldquo;pure Git&rdquo; and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn&rsquo;t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible&hellip; because we already had!</p>
 
 <p><figure style="text-align:center">
-<img src="http://carolynvs.github.io/images/migrating-from-svn-to-git/subgit.png"/>
+<img src="http://www.carolynvanslyck.com/images/migrating-from-svn-to-git/subgit.png"/>
 <figcaption>Image courtesy of <a href="http://subgit.com">SubGit</a></figcaption>
 </figure></p>
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: git | Carolyn Van Slyck]]></title>
-  <link href="http://carolynvs.github.io/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://carolynvs.github.io/"/>
-  <updated>2015-08-30T22:54:13-05:00</updated>
-  <id>http://carolynvs.github.io/</id>
+  <link href="http://www.carolynvanslyck.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://www.carolynvanslyck.com/"/>
+  <updated>2015-11-16T12:53:18-06:00</updated>
+  <id>http://www.carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[GitVersion for Bamboo]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/"/>
     <updated>2015-03-06T06:42:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo</id>
-    <content type="html"><![CDATA[<p><img src="http://carolynvs.github.io/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+    <id>http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo</id>
+    <content type="html"><![CDATA[<p><img src="http://www.carolynvanslyck.com/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
 
 <p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
 
@@ -61,9 +61,9 @@
   
   <entry>
     <title type="html"><![CDATA[Migrating a large codebase to Git with Atlassian Stash]]></title>
-    <link href="http://carolynvs.github.io/blog/2014/02/migrating-from-svn-to-git/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git/"/>
     <updated>2014-02-13T00:00:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2014/02/migrating-from-svn-to-git</id>
+    <id>http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git</id>
     <content type="html"><![CDATA[<p>This was originally a guest blog post on <a href="https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/">atlassian.com</a>.</p>
 
 <h2>Redefining what is possible</h2>
@@ -108,7 +108,7 @@
 <p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use &ldquo;pure Git&rdquo; and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn&rsquo;t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible&hellip; because we already had!</p>
 
 <p><figure style="text-align:center">
-<img src="http://carolynvs.github.io/images/migrating-from-svn-to-git/subgit.png"/>
+<img src="http://www.carolynvanslyck.com/images/migrating-from-svn-to-git/subgit.png"/>
 <figcaption>Image courtesy of <a href="http://subgit.com">SubGit</a></figcaption>
 </figure></p>
 

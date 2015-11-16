@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Carolyn Van Slyck]]></title>
-  <link href="http://carolynvs.github.io/atom.xml" rel="self"/>
-  <link href="http://carolynvs.github.io/"/>
-  <updated>2015-08-30T22:54:13-05:00</updated>
-  <id>http://carolynvs.github.io/</id>
+  <link href="http://www.carolynvanslyck.com/atom.xml" rel="self"/>
+  <link href="http://www.carolynvanslyck.com/"/>
+  <updated>2015-11-16T12:53:18-06:00</updated>
+  <id>http://www.carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[DevOps Days Chicago 2015]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/08/devops-days-chicago-2015/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/08/devops-days-chicago-2015/"/>
     <updated>2015-08-27T19:56:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/08/devops-days-chicago-2015</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/08/devops-days-chicago-2015</id>
     <content type="html"><![CDATA[<p>I just attended <a href="http://www.devopsdays.org/events/2015-chicago/">DevOps Days Chicago 2015</a> and <strong>loved</strong> it. My usual MO for a conferences is to go with friends and keep to myself. So I was quite surprised that I came away having met dozens of people and bubbling with excitement about the experience.</p>
 
 <p>DevOps Days is a two day event with presentations in the morning, followed by ignite or lightning talks, and then the rest of the day is dedicated to open spaces. I had never heard of open spaces and honestly my gut reaction was that it sounded like something that I would <em>hate</em>. Unstructured social interactions with strangers? <em>Eek!</em> I could not have been more wrong and this turned out to be my favorite part of the conference.</p>
@@ -46,9 +46,9 @@
   
   <entry>
     <title type="html"><![CDATA[Paket: A More Capable Dependency Manager]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/08/paket-dependency-manager/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/08/paket-dependency-manager/"/>
     <updated>2015-08-15T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/08/paket-dependency-manager</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/08/paket-dependency-manager</id>
     <content type="html"><![CDATA[<p>Some days I feel like a NuGet apologist. I hear myself saying &ldquo;just wait until NuGet 3, then X will be easy&rdquo;
 and then once it comes out, they still missed the mark. Maybe I&rsquo;m just crazy and am using NuGet wrong,
 architecting things ass-backward&hellip; but rather than continue fighting with NuGet as it stands today, I&rsquo;ve switched to Paket.</p>
@@ -134,9 +134,9 @@ gave it a go, and it just freaking worked the first time, I laughed and cried at
   
   <entry>
     <title type="html"><![CDATA[A Better Force Clean Checkout in Bamboo]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/05/bamboo-force-clean-checkout/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/05/bamboo-force-clean-checkout/"/>
     <updated>2015-05-07T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/05/bamboo-force-clean-checkout</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/05/bamboo-force-clean-checkout</id>
     <content type="html"><![CDATA[<p>Recently, I was asked for help to alter one of our builds to &ldquo;run dirty&rdquo;. They use npm and were incurring a significant cost by starting with a fresh checkout on every build. By leaving the node_modules diretory around between builds, it would shave 4 minutes off the build time.</p>
 
 <p>While I could have simply unchecked &ldquo;Force Clean Checkout&rdquo; on our Source Code Checkout task in Bamboo, that would have made dealing with the occasional need to do a clean build a bit awkward. In order to do a clean build, someone would have to:</p>
@@ -160,32 +160,32 @@ Actually I never use the &ldquo;Force Clean Checkout&rdquo; option because what 
 <ol>
 <li><p>Add a plan variable, force_clean, with a value of false.</p>
 
-<p><img src="http://carolynvs.github.io/images/bamboo-force-clean-checkout/force-clean-variable.png" alt="image" /></p></li>
+<p><img src="http://www.carolynvanslyck.com/images/bamboo-force-clean-checkout/force-clean-variable.png" alt="image" /></p></li>
 <li><p>Add a Script task before the Source Code Checkout task.
 In it, check if force_clean = true, then clean the working directory.</p>
 
-<p><img src="http://carolynvs.github.io/images/bamboo-force-clean-checkout/force-clean-task.png" alt="image" /></p></li>
+<p><img src="http://www.carolynvanslyck.com/images/bamboo-force-clean-checkout/force-clean-task.png" alt="image" /></p></li>
 <li><p>Now to force a clean build, use &ldquo;Run Customized&hellip;&rdquo; and override force_clean to true! Simple.</p>
 
-<p><img src="http://carolynvs.github.io/images/bamboo-force-clean-checkout/run-customized.png" alt="image" /></p>
+<p><img src="http://www.carolynvanslyck.com/images/bamboo-force-clean-checkout/run-customized.png" alt="image" /></p>
 
-<p><img src="http://carolynvs.github.io/images/bamboo-force-clean-checkout/override-force-clean.png" alt="image" /></p></li>
+<p><img src="http://www.carolynvanslyck.com/images/bamboo-force-clean-checkout/override-force-clean.png" alt="image" /></p></li>
 </ol>
 
 
 <p><aside>
 I also use this to workaround a limitation in Bamboo, where new tags are not picked up in a build without a fresh clone. <em>Shakes fist at the Atlassian Overlords</em><br/><br/>
-Since <a href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/">some of my builds rely upon tags to generate a version number</a>, I use this force clean trick to remove the source directory before the Source Code Checkout task. That way when we need to pickup a new tag, we just force a clean build.
+Since <a href="http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/">some of my builds rely upon tags to generate a version number</a>, I use this force clean trick to remove the source directory before the Source Code Checkout task. That way when we need to pickup a new tag, we just force a clean build.
 </aside></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Right Hook!]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/03/right-hook/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/03/right-hook/"/>
     <updated>2015-03-27T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/03/right-hook</id>
-    <content type="html"><![CDATA[<p><img src="http://carolynvs.github.io/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
+    <id>http://www.carolynvanslyck.com/blog/2015/03/right-hook</id>
+    <content type="html"><![CDATA[<p><img src="http://www.carolynvanslyck.com/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
 
 <p>I was recently invited to join Atlassian Allstars program, which I would love to link to but they don&rsquo;t appear to have a public page so&hellip; oops maybe I wasn&rsquo;t supposed to let anyone know about it. <em>First rule of Atlassian Allstars is you don&rsquo;t talk about Atlassian Allstars!</em> In my ongoing quest to earn enough achievment points to be a part of the <span style="text-decoration: line-through">Atlassian Justice League</span> Atlassian Customer Advisory panel&hellip; I took on the <a href="https://developer.atlassian.com/blog/2015/01/beer-o-clock-stash-plugin-tutorial/">Stash: Beer-o-Clock challenge</a>.</p>
 
@@ -194,21 +194,21 @@ Since <a href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/">s
 <blockquote class="twitter-tweet tw-align-center" lang="en"><p>I just built an <a href="https://twitter.com/Atlassian">@atlassian</a> <a href="https://twitter.com/hashtag/stash?src=hash">#stash</a> hook that quotes Chuck Norris with every push: Right Hook <a href="http://t.co/pIxN4mHarn">http://t.co/pIxN4mHarn</a> <a href="http://t.co/2YAj749CkE">http://t.co/2YAj749CkE</a></p>&mdash; Carolyn Van Slyck (@carolynvs) <a href="https://twitter.com/carolynvs/status/581064247330779137">March 26, 2015</a></blockquote>
 
 
-<script async src="http://carolynvs.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="http://www.carolynvanslyck.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-<p>Who would have guessed that would become my most popular tweet to date? Other than Chuck Norris that is. :&ndash;) So by popular demand I give you&hellip; <strong><a href="http://carolynvs.github.io/projects/right-hook/">Right Hook!</a></strong> Install, enjoy and feel free to fork and use for your own evil purposes.</p>
+<p>Who would have guessed that would become my most popular tweet to date? Other than Chuck Norris that is. :&ndash;) So by popular demand I give you&hellip; <strong><a href="http://www.carolynvanslyck.com/projects/right-hook/">Right Hook!</a></strong> Install, enjoy and feel free to fork and use for your own evil purposes.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[GitVersion for Bamboo]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/"/>
     <updated>2015-03-06T06:42:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo</id>
-    <content type="html"><![CDATA[<p><img src="http://carolynvs.github.io/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+    <id>http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo</id>
+    <content type="html"><![CDATA[<p><img src="http://www.carolynvanslyck.com/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
 
-<p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="http://carolynvs.github.io/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
+<p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="http://www.carolynvanslyck.com/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
 
 <p>GitVersion is a tool which automates generating unique, <a href="http://semver.org/">semantic versions</a>. It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.</p>
 
@@ -249,9 +249,9 @@ Since <a href="http://carolynvs.github.io/blog/2015/03/gitversion-for-bamboo/">s
   
   <entry>
     <title type="html"><![CDATA[Upgrade to .NET vNext]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext/"/>
     <updated>2015-01-02T12:13:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext</id>
     <content type="html"><![CDATA[<p>While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade <a href="http://bytesforhealth.com">BytesForHealth</a> to .NET vNext (.NET 5).</p>
 
 <p><aside>This is just my first step towards migrating, I&rsquo;m sticking with the .NET Framework and am not making changes to work with .NET Core. Once I get this working, I&rsquo;ll start refactoring to only use Core packages.</aside></p>
@@ -325,9 +325,9 @@ To learn more about building outside of Visual Studio, check out <a href="http:/
   
   <entry>
     <title type="html"><![CDATA[KPM Restore Throws AggregateException]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/01/kpm-restore-throws-aggregateexception/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/01/kpm-restore-throws-aggregateexception/"/>
     <updated>2015-01-02T11:32:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/01/kpm-restore-throws-aggregateexception</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/01/kpm-restore-throws-aggregateexception</id>
     <content type="html"><![CDATA[<p>While I was migrating a legacy codebase from .NET 4.5 to vNext (.NET 5), I started getting this error when restoring my dependencies via <code>kpm restore</code> or building inside VS 2015.</p>
 
 <pre><code>System.AggregateException: One or more errors occurred. ---&gt; System.NullReferenceException: Object reference not set to an instance of an object. 
@@ -347,9 +347,9 @@ at Microsoft.Framework.PackageManager.Restore.NuGet.PackageFeed.&lt;OpenNuspecSt
   
   <entry>
     <title type="html"><![CDATA[First Impression of .NET vNext]]></title>
-    <link href="http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2014/09/dotnet-vnext-impressions/"/>
     <updated>2014-09-11T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions</id>
+    <id>http://www.carolynvanslyck.com/blog/2014/09/dotnet-vnext-impressions</id>
     <content type="html"><![CDATA[<p>When ASP.NET vNext was first announced, I was scratching my head over how it would impact developing .NET in non-Windows environments. There was a lot of hype, snippets of info coming from multiple sources, and nothing I could try out for myself. Well now that the <a href="http://www.visualstudio.com/en-us/downloads/visual-studio-14-ctp-vs.aspx">Visual Studio 2014 CTP</a> is out, I finally can!</p>
 
 <p><aside>If you have an Azure account, I recommend using their Visual Studio 2014 VM image to test things out without wreaking havoc on your day-to-day machine.</aside></p>
@@ -425,7 +425,7 @@ at Microsoft.Framework.PackageManager.Restore.NuGet.PackageFeed.&lt;OpenNuspecSt
 }
 </code></pre>
 
-<p><aside>At the time of writing there is an <a href="https://github.com/aspnet/KestrelHttpServer/issues/10">open issue</a> with running Kestrel on Linux. <del>What I did to work around it is compile Kestrel (v0.11.29), and copy the resulting libuv.so.1 to ~/.kpm/packages/Microsoft.AspNet.Server.Kestrel/1.0.0-alpha3/native/darwin/universal/libuv.dylib. If you trust me and don&rsquo;t feel like building libuv yourself, <a href="http://carolynvs.github.io/downloads/libuv.0.11.29.tar.gz">download the file that I built</a>.</del></p>
+<p><aside>At the time of writing there is an <a href="https://github.com/aspnet/KestrelHttpServer/issues/10">open issue</a> with running Kestrel on Linux. <del>What I did to work around it is compile Kestrel (v0.11.29), and copy the resulting libuv.so.1 to ~/.kpm/packages/Microsoft.AspNet.Server.Kestrel/1.0.0-alpha3/native/darwin/universal/libuv.dylib. If you trust me and don&rsquo;t feel like building libuv yourself, <a href="http://www.carolynvanslyck.com/downloads/libuv.0.11.29.tar.gz">download the file that I built</a>.</del></p>
 
 <p>UPDATE: Here are updated instructions for installing a compatible version of libuv, taken from <a href="http://www.ganshani.com/blog/2014/12/shell-script-to-setup-net-on-linux">http://www.ganshani.com/blog/2014/12/shell-script-to-setup-net-on-linux</a> :</p>
 
@@ -471,9 +471,9 @@ sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
   
   <entry>
     <title type="html"><![CDATA[Create an Atlassian Plugin]]></title>
-    <link href="http://carolynvs.github.io/blog/2014/08/atlassian-plugin-getting-started/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started/"/>
     <updated>2014-08-07T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2014/08/atlassian-plugin-getting-started</id>
+    <id>http://www.carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started</id>
     <content type="html"><![CDATA[<p>I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian&rsquo;s great SDK, and the ability to view the core application&rsquo;s source code as a reference, developing plugins is very straightforward. My <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">first plugin</a>, was completed and deployed to the marketplace in just a single weekend and after that &hellip; I was hooked.</p>
 
 <p>I have now <a href="https://marketplace.atlassian.com/vendors/1211016">published four plugins</a> on the marketplace, some trivial while others really dig into the guts of the core application. This post is the first in a series on writing plugins for Atlassian, sharing some of my lessons learned and consolidating what can be sparse documentation into a more useful format.</p>
@@ -593,9 +593,9 @@ sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
   
   <entry>
     <title type="html"><![CDATA[Migrating a large codebase to Git with Atlassian Stash]]></title>
-    <link href="http://carolynvs.github.io/blog/2014/02/migrating-from-svn-to-git/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git/"/>
     <updated>2014-02-13T00:00:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2014/02/migrating-from-svn-to-git</id>
+    <id>http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git</id>
     <content type="html"><![CDATA[<p>This was originally a guest blog post on <a href="https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/">atlassian.com</a>.</p>
 
 <h2>Redefining what is possible</h2>
@@ -640,7 +640,7 @@ sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
 <p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use &ldquo;pure Git&rdquo; and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn&rsquo;t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible&hellip; because we already had!</p>
 
 <figure style="text-align:center">
-<img src="http://carolynvs.github.io/images/migrating-from-svn-to-git/subgit.png"/>
+<img src="http://www.carolynvanslyck.com/images/migrating-from-svn-to-git/subgit.png"/>
 <figcaption>Image courtesy of <a href="http://subgit.com">SubGit</a></figcaption>
 </figure>
 
@@ -693,9 +693,9 @@ sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
   
   <entry>
     <title type="html"><![CDATA[Setting up Jenkins on Windows Azure]]></title>
-    <link href="http://carolynvs.github.io/blog/2013/02/setting-up-jenkins-on-azure/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2013/02/setting-up-jenkins-on-azure/"/>
     <updated>2013-02-02T00:00:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2013/02/setting-up-jenkins-on-azure</id>
+    <id>http://www.carolynvanslyck.com/blog/2013/02/setting-up-jenkins-on-azure</id>
     <content type="html"><![CDATA[<p>I have used a few different continuous integration (ci) servers before and really like Jenkins. So when running my suite of unit and integration tests started taking more than a minute, it was time for a ci server, specifically Jenkins. Originally I installed Jenkins on my dev machine but it required annoying config tweaks to not interfere with my existing IIS configuration and really needed a home of its own. Since I have been happily hosting my website on Windows Azure and an extra-small node is only $9/month&#8230; it seemed like a better option than scrounging up physical hardware.</p>
 
 
@@ -713,7 +713,7 @@ sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
     <li>Create a VM from the gallery, making sure to select the latest platform image. For some reason MS still has old images up with RC builds and other cruft.</li>
     <li>Once your VM is ready, click on the VM and select &#8220;Connect&#8221;, save the RDP file to your drive so that you can easily connect later.</li>
     <li>Right click on the RDP file and select &#8220;Edit&#8230;&#8221;, then in the Remote Desktop settings uncheck &#8220;Always as for credentials&#8221; if you want to be able to save them. Otherwise, even if you check &#8220;Remember&#8221; when entering your password later, it will continue to prompt you for your password.</li>
-    <li>Back in the Azure management portal, go to your VM&#8217;s Endpoints and add a new endpoint for Jenkins, on TCP port 8080. This will allow you to connect to Jenkins remotely, e.g. mybuildserver.cloudapp.net:8080.<br/><img src="http://carolynvs.github.io/blog/images/azure_vm_jenkins_endpoint.png" alt="Configure your endpoint to use TCP port 8080"/></li>
+    <li>Back in the Azure management portal, go to your VM&#8217;s Endpoints and add a new endpoint for Jenkins, on TCP port 8080. This will allow you to connect to Jenkins remotely, e.g. mybuildserver.cloudapp.net:8080.<br/><img src="http://www.carolynvanslyck.com/blog/images/azure_vm_jenkins_endpoint.png" alt="Configure your endpoint to use TCP port 8080"/></li>
 </ol>
 
 
@@ -726,7 +726,7 @@ sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
 
 
 <ol>
-    <li>Disable Internet Explorer Enhanced Security for administrators so that you can use IE without throwing a chair. You can find it in the properties for your Local Server in Server Manager.<br/><img src="http://carolynvs.github.io/blog/images/disable_ie_enhanced_security.png" alt="Turn off IE Enhanced Security Configuration in Server Manager"/></li>
+    <li>Disable Internet Explorer Enhanced Security for administrators so that you can use IE without throwing a chair. You can find it in the properties for your Local Server in Server Manager.<br/><img src="http://www.carolynvanslyck.com/blog/images/disable_ie_enhanced_security.png" alt="Turn off IE Enhanced Security Configuration in Server Manager"/></li>
     <li>Proceed to download your browser of choice and then our prerequisites:
         <ul>
             <li><a href="http://mercurial.selenic.com/downloads/">Mercurial</a> (you must use x86 in order to work with Jenkins)</li>
@@ -734,8 +734,8 @@ sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
             <li><a href="http://jenkins-ci.org/content/thank-you-downloading-windows-installer">Jenkins</a> (beware of v1.500 which has a bug related to windows plug-ins, go for v1.499 or the latest version)</li>
         </ul>
     </li>
-    <li>Since my application is a web app, I installed IIS with IIS Management Console. Server Manager &raquo; Local Server &raquo; Roles and Features &raquo; Tasks &raquo; Add Roles and Features.<br/><img src="http://carolynvs.github.io/blog/images/enable_iis_with_mgmt.png" alt="Add Roles and Features Wizard - Select IIS and IIS Management Console."/></li>
-    <li>Jenkins requires .NET 3.5 which is not installed by default and .NET 4.5 will not cut it. The Jenkins installer will fail because the service will be unable to start if you forget this step.<br/><img src="http://carolynvs.github.io/blog/images/enable_net3_5.png" alt="Add Roles and Features Wizard - Select .NET Framework 3.5 Features"/></li>
+    <li>Since my application is a web app, I installed IIS with IIS Management Console. Server Manager &raquo; Local Server &raquo; Roles and Features &raquo; Tasks &raquo; Add Roles and Features.<br/><img src="http://www.carolynvanslyck.com/blog/images/enable_iis_with_mgmt.png" alt="Add Roles and Features Wizard - Select IIS and IIS Management Console."/></li>
+    <li>Jenkins requires .NET 3.5 which is not installed by default and .NET 4.5 will not cut it. The Jenkins installer will fail because the service will be unable to start if you forget this step.<br/><img src="http://www.carolynvanslyck.com/blog/images/enable_net3_5.png" alt="Add Roles and Features Wizard - Select .NET Framework 3.5 Features"/></li>
 </ol>
 
 
@@ -752,18 +752,18 @@ sudo ln -s libuv.so.1.0.0-rc2 /usr/lib/libuv.so.1
     <li>Copy the putty and plink executables to C:\Program Files (x86)\Putty.</li>
     <li>Copy your ppk (putty private key) to your VM. This is the key you will use to clone your mercurial repository. As a side note, you may want to use a <a href="https://confluence.atlassian.com/display/BITBUCKET/Using+Deployment+Keys">BitBucket Deployment Key</a>.</li>
     <li>Open a command window and run &#8220;C:\Program Files (x86)\Putty\putty&#8221; bitbucket.org . When prompted, press Y (yes) to accept the bitbucket SSH host keys.</li>
-    <li>Open regedit and navigate to the ssh keys you just accepted. Right click on SshHostKeys and export.<br/> <img src="http://carolynvs.github.io/blog/images/regedit_export_bitbucket_ssh_keys.png" alt="Regedit - Export HKCU/Software/SimonTatham/PuTTY"/>SshHostKeys></li>
+    <li>Open regedit and navigate to the ssh keys you just accepted. Right click on SshHostKeys and export.<br/> <img src="http://www.carolynvanslyck.com/blog/images/regedit_export_bitbucket_ssh_keys.png" alt="Regedit - Export HKCU/Software/SimonTatham/PuTTY"/>SshHostKeys></li>
     <li>Now right click on the exported .reg file and select &#8220;Edit&#8221;. Change HKEY_CURRENT_USER to HKEY_USERS&#46;DEFAULT . Save and import the registry key by double clicking on it.<br/>
 <pre><code>Windows Registry Editor Version 5.00
 
 [HKEY_USERS\.DEFAULT\Software\SimonTatham\PuTTY\SshHostKeys]
 "rsa2@22:bitbucket.org"="0x23,0xb9b88df3578371a7eb80c78bcda14fb30da436f11ca932a5fd5a8b6adfcc681df7a59cb4cb7ac966d9eac11daa38ebdbc0a6582a210ed4ee95a8d101c4abc925e942ab47535d64f9a5b3b68035c2ea1e900d709a1e8ea938718f532f9805a190446b92bac3040126225ae9d8374bc2008f106979d631734c7453f78c70091f4783b288869cb3c1941a784cd9baad823be27333833dc1f488a45b85952be75cf0a64965662302e3915378dcd5cfcd3ec903d804a29dff2fdf19df5deba4534b09e4dea6e44f152e339b3c43be98ddadfc56533192e216a3d673f00b4aa9cc9e7870acd8b6adb7e0feb77f2292fc2dede94819def3eb1e785541a06ab31ccf725f"
 </code></pre>
-        <img src="http://carolynvs.github.io/blog/images/edit_bitbucket_registry_key.png" alt="Notepad - Change HKEY_CURRENT_USER to HKEY_USERS\.DEFAULT"/></li>
+        <img src="http://www.carolynvanslyck.com/blog/images/edit_bitbucket_registry_key.png" alt="Notepad - Change HKEY_CURRENT_USER to HKEY_USERS\.DEFAULT"/></li>
     <li>Create a new file, mercurial.ini, in your Mercurial installation directory, e.g. C:\Program Files (x86)\Mercurial. Add the following section so that when mercurial connects via ssh it uses plink and our SSH key.<br/>
 <pre><code>[ui]
 ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\deployment_key.ppk"</code></pre>
-        <img src="http://carolynvs.github.io/blog/images/edit_mercurial_ini.png" alt="Notepad - mercurial.ini"/></li>
+        <img src="http://www.carolynvanslyck.com/blog/images/edit_mercurial_ini.png" alt="Notepad - mercurial.ini"/></li>
 </ol>
 
 
@@ -787,9 +787,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   
   <entry>
     <title type="html"><![CDATA[Using both HTTP and HTTPS in ASP.NET MVC]]></title>
-    <link href="http://carolynvs.github.io/blog/2013/01/mixing-http-https-in-mvc/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2013/01/mixing-http-https-in-mvc/"/>
     <updated>2013-01-17T00:00:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2013/01/mixing-http-https-in-mvc</id>
+    <id>http://www.carolynvanslyck.com/blog/2013/01/mixing-http-https-in-mvc</id>
     <content type="html"><![CDATA[<p>I recently added a secured payment page to my MVC site using the <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute%28v=vs.108%29.aspx">RequireHttps</a> attribute and quickly noticed that once the user went to the page, all other pages were now being served up via https as well. I prefer to only use https when necessary and wanted the user to be redirected back to http for any pages that didn&#8217;t require https.</p>
 
 
@@ -807,9 +807,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   
   <entry>
     <title type="html"><![CDATA[Unit testing your ASP.NET Web API routes]]></title>
-    <link href="http://carolynvs.github.io/blog/2013/01/webapi-route-testing/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2013/01/webapi-route-testing/"/>
     <updated>2013-01-06T00:00:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2013/01/webapi-route-testing</id>
+    <id>http://www.carolynvanslyck.com/blog/2013/01/webapi-route-testing</id>
     <content type="html"><![CDATA[<p>When your API is purely RESTful, your routes are pretty simple and there isn&#8217;t much need to test. But if you are like me and decided to <a href="webapi_mixed_rest_rpc_routing.html">mix RPC and RESTful style methods on the same controller</a>, then some tests are in order.</p>
 
 
@@ -824,9 +824,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   
   <entry>
     <title type="html"><![CDATA[Mixing REST and RPC style methods on an ASP.NET Web API Controller]]></title>
-    <link href="http://carolynvs.github.io/blog/2013/01/webapi-mixed-rest-rpc-routing/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2013/01/webapi-mixed-rest-rpc-routing/"/>
     <updated>2013-01-03T00:00:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2013/01/webapi-mixed-rest-rpc-routing</id>
+    <id>http://www.carolynvanslyck.com/blog/2013/01/webapi-mixed-rest-rpc-routing</id>
     <content type="html"><![CDATA[<p>I wanted to have an API controller that had the normal RESTful actions (Get/Put/Post/Delete) and also some RPC style actions. This used to work in the MVC 4 Beta but now in RTM I would get the following error <i>&#8220;Multiple actions were found that match the request: Get() on type CarController and Blue() on type CarController&#8221;</i>.</p>
 
 
@@ -856,9 +856,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   
   <entry>
     <title type="html"><![CDATA[Knockout Observables]]></title>
-    <link href="http://carolynvs.github.io/blog/2012/12/knockout-observables/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2012/12/knockout-observables/"/>
     <updated>2012-12-11T00:00:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2012/12/knockout-observables</id>
+    <id>http://www.carolynvanslyck.com/blog/2012/12/knockout-observables</id>
     <content type="html"><![CDATA[<p>I sometimes run into a bug where can&#8217;t figure out why Knockout is changing the value of my variables. After digging around, it always is caused by me passing an object in the constructor when newing up an observable or changing its value. When setting the value of an observable or observableArray, remember that if you pass it an array, date or object, when your observable is changed, the value of your variable will also be changed.</p>
 
 
@@ -876,9 +876,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   
   <entry>
     <title type="html"><![CDATA[Using Generic Methods in Entity Framework Queries]]></title>
-    <link href="http://carolynvs.github.io/blog/2012/12/entity-framework-generic-methods/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2012/12/entity-framework-generic-methods/"/>
     <updated>2012-12-10T00:00:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2012/12/entity-framework-generic-methods</id>
+    <id>http://www.carolynvanslyck.com/blog/2012/12/entity-framework-generic-methods</id>
     <content type="html"><![CDATA[<p>Many of my models have a common property that I wanted to use in Entity Framework queries. After creating a generic method to encapsulate the filter logic, everything compiled but at runtime I ran into the following error:</p>
 
 
@@ -899,9 +899,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   
   <entry>
     <title type="html"><![CDATA[Unit Testing ASP.NET MVC Bundles]]></title>
-    <link href="http://carolynvs.github.io/blog/2012/10/unit-testing-mvc-bundles/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2012/10/unit-testing-mvc-bundles/"/>
     <updated>2012-10-26T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2012/10/unit-testing-mvc-bundles</id>
+    <id>http://www.carolynvanslyck.com/blog/2012/10/unit-testing-mvc-bundles</id>
     <content type="html"><![CDATA[<p>In order to unit test your bundles you must assign <b>BundleTable.MapPathMethod</b> to a function which mocks mapping from the bundle item&#8217;s virtual path to the physical path of the file. I created a simple method (see MapBundleItemPath below) that uses a hard-coded string to find the root physical path of the MVC project. If your tests are run on multiple environments, you should replace the implementation to dynamically discover the project&#8217;s path.</p>
 
 
@@ -949,9 +949,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   
   <entry>
     <title type="html"><![CDATA[How to get compile-time checking of ASP.NET MVC views]]></title>
-    <link href="http://carolynvs.github.io/blog/2012/09/compile-time-support-for-mvc-views/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2012/09/compile-time-support-for-mvc-views/"/>
     <updated>2012-09-07T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2012/09/compile-time-support-for-mvc-views</id>
+    <id>http://www.carolynvanslyck.com/blog/2012/09/compile-time-support-for-mvc-views</id>
     <content type="html"><![CDATA[<h2>The Backstory</h2>
 
 
@@ -1006,9 +1006,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   
   <entry>
     <title type="html"><![CDATA[When should I implement GetHashCode, Equals, IEquatable and IComparable?]]></title>
-    <link href="http://carolynvs.github.io/blog/2012/09/when-to-implement-equality/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2012/09/when-to-implement-equality/"/>
     <updated>2012-09-04T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2012/09/when-to-implement-equality</id>
+    <id>http://www.carolynvanslyck.com/blog/2012/09/when-to-implement-equality</id>
     <content type="html"><![CDATA[<ul style="list-style-type: none">
     <li><strong>GetHashCode and Equals</strong>
         <p>I am implementing another equality or comparison interface, I want LINQ set operations to work (e.g. Union, Intersect, Except)
@@ -1031,9 +1031,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   
   <entry>
     <title type="html"><![CDATA[Working with DateTime in ASP.NET Web API]]></title>
-    <link href="http://carolynvs.github.io/blog/2012/08/webapi-datetime/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2012/08/webapi-datetime/"/>
     <updated>2012-08-13T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2012/08/webapi-datetime</id>
+    <id>http://www.carolynvanslyck.com/blog/2012/08/webapi-datetime</id>
     <content type="html"><![CDATA[<p>I was writing a website that tracked and displayed timestamps, and I only cared about what the time was on the client&#8217;s machine. 
     The server or database time was irrelevant. This seemed easy, just generate the timestamps on the client and I was all set, right? Wrong!</p>
 

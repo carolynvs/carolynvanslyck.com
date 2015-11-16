@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: paket | Carolyn Van Slyck]]></title>
-  <link href="http://carolynvs.github.io/blog/categories/paket/atom.xml" rel="self"/>
-  <link href="http://carolynvs.github.io/"/>
-  <updated>2015-08-30T22:54:13-05:00</updated>
-  <id>http://carolynvs.github.io/</id>
+  <link href="http://www.carolynvanslyck.com/blog/categories/paket/atom.xml" rel="self"/>
+  <link href="http://www.carolynvanslyck.com/"/>
+  <updated>2015-11-16T12:53:18-06:00</updated>
+  <id>http://www.carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Paket: A More Capable Dependency Manager]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/08/paket-dependency-manager/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/08/paket-dependency-manager/"/>
     <updated>2015-08-15T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/08/paket-dependency-manager</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/08/paket-dependency-manager</id>
     <content type="html"><![CDATA[<p>Some days I feel like a NuGet apologist. I hear myself saying &ldquo;just wait until NuGet 3, then X will be easy&rdquo;
 and then once it comes out, they still missed the mark. Maybe I&rsquo;m just crazy and am using NuGet wrong,
 architecting things ass-backward&hellip; but rather than continue fighting with NuGet as it stands today, I&rsquo;ve switched to Paket.</p>

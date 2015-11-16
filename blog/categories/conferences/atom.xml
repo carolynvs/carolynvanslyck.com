@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: conferences | Carolyn Van Slyck]]></title>
-  <link href="http://carolynvs.github.io/blog/categories/conferences/atom.xml" rel="self"/>
-  <link href="http://carolynvs.github.io/"/>
-  <updated>2015-08-30T22:54:13-05:00</updated>
-  <id>http://carolynvs.github.io/</id>
+  <link href="http://www.carolynvanslyck.com/blog/categories/conferences/atom.xml" rel="self"/>
+  <link href="http://www.carolynvanslyck.com/"/>
+  <updated>2015-11-16T12:53:18-06:00</updated>
+  <id>http://www.carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[DevOps Days Chicago 2015]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/08/devops-days-chicago-2015/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/08/devops-days-chicago-2015/"/>
     <updated>2015-08-27T19:56:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/08/devops-days-chicago-2015</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/08/devops-days-chicago-2015</id>
     <content type="html"><![CDATA[<p>I just attended <a href="http://www.devopsdays.org/events/2015-chicago/">DevOps Days Chicago 2015</a> and <strong>loved</strong> it. My usual MO for a conferences is to go with friends and keep to myself. So I was quite surprised that I came away having met dozens of people and bubbling with excitement about the experience.</p>
 
 <p>DevOps Days is a two day event with presentations in the morning, followed by ignite or lightning talks, and then the rest of the day is dedicated to open spaces. I had never heard of open spaces and honestly my gut reaction was that it sounded like something that I would <em>hate</em>. Unstructured social interactions with strangers? <em>Eek!</em> I could not have been more wrong and this turned out to be my favorite part of the conference.</p>

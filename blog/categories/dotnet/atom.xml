@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: dotnet | Carolyn Van Slyck]]></title>
-  <link href="http://carolynvs.github.io/blog/categories/dotnet/atom.xml" rel="self"/>
-  <link href="http://carolynvs.github.io/"/>
-  <updated>2015-08-30T22:54:13-05:00</updated>
-  <id>http://carolynvs.github.io/</id>
+  <link href="http://www.carolynvanslyck.com/blog/categories/dotnet/atom.xml" rel="self"/>
+  <link href="http://www.carolynvanslyck.com/"/>
+  <updated>2015-11-16T12:53:18-06:00</updated>
+  <id>http://www.carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Upgrade to .NET vNext]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext/"/>
     <updated>2015-01-02T12:13:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/01/upgrade-to-net-vnext</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext</id>
     <content type="html"><![CDATA[<p>While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade <a href="http://bytesforhealth.com">BytesForHealth</a> to .NET vNext (.NET 5).</p>
 
 <p><aside>This is just my first step towards migrating, I&rsquo;m sticking with the .NET Framework and am not making changes to work with .NET Core. Once I get this working, I&rsquo;ll start refactoring to only use Core packages.</aside></p>
@@ -91,9 +91,9 @@ To learn more about building outside of Visual Studio, check out <a href="http:/
   
   <entry>
     <title type="html"><![CDATA[KPM Restore Throws AggregateException]]></title>
-    <link href="http://carolynvs.github.io/blog/2015/01/kpm-restore-throws-aggregateexception/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2015/01/kpm-restore-throws-aggregateexception/"/>
     <updated>2015-01-02T11:32:00-06:00</updated>
-    <id>http://carolynvs.github.io/blog/2015/01/kpm-restore-throws-aggregateexception</id>
+    <id>http://www.carolynvanslyck.com/blog/2015/01/kpm-restore-throws-aggregateexception</id>
     <content type="html"><![CDATA[<p>While I was migrating a legacy codebase from .NET 4.5 to vNext (.NET 5), I started getting this error when restoring my dependencies via <code>kpm restore</code> or building inside VS 2015.</p>
 
 <pre><code>System.AggregateException: One or more errors occurred. ---&gt; System.NullReferenceException: Object reference not set to an instance of an object. 
@@ -113,9 +113,9 @@ at Microsoft.Framework.PackageManager.Restore.NuGet.PackageFeed.&lt;OpenNuspecSt
   
   <entry>
     <title type="html"><![CDATA[First Impression of .NET vNext]]></title>
-    <link href="http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions/"/>
+    <link href="http://www.carolynvanslyck.com/blog/2014/09/dotnet-vnext-impressions/"/>
     <updated>2014-09-11T00:00:00-05:00</updated>
-    <id>http://carolynvs.github.io/blog/2014/09/dotnet-vnext-impressions</id>
+    <id>http://www.carolynvanslyck.com/blog/2014/09/dotnet-vnext-impressions</id>
     <content type="html"><![CDATA[<p>When ASP.NET vNext was first announced, I was scratching my head over how it would impact developing .NET in non-Windows environments. There was a lot of hype, snippets of info coming from multiple sources, and nothing I could try out for myself. Well now that the <a href="http://www.visualstudio.com/en-us/downloads/visual-studio-14-ctp-vs.aspx">Visual Studio 2014 CTP</a> is out, I finally can!</p>
 
 <p><aside>If you have an Azure account, I recommend using their Visual Studio 2014 VM image to test things out without wreaking havoc on your day-to-day machine.</aside></p>
