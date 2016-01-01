@@ -4,7 +4,7 @@
   <title><![CDATA[Category: windows | Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/blog/categories/windows/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-01-01T17:23:10-06:00</updated>
+  <updated>2016-01-01T17:56:38-06:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
@@ -85,15 +85,14 @@ I promise it is worth your time and you&rsquo;ll quickly see how much better thi
     <id>http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal</id>
     <content type="html"><![CDATA[<p>I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks*.
 If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
-you may not realize it but you are dying a death from a thousand cuts.
-In this tutorial, you will setup an alternative terminal that supports
-fun stuff: window resizing, tabs, intuitive copy/paste and pretty colors.</p>
+you may not realize just how much better it could be. In this tutorial, you will setup
+an alternative terminal that supports fun stuff: window resizing, tabs, intuitive copy/paste and pretty colors.</p>
 
 <p><img src="/images/a-proper-windows-terminal/conemu-screenshot.png" alt="ConEmu Screenshot" /></p>
 
 <p>* <span style="font-size: .8em">Yes, I am aware that the <a href="http://www.hanselman.com/blog/Windows10GetsAFreshCommandPromptAndLotsOfHotkeys.aspx">terminal in Windows 10 has a lot of improvements</a>.
 But I&rsquo;m still not using it because a) I&rsquo;m avoiding Windows 10 until I am forced to upgrade
-and b) the alternative terminals as still nicer, with more features.</span></p>
+and b) the alternative terminals are still nicer, with more features.</span></p>
 
 <p>Before we start, let&rsquo;s get some definitions out of the way: the term <em>shell</em> refers to a
 command-line interpreter that executes text commands (such as CMD, PowerShell or Bash) and <em>terminal</em> is the
@@ -142,7 +141,7 @@ It is safe to accept the defaults, but here are a few suggested changes:</p>
 
 <h2>Replace Default Terminal</h2>
 
-<p>This is ConEmu&rsquo;s killer feature. It is so frustrating to setup a sexy terminal,
+<p>This is ConEmu&rsquo;s killer feature. It is so frustrating to setup a terminal
 just the way you like it, then be sent back to the dark ages when another process
 pops up a terminal.</p>
 
