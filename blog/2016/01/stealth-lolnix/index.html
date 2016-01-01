@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Install a Linux-like Environment on Your Windows Machine in Minutes - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="Can haz lolnix? Sometimes it feels like Windows developers are left out of all the fun. The cool new tools and
+technologies are all written by &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2016/01/stealth-lolnix">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Install a Linux-like Environment on Your Windows Machine in Minutes</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">Jan 1<span>st</span>, 2016</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><figure style="text-align: center; float: right; margin: 5px">
+  <img src="/images/stealth-lolnix/hipster-kitty.jpg" />
+  <figcaption>Can haz lolnix?</figcaption>
+</figure>
+
+
+<p>Sometimes it feels like Windows developers are left out of all the fun. The cool new tools and
+technologies are all written by hipsters on their sexy Macs
+with the intention of being deployed on unsexy Linux servers off in the cloud.
+A decade ago, Windows developers didn&rsquo;t care. We had a very nice stack of Microsoft technology
+and tools that just worked, and we weren&rsquo;t much interested in what the other team was up to.
+At first it was just a trickle, tools from the other side, such as
+git, snuck in. Then node and its front-end tools popped up,
+and now everyone feels like they should really know what
+Docker is all about. <em>Uh&hellip; whales, right?</em> <img src="/images/stealth-lolnix/docker.png" alt="docker docker docker mushroom!" class="emoji" /></p>
+
+<p>The Windows, Linus and Mac OS X worlds are starting to collide and I am loving it!
+My computing background is a total hodgepodge:
+I wrote my first choose-your-own-adventure game with QBasic on DOS,
+played Oregon Trail on my school&rsquo;s coveted Apple computer, administered linux web servers,
+made a living slinging C# and now I get to spend my time helping to bring these worlds
+closer together.</p>
+
+<p>So back to the poor Windows developer, who can&rsquo;t seem to catch a break. Short of
+buying expensive hardware or making the leap from Windows to a Linux desktop,
+there weren&rsquo;t many ways to learn and try out some of these tools. While it
+was always an option to totally geek out and setup Cygwin&hellip; let&rsquo;s be honest, that&rsquo;s
+a daunting task that few were willing to sign up for.</p>
+
+<p>Enter stage left: Git for Windows, my beloved Trojan Horse. Many Windows developers
+have installed git, either manually or thanks to it being bundled with Visual Studio 2015.
+But why did I call it a Trojan Horse? Because you don&rsquo;t just <em>get git</em> when you install it.
+You also get a Linux-like environment that I lovingly call <strong>lolnix</strong>. After innocently running a simple installer,
+not only do you have git, but you also have a new shell, bash, plus useful tools like
+<code>curl</code>, <code>vim</code>, <code>cut</code>, <code>sed</code>, <code>grep</code>, and all sorts of goodies.</p>
+
+<blockquote><p>lolnix = my pet name for a Mac OS X/Linux like environment on Windows</p></blockquote>
+
+<p>This is nice but once I became used to having <em>some</em> of these tools
+on my Windows machine, I wanted <em>all</em> of them. Recently I learned that I can go
+even further with lolnix, with very little effort. Just switch
+from installing <a href="https://git-for-windows.github.io/">Git for Windows</a> to <a href="http://git-for-windows.github.io/#download-sdk">Git for Windows SDK</a> and you now have access
+to a cornucopia of tools because the SDK gives you <a href="https://wiki.archlinux.org/index.php/Pacman#Installing_specific_packages">pacman</a>! No, not the hungry yellow
+ghostbuster, but the package management tool. Armed with pacman, you can install
+<a href="https://github.com/git-for-windows/MSYS2-packages">all sorts</a> of <a href="https://github.com/git-for-windows/MINGW-packages">fun tools</a>. Just one installer,
+and you are up-and-running with a very functional Linux-like environment where
+you can start playing with new tools at your leisure, no big bang required.</p>
+
+<p>For me, I really wanted <code>make</code> on my Windows machine, as I&rsquo;m playing around
+with some cross-platform Go development. {insert unrepentant pitch for the <a href="https://getcarina.com/docs/tutorials/docker-version-manager/">Docker Version Manager (dvm)</a> and
+the <a href="https://getcarina.com/docs/getting-started/getting-started-carina-cli/">Carina CLI</a> here} So give it a shot and discover your own favorite tools today!</p>
+
+<p><strong>A friendly note about command line terminals</strong></p>
+
+<p>I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks.
+If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
+follow my tutorial <a href="/blog/2016-01/a-proper-windows-terminal/">Set Up a Proper Windows Terminal</a>.
+I promise it is worth your time and you&rsquo;ll quickly see how much better things can be!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">Jan 1<span>st</span>, 2016</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/lolnix/'>lolnix</a>, <a class='category' href='/blog/categories/windows/'>windows</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/01/a-proper-windows-terminal/" title="Previous Post: Set Up a Proper Windows Terminal">&laquo; Set Up a Proper Windows Terminal</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/a-proper-windows-terminal/">Set Up a Proper Windows Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/right-hook/">Right Hook!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'carolynvanslyck';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://carolynvanslyck.com/blog/2016/01/stealth-lolnix/';
+        var disqus_url = 'http://carolynvanslyck.com/blog/2016/01/stealth-lolnix/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

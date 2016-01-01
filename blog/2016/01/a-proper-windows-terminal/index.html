@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Set Up a Proper Windows Terminal - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks*.
+If you are using the default terminal in Windows, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog" title="Today I Learned...">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Blog
+      </a>
+  </li>
+</ul>
+
+
+
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Set Up a Proper Windows Terminal</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">Jan 1<span>st</span>, 2016</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks*.
+If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
+you may not realize it but you are dying a death from a thousand cuts.
+In this tutorial, you will setup an alternative terminal that supports
+fun stuff: window resizing, tabs, intuitive copy/paste and pretty colors.</p>
+
+<p><img src="/images/a-proper-windows-terminal/conemu-screenshot.png" alt="ConEmu Screenshot" /></p>
+
+<p>* <span style="font-size: .8em">Yes, I am aware that the <a href="http://www.hanselman.com/blog/Windows10GetsAFreshCommandPromptAndLotsOfHotkeys.aspx">terminal in Windows 10 has a lot of improvements</a>.
+But I&rsquo;m still not using it because a) I&rsquo;m avoiding Windows 10 until I am forced to upgrade
+and b) the alternative terminals as still nicer, with more features.</span></p>
+
+<p>Before we start, let&rsquo;s get some definitions out of the way: the term <em>shell</em> refers to a
+command-line interpreter that executes text commands (such as CMD, PowerShell or Bash) and <em>terminal</em> is the
+graphical window that hosts a shell.</p>
+
+<p>For years I have used ConsoleZ, and it is still something that I would recommend
+as I find it to be one of the easiest terminals to configure. However, today
+I want to demonstrate how to setup ConEmu. It supports all the same features as
+ConsoleZ and while it may be a bit more complex to setup, it is also much more powerful
+and <a href="http://conemu.github.io/en/TableOfContents.html">documented to boot</a>.</p>
+
+<ol>
+<li>Install ConEmu
+
+<ul>
+<li>If you have <a href="http://chocolatey.org">Chocolatey</a>, run <code>choco install conemu</code>.</li>
+<li>Otherwise <a href="https://github.com/Maximus5/ConEmu/releases">download the installer</a> and run it, accepting all defaults.</li>
+</ul>
+</li>
+<li>Run ConEmu by selecting &ldquo;ConEmu&rdquo; from the Start Menu.</li>
+</ol>
+
+
+<p>Congratulations, you now have a civilized terminal installed and ready to use!
+You could just stop right here and call it a day. I wouldn&rsquo;t blame you. Take it for
+and spin and you&rsquo;ll see that you can resize the window, select text with your mouse to
+copy it, and <code>CTRL+V</code> will paste. Huzzah!</p>
+
+<p>However, a little bit of configuration is worth the effort. Below are some tweaks
+that I find useful make sure to read the  to learn about all
+the bells and whistles.</p>
+
+<h2>Initial Configuration</h2>
+
+<p>When you first start ConEmu, an <a href="http://conemu.github.io/en/SettingsFast.html">initial configuration prompt</a> is displayed.
+It is safe to accept the defaults, but here are a few suggested changes:</p>
+
+<ul>
+<li>Select a default shell, e.g. CMD, Bash or PowerShell.</li>
+<li>Choose a color scheme, my favorite is <a href="/images/a-proper-windows-terminal/monokai.png">Monokai</a>.</li>
+<li>Opt-in to automatic updates for stable releases.</li>
+</ul>
+
+
+<p><img src="/images/a-proper-windows-terminal/fast-setup.png" alt="Fast Configuration Screenshot" /></p>
+
+<h2>Replace Default Terminal</h2>
+
+<p>This is ConEmu&rsquo;s killer feature. It is so frustrating to setup a sexy terminal,
+just the way you like it, then be sent back to the dark ages when another process
+pops up a terminal.</p>
+
+<ol>
+<li>Open ConEmu.</li>
+<li>Go to <code>Settings &gt; Integration &gt; Default term</code>.</li>
+<li>Check &ldquo;Force ConEmu as default terminal&rdquo; and &ldquo;Register on OS Startup&rdquo;.</li>
+</ol>
+
+
+<p>Voilà! Now when Visual Studio pops open a terminal, you are rewarded
+with ConEmu, instead of the stinky old Windows command prompt.</p>
+
+<h2>Tweaking Paste</h2>
+
+<p>The default keybindings for paste are interesting but not what I expected out of the box.
+<code>CTRL+V</code> will only paste the first line in your clipboard. <code>SHIFT+INS</code> will paste
+the entire contents of your clipboard (including newlines). It also prompts you
+if pasting new lines.</p>
+
+<p>I prefer that <code>CTRL+V</code> pastes everything and doesn&rsquo;t give me any guff about it.
+See the screenshot below for where to find the hotkeys.</p>
+
+<ul>
+<li>Map <code>CTRL+V</code> to paste everything. <code>Settings &gt; Keys and Macro &gt; User CTRL+V</code></li>
+<li>Unmap paste first line. <code>Settings &gt; Keys and Macro &gt; User SHIFT+INS</code></li>
+<li>Disable the newline warning. <code>Settings &gt; Keys and Macro &gt; Paste &gt; Confirm &lt;ENTER&gt; keypress</code></li>
+</ul>
+
+
+<p><img src="/images/a-proper-windows-terminal/paste-hotkey.png" alt="Remap Paste Hotkey" /></p>
+
+<h2>Other Shells</h2>
+
+<p>By default ConEmu starts up with the CMD shell. Once it is open, you could type
+<code>powersehll</code>, <code>python</code> or <code>bash.exe --login</code> to use another shell.
+However there is an easier way: <a href="http://conemu.github.io/en/Tasks.html">Tasks</a>. Tasks are quite powerful. Not only
+can they start up new tabs with a different shell, but they can be used to run
+saved commands in the current session.</p>
+
+<p><img src="/images/a-proper-windows-terminal/run-task.png" alt="Run Task Menu" /></p>
+
+<p>ConEmu comes with some predefined tasks, like starting an Administrator PowerShell session.
+It can even detect your own setup and suggest some additional tasks. Since <a href="/blog/2016/01/stealth-lolnix/">I have have lolnix</a>, it automatically added a task to start up Bash for me.
+To detect and add additional tasks, go to <code>Settings &gt; Startup &gt; Tasks</code> and click the &ldquo;Add default tasks&hellip;&rdquo; button.</p>
+
+<p>The <a href="http://conemu.github.io/en/Tasks.html#create-new-task">tutorial for adding a new task</a> walks you through adding a task to start the Visual Studio Command Prompt,
+which I find very useful.</p>
+
+<h2>Making things pretty</h2>
+
+<p>This is purely aesthetics. Here is what you need to change if you want to match
+my screenshots:</p>
+
+<ul>
+<li>Use the monokai scheme. <code>Settings &gt; Features &gt; Colors &gt; Scheme</code></li>
+<li>Use the consolas font, size 16 pt. <code>Settings &gt; Main</code></li>
+<li>Hide the search bar. <code>Settings &gt; Appearance &gt; Show search field in tab bar</code></li>
+<li>Hide the status bar. <code>Settings &gt; Features &gt; Status bar &gt; Show the status bar</code></li>
+</ul>
+
+
+<h1>Next Steps</h1>
+
+<p>Congratulations, you are now more productive with the command line than 99% of
+your Windows brethren. But don&rsquo;t stop now, there&rsquo;s more fun stuff you can do
+now that you have a proper terminal:</p>
+
+<ul>
+<li><a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a></li>
+<li>Save Keystrokes by Customizing your Bash Configuration <em>coming soon!</em></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">Jan 1<span>st</span>, 2016</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/lolnix/'>lolnix</a>, <a class='category' href='/blog/categories/windows/'>windows</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/05/bamboo-force-clean-checkout/" title="Previous Post: A Better Force Clean Checkout in Bamboo">&laquo; A Better Force Clean Checkout in Bamboo</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/01/stealth-lolnix/" title="Next Post: Install a Linux-like Environment on Your Windows Machine in Minutes">Install a Linux-like Environment on Your Windows Machine in Minutes &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/a-proper-windows-terminal/">Set Up a Proper Windows Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/right-hook/">Right Hook!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'carolynvanslyck';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal/';
+        var disqus_url = 'http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

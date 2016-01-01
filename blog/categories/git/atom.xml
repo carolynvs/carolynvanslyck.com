@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: git | Carolyn Van Slyck]]></title>
-  <link href="http://www.carolynvanslyck.com/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://www.carolynvanslyck.com/"/>
-  <updated>2015-11-16T12:53:18-06:00</updated>
-  <id>http://www.carolynvanslyck.com/</id>
+  <link href="http://carolynvanslyck.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://carolynvanslyck.com/"/>
+  <updated>2016-01-01T17:23:10-06:00</updated>
+  <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
@@ -14,11 +14,76 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Install a Linux-like Environment on Your Windows Machine in Minutes]]></title>
+    <link href="http://carolynvanslyck.com/blog/2016/01/stealth-lolnix/"/>
+    <updated>2016-01-01T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2016/01/stealth-lolnix</id>
+    <content type="html"><![CDATA[<p><figure style="text-align: center; float: right; margin: 5px">
+  <img src="http://carolynvanslyck.com/images/stealth-lolnix/hipster-kitty.jpg" />
+  <figcaption>Can haz lolnix?</figcaption>
+</figure></p>
+
+<p>Sometimes it feels like Windows developers are left out of all the fun. The cool new tools and
+technologies are all written by hipsters on their sexy Macs
+with the intention of being deployed on unsexy Linux servers off in the cloud.
+A decade ago, Windows developers didn&rsquo;t care. We had a very nice stack of Microsoft technology
+and tools that just worked, and we weren&rsquo;t much interested in what the other team was up to.
+At first it was just a trickle, tools from the other side, such as
+git, snuck in. Then node and its front-end tools popped up,
+and now everyone feels like they should really know what
+Docker is all about. <em>Uh&hellip; whales, right?</em> <img src="http://carolynvanslyck.com/images/stealth-lolnix/docker.png" alt="docker docker docker mushroom!" class="emoji" /></p>
+
+<p>The Windows, Linus and Mac OS X worlds are starting to collide and I am loving it!
+My computing background is a total hodgepodge:
+I wrote my first choose-your-own-adventure game with QBasic on DOS,
+played Oregon Trail on my school&rsquo;s coveted Apple computer, administered linux web servers,
+made a living slinging C# and now I get to spend my time helping to bring these worlds
+closer together.</p>
+
+<p>So back to the poor Windows developer, who can&rsquo;t seem to catch a break. Short of
+buying expensive hardware or making the leap from Windows to a Linux desktop,
+there weren&rsquo;t many ways to learn and try out some of these tools. While it
+was always an option to totally geek out and setup Cygwin&hellip; let&rsquo;s be honest, that&rsquo;s
+a daunting task that few were willing to sign up for.</p>
+
+<p>Enter stage left: Git for Windows, my beloved Trojan Horse. Many Windows developers
+have installed git, either manually or thanks to it being bundled with Visual Studio 2015.
+But why did I call it a Trojan Horse? Because you don&rsquo;t just <em>get git</em> when you install it.
+You also get a Linux-like environment that I lovingly call <strong>lolnix</strong>. After innocently running a simple installer,
+not only do you have git, but you also have a new shell, bash, plus useful tools like
+<code>curl</code>, <code>vim</code>, <code>cut</code>, <code>sed</code>, <code>grep</code>, and all sorts of goodies.</p>
+
+<blockquote><p>lolnix = my pet name for a Mac OS X/Linux like environment on Windows</p></blockquote>
+
+<p>This is nice but once I became used to having <em>some</em> of these tools
+on my Windows machine, I wanted <em>all</em> of them. Recently I learned that I can go
+even further with lolnix, with very little effort. Just switch
+from installing <a href="https://git-for-windows.github.io/">Git for Windows</a> to <a href="http://git-for-windows.github.io/#download-sdk">Git for Windows SDK</a> and you now have access
+to a cornucopia of tools because the SDK gives you <a href="https://wiki.archlinux.org/index.php/Pacman#Installing_specific_packages">pacman</a>! No, not the hungry yellow
+ghostbuster, but the package management tool. Armed with pacman, you can install
+<a href="https://github.com/git-for-windows/MSYS2-packages">all sorts</a> of <a href="https://github.com/git-for-windows/MINGW-packages">fun tools</a>. Just one installer,
+and you are up-and-running with a very functional Linux-like environment where
+you can start playing with new tools at your leisure, no big bang required.</p>
+
+<p>For me, I really wanted <code>make</code> on my Windows machine, as I&rsquo;m playing around
+with some cross-platform Go development. {insert unrepentant pitch for the <a href="https://getcarina.com/docs/tutorials/docker-version-manager/">Docker Version Manager (dvm)</a> and
+the <a href="https://getcarina.com/docs/getting-started/getting-started-carina-cli/">Carina CLI</a> here} So give it a shot and discover your own favorite tools today!</p>
+
+<p><strong>A friendly note about command line terminals</strong></p>
+
+<p>I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks.
+If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
+follow my tutorial <a href="/blog/2016-01/a-proper-windows-terminal/">Set Up a Proper Windows Terminal</a>.
+I promise it is worth your time and you&rsquo;ll quickly see how much better things can be!</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[GitVersion for Bamboo]]></title>
-    <link href="http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/"/>
+    <link href="http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/"/>
     <updated>2015-03-06T06:42:00-06:00</updated>
-    <id>http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo</id>
-    <content type="html"><![CDATA[<p><img src="http://www.carolynvanslyck.com/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+    <id>http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo</id>
+    <content type="html"><![CDATA[<p><img src="http://carolynvanslyck.com/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
 
 <p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
 
@@ -61,9 +126,9 @@
   
   <entry>
     <title type="html"><![CDATA[Migrating a large codebase to Git with Atlassian Stash]]></title>
-    <link href="http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git/"/>
+    <link href="http://carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git/"/>
     <updated>2014-02-13T00:00:00-06:00</updated>
-    <id>http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git</id>
+    <id>http://carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git</id>
     <content type="html"><![CDATA[<p>This was originally a guest blog post on <a href="https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/">atlassian.com</a>.</p>
 
 <h2>Redefining what is possible</h2>
@@ -108,7 +173,7 @@
 <p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use &ldquo;pure Git&rdquo; and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn&rsquo;t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible&hellip; because we already had!</p>
 
 <p><figure style="text-align:center">
-<img src="http://www.carolynvanslyck.com/images/migrating-from-svn-to-git/subgit.png"/>
+<img src="http://carolynvanslyck.com/images/migrating-from-svn-to-git/subgit.png"/>
 <figcaption>Image courtesy of <a href="http://subgit.com">SubGit</a></figcaption>
 </figure></p>
 

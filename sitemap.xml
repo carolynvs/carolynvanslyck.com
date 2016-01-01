@@ -1,133 +1,129 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>
-            http://www.carolynvanslyck.com/blog/2012/02/google-analytics-ignore-your-traffic/
-        </loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2012/02/google-analytics-ignore-your-traffic/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/2012/02/page-too-wide-on-mobile-browser/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2012/02/page-too-wide-on-mobile-browser/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/2012/02/windows7-macbook-air/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://www.carolynvanslyck.com/blog/2012/08/intellitrace-newrelic-azure-performance/
-        </loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2012/08/webapi-datetime/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2012/09/when-to-implement-equality/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2012/09/compile-time-support-for-mvc-views/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2012/10/unit-testing-mvc-bundles/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2012/12/entity-framework-generic-methods/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2012/12/knockout-observables/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2013/01/webapi-mixed-rest-rpc-routing/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2013/01/webapi-route-testing/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2013/01/mixing-http-https-in-mvc/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2013/02/setting-up-jenkins-on-azure/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.carolynvanslyck.com/blog/2014/09/dotnet-vnext-impressions/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2012/02/windows7-macbook-air/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
         <loc>
-            http://www.carolynvanslyck.com/blog/2015/01/kpm-restore-throws-aggregateexception/
+            http://carolynvanslyck.com/blog/2012/08/intellitrace-newrelic-azure-performance/
         </loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2012/08/webapi-datetime/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2012/09/when-to-implement-equality/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/2015/03/right-hook/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2012/09/compile-time-support-for-mvc-views/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/2015/05/bamboo-force-clean-checkout/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2012/10/unit-testing-mvc-bundles/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/2015/08/paket-dependency-manager/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2012/12/entity-framework-generic-methods/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/2015/08/devops-days-chicago-2015/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2012/12/knockout-observables/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/archives/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2013/01/webapi-mixed-rest-rpc-routing/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/blog/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2013/01/webapi-route-testing/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2013/01/mixing-http-https-in-mvc/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/projects/gitversion/</loc>
-        <lastmod>2015-11-16T12:45:44-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2013/02/setting-up-jenkins-on-azure/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/projects/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/projects/right-hook/</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
-        <loc>http://www.carolynvanslyck.com/robots.txt</loc>
-        <lastmod>2015-11-16T12:42:25-06:00</lastmod>
+        <loc>http://carolynvanslyck.com/blog/2014/09/dotnet-vnext-impressions/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2015/01/kpm-restore-throws-aggregateexception/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2015/03/right-hook/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2015/05/bamboo-force-clean-checkout/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal/</loc>
+        <lastmod>2016-01-01T17:21:14-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2016/01/stealth-lolnix/</loc>
+        <lastmod>2016-01-01T17:22:11-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/archives/</loc>
+        <lastmod>2016-01-01T17:22:11-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/</loc>
+        <lastmod>2016-01-01T17:22:11-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/projects/gitversion/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/projects/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/projects/right-hook/</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/robots.txt</loc>
+        <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
 </urlset>

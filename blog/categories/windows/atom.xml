@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: windows | Carolyn Van Slyck]]></title>
+  <link href="http://carolynvanslyck.com/blog/categories/windows/atom.xml" rel="self"/>
+  <link href="http://carolynvanslyck.com/"/>
+  <updated>2016-01-01T17:23:10-06:00</updated>
+  <id>http://carolynvanslyck.com/</id>
+  <author>
+    <name><![CDATA[Carolyn Van Slyck]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Install a Linux-like Environment on Your Windows Machine in Minutes]]></title>
+    <link href="http://carolynvanslyck.com/blog/2016/01/stealth-lolnix/"/>
+    <updated>2016-01-01T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2016/01/stealth-lolnix</id>
+    <content type="html"><![CDATA[<p><figure style="text-align: center; float: right; margin: 5px">
+  <img src="http://carolynvanslyck.com/images/stealth-lolnix/hipster-kitty.jpg" />
+  <figcaption>Can haz lolnix?</figcaption>
+</figure></p>
+
+<p>Sometimes it feels like Windows developers are left out of all the fun. The cool new tools and
+technologies are all written by hipsters on their sexy Macs
+with the intention of being deployed on unsexy Linux servers off in the cloud.
+A decade ago, Windows developers didn&rsquo;t care. We had a very nice stack of Microsoft technology
+and tools that just worked, and we weren&rsquo;t much interested in what the other team was up to.
+At first it was just a trickle, tools from the other side, such as
+git, snuck in. Then node and its front-end tools popped up,
+and now everyone feels like they should really know what
+Docker is all about. <em>Uh&hellip; whales, right?</em> <img src="http://carolynvanslyck.com/images/stealth-lolnix/docker.png" alt="docker docker docker mushroom!" class="emoji" /></p>
+
+<p>The Windows, Linus and Mac OS X worlds are starting to collide and I am loving it!
+My computing background is a total hodgepodge:
+I wrote my first choose-your-own-adventure game with QBasic on DOS,
+played Oregon Trail on my school&rsquo;s coveted Apple computer, administered linux web servers,
+made a living slinging C# and now I get to spend my time helping to bring these worlds
+closer together.</p>
+
+<p>So back to the poor Windows developer, who can&rsquo;t seem to catch a break. Short of
+buying expensive hardware or making the leap from Windows to a Linux desktop,
+there weren&rsquo;t many ways to learn and try out some of these tools. While it
+was always an option to totally geek out and setup Cygwin&hellip; let&rsquo;s be honest, that&rsquo;s
+a daunting task that few were willing to sign up for.</p>
+
+<p>Enter stage left: Git for Windows, my beloved Trojan Horse. Many Windows developers
+have installed git, either manually or thanks to it being bundled with Visual Studio 2015.
+But why did I call it a Trojan Horse? Because you don&rsquo;t just <em>get git</em> when you install it.
+You also get a Linux-like environment that I lovingly call <strong>lolnix</strong>. After innocently running a simple installer,
+not only do you have git, but you also have a new shell, bash, plus useful tools like
+<code>curl</code>, <code>vim</code>, <code>cut</code>, <code>sed</code>, <code>grep</code>, and all sorts of goodies.</p>
+
+<blockquote><p>lolnix = my pet name for a Mac OS X/Linux like environment on Windows</p></blockquote>
+
+<p>This is nice but once I became used to having <em>some</em> of these tools
+on my Windows machine, I wanted <em>all</em> of them. Recently I learned that I can go
+even further with lolnix, with very little effort. Just switch
+from installing <a href="https://git-for-windows.github.io/">Git for Windows</a> to <a href="http://git-for-windows.github.io/#download-sdk">Git for Windows SDK</a> and you now have access
+to a cornucopia of tools because the SDK gives you <a href="https://wiki.archlinux.org/index.php/Pacman#Installing_specific_packages">pacman</a>! No, not the hungry yellow
+ghostbuster, but the package management tool. Armed with pacman, you can install
+<a href="https://github.com/git-for-windows/MSYS2-packages">all sorts</a> of <a href="https://github.com/git-for-windows/MINGW-packages">fun tools</a>. Just one installer,
+and you are up-and-running with a very functional Linux-like environment where
+you can start playing with new tools at your leisure, no big bang required.</p>
+
+<p>For me, I really wanted <code>make</code> on my Windows machine, as I&rsquo;m playing around
+with some cross-platform Go development. {insert unrepentant pitch for the <a href="https://getcarina.com/docs/tutorials/docker-version-manager/">Docker Version Manager (dvm)</a> and
+the <a href="https://getcarina.com/docs/getting-started/getting-started-carina-cli/">Carina CLI</a> here} So give it a shot and discover your own favorite tools today!</p>
+
+<p><strong>A friendly note about command line terminals</strong></p>
+
+<p>I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks.
+If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
+follow my tutorial <a href="/blog/2016-01/a-proper-windows-terminal/">Set Up a Proper Windows Terminal</a>.
+I promise it is worth your time and you&rsquo;ll quickly see how much better things can be!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Set Up a Proper Windows Terminal]]></title>
+    <link href="http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal/"/>
+    <updated>2016-01-01T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal</id>
+    <content type="html"><![CDATA[<p>I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks*.
+If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
+you may not realize it but you are dying a death from a thousand cuts.
+In this tutorial, you will setup an alternative terminal that supports
+fun stuff: window resizing, tabs, intuitive copy/paste and pretty colors.</p>
+
+<p><img src="/images/a-proper-windows-terminal/conemu-screenshot.png" alt="ConEmu Screenshot" /></p>
+
+<p>* <span style="font-size: .8em">Yes, I am aware that the <a href="http://www.hanselman.com/blog/Windows10GetsAFreshCommandPromptAndLotsOfHotkeys.aspx">terminal in Windows 10 has a lot of improvements</a>.
+But I&rsquo;m still not using it because a) I&rsquo;m avoiding Windows 10 until I am forced to upgrade
+and b) the alternative terminals as still nicer, with more features.</span></p>
+
+<p>Before we start, let&rsquo;s get some definitions out of the way: the term <em>shell</em> refers to a
+command-line interpreter that executes text commands (such as CMD, PowerShell or Bash) and <em>terminal</em> is the
+graphical window that hosts a shell.</p>
+
+<p>For years I have used ConsoleZ, and it is still something that I would recommend
+as I find it to be one of the easiest terminals to configure. However, today
+I want to demonstrate how to setup ConEmu. It supports all the same features as
+ConsoleZ and while it may be a bit more complex to setup, it is also much more powerful
+and <a href="http://conemu.github.io/en/TableOfContents.html">documented to boot</a>.</p>
+
+<ol>
+<li>Install ConEmu
+
+<ul>
+<li>If you have <a href="http://chocolatey.org">Chocolatey</a>, run <code>choco install conemu</code>.</li>
+<li>Otherwise <a href="https://github.com/Maximus5/ConEmu/releases">download the installer</a> and run it, accepting all defaults.</li>
+</ul>
+</li>
+<li>Run ConEmu by selecting &ldquo;ConEmu&rdquo; from the Start Menu.</li>
+</ol>
+
+
+<p>Congratulations, you now have a civilized terminal installed and ready to use!
+You could just stop right here and call it a day. I wouldn&rsquo;t blame you. Take it for
+and spin and you&rsquo;ll see that you can resize the window, select text with your mouse to
+copy it, and <code>CTRL+V</code> will paste. Huzzah!</p>
+
+<p>However, a little bit of configuration is worth the effort. Below are some tweaks
+that I find useful make sure to read the  to learn about all
+the bells and whistles.</p>
+
+<h2>Initial Configuration</h2>
+
+<p>When you first start ConEmu, an <a href="http://conemu.github.io/en/SettingsFast.html">initial configuration prompt</a> is displayed.
+It is safe to accept the defaults, but here are a few suggested changes:</p>
+
+<ul>
+<li>Select a default shell, e.g. CMD, Bash or PowerShell.</li>
+<li>Choose a color scheme, my favorite is <a href="/images/a-proper-windows-terminal/monokai.png">Monokai</a>.</li>
+<li>Opt-in to automatic updates for stable releases.</li>
+</ul>
+
+
+<p><img src="/images/a-proper-windows-terminal/fast-setup.png" alt="Fast Configuration Screenshot" /></p>
+
+<h2>Replace Default Terminal</h2>
+
+<p>This is ConEmu&rsquo;s killer feature. It is so frustrating to setup a sexy terminal,
+just the way you like it, then be sent back to the dark ages when another process
+pops up a terminal.</p>
+
+<ol>
+<li>Open ConEmu.</li>
+<li>Go to <code>Settings &gt; Integration &gt; Default term</code>.</li>
+<li>Check &ldquo;Force ConEmu as default terminal&rdquo; and &ldquo;Register on OS Startup&rdquo;.</li>
+</ol>
+
+
+<p>Voilà! Now when Visual Studio pops open a terminal, you are rewarded
+with ConEmu, instead of the stinky old Windows command prompt.</p>
+
+<h2>Tweaking Paste</h2>
+
+<p>The default keybindings for paste are interesting but not what I expected out of the box.
+<code>CTRL+V</code> will only paste the first line in your clipboard. <code>SHIFT+INS</code> will paste
+the entire contents of your clipboard (including newlines). It also prompts you
+if pasting new lines.</p>
+
+<p>I prefer that <code>CTRL+V</code> pastes everything and doesn&rsquo;t give me any guff about it.
+See the screenshot below for where to find the hotkeys.</p>
+
+<ul>
+<li>Map <code>CTRL+V</code> to paste everything. <code>Settings &gt; Keys and Macro &gt; User CTRL+V</code></li>
+<li>Unmap paste first line. <code>Settings &gt; Keys and Macro &gt; User SHIFT+INS</code></li>
+<li>Disable the newline warning. <code>Settings &gt; Keys and Macro &gt; Paste &gt; Confirm &lt;ENTER&gt; keypress</code></li>
+</ul>
+
+
+<p><img src="/images/a-proper-windows-terminal/paste-hotkey.png" alt="Remap Paste Hotkey" /></p>
+
+<h2>Other Shells</h2>
+
+<p>By default ConEmu starts up with the CMD shell. Once it is open, you could type
+<code>powersehll</code>, <code>python</code> or <code>bash.exe --login</code> to use another shell.
+However there is an easier way: <a href="http://conemu.github.io/en/Tasks.html">Tasks</a>. Tasks are quite powerful. Not only
+can they start up new tabs with a different shell, but they can be used to run
+saved commands in the current session.</p>
+
+<p><img src="/images/a-proper-windows-terminal/run-task.png" alt="Run Task Menu" /></p>
+
+<p>ConEmu comes with some predefined tasks, like starting an Administrator PowerShell session.
+It can even detect your own setup and suggest some additional tasks. Since <a href="/blog/2016/01/stealth-lolnix/">I have have lolnix</a>, it automatically added a task to start up Bash for me.
+To detect and add additional tasks, go to <code>Settings &gt; Startup &gt; Tasks</code> and click the &ldquo;Add default tasks&hellip;&rdquo; button.</p>
+
+<p>The <a href="http://conemu.github.io/en/Tasks.html#create-new-task">tutorial for adding a new task</a> walks you through adding a task to start the Visual Studio Command Prompt,
+which I find very useful.</p>
+
+<h2>Making things pretty</h2>
+
+<p>This is purely aesthetics. Here is what you need to change if you want to match
+my screenshots:</p>
+
+<ul>
+<li>Use the monokai scheme. <code>Settings &gt; Features &gt; Colors &gt; Scheme</code></li>
+<li>Use the consolas font, size 16 pt. <code>Settings &gt; Main</code></li>
+<li>Hide the search bar. <code>Settings &gt; Appearance &gt; Show search field in tab bar</code></li>
+<li>Hide the status bar. <code>Settings &gt; Features &gt; Status bar &gt; Show the status bar</code></li>
+</ul>
+
+
+<h1>Next Steps</h1>
+
+<p>Congratulations, you are now more productive with the command line than 99% of
+your Windows brethren. But don&rsquo;t stop now, there&rsquo;s more fun stuff you can do
+now that you have a proper terminal:</p>
+
+<ul>
+<li><a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a></li>
+<li>Save Keystrokes by Customizing your Bash Configuration <em>coming soon!</em></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

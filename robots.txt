@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://www.carolynvanslyck.com/sitemap.xml 
+Sitemap: http://carolynvanslyck.com/sitemap.xml 

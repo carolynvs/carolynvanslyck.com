@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: atlassian | Carolyn Van Slyck]]></title>
-  <link href="http://www.carolynvanslyck.com/blog/categories/atlassian/atom.xml" rel="self"/>
-  <link href="http://www.carolynvanslyck.com/"/>
-  <updated>2015-11-16T12:53:18-06:00</updated>
-  <id>http://www.carolynvanslyck.com/</id>
+  <link href="http://carolynvanslyck.com/blog/categories/atlassian/atom.xml" rel="self"/>
+  <link href="http://carolynvanslyck.com/"/>
+  <updated>2016-01-01T17:23:10-06:00</updated>
+  <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Right Hook!]]></title>
-    <link href="http://www.carolynvanslyck.com/blog/2015/03/right-hook/"/>
+    <link href="http://carolynvanslyck.com/blog/2015/03/right-hook/"/>
     <updated>2015-03-27T00:00:00-05:00</updated>
-    <id>http://www.carolynvanslyck.com/blog/2015/03/right-hook</id>
-    <content type="html"><![CDATA[<p><img src="http://www.carolynvanslyck.com/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
+    <id>http://carolynvanslyck.com/blog/2015/03/right-hook</id>
+    <content type="html"><![CDATA[<p><img src="http://carolynvanslyck.com/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
 
 <p>I was recently invited to join Atlassian Allstars program, which I would love to link to but they don&rsquo;t appear to have a public page so&hellip; oops maybe I wasn&rsquo;t supposed to let anyone know about it. <em>First rule of Atlassian Allstars is you don&rsquo;t talk about Atlassian Allstars!</em> In my ongoing quest to earn enough achievment points to be a part of the <span style="text-decoration: line-through">Atlassian Justice League</span> Atlassian Customer Advisory panel&hellip; I took on the <a href="https://developer.atlassian.com/blog/2015/01/beer-o-clock-stash-plugin-tutorial/">Stash: Beer-o-Clock challenge</a>.</p>
 
@@ -27,7 +27,7 @@
 <blockquote class="twitter-tweet tw-align-center" lang="en"><p>I just built an <a href="https://twitter.com/Atlassian">@atlassian</a> <a href="https://twitter.com/hashtag/stash?src=hash">#stash</a> hook that quotes Chuck Norris with every push: Right Hook <a href="http://t.co/pIxN4mHarn">http://t.co/pIxN4mHarn</a> <a href="http://t.co/2YAj749CkE">http://t.co/2YAj749CkE</a></p>&mdash; Carolyn Van Slyck (@carolynvs) <a href="https://twitter.com/carolynvs/status/581064247330779137">March 26, 2015</a></blockquote>
 
 
-<script async src="http://www.carolynvanslyck.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="http://carolynvanslyck.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 <p>Who would have guessed that would become my most popular tweet to date? Other than Chuck Norris that is. :&ndash;) So by popular demand I give you&hellip; <strong><a href="/projects/right-hook/">Right Hook!</a></strong> Install, enjoy and feel free to fork and use for your own evil purposes.</p>
@@ -36,10 +36,10 @@
   
   <entry>
     <title type="html"><![CDATA[GitVersion for Bamboo]]></title>
-    <link href="http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/"/>
+    <link href="http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/"/>
     <updated>2015-03-06T06:42:00-06:00</updated>
-    <id>http://www.carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo</id>
-    <content type="html"><![CDATA[<p><img src="http://www.carolynvanslyck.com/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+    <id>http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo</id>
+    <content type="html"><![CDATA[<p><img src="http://carolynvanslyck.com/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
 
 <p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
 
@@ -82,9 +82,9 @@
   
   <entry>
     <title type="html"><![CDATA[Create an Atlassian Plugin]]></title>
-    <link href="http://www.carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started/"/>
+    <link href="http://carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started/"/>
     <updated>2014-08-07T00:00:00-05:00</updated>
-    <id>http://www.carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started</id>
+    <id>http://carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started</id>
     <content type="html"><![CDATA[<p>I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian&rsquo;s great SDK, and the ability to view the core application&rsquo;s source code as a reference, developing plugins is very straightforward. My <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">first plugin</a>, was completed and deployed to the marketplace in just a single weekend and after that &hellip; I was hooked.</p>
 
 <p>I have now <a href="https://marketplace.atlassian.com/vendors/1211016">published four plugins</a> on the marketplace, some trivial while others really dig into the guts of the core application. This post is the first in a series on writing plugins for Atlassian, sharing some of my lessons learned and consolidating what can be sparse documentation into a more useful format.</p>
@@ -204,9 +204,9 @@
   
   <entry>
     <title type="html"><![CDATA[Migrating a large codebase to Git with Atlassian Stash]]></title>
-    <link href="http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git/"/>
+    <link href="http://carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git/"/>
     <updated>2014-02-13T00:00:00-06:00</updated>
-    <id>http://www.carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git</id>
+    <id>http://carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git</id>
     <content type="html"><![CDATA[<p>This was originally a guest blog post on <a href="https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/">atlassian.com</a>.</p>
 
 <h2>Redefining what is possible</h2>
@@ -251,7 +251,7 @@
 <p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use &ldquo;pure Git&rdquo; and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn&rsquo;t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible&hellip; because we already had!</p>
 
 <p><figure style="text-align:center">
-<img src="http://www.carolynvanslyck.com/images/migrating-from-svn-to-git/subgit.png"/>
+<img src="http://carolynvanslyck.com/images/migrating-from-svn-to-git/subgit.png"/>
 <figcaption>Image courtesy of <a href="http://subgit.com">SubGit</a></figcaption>
 </figure></p>
 
