@@ -51,6 +51,17 @@ article pre {
   padding: 0;
 }
 
+article figcaption {
+  font-size: .75em;
+}
+
+article .emoji {
+  width: 1em;
+  height: 1em;
+  border: none;
+  box-shadow: none;
+}
+
 code, li pre code, p pre code {
   white-space: pre;
   font-family: $mono;
