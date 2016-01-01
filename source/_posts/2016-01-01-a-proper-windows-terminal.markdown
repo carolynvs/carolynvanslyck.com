@@ -8,15 +8,14 @@ categories: lolnix windows
 
 I don't know how to put this politely but the command-line experience on Windows sucks*.
 If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
-you may not realize it but you are dying a death from a thousand cuts.
-In this tutorial, you will setup an alternative terminal that supports
-fun stuff: window resizing, tabs, intuitive copy/paste and pretty colors.
+you may not realize just how much better it could be. In this tutorial, you will setup
+an alternative terminal that supports fun stuff: window resizing, tabs, intuitive copy/paste and pretty colors.
 
 ![ConEmu Screenshot](/images/a-proper-windows-terminal/conemu-screenshot.png)
 
 \* <span style="font-size: .8em">Yes, I am aware that the [terminal in Windows 10 has a lot of improvements][win10-terminal].
 But I'm still not using it because a) I'm avoiding Windows 10 until I am forced to upgrade
-and b) the alternative terminals as still nicer, with more features.</span>
+and b) the alternative terminals are still nicer, with more features.</span>
 
 Before we start, let's get some definitions out of the way: the term _shell_ refers to a
 command-line interpreter that executes text commands (such as CMD, PowerShell or Bash) and _terminal_ is the
@@ -61,7 +60,7 @@ It is safe to accept the defaults, but here are a few suggested changes:
 [monokai]: /images/a-proper-windows-terminal/monokai.png
 
 ## Replace Default Terminal
-This is ConEmu's killer feature. It is so frustrating to setup a sexy terminal,
+This is ConEmu's killer feature. It is so frustrating to setup a terminal
 just the way you like it, then be sent back to the dark ages when another process
 pops up a terminal.
 
