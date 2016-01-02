@@ -4,7 +4,7 @@
   <title><![CDATA[Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-01-01T20:31:59-06:00</updated>
+  <updated>2016-01-01T20:33:06-06:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
@@ -123,8 +123,7 @@ a spin and you&rsquo;ll see that you can resize the window, select text with you
 copy it, and <code>CTRL+V</code> will paste. Huzzah!</p>
 
 <p>However, a little bit of configuration is worth the effort. Below are some tweaks
-that I find useful make sure to read the  to learn about all
-the bells and whistles.</p>
+that I find useful:</p>
 
 <h2>Initial Configuration</h2>
 
