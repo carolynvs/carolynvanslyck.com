@@ -39,7 +39,7 @@ and [documented to boot][doc].
 
 Congratulations, you now have a civilized terminal installed and ready to use!
 You could just stop right here and call it a day. I wouldn't blame you. Take it for
-and spin and you'll see that you can resize the window, select text with your mouse to
+a spin and you'll see that you can resize the window, select text with your mouse to
 copy it, and `CTRL+V` will paste. Huzzah!
 
 However, a little bit of configuration is worth the effort. Below are some tweaks
