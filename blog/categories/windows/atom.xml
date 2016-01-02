@@ -4,7 +4,7 @@
   <title><![CDATA[Category: windows | Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/blog/categories/windows/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-01-01T17:56:38-06:00</updated>
+  <updated>2016-01-01T20:31:59-06:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
@@ -118,7 +118,7 @@ and <a href="http://conemu.github.io/en/TableOfContents.html">documented to boot
 
 <p>Congratulations, you now have a civilized terminal installed and ready to use!
 You could just stop right here and call it a day. I wouldn&rsquo;t blame you. Take it for
-and spin and you&rsquo;ll see that you can resize the window, select text with your mouse to
+a spin and you&rsquo;ll see that you can resize the window, select text with your mouse to
 copy it, and <code>CTRL+V</code> will paste. Huzzah!</p>
 
 <p>However, a little bit of configuration is worth the effort. Below are some tweaks
