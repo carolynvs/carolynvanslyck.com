@@ -4,7 +4,7 @@
   <title><![CDATA[Category: windows | Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/blog/categories/windows/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-01-01T20:33:06-06:00</updated>
+  <updated>2016-01-02T17:44:05-06:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
@@ -33,7 +33,7 @@ git, snuck in. Then node and its front-end tools popped up,
 and now everyone feels like they should really know what
 Docker is all about. <em>Uh&hellip; whales, right?</em> <img src="http://carolynvanslyck.com/images/stealth-lolnix/docker.png" alt="docker docker docker mushroom!" class="emoji" /></p>
 
-<p>The Windows, Linus and Mac OS X worlds are starting to collide and I am loving it!
+<p>The Windows, Linux and Mac OS X worlds are starting to collide and I am loving it!
 My computing background is a total hodgepodge:
 I wrote my first choose-your-own-adventure game with QBasic on DOS,
 played Oregon Trail on my school&rsquo;s coveted Apple computer, administered linux web servers,
@@ -73,7 +73,7 @@ the <a href="https://getcarina.com/docs/getting-started/getting-started-carina-c
 
 <p>I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks.
 If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
-follow my tutorial <a href="/blog/2016-01/a-proper-windows-terminal/">Set Up a Proper Windows Terminal</a>.
+follow my tutorial <a href="/blog/2016/01/a-proper-windows-terminal/">Set Up a Proper Windows Terminal</a>.
 I promise it is worth your time and you&rsquo;ll quickly see how much better things can be!</p>
 ]]></content>
   </entry>
