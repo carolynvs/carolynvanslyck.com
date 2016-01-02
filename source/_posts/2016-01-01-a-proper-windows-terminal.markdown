@@ -43,8 +43,7 @@ a spin and you'll see that you can resize the window, select text with your mous
 copy it, and `CTRL+V` will paste. Huzzah!
 
 However, a little bit of configuration is worth the effort. Below are some tweaks
-that I find useful make sure to read the  to learn about all
-the bells and whistles.
+that I find useful:
 
 ## Initial Configuration
 When you first start ConEmu, an [initial configuration prompt][fast-setup] is displayed.
