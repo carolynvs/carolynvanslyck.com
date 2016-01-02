@@ -69,6 +69,6 @@ I promise it is worth your time and you'll quickly see how much better things ca
 [pacman]: https://wiki.archlinux.org/index.php/Pacman#Installing_specific_packages
 [msys2-packages]: https://github.com/git-for-windows/MSYS2-packages
 [mingw-packages]: https://github.com/git-for-windows/MINGW-packages
-[proper-terminal]: /blog/2016-01/a-proper-windows-terminal/
+[proper-terminal]: /blog/2016/01/a-proper-windows-terminal/
 [dvm]: https://getcarina.com/docs/tutorials/docker-version-manager/
 [carina-cli]: https://getcarina.com/docs/getting-started/getting-started-carina-cli/
