@@ -21,7 +21,7 @@ git, snuck in. Then node and its front-end tools popped up,
 and now everyone feels like they should really know what
 Docker is all about. _Uh... whales, right?_ <img src="/images/stealth-lolnix/docker.png" alt="docker docker docker mushroom!" class="emoji" />
 
-The Windows, Linus and Mac OS X worlds are starting to collide and I am loving it!
+The Windows, Linux and Mac OS X worlds are starting to collide and I am loving it!
 My computing background is a total hodgepodge:
 I wrote my first choose-your-own-adventure game with QBasic on DOS,
 played Oregon Trail on my school's coveted Apple computer, administered linux web servers,
