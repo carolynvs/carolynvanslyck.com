@@ -23,10 +23,11 @@ GitVersion for Bamboo is a plugin which integrates [GitVersion](http://particula
 
 ##Quick Start
 
-1. Install GitVersion on your build agent(s). `choco install gitvesrion.portable`
+1. Install GitVersion on your build agent(s). `choco install gitversion.portable`
 2. Install the [GitVersion plugin](https://marketplace.atlassian.com/plugins/com.carolynvs.gitversion) on your Bamboo master.
 3. From the Bamboo Administration page, select System Capabilities and click the "Detect Capabilities" button.
 4. In a Bamboo plan, edit your tasks and insert the GitVersion task after your Source Code Checkout task. ![image](/images/gitversion/task-definition.png)
+5. Optionally configure the task to only extract specific GitVersion variables, or pass additional command-line arguments. For example, if you are building a .NET project, you may want to pass /UpdateAssemblyInfo to automatically stamp your assemblies with the generated version.
 5. Run a build and when it completes, go to the results of the job which contains the GitVersion task. On the Metadata tab you will see all the new variables available to you to use. ![image](/images/gitversion/job-metadata.png)
 
 ##Version Deployments
