@@ -105,7 +105,7 @@ Report a bug or request a feature GitVersion for &hellip;">
 <li>Install the <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.gitversion">GitVersion plugin</a> on your Bamboo master.</li>
 <li>From the Bamboo Administration page, select System Capabilities and click the &ldquo;Detect Capabilities&rdquo; button.</li>
 <li>In a Bamboo plan, edit your tasks and insert the GitVersion task after your Source Code Checkout task. <img src="/images/gitversion/task-definition.png" alt="image" /></li>
-<li>Optionally configure the task to only extract specific GitVersion variables, or pass additional command-line arguments. For example, if you are building a .NET project, you may want to pass /UpdateAssemblyInfo to automatically stamp your assemblies with the generated version.</li>
+<li>Optionally configure the task to only extract specific GitVersion variables, or pass additional command-line arguments. For example, if you are building a .NET project, you may want to pass <code>/UpdateAssemblyInfo</code> to automatically stamp your assemblies with the generated version.</li>
 <li>Run a build and when it completes, go to the results of the job which contains the GitVersion task. On the Metadata tab you will see all the new variables available to you to use. <img src="/images/gitversion/job-metadata.png" alt="image" /></li>
 </ol>
 
