@@ -13,13 +13,13 @@ footer: true
 * [View the Source Code](http://stash.carolynvanslyck.com/projects/BAM/repos/gitversion)
 * [Report a bug or request a feature](http://jira.carolynvanslyck.com/browse/GITVER)
 
-GitVersion for Bamboo is a plugin which integrates [GitVersion](http://particularlabs.github.io/GitVersion/) with Atlassian Bamboo. This gives you a couple benefits over using the tool directly in your build scripts:
+GitVersion for Bamboo is a plugin which integrates [GitVersion](https://github.com/GitTools/GitVersion) with Atlassian Bamboo. This gives you a couple benefits over using the tool directly in your build scripts:
 
 * Every GitVersion generated value is persisted in the Bamboo build metadata and can be used at any point in the build.
 * Seamlessly transfers a version number from the build to a deployment, enabling you to use the version number for your releases without relying on Bamboo build number.
 * If you have builds on multiple platforms, you can use GitVersion to generate a version number on a Windows build agent and the value is available to your MacOS and Linux build agents.
 
-<aside>[GitVersion](http://particularlabs.github.io/GitVersion/) is a tool which automates generating unique, [semantic versions](http://semver.org/). It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.</aside>
+<aside>[GitVersion](https://github.com/GitTools/GitVersion) is a tool which automates generating unique, [semantic versions](http://semver.org/). It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.</aside>
 
 ##Quick Start
 
