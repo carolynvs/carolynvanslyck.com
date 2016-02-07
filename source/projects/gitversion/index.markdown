@@ -10,8 +10,8 @@ footer: true
 <img src="/images/gitversion/logo.png" style="float: right; margin: 5px" />
 
 * [Download the latest version from Atlassian Marketplace](https://marketplace.atlassian.com/plugins/com.carolynvs.gitversion)
-* [View the Source Code](http://stash.carolynvanslyck.com/projects/BAM/repos/gitversion)
-* [Report a bug or request a feature](http://jira.carolynvanslyck.com/browse/GITVER)
+* [View the Source Code](https://bitbucket.org/carolynvs/gitversion-bamboo/src)
+* [Report a bug or request a feature](https://bitbucket.org/carolynvs/gitversion-bamboo/issues?status=new&status=open)
 
 GitVersion for Bamboo is a plugin which integrates [GitVersion](https://github.com/GitTools/GitVersion) with Atlassian Bamboo. This gives you a couple benefits over using the tool directly in your build scripts:
 
