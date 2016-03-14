@@ -70,6 +70,7 @@ body > nav {
         padding-left: .8em;
         border-left: 1px solid $nav-border-right;
       }
+      text-align: center;
     }
     form {
       float: right;
@@ -135,4 +136,3 @@ body > nav {
   a[rel=subscribe-rss]{ @include mask-subscription-nav('rss.png'); }
   a[rel=subscribe-email]{ @include mask-subscription-nav('email.png'); }
 }
-

@@ -10,7 +10,7 @@
   }
 }
 
-.project {
+.project, .talk {
   padding-bottom: 1em;
 
   .title {
@@ -28,7 +28,7 @@
     }
   }
 
-  .technologies {
+  .technologies, .locations {
     color: $gray;
     text-align: right;
   }
