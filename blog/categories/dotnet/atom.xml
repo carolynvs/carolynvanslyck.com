@@ -4,7 +4,7 @@
   <title><![CDATA[Category: dotnet | Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/blog/categories/dotnet/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-03-13T20:59:42-05:00</updated>
+  <updated>2016-03-13T21:45:16-05:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Getting started with ASP.NET on Carina with Visual Studio]]></title>
+    <link href="http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina-with-visual-studio/"/>
+    <updated>2016-02-12T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina-with-visual-studio</id>
+    <content type="html"><![CDATA[<p>Learn how to <a href="https://getcarina.com/docs/getting-started/aspnet-on-carina-with-visual-studio/">publish an ASP.NET website to Carina with Visual Studio</a>. Deploying to Docker containers is just a wizard away!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Publish an ASP.NET website to Carina from the command line]]></title>
+    <link href="http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina/"/>
+    <updated>2016-02-12T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina</id>
+    <content type="html"><![CDATA[<p>Learn how to <a href="https://getcarina.com/docs/tutorials/publish-aspnet-to-carina/">publish an ASP.NET website to Carina from the command line</a> on Mac OS X, Linux or Windows</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Upgrade to .NET vNext]]></title>

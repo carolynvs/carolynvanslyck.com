@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Unit testing your ASP.NET Web API routes - Carolyn Van Slyck</title>
+  <title>Connect a Carina container to a Rackspace cloud database - Carolyn Van Slyck</title>
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="When your API is purely RESTful, your routes are pretty simple and there isn&#8217;t much need to test. But if you are like me and decided to mix RPC &hellip;">
+  <meta name="description" content="Learn how to connect a Carina container to a Rackspace cloud database and span your infrastructure across both Carina and the Rackspace Cloud
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2013/01/webapi-route-testing">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2016/01/use-mysql-db-with-carina">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
@@ -75,7 +76,7 @@
   
   <header>
     
-      <h1 class="entry-title">Unit Testing Your ASP.NET Web API Routes</h1>
+      <h1 class="entry-title">Connect a Carina Container to a Rackspace Cloud Database</h1>
     
     
       <p class="meta">
@@ -91,21 +92,13 @@
   
 
 
-<time datetime="2013-01-06T00:00:00-06:00" pubdate data-updated="true">Jan 6<span>th</span>, 2013</time>
+<time datetime="2016-01-15T00:00:00-06:00" pubdate data-updated="true">Jan 15<span>th</span>, 2016</time>
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>When your API is purely RESTful, your routes are pretty simple and there isn&#8217;t much need to test. But if you are like me and decided to <a href="webapi_mixed_rest_rpc_routing.html">mix RPC and RESTful style methods on the same controller</a>, then some tests are in order.</p>
-
-
-
-
-<p><p>I had been using the RouteTestingExtensions from <a href="http://mvccontrib.codeplex.com/">MvcContrib</a> to test my MVC routes. It allows you to assert that a URL was routed to the expected controller and action. I modified it to work with Web API routes and contributed it to the sister project, <a href="http://github.com/WebApiContrib/WebAPIContrib">WebApiContrib</a>. The package, <a href="http://nuget.org/packages/WebApiContrib.Testing">WebApiContrib.Testing</a> is available via NuGet.</p>
-
-<p><p>Below is an example of how to use this extension method to validate your url:</p>
-<script src="https://gist.github.com/4471039.js"></script></p>
+<div class="entry-content"><p>Learn how to <a href="https://getcarina.com/docs/tutorials/data-stores-mysql-prod/">connect a Carina container to a Rackspace cloud database</a> and span your infrastructure across both Carina and the Rackspace Cloud</p>
 </div>
 
 
@@ -128,8 +121,14 @@
   
 
 
-<time datetime="2013-01-06T00:00:00-06:00" pubdate data-updated="true">Jan 6<span>th</span>, 2013</time>
+<time datetime="2016-01-15T00:00:00-06:00" pubdate data-updated="true">Jan 15<span>th</span>, 2016</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/carina/'>carina</a>, <a class='category' href='/blog/categories/docker/'>docker</a>
+  
+</span>
 
 
     </p>
@@ -143,10 +142,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/webapi-mixed-rest-rpc-routing/" title="Previous Post: Mixing REST and RPC style methods on an ASP.NET Web API Controller">&laquo; Mixing REST and RPC style methods on an ASP.NET Web API Controller</a>
+        <a class="basic-alignment left" href="/blog/2016/01/stealth-lolnix/" title="Previous Post: Install a Linux-like Environment on Your Windows Machine in Minutes">&laquo; Install a Linux-like Environment on Your Windows Machine in Minutes</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/01/mixing-http-https-in-mvc/" title="Next Post: Using both HTTP and HTTPS in ASP.NET MVC">Using both HTTP and HTTPS in ASP.NET MVC &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2016/02/aspnet-on-carina/" title="Next Post: Publish an ASP.NET website to Carina from the command line">Publish an ASP.NET website to Carina from the command line &raquo;</a>
       
     </p>
   </footer>
@@ -212,8 +211,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2013/01/webapi-route-testing/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2013/01/webapi-route-testing/';
+        var disqus_identifier = 'http://carolynvanslyck.com/blog/2016/01/use-mysql-db-with-carina/';
+        var disqus_url = 'http://carolynvanslyck.com/blog/2016/01/use-mysql-db-with-carina/';
         var disqus_script = 'embed.js';
       
     (function () {

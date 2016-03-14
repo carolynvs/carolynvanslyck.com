@@ -91,6 +91,14 @@
         <lastmod>2016-01-01T10:15:50-06:00</lastmod>
     </url>
     <url>
+        <loc>http://carolynvanslyck.com/blog/2015/09/preview-jekyll-with-docker/</loc>
+        <lastmod>2016-03-13T21:45:15-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2015/11/docker-version-manager/</loc>
+        <lastmod>2016-03-13T21:43:43-05:00</lastmod>
+    </url>
+    <url>
         <loc>http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal/</loc>
         <lastmod>2016-01-01T20:32:44-06:00</lastmod>
     </url>
@@ -99,12 +107,24 @@
         <lastmod>2016-01-02T17:43:46-06:00</lastmod>
     </url>
     <url>
+        <loc>http://carolynvanslyck.com/blog/2016/01/use-mysql-db-with-carina/</loc>
+        <lastmod>2016-03-13T21:42:42-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina/</loc>
+        <lastmod>2016-03-13T21:41:58-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina-with-visual-studio/</loc>
+        <lastmod>2016-03-13T21:41:07-05:00</lastmod>
+    </url>
+    <url>
         <loc>http://carolynvanslyck.com/blog/archives/</loc>
-        <lastmod>2016-01-02T17:43:46-06:00</lastmod>
+        <lastmod>2016-03-13T21:45:15-05:00</lastmod>
     </url>
     <url>
         <loc>http://carolynvanslyck.com/blog/</loc>
-        <lastmod>2016-03-13T20:46:14-05:00</lastmod>
+        <lastmod>2016-03-13T21:45:15-05:00</lastmod>
     </url>
     <url>
         <loc>http://carolynvanslyck.com/</loc>

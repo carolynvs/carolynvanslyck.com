@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: docker | Carolyn Van Slyck]]></title>
+  <link href="http://carolynvanslyck.com/blog/categories/docker/atom.xml" rel="self"/>
+  <link href="http://carolynvanslyck.com/"/>
+  <updated>2016-03-13T21:45:16-05:00</updated>
+  <id>http://carolynvanslyck.com/</id>
+  <author>
+    <name><![CDATA[Carolyn Van Slyck]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Getting started with ASP.NET on Carina with Visual Studio]]></title>
+    <link href="http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina-with-visual-studio/"/>
+    <updated>2016-02-12T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina-with-visual-studio</id>
+    <content type="html"><![CDATA[<p>Learn how to <a href="https://getcarina.com/docs/getting-started/aspnet-on-carina-with-visual-studio/">publish an ASP.NET website to Carina with Visual Studio</a>. Deploying to Docker containers is just a wizard away!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Publish an ASP.NET website to Carina from the command line]]></title>
+    <link href="http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina/"/>
+    <updated>2016-02-12T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina</id>
+    <content type="html"><![CDATA[<p>Learn how to <a href="https://getcarina.com/docs/tutorials/publish-aspnet-to-carina/">publish an ASP.NET website to Carina from the command line</a> on Mac OS X, Linux or Windows</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Connect a Carina container to a Rackspace cloud database]]></title>
+    <link href="http://carolynvanslyck.com/blog/2016/01/use-mysql-db-with-carina/"/>
+    <updated>2016-01-15T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2016/01/use-mysql-db-with-carina</id>
+    <content type="html"><![CDATA[<p>Learn how to <a href="https://getcarina.com/docs/tutorials/data-stores-mysql-prod/">connect a Carina container to a Rackspace cloud database</a> and span your infrastructure across both Carina and the Rackspace Cloud</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Manage Docker clients with the Docker Version Manager]]></title>
+    <link href="http://carolynvanslyck.com/blog/2015/11/docker-version-manager/"/>
+    <updated>2015-11-09T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2015/11/docker-version-manager</id>
+    <content type="html"><![CDATA[<p>Learn <a href="https://getcarina.com/blog/docker-version-manager/">how to juggle multiple Docker client versions with the Docker Version Manager</a> (dvm)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Preview a Jekyll site with Docker]]></title>
+    <link href="http://carolynvanslyck.com/blog/2015/09/preview-jekyll-with-docker/"/>
+    <updated>2015-09-24T00:00:00-05:00</updated>
+    <id>http://carolynvanslyck.com/blog/2015/09/preview-jekyll-with-docker</id>
+    <content type="html"><![CDATA[<p>Learn how to preview a Jekyll site in a Docker container, so that there is no need to install Ruby or Jekyll on your local machine.</p>
+
+<ul>
+<li><a href="https://getcarina.com/docs/tutorials/preview-jekyll-with-docker-on-windows/">Windows tutorial</a></li>
+<li><a href="https://getcarina.com/docs/tutorials/preview-jekyll-with-docker-on-mac/">Mac OS X tutorial</a></li>
+<li><a href="https://getcarina.com/docs/tutorials/preview-jekyll-with-docker-on-linux/">Linux tutorial</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
