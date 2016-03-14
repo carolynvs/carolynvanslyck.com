@@ -10,6 +10,16 @@ footer: true
 <div class="projects">
     <div class="project">
         <div class="title">
+            <a href="http://github.com/getcarina/dvm">
+                <img src="{{root_url}}/images/docker.png" alt="Docker Logo" title="Docker Version Manager"/>
+                Docker Version Manager (dvm)
+            </a>
+        </div>
+        <div class="technologies">go docker bash powershell</div>
+        <p class="description">Docker Version Manager (dvm) is a cross-platform command-line tool that helps you install and switch between Docker clients. Check out a <a href="https://getcarina.com/blog/docker-version-manager/">quick tutorial</a> or <a href="https://getcarina.com/docs/tutorials/docker-version-manager/">read the docs</a>.</p>
+    </div>
+    <div class="project">
+        <div class="title">
             <a href="http://bytesforhealth.com">
                 <img src="{{root_url}}/images/bytesforhealth.png" alt="Bytes for Health" title="Bytes for Health"/>
                 Bytes for Health
@@ -32,11 +42,11 @@ footer: true
         <p class="description"><a href="http://nutritionix.com">Nutritionix</a> is one of the nutrition data sources for Bytes for Health. This is the .NET client library I wrote for their API.</p>
         <p class="center"><a href="http://www.nuget.org/packages/nutritionix">Download from NuGet</a></p>
     </div>
-  		
+
     <a id="atlassian"></a>
     <h2>Open Source Atlassian Plugins</h2>
     <p>I can't stop writing plugins for my favorite Atlassian products. Partly because my favorite projects to work on are dev tools, "Hey I'm my own user!" and partly because Bamboo and Stash are new enough that there is lots of low-hanging fruit.</p>
-    
+
     <div class="project">
         <div class="title">
             <a href="https://bitbucket.org/carolynvs/bamboo-trade-depot">
@@ -51,7 +61,7 @@ footer: true
         	<p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.trade_depot">Download the beta from Atlassian Marketplace</a></p>
         </div>
     </div>
-    
+
     <div class="project">
         <div class="title">
             <a href="https://bitbucket.org/carolynvs/bamboo-deployment-notifications">
@@ -66,11 +76,11 @@ footer: true
     <ul><li>Failed Deployments And First Successful</li>
     <li>After X Deployment Failures</li></ul>
 
-	
+
         	<p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.deployment-notifications">Download the latest version from Atlassian Marketplace</a></p>
         </div>
     </div>
-    
+
     <div class="project">
         <div class="title">
             <a href="https://bitbucket.org/carolynvs/reject-merge-commit-hook">
@@ -85,7 +95,7 @@ footer: true
             <p class="center"><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">Download the latest version from Atlassian Marketplace</a></p>
         </div>
     </div>
-    
+
     <div class="project">
         <div class="title">
             <a href="https://bitbucket.org/carolynvs/stash-force-field">
