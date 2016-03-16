@@ -46,7 +46,8 @@ article aside {
 }
 
 article pre {
-  border: none;
+  border: 1px dashed SteelBlue;
+  background-color: WhiteSmoke;
   border-radius: 0;
   padding: 0;
 }
@@ -56,9 +57,10 @@ article figcaption {
 }
 
 article .emoji {
-  width: 1em;
-  height: 1em;
+  width: 1.1em;
+  height: 1.1em;
   border: none;
+  border-radius: none;
   box-shadow: none;
 }
 
@@ -68,9 +70,6 @@ code, li pre code, p pre code {
   font-size: 0.9em;
   color: black;
   display: block;
-  border: 1px dashed SteelBlue;
-  background-color: WhiteSmoke;
-  padding: 1em;
   margin: 0 0;
 }
 
