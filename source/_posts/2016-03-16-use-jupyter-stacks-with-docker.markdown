@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Use Jupyter Stacks with JupyterHub
+title: Use Docker optimized Jupyter Stacks with JupyterHub
 date: 2016-03-16
 comments: true
 categories:
@@ -10,7 +10,7 @@ categories:
 
 Jupyter is a crazy awesome. Head over to [tmpnb.org](http://tmpnb.org) to try it out. _waits_
 Have fun playing with Python? Or did you maybe learn yourself a Haskell for great good?
-Hopefully its obvious that Jupyter is not only a cool concept, but a pretty damn powerful one too.
+Hopefully it's obvious that Jupyter is not only a cool concept, but a pretty damn powerful one too.
 
 I've been digging into JupyterHub lately, specifically toying with running it on [Carina](http://getcarina.com)
 because I like to Docker _ALL THE THINGS_! By pairing them up, when a user logs into the Jupyter hub,
