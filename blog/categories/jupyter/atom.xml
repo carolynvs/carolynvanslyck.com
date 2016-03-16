@@ -4,7 +4,7 @@
   <title><![CDATA[Category: jupyter | Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/blog/categories/jupyter/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-03-16T13:03:19-05:00</updated>
+  <updated>2016-03-16T15:13:13-05:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
@@ -14,13 +14,13 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Use Jupyter Stacks with JupyterHub]]></title>
+    <title type="html"><![CDATA[Use Docker optimized Jupyter Stacks with JupyterHub]]></title>
     <link href="http://carolynvanslyck.com/blog/2016/03/use-jupyter-stacks-with-docker/"/>
     <updated>2016-03-16T00:00:00-05:00</updated>
     <id>http://carolynvanslyck.com/blog/2016/03/use-jupyter-stacks-with-docker</id>
     <content type="html"><![CDATA[<p>Jupyter is a crazy awesome. Head over to <a href="http://tmpnb.org">tmpnb.org</a> to try it out. <em>waits</em>
 Have fun playing with Python? Or did you maybe learn yourself a Haskell for great good?
-Hopefully its obvious that Jupyter is not only a cool concept, but a pretty damn powerful one too.</p>
+Hopefully it&rsquo;s obvious that Jupyter is not only a cool concept, but a pretty damn powerful one too.</p>
 
 <p>I&rsquo;ve been digging into JupyterHub lately, specifically toying with running it on <a href="http://getcarina.com">Carina</a>
 because I like to Docker <em>ALL THE THINGS</em>! By pairing them up, when a user logs into the Jupyter hub,
