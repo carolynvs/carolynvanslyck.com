@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Preview a Jekyll site with Docker - Carolyn Van Slyck</title>
+  <title>Use Jupyter Stacks with JupyterHub - Carolyn Van Slyck</title>
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="Learn how to preview a Jekyll site in a Docker container, so that there is no need to install Ruby or Jekyll on your local machine. Windows tutorial &hellip;">
+  <meta name="description" content="Jupyter is a crazy awesome. Head over to tmpnb.org to try it out. waits
+Have fun playing with Python? Or did you maybe learn yourself a Haskell for &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2015/09/preview-jekyll-with-docker">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2016/03/use-jupyter-stacks-with-docker">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
@@ -75,7 +76,7 @@
   
   <header>
     
-      <h1 class="entry-title">Preview a Jekyll Site With Docker</h1>
+      <h1 class="entry-title">Use Jupyter Stacks With JupyterHub</h1>
     
     
       <p class="meta">
@@ -91,19 +92,69 @@
   
 
 
-<time datetime="2015-09-24T00:00:00-05:00" pubdate data-updated="true">Sep 24<span>th</span>, 2015</time>
+<time datetime="2016-03-16T00:00:00-05:00" pubdate data-updated="true">Mar 16<span>th</span>, 2016</time>
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Learn how to preview a Jekyll site in a Docker container, so that there is no need to install Ruby or Jekyll on your local machine.</p>
+<div class="entry-content"><p>Jupyter is a crazy awesome. Head over to <a href="http://tmpnb.org">tmpnb.org</a> to try it out. <em>waits</em>
+Have fun playing with Python? Or did you maybe learn yourself a Haskell for great good?
+Hopefully its obvious that Jupyter is not only a cool concept, but a pretty damn powerful one too.</p>
 
-<ul>
-<li><a href="https://getcarina.com/docs/tutorials/preview-jekyll-with-docker-on-windows/">Windows tutorial</a></li>
-<li><a href="https://getcarina.com/docs/tutorials/preview-jekyll-with-docker-on-mac/">Mac OS X tutorial</a></li>
-<li><a href="https://getcarina.com/docs/tutorials/preview-jekyll-with-docker-on-linux/">Linux tutorial</a></li>
-</ul>
+<p>I&rsquo;ve been digging into JupyterHub lately, specifically toying with running it on <a href="http://getcarina.com">Carina</a>
+because I like to Docker <em>ALL THE THINGS</em>! By pairing them up, when a user logs into the Jupyter hub,
+a Carina cluster is created on-the-fly to run that user&rsquo;s personal Jupyter server.
+It&rsquo;s Jupyter + bring your own compute.</p>
+
+<p><a href="https://github.com/jupyter/docker-stacks">Jupyter Stacks</a> are opinionated stacks of
+ready-to-run Jupyter applications in Docker, and are useful when you want to use
+bare minimum necessary to run a notebook (hint: minimal-notebook) or grab something off-the-shelf
+for a particular language. Here&rsquo;s how you can build a Docker image based on a Jupyter Stack that works with JupyterHub:</p>
+
+<ol>
+<li><p>Pick the stack that you would like to use, such as <code>minimal-notebook</code>.</p></li>
+<li><p>Make a Dockerfile with the following contents. Replace <code>&lt;stack&gt;</code> with
+ the name of your Jupyter Stack.</p>
+
+<pre><code> FROM jupyter/&lt;stack&gt;
+
+ # Setup the JupyterHub single user entrypoint
+ USER root
+ RUN wget -q https://raw.githubusercontent.com/jupyter/jupyterhub/master/scripts/jupyterhub-singleuser -O /usr/local/bin/jupyterhub-singleuser &amp;&amp; \
+     chmod 755 /usr/local/bin/jupyterhub-singleuser &amp;&amp; \
+     mkdir -p /srv/singleuser/ &amp;&amp; \
+     wget -q https://raw.githubusercontent.com/jupyter/dockerspawner/master/singleuser/singleuser.sh -O /srv/singleuser/singleuser.sh &amp;&amp; \
+     chmod 755 /srv/singleuser/singleuser.sh
+
+ # Verify that the JupyterHub entrypoint works
+ USER jovyan
+ RUN sh /srv/singleuser/singleuser.sh -h
+
+ # Configure the JupyterHub entrypoint
+ CMD ["sh", "/srv/singleuser/singleuser.sh"]
+</code></pre>
+
+<p> <strong>Note</strong>: The black magic voodoo is copied from <a href="https://github.com/jupyter/dockerspawner/blob/master/singleuser/Dockerfile">Jupyter/DockerSpawner&rsquo;s singleuser Dockerfile</a>
+ and hopefully shouldn&rsquo;t change often enough to matter.</p></li>
+<li><p>Connect to your docker host and run the following commands. Replace <code>&lt;docker-hub-user&gt;</code>
+ with your Docker Hub username and <code>&lt;stack&gt;</code> with the name of your Jupyter Stack.</p>
+
+<pre><code> docker build -t &lt;docker-hub-user&gt;/&lt;stack&gt; .
+ docker push &lt;docker-hub-user&gt;/&lt;stack&gt;
+</code></pre></li>
+<li><p>Update your JupyterHub configuration to use your custom Docker image when
+ it creates user servers:</p>
+
+<p> <strong>jupyter-config.py</strong></p>
+
+<pre><code> import os
+
+ c = get_config()
+ c.DockerSpawner.container_image = "&lt;docker-hub-user&gt;/&lt;stack&gt;"
+ # ... Do the rest of your usual configuration
+</code></pre></li>
+</ol>
 
 </div>
 
@@ -127,12 +178,12 @@
   
 
 
-<time datetime="2015-09-24T00:00:00-05:00" pubdate data-updated="true">Sep 24<span>th</span>, 2015</time>
+<time datetime="2016-03-16T00:00:00-05:00" pubdate data-updated="true">Mar 16<span>th</span>, 2016</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/docker/'>docker</a>
+    <a class='category' href='/blog/categories/docker/'>docker</a>, <a class='category' href='/blog/categories/jupyter/'>jupyter</a>
   
 </span>
 
@@ -148,10 +199,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/05/bamboo-force-clean-checkout/" title="Previous Post: A Better Force Clean Checkout in Bamboo">&laquo; A Better Force Clean Checkout in Bamboo</a>
+        <a class="basic-alignment left" href="/blog/2016/02/aspnet-on-carina-with-visual-studio/" title="Previous Post: Getting started with ASP.NET on Carina with Visual Studio">&laquo; Getting started with ASP.NET on Carina with Visual Studio</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/11/docker-version-manager/" title="Next Post: Manage Docker clients with the Docker Version Manager">Manage Docker clients with the Docker Version Manager &raquo;</a>
       
     </p>
   </footer>
@@ -217,8 +266,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2015/09/preview-jekyll-with-docker/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2015/09/preview-jekyll-with-docker/';
+        var disqus_identifier = 'http://carolynvanslyck.com/blog/2016/03/use-jupyter-stacks-with-docker/';
+        var disqus_url = 'http://carolynvanslyck.com/blog/2016/03/use-jupyter-stacks-with-docker/';
         var disqus_script = 'embed.js';
       
     (function () {
