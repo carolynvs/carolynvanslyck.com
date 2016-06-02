@@ -20,6 +20,16 @@ footer: true
     </div>
     <div class="project">
         <div class="title">
+            <a href="http://github.com/openstacknetsdk/openstack.net">
+                <img src="{{root_url}}/images/openstack.png" alt="OpenStack Logo" title="OpenStack.NET"/>
+                OpenStack.NET
+            </a>
+        </div>
+        <div class="technologies">c# openstack cloud</div>
+        <p class="description">OpenStack.NET is the .NET SDK for the OpenStack cloud platform. It is designed to enable developers to seamlessly work with the many services provided by the OpenStack cloud operating system.</p>
+    </div>
+    <div class="project">
+        <div class="title">
             <a href="http://bytesforhealth.com">
                 <img src="{{root_url}}/images/bytesforhealth.png" alt="Bytes for Health" title="Bytes for Health"/>
                 Bytes for Health
