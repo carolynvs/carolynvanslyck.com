@@ -1,0 +1,113 @@
+// This File is imported last, and will override other styles in the cascade
+// Add styles here to make changes without digging in too much
+
+.social-media {
+  text-align: center;
+  font-weight: bold;
+  a {
+    padding-left: 1em;
+    text-decoration: none;
+  }
+}
+
+.project, .talk {
+  padding-bottom: 1em;
+
+  .title {
+    padding-bottom: 1em;
+    border-bottom: 1px solid $nav-border-bottom;
+
+    img {
+      margin-right: 1em;
+      background-color: white;
+    }
+
+    a {
+      font-weight: bold;
+      color: $red;
+      text-decoration: none;
+    }
+  }
+
+  .technologies, .locations {
+    color: $gray;
+    text-align: right;
+  }
+}
+
+/* Blog */
+article blockquote {
+	font-size: 1em;
+}
+
+article aside {
+    border: thin solid grey;
+    background-color: #F7F5EF;
+    padding: 0;
+}
+
+article aside p {
+  margin: 0;
+  padding: 0;
+}
+
+article pre {
+  border: 1px dashed SteelBlue;
+  background-color: WhiteSmoke;
+  border-radius: 0;
+  padding: 0;
+}
+
+article figcaption {
+  font-size: .75em;
+}
+
+article .emoji {
+  width: 1.1em;
+  height: 1.1em;
+  border: none;
+  border-radius: none;
+  box-shadow: none;
+}
+
+code, li pre code, p pre code {
+  white-space: pre;
+  font-family: $mono;
+  font-size: 0.9em;
+  color: black;
+  display: block;
+  margin: 0 0;
+}
+
+.gist {
+  font-size: .9em;
+}
+
+.line-numbers {
+  display: none;
+}
+
+.comments-link {
+  text-align: right;
+}
+
+.gist table.lines {
+  width: 100%;
+}
+
+/* Font Awesome */
+.fa-linkedin, .fa-linkedin:hover, .fa-linkedin:visited {
+  color: #4875B4;
+}
+
+.fa-twitter, .fa-twitter:hover, .fa-twitter:visited {
+  color: #00ACED;
+}
+
+.fa-stackexchange, .fa-stackexchange:hover, .fa-stackexchange:visited {
+  color: #F8710B;
+}
+
+.flash-video {
+  display: inline;
+}
