@@ -11,15 +11,7 @@ ruby RUBY_VERSION
 # Happy Jekylling!
 gem "jekyll", "3.2.1"
 
-
-# This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "minima"
-
-
 # If you have any plugins, put them here!
 group :jekyll_plugins do
  gem 'jekyll-feed', "~>0.6.0"
 end
-
-# copied from octopress sitegem 'rake', '~> 0.9'
-gem 'RedCloth', '~> 4.2.9'

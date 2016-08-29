@@ -4,70 +4,17 @@ title: Technical Writing
 comments: false
 sharing: false
 ---
-<div>
-    <p class="center"><a href="{{root_url}}/blog/archives/">View Archive</a></p>
+<p class="center"><a href="{{root_url}}/atom.xml">RSS Feed</a></p>
 
-    <h2>Docker, Docker, Docker</h2>
-    <ul>
-      <li><a href="2016/03/use-jupyter-stacks-with-docker/">Use Docker optimized Jupyter Stacks with JupyterHub</a></li>
-      <li><a href="2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a></li>
-      <li><a href="2016/02/aspnet-on-carina-with-visual-studio/">Getting started with ASP.NET on Carina with Visual Studio</a></li>
-      <li><a href="2016/01/use-mysql-db-with-carina/">Connect a Carina container to a Rackspace cloud database</a></li>
-      <li><a href="2015/11/docker-version-manager/">Manage Docker clients with the Docker Version Manager (dvm)</a></li>
-      <li><a href="2015/09/preview-jekyll-with-docker/">Preview a Jekyll site with Docker</a></li>
-    </ul>
-
-    <h2>Windows Develoment</h2>
-    <ul>
-        <li><a href="2016/01/a-proper-windows-terminal/">Set Up a Proper Windows Terminal</a></li>
-        <li><a href="2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a></li>
-    </ul>
-
-    <h2>.NET vNext / .NET 5.0</h2>
-    <ul>
-        <li><a href="2015/01/upgrade-to-net-vnext/">Upgrade to .NET vNext</a></li>
-        <li><a href="2015/01/kpm-restore-throws-aggregateexception/">KPM Restore Throws AggregateException</a></li>
-        <li><a href="2014/09/dotnet-vnext-impressions/">First Impression of .NET vNext</a></li>
-    </ul>
-
-    <h2>Atlassian</h2>
-    <ul>
-        <li><a href="2015/05/bamboo-force-clean-checkout/">A Better Force Clean Checkout in Bamboo</a></li>
-        <li><a href="2015/03/right-hook/">Right Hook! for Stash</a></li>
-        <li><a href="2015/03/gitversion-for-bamboo/">GitVersion for Bamboo</a></li>
-        <li><a href="2014/08/atlassian-plugin-getting-started/">Getting Started: Create an Atlassian Plugin</a></li>
-        <li><a href="2014/02/migrating-from-svn-to-git/">Migrating a large codebase to Git with Atlassian Stash</a></li>
-    </ul>
-
-    <h2>.NET Development</h2>
-    <ul>
-        <li><a href="2013/01/mixing-http-https-in-mvc/">Using both HTTP and HTTPS in ASP.NET MVC</a></li>
-        <li><a href="2013/01/webapi-route-testing/">Unit testing your ASP.NET Web API routes</a></li>
-        <li><a href="2013/01/webapi-mixed-rest-rpc-routing/">Mixing REST and RPC style methods on an ASP.NET Web API Controller</a></li>
-        <li><a href="2012/12/entity-framework-generic-methods/">Using Generic Methods in Entity Framework Queries</a></li>
-        <li><a href="2012/10/unit-testing-mvc-bundles/">Unit Testing ASP.NET MVC Bundles</a></li>
-        <li><a href="2012/09/compile-time-support-for-mvc-views/">How to get compile-time checking of ASP.NET MVC views</a></li>
-        <li><a href="2012/09/when-to-implement-equality/">When should I implement GetHashCode, Equals, IEquatable and IComparable?</a></li>
-        <li><a href="2012/08/webapi-datetime/">Working with DateTime in ASP.NET Web API</a></li>
-
-    </ul>
-
-    <h2>DevOps</h2>
-    <ul>
-        <li><a href="2015/08/devops-days-chicago-2015/">DevOps Days Chicago 2015</a></li>
-        <li><a href="2013/02/setting-up-jenkins-on-azure/">Setting up Jenkins on Windows Azure</a></li>
-        <li><a href="2012/08/intellitrace-newrelic-azure-performance/">Intellitrace, New Relic and Windows Azure</a></li>
-    </ul>
-
-    <h2>Web Development</h2>
-    <ul>
-        <li><a href="2012/12/knockout-observables/">Knockout Observables</a></li>
-        <li><a href="2012/02/page-too-wide-on-mobile-browser/">Why is my web page is too wide in a mobile phone browser?</a></li>
-        <li><a href="2012/02/google-analytics-ignore-your-traffic/">How do I make Google Analytics ignore my traffic?</a></li>
-    </ul>
-
-    <h2>Tech Support</h2>
-    <ul>
-        <li><a href="2012/02/windows7-macbook-air/">How do I install Windows 7 on a MacBook Air?</a> (No bootable device detected)</li>
-    </ul>
+<div id="blog-archives">
+{% for post in site.posts %}
+{% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+{% unless year == this_year %}
+  {% assign year = this_year %}
+  <h2>{{ year }}</h2>
+{% endunless %}
+<article>
+  {% include archive_post.html %}
+</article>
+{% endfor %}
 </div>

@@ -238,3 +238,6 @@ module Jekyll
   end
 
 end
+
+
+Liquid::Template.register_filter(Jekyll::Filters)
