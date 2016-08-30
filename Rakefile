@@ -22,7 +22,7 @@ task :serve do
   system "jekyll serve"
 end
 
-desc "Default deploy task"
+desc "Deploy site to github.com"
 task :deploy => [:build] do
   if !File.exists?(deploy_dir)
     puts "Setting up deploy directory"
@@ -52,6 +52,8 @@ multitask :push do
   puts "\n## Copying #{public_dir} to #{deploy_dir}"
   cp_r "#{public_dir}/.", deploy_dir
   cd "#{deploy_dir}" do
+    rm "Gemfile Gemfile.lock Rakefile"
+
     system "git add -A"
     puts "\n## Commiting: Site updated at #{Time.now.utc}"
     message = "Site updated at #{Time.now.utc}"
