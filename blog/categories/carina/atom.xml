@@ -4,23 +4,13 @@
   <title><![CDATA[Category: carina | Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/blog/categories/carina/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-08-15T09:31:41-05:00</updated>
+  <updated>2016-08-29T19:13:12-05:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Getting started with ASP.NET on Carina with Visual Studio]]></title>
-    <link href="http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina-with-visual-studio/"/>
-    <updated>2016-02-12T00:00:00-06:00</updated>
-    <id>http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina-with-visual-studio</id>
-    <content type="html"><![CDATA[<p>Learn how to <a href="https://getcarina.com/docs/getting-started/aspnet-on-carina-with-visual-studio/">publish an ASP.NET website to Carina with Visual Studio</a>. Deploying to Docker containers is just a wizard away!</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Publish an ASP.NET website to Carina from the command line]]></title>
@@ -28,6 +18,17 @@
     <updated>2016-02-12T00:00:00-06:00</updated>
     <id>http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina</id>
     <content type="html"><![CDATA[<p>Learn how to <a href="https://getcarina.com/docs/tutorials/publish-aspnet-to-carina/">publish an ASP.NET website to Carina from the command line</a> on Mac OS X, Linux or Windows</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Getting started with ASP.NET on Carina with Visual Studio]]></title>
+    <link href="http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina-with-visual-studio/"/>
+    <updated>2016-02-12T00:00:00-06:00</updated>
+    <id>http://carolynvanslyck.com/blog/2016/02/aspnet-on-carina-with-visual-studio</id>
+    <content type="html"><![CDATA[<p>Learn how to <a href="https://getcarina.com/docs/getting-started/aspnet-on-carina-with-visual-studio/">publish an ASP.NET website to Carina with Visual Studio</a>. Deploying to Docker containers is just a wizard away!</p>
+
 ]]></content>
   </entry>
   
@@ -37,6 +38,7 @@
     <updated>2016-01-15T00:00:00-06:00</updated>
     <id>http://carolynvanslyck.com/blog/2016/01/use-mysql-db-with-carina</id>
     <content type="html"><![CDATA[<p>Learn how to <a href="https://getcarina.com/docs/tutorials/data-stores-mysql-prod/">connect a Carina container to a Rackspace cloud database</a> and span your infrastructure across both Carina and the Rackspace Cloud</p>
+
 ]]></content>
   </entry>
   
@@ -46,6 +48,7 @@
     <updated>2015-11-09T00:00:00-06:00</updated>
     <id>http://carolynvanslyck.com/blog/2015/11/docker-version-manager</id>
     <content type="html"><![CDATA[<p>Learn <a href="https://getcarina.com/blog/docker-version-manager/">how to juggle multiple Docker client versions with the Docker Version Manager</a> (dvm)</p>
+
 ]]></content>
   </entry>
   

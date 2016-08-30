@@ -9,7 +9,33 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="I was writing a website that tracked and displayed timestamps, and I only cared about what the time was on the client&#8217;s machine. The server or &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      Working with DateTime in ASP.NET Web API
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+August 13, 2012
+      
+    
+  
+
+
+I was writing a we...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,14 +44,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2012/08/webapi-datetime">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2012/08/webapi-datetime/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -34,7 +59,7 @@
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -42,7 +67,7 @@
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -75,7 +100,7 @@
   
   <header>
     
-      <h1 class="entry-title">Working With DateTime in ASP.NET Web API</h1>
+      <h1 class="entry-title">Working with DateTime in ASP.NET Web API</h1>
     
     
       <p class="meta">
@@ -88,77 +113,57 @@
 
 
 
-  
 
 
-<time datetime="2012-08-13T00:00:00-05:00" pubdate data-updated="true">Aug 13<span>th</span>, 2012</time>
+<time datetime="2012-08-13T00:00:00-05:00" pubdate data-updated="true">August 13, 2012</time>
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I was writing a website that tracked and displayed timestamps, and I only cared about what the time was on the client&#8217;s machine. 
+<div class="entry-content"><p>I was writing a website that tracked and displayed timestamps, and I only cared about what the time was on the client's machine. 
     The server or database time was irrelevant. This seemed easy, just generate the timestamps on the client and I was all set, right? Wrong!</p>
 
-
-
-
 <h3>Client: JavaScript</h3>
-
-
 <p>I was first convinced by old StackOverflow answers to use a Date utility instead of the built in Date constructor in JavaScript. 
     That was completely unnecessary since I was working with <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> dates 
     which are now supported in all the major browsers. Most of my parsing errors went away when I moved to simply calling 
-    new Date(&#8216;2012-08-13T22:57:24.716Z&#8217;). I also made sure when sending timestamps in my requests to call 
+    new Date('2012-08-13T22:57:24.716Z'). I also made sure when sending timestamps in my requests to call 
     <a href="http://www.w3schools.com/jsref/jsref_toisostring.asp">toISOString()</a> on the date object first. Now I am always 
     sending UTC dates to my sever, instead of local dates.</p>
 
-
-
-
 <h3>Server: Web API</h3>
-
-
-<p>I&#8217;m using ASP.NET Web API RC (which comes with MVC 4). I found that when the timestamps were passed into my actions, the UTC 
-    date had been helpfully converted into a DateTime which was in my server&#8217;s local time. Gee, thanks&#8230; 
+<p>I'm using ASP.NET Web API RC (which comes with MVC 4). I found that when the timestamps were passed into my actions, the UTC 
+    date had been helpfully converted into a DateTime which was in my server's local time. Gee, thanks... 
     Note to self, call <a href="http://msdn.microsoft.com/en-us/library/system.datetime.touniversaltime.aspx">ToUniversalTime()</a>
     on my incoming DateTime objects. I also made sure that I was never using DateTime.Now and instead used DateTime.UtcNow 
     if I needed to generate a timestamp on the server.</p>
 
-
-
-
 <h3>Database: Entity Framework</h3>
-
-
 <p>So I was saving my UTC DateTime values in SQL Server successfully but when reading the values out (using Entity Framework code first), 
-    the DateTime&#8217;s were no longer UTC and instead were coming out with a DateTimeKind of Unspecified, which when serialized to JSON and 
+    the DateTime's were no longer UTC and instead were coming out with a DateTimeKind of Unspecified, which when serialized to JSON and 
     sent back to the client is treated as a local time. To fix this, you can simply call 
     <a href="http://msdn.microsoft.com/en-us/library/system.datetime.specifykind.aspx">DateTime.SpecifyKind</a>(timestamp, DateTimeKind.Utc) 
     for any timestamps read from the database.</p>
 
-
-
-
-<p><p>Since my model had timestamps everywhere, I simplified things by forcing all my timestamps to be read from and written to the database as
-UTC in a single location. To do this I modified my DbContext to identify any DateTime properties on the model and set the DateTime to UTC
+<p>Since my model had timestamps everywhere, I simplified things by forcing all my timestamps to be read from and written to the database as 
+UTC in a single location. To do this I modified my DbContext to identify any DateTime properties on the model and set the DateTime to UTC 
 if the DateTimeKind is Local or Unspecified.
-<script src="https://gist.github.com/3344800.js?file=AutoConvertToUtcDataContext.cs"></script></p>
+<script src="https://gist.github.com/3344800.js?file=AutoConvertToUtcDataContext.cs"></script>
 
-<p><p>Here&rsquo;s a generic converter that I&rsquo;m using in my DbContext to handle the UTC conversions. It can identify a DateTime?
+<p>Here's a generic converter that I'm using in my DbContext to handle the UTC conversions. It can identify a DateTime?
 or DateTime property on your model, caches the reflected type information and automatically converts all DateTime properties to UTC.</p>
-<script src="https://gist.github.com/3344800.js?file=Carolynvs.UtcDateTimeConverter.cs"></script></p>
+<script src="https://gist.github.com/3344800.js?file=Carolynvs.UtcDateTimeConverter.cs"></script>
 
-<p><p>I am makings use of 2 extension methods on the Object type, Get and Set which allows me to dynamically get and set values on my model.</p>
-<script src="https://gist.github.com/3344755.js?file=Carolynvs.ObjectExtensions.cs"></script></p>
+<p>I am makings use of 2 extension methods on the Object type, Get and Set which allows me to dynamically get and set values on my model.</p>
+<script src="https://gist.github.com/3344755.js?file=Carolynvs.ObjectExtensions.cs"></script>
+</p>
 </div>
 
 
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -170,10 +175,9 @@ or DateTime property on your model, caches the reflected type information and au
 
 
 
-  
 
 
-<time datetime="2012-08-13T00:00:00-05:00" pubdate data-updated="true">Aug 13<span>th</span>, 2012</time>
+<time datetime="2012-08-13T00:00:00-05:00" pubdate data-updated="true">August 13, 2012</time>
       
 
 
@@ -197,86 +201,60 @@ or DateTime property on your model, caches the reflected type information and au
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2012/08/webapi-datetime/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2012/08/webapi-datetime/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

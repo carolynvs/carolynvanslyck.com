@@ -9,7 +9,35 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: GitVersion for Bamboo. Check out the link for info on how to &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      GitVersion for Bamboo
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+March 06, 2015
+      
+    
+  
+
+
+
+
+I have just released a plugin for At...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,14 +46,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -34,7 +61,7 @@
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -42,7 +69,7 @@
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -88,10 +115,9 @@
 
 
 
-  
 
 
-<time datetime="2015-03-06T06:42:00-06:00" pubdate data-updated="true">Mar 6<span>th</span>, 2015</time>
+<time datetime="2015-03-06T06:42:00-06:00" pubdate data-updated="true">March 06, 2015</time>
       </p>
     
   </header>
@@ -103,46 +129,45 @@
 
 <p>GitVersion is a tool which automates generating unique, <a href="http://semver.org/">semantic versions</a>. It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.</p>
 
-<p>What I like about GitVersion is the flexibility it provides. Instead of generating a single version number, &ldquo;take it or leave it&rdquo;, GitVersion provides over a dozen variables that you can choose from to build your own version number. If you are lucky and can just use pure semver, great!, use the FullSemVer variable and call it a day. However if you are perhaps like me, working on a legacy code base with an existing versioning scheme, it&rsquo;s still incredibly useful.</p>
+<p>What I like about GitVersion is the flexibility it provides. Instead of generating a single version number, “take it or leave it”, GitVersion provides over a dozen variables that you can choose from to build your own version number. If you are lucky and can just use pure semver, great!, use the FullSemVer variable and call it a day. However if you are perhaps like me, working on a legacy code base with an existing versioning scheme, it’s still incredibly useful.</p>
 
 <p>Here is the output of running gitversion.exe from my repository:</p>
 
-<pre><code>{
-  "Major":1,
-  "Minor":3,
-  "Patch":4,
-  "PreReleaseTag":"bamboo",
-  "PreReleaseTagWithDash":"-bamboo",
-  "BuildMetaData":61,
-  "FullBuildMetaData":"61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
-  "MajorMinorPatch":"1.3.4",
-  "SemVer":"1.3.4-bamboo",
-  "LegacySemVer":"1.3.4-bamboo",
-  "LegacySemVerPadded":"1.3.4-bamboo",
-  "AssemblySemVer":"1.3.4.0",
-  "AssemblyFileSemVer":"1.3.4.0",
-  "FullSemVer":"1.3.4-bamboo+61",
-  "InformationalVersion":"1.3.4-bamboo+61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
-  "ClassicVersion":"1.3.4.61",
-  "ClassicVersionWithTag":"1.3.4.61-bamboo",
-  "BranchName":"feature/bamboo",
-  "Sha":"3474397158a37e9b9525345d8205d1e4f8eca06a",
-  "NuGetVersionV2":"1.3.4-bamboo",
-  "NuGetVersion":"1.3.4-bamboo"
-}
-</code></pre>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Major"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Minor"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Patch"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PreReleaseTag"</span><span class="p">:</span><span class="s2">"bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PreReleaseTagWithDash"</span><span class="p">:</span><span class="s2">"-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuildMetaData"</span><span class="p">:</span><span class="mi">61</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"FullBuildMetaData"</span><span class="p">:</span><span class="s2">"61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MajorMinorPatch"</span><span class="p">:</span><span class="s2">"1.3.4"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SemVer"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"LegacySemVer"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"LegacySemVerPadded"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AssemblySemVer"</span><span class="p">:</span><span class="s2">"1.3.4.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AssemblyFileSemVer"</span><span class="p">:</span><span class="s2">"1.3.4.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"FullSemVer"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo+61"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"InformationalVersion"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo+61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ClassicVersion"</span><span class="p">:</span><span class="s2">"1.3.4.61"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ClassicVersionWithTag"</span><span class="p">:</span><span class="s2">"1.3.4.61-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BranchName"</span><span class="p">:</span><span class="s2">"feature/bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Sha"</span><span class="p">:</span><span class="s2">"3474397158a37e9b9525345d8205d1e4f8eca06a"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"NuGetVersionV2"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"NuGetVersion"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<p>At work we are (still!) <a href="blog/2014/02/migrating-from-svn-to-git/">transioning from svn to git</a>. Previously we would use the svn revision as the 4th part of our version number, e.g. 1.0.0.{svn rev}. With git that&rsquo;s not available as we just have a commit hash which doens&rsquo;t fit the bill. So we are using GitVersion to generate just the last number for us by using the BuildMetadata variable. BuildMetadata represents the number of commits on a branch since the last release tag. So if when we started working on v15.2.0, the first commit is tagged and each new commit will result in a unique, increasing version number: first commit = 15.2.0.0, second commit = 15.2.0.1 &hellip;</p>
+<p>At work we are (still!) <a href="blog/2014/02/migrating-from-svn-to-git/">transioning from svn to git</a>. Previously we would use the svn revision as the 4th part of our version number, e.g. 1.0.0.{svn rev}. With git that’s not available as we just have a commit hash which doens’t fit the bill. So we are using GitVersion to generate just the last number for us by using the BuildMetadata variable. BuildMetadata represents the number of commits on a branch since the last release tag. So if when we started working on v15.2.0, the first commit is tagged and each new commit will result in a unique, increasing version number: first commit = 15.2.0.0, second commit = 15.2.0.1 …</p>
 
-<p>Is that a good idea? Shouldn&rsquo;t we have simply jumped onto the semver bandwagon? Probably. However sometimes things are beyond a peon&rsquo;s control and it&rsquo;s nice that I don&rsquo;t have to boil the ocean just to get a number.</p>
+<p>Is that a good idea? Shouldn’t we have simply jumped onto the semver bandwagon? Probably. However sometimes things are beyond a peon’s control and it’s nice that I don’t have to boil the ocean just to get a number.</p>
 </div>
 
 
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -154,10 +179,9 @@
 
 
 
-  
 
 
-<time datetime="2015-03-06T06:42:00-06:00" pubdate data-updated="true">Mar 6<span>th</span>, 2015</time>
+<time datetime="2015-03-06T06:42:00-06:00" pubdate data-updated="true">March 06, 2015</time>
       
 
 <span class="categories">
@@ -187,86 +211,60 @@
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

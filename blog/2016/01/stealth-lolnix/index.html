@@ -9,8 +9,29 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="Can haz lolnix? Sometimes it feels like Windows developers are left out of all the fun. The cool new tools and
-technologies are all written by &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      Install a Linux-like Environment on Your Windows Machine in Minutes
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+January 01, 2016
+      
+...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,14 +40,13 @@ technologies are all written by &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2016/01/stealth-lolnix">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2016/01/stealth-lolnix/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -35,7 +55,7 @@ technologies are all written by &hellip;">
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -43,7 +63,7 @@ technologies are all written by &hellip;">
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -89,10 +109,9 @@ technologies are all written by &hellip;">
 
 
 
-  
 
 
-<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">Jan 1<span>st</span>, 2016</time>
+<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">January 01, 2016</time>
       </p>
     
   </header>
@@ -103,38 +122,39 @@ technologies are all written by &hellip;">
   <figcaption>Can haz lolnix?</figcaption>
 </figure>
 
-
 <p>Sometimes it feels like Windows developers are left out of all the fun. The cool new tools and
 technologies are all written by hipsters on their sexy Macs
 with the intention of being deployed on unsexy Linux servers off in the cloud.
-A decade ago, Windows developers didn&rsquo;t care. We had a very nice stack of Microsoft technology
-and tools that just worked, and we weren&rsquo;t much interested in what the other team was up to.
+A decade ago, Windows developers didn’t care. We had a very nice stack of Microsoft technology
+and tools that just worked, and we weren’t much interested in what the other team was up to.
 At first it was just a trickle, tools from the other side, such as
 git, snuck in. Then node and its front-end tools popped up,
 and now everyone feels like they should really know what
-Docker is all about. <em>Uh&hellip; whales, right?</em> <img src="/images/stealth-lolnix/docker.png" alt="docker docker docker mushroom!" class="emoji" /></p>
+Docker is all about. <em>Uh… whales, right?</em> <img src="/images/stealth-lolnix/docker.png" alt="docker docker docker mushroom!" class="emoji" /></p>
 
 <p>The Windows, Linux and Mac OS X worlds are starting to collide and I am loving it!
 My computing background is a total hodgepodge:
 I wrote my first choose-your-own-adventure game with QBasic on DOS,
-played Oregon Trail on my school&rsquo;s coveted Apple computer, administered linux web servers,
+played Oregon Trail on my school’s coveted Apple computer, administered linux web servers,
 made a living slinging C# and now I get to spend my time helping to bring these worlds
 closer together.</p>
 
-<p>So back to the poor Windows developer, who can&rsquo;t seem to catch a break. Short of
+<p>So back to the poor Windows developer, who can’t seem to catch a break. Short of
 buying expensive hardware or making the leap from Windows to a Linux desktop,
-there weren&rsquo;t many ways to learn and try out some of these tools. While it
-was always an option to totally geek out and setup Cygwin&hellip; let&rsquo;s be honest, that&rsquo;s
+there weren’t many ways to learn and try out some of these tools. While it
+was always an option to totally geek out and setup Cygwin… let’s be honest, that’s
 a daunting task that few were willing to sign up for.</p>
 
 <p>Enter stage left: Git for Windows, my beloved Trojan Horse. Many Windows developers
 have installed git, either manually or thanks to it being bundled with Visual Studio 2015.
-But why did I call it a Trojan Horse? Because you don&rsquo;t just <em>get git</em> when you install it.
+But why did I call it a Trojan Horse? Because you don’t just <em>get git</em> when you install it.
 You also get a Linux-like environment that I lovingly call <strong>lolnix</strong>. After innocently running a simple installer,
 not only do you have git, but you also have a new shell, bash, plus useful tools like
-<code>curl</code>, <code>vim</code>, <code>cut</code>, <code>sed</code>, <code>grep</code>, and all sorts of goodies.</p>
+<code class="highlighter-rouge">curl</code>, <code class="highlighter-rouge">vim</code>, <code class="highlighter-rouge">cut</code>, <code class="highlighter-rouge">sed</code>, <code class="highlighter-rouge">grep</code>, and all sorts of goodies.</p>
 
-<blockquote><p>lolnix = my pet name for a Mac OS X/Linux like environment on Windows</p></blockquote>
+<blockquote>
+  <p>lolnix = my pet name for a Mac OS X/Linux like environment on Windows</p>
+</blockquote>
 
 <p>This is nice but once I became used to having <em>some</em> of these tools
 on my Windows machine, I wanted <em>all</em> of them. Recently I learned that I can go
@@ -146,24 +166,23 @@ ghostbuster, but the package management tool. Armed with pacman, you can install
 and you are up-and-running with a very functional Linux-like environment where
 you can start playing with new tools at your leisure, no big bang required.</p>
 
-<p>For me, I really wanted <code>make</code> on my Windows machine, as I&rsquo;m playing around
+<p>For me, I really wanted <code class="highlighter-rouge">make</code> on my Windows machine, as I’m playing around
 with some cross-platform Go development. {insert unrepentant pitch for the <a href="https://getcarina.com/docs/tutorials/docker-version-manager/">Docker Version Manager (dvm)</a> and
 the <a href="https://getcarina.com/docs/getting-started/getting-started-carina-cli/">Carina CLI</a> here} So give it a shot and discover your own favorite tools today!</p>
 
 <p><strong>A friendly note about command line terminals</strong></p>
 
-<p>I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks.
+<p>I don’t know how to put this politely but the command-line experience on Windows sucks.
 If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
 follow my tutorial <a href="/blog/2016/01/a-proper-windows-terminal/">Set Up a Proper Windows Terminal</a>.
-I promise it is worth your time and you&rsquo;ll quickly see how much better things can be!</p>
+I promise it is worth your time and you’ll quickly see how much better things can be!</p>
+
 </div>
 
 
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -175,10 +194,9 @@ I promise it is worth your time and you&rsquo;ll quickly see how much better thi
 
 
 
-  
 
 
-<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">Jan 1<span>st</span>, 2016</time>
+<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">January 01, 2016</time>
       
 
 <span class="categories">
@@ -208,86 +226,60 @@ I promise it is worth your time and you&rsquo;ll quickly see how much better thi
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2016/01/stealth-lolnix/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2016/01/stealth-lolnix/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

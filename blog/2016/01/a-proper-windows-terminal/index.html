@@ -9,8 +9,33 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks*.
-If you are using the default terminal in Windows, &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      Set Up a Proper Windows Terminal
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+January 01, 2016
+      
+    
+  
+
+
+I don’t know how to put t...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,14 +44,13 @@ If you are using the default terminal in Windows, &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -35,7 +59,7 @@ If you are using the default terminal in Windows, &hellip;">
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -43,7 +67,7 @@ If you are using the default terminal in Windows, &hellip;">
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -89,16 +113,15 @@ If you are using the default terminal in Windows, &hellip;">
 
 
 
-  
 
 
-<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">Jan 1<span>st</span>, 2016</time>
+<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">January 01, 2016</time>
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I don&rsquo;t know how to put this politely but the command-line experience on Windows sucks*.
+<div class="entry-content"><p>I don’t know how to put this politely but the command-line experience on Windows sucks*.
 If you are using the default terminal in Windows, whether with CMD, PowerShell or Bash,
 you may not realize just how much better it could be. In this tutorial, you will setup
 an alternative terminal that supports fun stuff: window resizing, tabs, intuitive copy/paste and pretty colors.</p>
@@ -106,10 +129,10 @@ an alternative terminal that supports fun stuff: window resizing, tabs, intuitiv
 <p><img src="/images/a-proper-windows-terminal/conemu-screenshot.png" alt="ConEmu Screenshot" /></p>
 
 <p>* <span style="font-size: .8em">Yes, I am aware that the <a href="http://www.hanselman.com/blog/Windows10GetsAFreshCommandPromptAndLotsOfHotkeys.aspx">terminal in Windows 10 has a lot of improvements</a>.
-But I&rsquo;m still not using it because a) I&rsquo;m avoiding Windows 10 until I am forced to upgrade
+But I’m still not using it because a) I’m avoiding Windows 10 until I am forced to upgrade
 and b) the alternative terminals are still nicer, with more features.</span></p>
 
-<p>Before we start, let&rsquo;s get some definitions out of the way: the term <em>shell</em> refers to a
+<p>Before we start, let’s get some definitions out of the way: the term <em>shell</em> refers to a
 command-line interpreter that executes text commands (such as CMD, PowerShell or Bash) and <em>terminal</em> is the
 graphical window that hosts a shell.</p>
 
@@ -120,78 +143,69 @@ ConsoleZ and while it may be a bit more complex to setup, it is also much more p
 and <a href="http://conemu.github.io/en/TableOfContents.html">documented to boot</a>.</p>
 
 <ol>
-<li>Install ConEmu
-
-<ul>
-<li>If you have <a href="http://chocolatey.org">Chocolatey</a>, run <code>choco install conemu</code>.</li>
-<li>Otherwise <a href="https://github.com/Maximus5/ConEmu/releases">download the installer</a> and run it, accepting all defaults.</li>
-</ul>
-</li>
-<li>Run ConEmu by selecting &ldquo;ConEmu&rdquo; from the Start Menu.</li>
+  <li>Install ConEmu
+    <ul>
+      <li>If you have <a href="http://chocolatey.org">Chocolatey</a>, run <code class="highlighter-rouge">choco install conemu</code>.</li>
+      <li>Otherwise <a href="https://github.com/Maximus5/ConEmu/releases">download the installer</a> and run it, accepting all defaults.</li>
+    </ul>
+  </li>
+  <li>Run ConEmu by selecting “ConEmu” from the Start Menu.</li>
 </ol>
 
-
 <p>Congratulations, you now have a civilized terminal installed and ready to use!
-You could just stop right here and call it a day. I wouldn&rsquo;t blame you. Take it for
-a spin and you&rsquo;ll see that you can resize the window, select text with your mouse to
-copy it, and <code>CTRL+V</code> will paste. Huzzah!</p>
+You could just stop right here and call it a day. I wouldn’t blame you. Take it for
+a spin and you’ll see that you can resize the window, select text with your mouse to
+copy it, and <code class="highlighter-rouge">CTRL+V</code> will paste. Huzzah!</p>
 
 <p>However, a little bit of configuration is worth the effort. Below are some tweaks
 that I find useful:</p>
 
-<h2>Initial Configuration</h2>
-
+<h2 id="initial-configuration">Initial Configuration</h2>
 <p>When you first start ConEmu, an <a href="http://conemu.github.io/en/SettingsFast.html">initial configuration prompt</a> is displayed.
 It is safe to accept the defaults, but here are a few suggested changes:</p>
 
 <ul>
-<li>Select a default shell, e.g. CMD, Bash or PowerShell.</li>
-<li>Choose a color scheme, my favorite is <a href="/images/a-proper-windows-terminal/monokai.png">Monokai</a>.</li>
-<li>Opt-in to automatic updates for stable releases.</li>
+  <li>Select a default shell, e.g. CMD, Bash or PowerShell.</li>
+  <li>Choose a color scheme, my favorite is <a href="/images/a-proper-windows-terminal/monokai.png">Monokai</a>.</li>
+  <li>Opt-in to automatic updates for stable releases.</li>
 </ul>
-
 
 <p><img src="/images/a-proper-windows-terminal/fast-setup.png" alt="Fast Configuration Screenshot" /></p>
 
-<h2>Replace Default Terminal</h2>
-
-<p>This is ConEmu&rsquo;s killer feature. It is so frustrating to setup a terminal
+<h2 id="replace-default-terminal">Replace Default Terminal</h2>
+<p>This is ConEmu’s killer feature. It is so frustrating to setup a terminal
 just the way you like it, then be sent back to the dark ages when another process
 pops up a terminal.</p>
 
 <ol>
-<li>Open ConEmu.</li>
-<li>Go to <code>Settings &gt; Integration &gt; Default term</code>.</li>
-<li>Check &ldquo;Force ConEmu as default terminal&rdquo; and &ldquo;Register on OS Startup&rdquo;.</li>
+  <li>Open ConEmu.</li>
+  <li>Go to <code class="highlighter-rouge">Settings &gt; Integration &gt; Default term</code>.</li>
+  <li>Check “Force ConEmu as default terminal” and “Register on OS Startup”.</li>
 </ol>
-
 
 <p>Voilà! Now when Visual Studio pops open a terminal, you are rewarded
 with ConEmu, instead of the stinky old Windows command prompt.</p>
 
-<h2>Tweaking Paste</h2>
-
+<h2 id="tweaking-paste">Tweaking Paste</h2>
 <p>The default keybindings for paste are interesting but not what I expected out of the box.
-<code>CTRL+V</code> will only paste the first line in your clipboard. <code>SHIFT+INS</code> will paste
+<code class="highlighter-rouge">CTRL+V</code> will only paste the first line in your clipboard. <code class="highlighter-rouge">SHIFT+INS</code> will paste
 the entire contents of your clipboard (including newlines). It also prompts you
 if pasting new lines.</p>
 
-<p>I prefer that <code>CTRL+V</code> pastes everything and doesn&rsquo;t give me any guff about it.
+<p>I prefer that <code class="highlighter-rouge">CTRL+V</code> pastes everything and doesn’t give me any guff about it.
 See the screenshot below for where to find the hotkeys.</p>
 
 <ul>
-<li>Map <code>CTRL+V</code> to paste everything. <code>Settings &gt; Keys and Macro &gt; User CTRL+V</code></li>
-<li>Unmap paste first line. <code>Settings &gt; Keys and Macro &gt; User SHIFT+INS</code></li>
-<li>Disable the newline warning. <code>Settings &gt; Keys and Macro &gt; Paste &gt; Confirm &lt;ENTER&gt; keypress</code></li>
+  <li>Map <code class="highlighter-rouge">CTRL+V</code> to paste everything. <code class="highlighter-rouge">Settings &gt; Keys and Macro &gt; User CTRL+V</code></li>
+  <li>Unmap paste first line. <code class="highlighter-rouge">Settings &gt; Keys and Macro &gt; User SHIFT+INS</code></li>
+  <li>Disable the newline warning. <code class="highlighter-rouge">Settings &gt; Keys and Macro &gt; Paste &gt; Confirm &lt;ENTER&gt; keypress</code></li>
 </ul>
-
 
 <p><img src="/images/a-proper-windows-terminal/paste-hotkey.png" alt="Remap Paste Hotkey" /></p>
 
-<h2>Other Shells</h2>
-
+<h2 id="other-shells">Other Shells</h2>
 <p>By default ConEmu starts up with the CMD shell. Once it is open, you could type
-<code>powersehll</code>, <code>python</code> or <code>bash.exe --login</code> to use another shell.
+<code class="highlighter-rouge">powersehll</code>, <code class="highlighter-rouge">python</code> or <code class="highlighter-rouge">bash.exe --login</code> to use another shell.
 However there is an easier way: <a href="http://conemu.github.io/en/Tasks.html">Tasks</a>. Tasks are quite powerful. Not only
 can they start up new tabs with a different shell, but they can be used to run
 saved commands in the current session.</p>
@@ -200,33 +214,30 @@ saved commands in the current session.</p>
 
 <p>ConEmu comes with some predefined tasks, like starting an Administrator PowerShell session.
 It can even detect your own setup and suggest some additional tasks. Since <a href="/blog/2016/01/stealth-lolnix/">I have have lolnix</a>, it automatically added a task to start up Bash for me.
-To detect and add additional tasks, go to <code>Settings &gt; Startup &gt; Tasks</code> and click the &ldquo;Add default tasks&hellip;&rdquo; button.</p>
+To detect and add additional tasks, go to <code class="highlighter-rouge">Settings &gt; Startup &gt; Tasks</code> and click the “Add default tasks…” button.</p>
 
 <p>The <a href="http://conemu.github.io/en/Tasks.html#create-new-task">tutorial for adding a new task</a> walks you through adding a task to start the Visual Studio Command Prompt,
 which I find very useful.</p>
 
-<h2>Making things pretty</h2>
-
+<h2 id="making-things-pretty">Making things pretty</h2>
 <p>This is purely aesthetics. Here is what you need to change if you want to match
 my screenshots:</p>
 
 <ul>
-<li>Use the monokai scheme. <code>Settings &gt; Features &gt; Colors &gt; Scheme</code></li>
-<li>Use the consolas font, size 16 pt. <code>Settings &gt; Main</code></li>
-<li>Hide the search bar. <code>Settings &gt; Appearance &gt; Show search field in tab bar</code></li>
-<li>Hide the status bar. <code>Settings &gt; Features &gt; Status bar &gt; Show the status bar</code></li>
+  <li>Use the monokai scheme. <code class="highlighter-rouge">Settings &gt; Features &gt; Colors &gt; Scheme</code></li>
+  <li>Use the consolas font, size 16 pt. <code class="highlighter-rouge">Settings &gt; Main</code></li>
+  <li>Hide the search bar. <code class="highlighter-rouge">Settings &gt; Appearance &gt; Show search field in tab bar</code></li>
+  <li>Hide the status bar. <code class="highlighter-rouge">Settings &gt; Features &gt; Status bar &gt; Show the status bar</code></li>
 </ul>
 
-
-<h1>Next Steps</h1>
-
+<h1 id="next-steps">Next Steps</h1>
 <p>Congratulations, you are now more productive with the command line than 99% of
-your Windows brethren. But don&rsquo;t stop now, there&rsquo;s more fun stuff you can do
+your Windows brethren. But don’t stop now, there’s more fun stuff you can do
 now that you have a proper terminal:</p>
 
 <ul>
-<li><a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a></li>
-<li>Save Keystrokes by Customizing your Bash Configuration <em>coming soon!</em></li>
+  <li><a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a></li>
+  <li>Save Keystrokes by Customizing your Bash Configuration <em>coming soon!</em></li>
 </ul>
 
 </div>
@@ -235,8 +246,6 @@ now that you have a proper terminal:</p>
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -248,10 +257,9 @@ now that you have a proper terminal:</p>
 
 
 
-  
 
 
-<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">Jan 1<span>st</span>, 2016</time>
+<time datetime="2016-01-01T00:00:00-06:00" pubdate data-updated="true">January 01, 2016</time>
       
 
 <span class="categories">
@@ -281,86 +289,60 @@ now that you have a proper terminal:</p>
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2016/01/a-proper-windows-terminal/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

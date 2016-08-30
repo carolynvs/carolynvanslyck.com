@@ -9,7 +9,33 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="In order to unit test your bundles you must assign BundleTable.MapPathMethod to a function which mocks mapping from the bundle item&#8217;s virtual &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      Unit Testing ASP.NET MVC Bundles
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+October 26, 2012
+      
+    
+  
+
+
+In order to unit test you...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,14 +44,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2012/10/unit-testing-mvc-bundles">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2012/10/unit-testing-mvc-bundles/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -34,7 +59,7 @@
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -42,7 +67,7 @@
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -88,54 +113,30 @@
 
 
 
-  
 
 
-<time datetime="2012-10-26T00:00:00-05:00" pubdate data-updated="true">Oct 26<span>th</span>, 2012</time>
+<time datetime="2012-10-26T00:00:00-05:00" pubdate data-updated="true">October 26, 2012</time>
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>In order to unit test your bundles you must assign <b>BundleTable.MapPathMethod</b> to a function which mocks mapping from the bundle item&#8217;s virtual path to the physical path of the file. I created a simple method (see MapBundleItemPath below) that uses a hard-coded string to find the root physical path of the MVC project. If your tests are run on multiple environments, you should replace the implementation to dynamically discover the project&#8217;s path.</p>
+<div class="entry-content"><p>In order to unit test your bundles you must assign <b>BundleTable.MapPathMethod</b> to a function which mocks mapping from the bundle item's virtual path to the physical path of the file. I created a simple method (see MapBundleItemPath below) that uses a hard-coded string to find the root physical path of the MVC project. If your tests are run on multiple environments, you should replace the implementation to dynamically discover the project's path.</p>
 
+<p>There is one "catchall" test which validates that all bundles registered in my BundleTable have at least one file. This is helpful because it will catch major problems with any registered bundle, even if you didn't explicitly write a test for the bundle.</p>
 
-
-
-<p>There is one &#8220;catchall&#8221; test which validates that all bundles registered in my BundleTable have at least one file. This is helpful because it will catch major problems with any registered bundle, even if you didn&#8217;t explicitly write a test for the bundle.</p>
-
-
-
-
-<p>I prefer to also have a test per bundle because when a bundle item virtual path doesn&#8217;t resolve to a valid physical file, the bundle silently ignores the error. This means that when you move a file, you can easily break a bundle and not realize it until you are testing your application in the web browser.</p>
-
-
-
+<p>I prefer to also have a test per bundle because when a bundle item virtual path doesn't resolve to a valid physical file, the bundle silently ignores the error. This means that when you move a file, you can easily break a bundle and not realize it until you are testing your application in the web browser.</p>
 
 <script src="https://gist.github.com/3961521.js?file=BundleConfigFixture.cs"></script>
 
-
-
-
 <h4>Caveats</h4>
-
-
-<p>I am not testing the dependency order of my files and am assuming that I don&#8217;t have duplicate file names in a bundle (e.g. path1/common.js and path2/common.js in the same bundle). You may want to tweak how you validate the contents of your bundles if you have to deal with more complex scenarios.</p>
-
-
-
+<p>I am not testing the dependency order of my files and am assuming that I don't have duplicate file names in a bundle (e.g. path1/common.js and path2/common.js in the same bundle). You may want to tweak how you validate the contents of your bundles if you have to deal with more complex scenarios.</p>
 
 <h2>Best Practice</h2>
-
-
 <p>While not necessary to unit test your bundles, I recommend creating a static class containing all of your bundles so that you can safely reference them in your views without using hard-coded strings. </p>
-
-
 <script src="https://gist.github.com/3961521.js?file=Bundles.cs"></script>
 
-
 <script src="https://gist.github.com/3961521.js?file=BundleConfig.cs"></script>
-
 
 <script src="https://gist.github.com/3961521.js?file=_Layout.cshtml"></script>
 
@@ -145,8 +146,6 @@
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -158,10 +157,9 @@
 
 
 
-  
 
 
-<time datetime="2012-10-26T00:00:00-05:00" pubdate data-updated="true">Oct 26<span>th</span>, 2012</time>
+<time datetime="2012-10-26T00:00:00-05:00" pubdate data-updated="true">October 26, 2012</time>
       
 
 
@@ -185,86 +183,60 @@
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2012/10/unit-testing-mvc-bundles/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2012/10/unit-testing-mvc-bundles/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

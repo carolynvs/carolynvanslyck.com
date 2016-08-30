@@ -9,7 +9,33 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="The Backstory When I first got started with ASP.NET MVC, I immediately noticed that my views were not checked for errors at compile time. The thought &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      How to get compile-time checking of ASP.NET MVC views
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+September 07, 2012
+      
+    
+  
+
+
+Th...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,14 +44,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2012/09/compile-time-support-for-mvc-views">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2012/09/compile-time-support-for-mvc-views/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -34,7 +59,7 @@
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -42,7 +67,7 @@
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -75,7 +100,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Get Compile-time Checking of ASP.NET MVC Views</h1>
+      <h1 class="entry-title">How to get compile-time checking of ASP.NET MVC views</h1>
     
     
       <p class="meta">
@@ -88,32 +113,25 @@
 
 
 
-  
 
 
-<time datetime="2012-09-07T00:00:00-05:00" pubdate data-updated="true">Sep 7<span>th</span>, 2012</time>
+<time datetime="2012-09-07T00:00:00-05:00" pubdate data-updated="true">September 07, 2012</time>
       </p>
     
   </header>
 
 
 <div class="entry-content"><h2>The Backstory</h2>
-
-
 <p>
     When I first got started with ASP.NET MVC, I immediately noticed that my views were not checked for errors at compile time.
     The thought of random runtime errors in my views was unacceptable! A bit of searching turned up the BuildMvcViews project
     flag. Simply unload your MVC project, open the csproj file and switch BuildMvcViews to true. Reload your project and
-    now you views will have a test compilation performed during each build. If life were that simple, I wouldn&#8217;t be writing about it&#8230;
+    now you views will have a test compilation performed during each build. If life were that simple, I wouldn't be writing about it...
 </p>
-
-
 <p>
     After a while, I noticed that my build times were terribly slow, about 30 seconds for a small, 4 project solution.
     After turning on detailed build output, I saw that the BuilMvcViews task was taking 24 seconds!
 </p>
-
-
 <p>
     I then stumbled upon Razor Generator. It is a VS extension + nuget package that compiles your views to code when you save and
     instructs ASP.NET to use the precompiled view instead of dynamically building one from the cshtml at runtime. Now all of my views
@@ -122,38 +140,27 @@
     it allows you to edit the view while debugging and without rebuilding.
 </p>
 
-
-
-
 <h2>The Solution</h2>
-
-
 <ol>
     <li>Install the <a href="http://razorgenerator.codeplex.com/">Razor Generator</a> Visual Studio extension</li>
     <li>Install the RazorGenerator.Mvc nuget package to your MVC project.</li>
     <li>Convert all your views to use the RazorGenerator. Use the Package Manager Console command
-        &#8220;Enable-RazorGenerator&#8221; to set the CustomTool to &#8220;RazorGenerator&#8221; for every view in your project.</li>
+        "Enable-RazorGenerator" to set the CustomTool to "RazorGenerator" for every view in your project.</li>
     <li>Note that the RazorGenerator.Mvc package added a new file to your App_Start folder, RazorGeneratorMvcStart. This class
         instructs ASP.NET to use the precompiled views unless the cshtml file is has been changed. In production this flag will be
-        false (since the requests aren&#8217;t local) so you won&#8217;t have a performance hit doing file timestamp comparisons.
+        false (since the requests aren't local) so you won't have a performance hit doing file timestamp comparisons.
     </li>
 </ol>
-
-
-
 
 <p>
     If motivated, one could change their production deployment to exclude the cshtml files, since the views are compiled into your assemblies. That would keep the deployment small and slightly improve performance since all the views are precompiled.
 </p>
-
 </div>
 
 
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -165,10 +172,9 @@
 
 
 
-  
 
 
-<time datetime="2012-09-07T00:00:00-05:00" pubdate data-updated="true">Sep 7<span>th</span>, 2012</time>
+<time datetime="2012-09-07T00:00:00-05:00" pubdate data-updated="true">September 07, 2012</time>
       
 
 
@@ -192,86 +198,60 @@
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2012/09/compile-time-support-for-mvc-views/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2012/09/compile-time-support-for-mvc-views/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

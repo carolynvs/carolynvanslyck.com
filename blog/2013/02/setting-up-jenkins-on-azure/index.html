@@ -9,7 +9,33 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="I have used a few different continuous integration (ci) servers before and really like Jenkins. So when running my suite of unit and integration &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      Setting up Jenkins on Windows Azure
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+February 02, 2013
+      
+    
+  
+
+
+I have used a few dif...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,14 +44,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2013/02/setting-up-jenkins-on-azure">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2013/02/setting-up-jenkins-on-azure/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -34,7 +59,7 @@
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -42,7 +67,7 @@
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -75,7 +100,7 @@
   
   <header>
     
-      <h1 class="entry-title">Setting Up Jenkins on Windows Azure</h1>
+      <h1 class="entry-title">Setting up Jenkins on Windows Azure</h1>
     
     
       <p class="meta">
@@ -88,46 +113,30 @@
 
 
 
-  
 
 
-<time datetime="2013-02-02T00:00:00-06:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2013</time>
+<time datetime="2013-02-02T00:00:00-06:00" pubdate data-updated="true">February 02, 2013</time>
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I have used a few different continuous integration (ci) servers before and really like Jenkins. So when running my suite of unit and integration tests started taking more than a minute, it was time for a ci server, specifically Jenkins. Originally I installed Jenkins on my dev machine but it required annoying config tweaks to not interfere with my existing IIS configuration and really needed a home of its own. Since I have been happily hosting my website on Windows Azure and an extra-small node is only $9/month&#8230; it seemed like a better option than scrounging up physical hardware.</p>
-
-
-
+<div class="entry-content"><p>I have used a few different continuous integration (ci) servers before and really like Jenkins. So when running my suite of unit and integration tests started taking more than a minute, it was time for a ci server, specifically Jenkins. Originally I installed Jenkins on my dev machine but it required annoying config tweaks to not interfere with my existing IIS configuration and really needed a home of its own. Since I have been happily hosting my website on Windows Azure and an extra-small node is only $9/month... it seemed like a better option than scrounging up physical hardware.</p>
 
 <p>Since I ran into a few unexpected difficulties, like getting mercurial+ssh+jenkins to play nice, here is the full rundown on how I setup my ci server. I know it seems like a lot of steps but I was able to set this up in less than 2 hours. Plus having a CI server is well worth the time investment!</p>
 
-
-
-
 <h2>Provisioning an Azure Virtual Machine</h2>
-
-
 <ol>
     <li>Create a VM from the gallery, making sure to select the latest platform image. For some reason MS still has old images up with RC builds and other cruft.</li>
-    <li>Once your VM is ready, click on the VM and select &#8220;Connect&#8221;, save the RDP file to your drive so that you can easily connect later.</li>
-    <li>Right click on the RDP file and select &#8220;Edit&#8230;&#8221;, then in the Remote Desktop settings uncheck &#8220;Always as for credentials&#8221; if you want to be able to save them. Otherwise, even if you check &#8220;Remember&#8221; when entering your password later, it will continue to prompt you for your password.</li>
-    <li>Back in the Azure management portal, go to your VM&#8217;s Endpoints and add a new endpoint for Jenkins, on TCP port 8080. This will allow you to connect to Jenkins remotely, e.g. mybuildserver.cloudapp.net:8080.<br/><img src="/blog/images/azure_vm_jenkins_endpoint.png" alt="Configure your endpoint to use TCP port 8080"/></li>
+    <li>Once your VM is ready, click on the VM and select "Connect", save the RDP file to your drive so that you can easily connect later.</li>
+    <li>Right click on the RDP file and select "Edit...", then in the Remote Desktop settings uncheck "Always as for credentials" if you want to be able to save them. Otherwise, even if you check "Remember" when entering your password later, it will continue to prompt you for your password.</li>
+    <li>Back in the Azure management portal, go to your VM's Endpoints and add a new endpoint for Jenkins, on TCP port 8080. This will allow you to connect to Jenkins remotely, e.g. mybuildserver.cloudapp.net:8080.<br /><img src="/blog/images/azure_vm_jenkins_endpoint.png" alt="Configure your endpoint to use TCP port 8080" /></li>
 </ol>
 
-
-
-
 <h2>Virtual Machine Housekeeping</h2>
-
-
 <p>Next we need to prep the VM a bit before we can install Jenkins as the VM is pretty bare-bones by default.</p>
-
-
 <ol>
-    <li>Disable Internet Explorer Enhanced Security for administrators so that you can use IE without throwing a chair. You can find it in the properties for your Local Server in Server Manager.<br/><img src="/blog/images/disable_ie_enhanced_security.png" alt="Turn off IE Enhanced Security Configuration in Server Manager"/></li>
+    <li>Disable Internet Explorer Enhanced Security for administrators so that you can use IE without throwing a chair. You can find it in the properties for your Local Server in Server Manager.<br /><img src="/blog/images/disable_ie_enhanced_security.png" alt="Turn off IE Enhanced Security Configuration in Server Manager" /></li>
     <li>Proceed to download your browser of choice and then our prerequisites:
         <ul>
             <li><a href="http://mercurial.selenic.com/downloads/">Mercurial</a> (you must use x86 in order to work with Jenkins)</li>
@@ -135,62 +144,45 @@
             <li><a href="http://jenkins-ci.org/content/thank-you-downloading-windows-installer">Jenkins</a> (beware of v1.500 which has a bug related to windows plug-ins, go for v1.499 or the latest version)</li>
         </ul>
     </li>
-    <li>Since my application is a web app, I installed IIS with IIS Management Console. Server Manager &raquo; Local Server &raquo; Roles and Features &raquo; Tasks &raquo; Add Roles and Features.<br/><img src="/blog/images/enable_iis_with_mgmt.png" alt="Add Roles and Features Wizard - Select IIS and IIS Management Console."/></li>
-    <li>Jenkins requires .NET 3.5 which is not installed by default and .NET 4.5 will not cut it. The Jenkins installer will fail because the service will be unable to start if you forget this step.<br/><img src="/blog/images/enable_net3_5.png" alt="Add Roles and Features Wizard - Select .NET Framework 3.5 Features"/></li>
+    <li>Since my application is a web app, I installed IIS with IIS Management Console. Server Manager &raquo; Local Server &raquo; Roles and Features &raquo; Tasks &raquo; Add Roles and Features.<br /><img src="/blog/images/enable_iis_with_mgmt.png" alt="Add Roles and Features Wizard - Select IIS and IIS Management Console." /></li>
+    <li>Jenkins requires .NET 3.5 which is not installed by default and .NET 4.5 will not cut it. The Jenkins installer will fail because the service will be unable to start if you forget this step.<br /><img src="/blog/images/enable_net3_5.png" alt="Add Roles and Features Wizard - Select .NET Framework 3.5 Features" /></li>
 </ol>
 
-
-
-
 <h2>Configure Mercurial (Hg) with SSH</h2>
-
-
-<p>My source code is on BitBucket, more specifically Mercurial. I ran into trouble using SSH when Jenkins would clone my repository and hang. The problem is that when Jenkins is running as a windows service, it will not be able to accept the host&#8217;s ssh keys and hangs waiting for user input. The workaround is to connect once using the console, and then copy the keys from your user to the default windows service user in the registry. If you are using SSH and git, I believe a similar situation can occur.</p>
-
-
+<p>My source code is on BitBucket, more specifically Mercurial. I ran into trouble using SSH when Jenkins would clone my repository and hang. The problem is that when Jenkins is running as a windows service, it will not be able to accept the host's ssh keys and hangs waiting for user input. The workaround is to connect once using the console, and then copy the keys from your user to the default windows service user in the registry. If you are using SSH and git, I believe a similar situation can occur.</p>
 <ol>
     <li>Install mercurial.</li>
     <li>Copy the putty and plink executables to C:\Program Files (x86)\Putty.</li>
     <li>Copy your ppk (putty private key) to your VM. This is the key you will use to clone your mercurial repository. As a side note, you may want to use a <a href="https://confluence.atlassian.com/display/BITBUCKET/Using+Deployment+Keys">BitBucket Deployment Key</a>.</li>
-    <li>Open a command window and run &#8220;C:\Program Files (x86)\Putty\putty&#8221; bitbucket.org . When prompted, press Y (yes) to accept the bitbucket SSH host keys.</li>
-    <li>Open regedit and navigate to the ssh keys you just accepted. Right click on SshHostKeys and export.<br/> <img src="/blog/images/regedit_export_bitbucket_ssh_keys.png" alt="Regedit - Export HKCU/Software/SimonTatham/PuTTY"/>SshHostKeys></li>
-    <li>Now right click on the exported .reg file and select &#8220;Edit&#8221;. Change HKEY_CURRENT_USER to HKEY_USERS&#46;DEFAULT . Save and import the registry key by double clicking on it.<br/>
+    <li>Open a command window and run "C:\Program Files (x86)\Putty\putty" bitbucket.org . When prompted, press Y (yes) to accept the bitbucket SSH host keys.</li>
+    <li>Open regedit and navigate to the ssh keys you just accepted. Right click on SshHostKeys and export.<br /> <img src="/blog/images/regedit_export_bitbucket_ssh_keys.png" alt="Regedit - Export HKCU/Software/SimonTatham/PuTTY" />SshHostKeys&gt;</li>
+    <li>Now right click on the exported .reg file and select "Edit". Change HKEY_CURRENT_USER to HKEY_USERS\.DEFAULT . Save and import the registry key by double clicking on it.<br />
 <pre><code>Windows Registry Editor Version 5.00
 
 [HKEY_USERS\.DEFAULT\Software\SimonTatham\PuTTY\SshHostKeys]
 "rsa2@22:bitbucket.org"="0x23,0xb9b88df3578371a7eb80c78bcda14fb30da436f11ca932a5fd5a8b6adfcc681df7a59cb4cb7ac966d9eac11daa38ebdbc0a6582a210ed4ee95a8d101c4abc925e942ab47535d64f9a5b3b68035c2ea1e900d709a1e8ea938718f532f9805a190446b92bac3040126225ae9d8374bc2008f106979d631734c7453f78c70091f4783b288869cb3c1941a784cd9baad823be27333833dc1f488a45b85952be75cf0a64965662302e3915378dcd5cfcd3ec903d804a29dff2fdf19df5deba4534b09e4dea6e44f152e339b3c43be98ddadfc56533192e216a3d673f00b4aa9cc9e7870acd8b6adb7e0feb77f2292fc2dede94819def3eb1e785541a06ab31ccf725f"
 </code></pre>
-        <img src="/blog/images/edit_bitbucket_registry_key.png" alt="Notepad - Change HKEY_CURRENT_USER to HKEY_USERS\.DEFAULT"/></li>
-    <li>Create a new file, mercurial.ini, in your Mercurial installation directory, e.g. C:\Program Files (x86)\Mercurial. Add the following section so that when mercurial connects via ssh it uses plink and our SSH key.<br/>
+        <img src="/blog/images/edit_bitbucket_registry_key.png" alt="Notepad - Change HKEY_CURRENT_USER to HKEY_USERS\.DEFAULT" /></li>
+    <li>Create a new file, mercurial.ini, in your Mercurial installation directory, e.g. C:\Program Files (x86)\Mercurial. Add the following section so that when mercurial connects via ssh it uses plink and our SSH key.<br />
 <pre><code>[ui]
 ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\deployment_key.ppk"</code></pre>
-        <img src="/blog/images/edit_mercurial_ini.png" alt="Notepad - mercurial.ini"/></li>
+        <img src="/blog/images/edit_mercurial_ini.png" alt="Notepad - mercurial.ini" /></li>
 </ol>
 
-
-
-
 <h2>Running Jenkins as a Windows Service</h2>
-
-
 <p>Onto the easy part! I kind of lied a bit when I hinted that getting Jenkins to run on Azure was the difficult part. Actually the hardest part was getting mercurial to work with SSH when running under the user account of the Jenkins windows server. So now that you have that working the rest is easy sailing!</p>
-
-
 <ol>
     <li>Install Jenkins. This is automatically create a Jenkins windows service, start it and open a browser to the Jenkins page (http://localhost:8080).</li>
     <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Securing+Jenkins">Secure Jenkins</a>.</li>
     <li>Install the mercurial plug-in.</li>
-    <li>Create a job that checks out your repository. Run it and verify that mercurial doesn&#8217;t hang.</li>
+    <li>Create a job that checks out your repository. Run it and verify that mercurial doesn't hang.</li>
 </ol>
-
 </div>
 
 
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -202,10 +194,9 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
 
 
 
-  
 
 
-<time datetime="2013-02-02T00:00:00-06:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2013</time>
+<time datetime="2013-02-02T00:00:00-06:00" pubdate data-updated="true">February 02, 2013</time>
       
 
 
@@ -229,86 +220,60 @@ ssh="C:\Program Files (x86)\Putty\plink.exe" -i "C:\Program Files (x86)\Putty\de
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2013/02/setting-up-jenkins-on-azure/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2013/02/setting-up-jenkins-on-azure/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

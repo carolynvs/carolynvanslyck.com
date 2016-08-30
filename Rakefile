@@ -1,5 +1,4 @@
 require "rubygems"
-require "bundler/setup"
 
 # This will be configured for you when you run config_deploy
 deploy_branch  = "master"
@@ -9,23 +8,24 @@ deploy_branch  = "master"
 public_dir      = "_site"    # compiled site directory
 source_dir      = "source"    # source file directory
 blog_index_dir  = 'source/blog'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
-deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)d
+deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 
-desc "Generate Site"
+desc "Build site"
 task :build do
+  puts "## Building site"
   system "jekyll build"
 end
 
-desc "Preview Site"
+desc "Watch the site and regenerate when it changes"
 task :serve do
+  puts "Previewing site at http://127.0.0.1:4000"
   system "jekyll serve"
 end
 
-desc "Deploy to GitHub Pages"
+desc "Default deploy task"
 task :deploy => [:build] do
-  # Check if preview posts exist, which should not be published
   if !File.exists?(deploy_dir)
-    puts "## Setting up deploy directory"
+    puts "Setting up deploy directory"
     Rake::Task[:setup_deploy].execute
   end
 
@@ -40,15 +40,13 @@ task :copydot, :source, :dest do |t, args|
   end
 end
 
-desc "deploy public directory to github pages"
+desc "deploy _site directory to github pages"
 multitask :push do
   puts "## Deploying branch to Github Pages "
   puts "## Pulling any updates from Github Pages "
   cd "#{deploy_dir}" do
-    system "git fetch origin"
-    system "git reset --hard origin/master"
+    system "git pull"
   end
-
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
   Rake::Task[:copydot].invoke(public_dir, deploy_dir)
   puts "\n## Copying #{public_dir} to #{deploy_dir}"
@@ -65,14 +63,13 @@ multitask :push do
 end
 
 desc "Set up _deploy folder and deploy branch for Github Pages deployment"
-task :setup_deploy do |t, args|
-  repo_url = system "git remote get-url origin"
+task :setup_deploy do
+  repo_url = `git remote get-url origin`
+  repo_url.strip!
 
   rm_rf deploy_dir
-  mkdir deploy_dir
-  cd "#{deploy_dir}" do
-    system "git clone #{repo_url} --branch #{deploy_branch} ."
-  end
+  system "git clone --branch #{deploy_branch} #{repo_url} #{deploy_dir}"
+
   puts "\n---\n## Now you can deploy to #{repo_url} with `rake deploy` ##"
 end
 

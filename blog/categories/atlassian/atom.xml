@@ -4,13 +4,12 @@
   <title><![CDATA[Category: atlassian | Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/blog/categories/atlassian/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-08-15T09:31:41-05:00</updated>
+  <updated>2016-08-29T19:13:12-05:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
@@ -18,19 +17,16 @@
     <link href="http://carolynvanslyck.com/blog/2015/03/right-hook/"/>
     <updated>2015-03-27T00:00:00-05:00</updated>
     <id>http://carolynvanslyck.com/blog/2015/03/right-hook</id>
-    <content type="html"><![CDATA[<p><img src="http://carolynvanslyck.com/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
+    <content type="html"><![CDATA[<p><img src="/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
 
-<p>I was recently invited to join Atlassian Allstars program, which I would love to link to but they don&rsquo;t appear to have a public page so&hellip; oops maybe I wasn&rsquo;t supposed to let anyone know about it. <em>First rule of Atlassian Allstars is you don&rsquo;t talk about Atlassian Allstars!</em> In my ongoing quest to earn enough achievment points to be a part of the <span style="text-decoration: line-through">Atlassian Justice League</span> Atlassian Customer Advisory panel&hellip; I took on the <a href="https://developer.atlassian.com/blog/2015/01/beer-o-clock-stash-plugin-tutorial/">Stash: Beer-o-Clock challenge</a>.</p>
+<p>I was recently invited to join Atlassian Allstars program, which I would love to link to but they don’t appear to have a public page so… oops maybe I wasn’t supposed to let anyone know about it. <em>First rule of Atlassian Allstars is you don’t talk about Atlassian Allstars!</em> In my ongoing quest to earn enough achievment points to be a part of the <span style="text-decoration: line-through">Atlassian Justice League</span> Atlassian Customer Advisory panel… I took on the <a href="https://developer.atlassian.com/blog/2015/01/beer-o-clock-stash-plugin-tutorial/">Stash: Beer-o-Clock challenge</a>.</p>
 
 <p>I decided to create a Stash repository hook that prints out a Chuck Norris quote every time you push. I whipped up the plugin in short order and tweeted a screenshot to claim my achievos.</p>
 
 <blockquote class="twitter-tweet tw-align-center" lang="en"><p>I just built an <a href="https://twitter.com/Atlassian">@atlassian</a> <a href="https://twitter.com/hashtag/stash?src=hash">#stash</a> hook that quotes Chuck Norris with every push: Right Hook <a href="http://t.co/pIxN4mHarn">http://t.co/pIxN4mHarn</a> <a href="http://t.co/2YAj749CkE">http://t.co/2YAj749CkE</a></p>&mdash; Carolyn Van Slyck (@carolynvs) <a href="https://twitter.com/carolynvs/status/581064247330779137">March 26, 2015</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-<script async src="http://carolynvanslyck.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-<p>Who would have guessed that would become my most popular tweet to date? Other than Chuck Norris that is. :&ndash;) So by popular demand I give you&hellip; <strong><a href="/projects/right-hook/">Right Hook!</a></strong> Install, enjoy and feel free to fork and use for your own evil purposes.</p>
+<p>Who would have guessed that would become my most popular tweet to date? Other than Chuck Norris that is. :-) So by popular demand I give you… <strong><a href="/projects/right-hook/">Right Hook!</a></strong> Install, enjoy and feel free to fork and use for your own evil purposes.</p>
 ]]></content>
   </entry>
   
@@ -39,44 +35,45 @@
     <link href="http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo/"/>
     <updated>2015-03-06T06:42:00-06:00</updated>
     <id>http://carolynvanslyck.com/blog/2015/03/gitversion-for-bamboo</id>
-    <content type="html"><![CDATA[<p><img src="http://carolynvanslyck.com/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
+    <content type="html"><![CDATA[<p><img src="/images/gitversion/logo.png" style="float: right; margin: 5px" /></p>
 
 <p>I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: <a href="/projects/gitversion">GitVersion for Bamboo</a>. Check out the link for info on how to install and configure the plugin.</p>
 
 <p>GitVersion is a tool which automates generating unique, <a href="http://semver.org/">semantic versions</a>. It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.</p>
 
-<p>What I like about GitVersion is the flexibility it provides. Instead of generating a single version number, &ldquo;take it or leave it&rdquo;, GitVersion provides over a dozen variables that you can choose from to build your own version number. If you are lucky and can just use pure semver, great!, use the FullSemVer variable and call it a day. However if you are perhaps like me, working on a legacy code base with an existing versioning scheme, it&rsquo;s still incredibly useful.</p>
+<p>What I like about GitVersion is the flexibility it provides. Instead of generating a single version number, “take it or leave it”, GitVersion provides over a dozen variables that you can choose from to build your own version number. If you are lucky and can just use pure semver, great!, use the FullSemVer variable and call it a day. However if you are perhaps like me, working on a legacy code base with an existing versioning scheme, it’s still incredibly useful.</p>
 
 <p>Here is the output of running gitversion.exe from my repository:</p>
 
-<pre><code>{
-  "Major":1,
-  "Minor":3,
-  "Patch":4,
-  "PreReleaseTag":"bamboo",
-  "PreReleaseTagWithDash":"-bamboo",
-  "BuildMetaData":61,
-  "FullBuildMetaData":"61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
-  "MajorMinorPatch":"1.3.4",
-  "SemVer":"1.3.4-bamboo",
-  "LegacySemVer":"1.3.4-bamboo",
-  "LegacySemVerPadded":"1.3.4-bamboo",
-  "AssemblySemVer":"1.3.4.0",
-  "AssemblyFileSemVer":"1.3.4.0",
-  "FullSemVer":"1.3.4-bamboo+61",
-  "InformationalVersion":"1.3.4-bamboo+61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a",
-  "ClassicVersion":"1.3.4.61",
-  "ClassicVersionWithTag":"1.3.4.61-bamboo",
-  "BranchName":"feature/bamboo",
-  "Sha":"3474397158a37e9b9525345d8205d1e4f8eca06a",
-  "NuGetVersionV2":"1.3.4-bamboo",
-  "NuGetVersion":"1.3.4-bamboo"
-}
-</code></pre>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Major"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Minor"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Patch"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PreReleaseTag"</span><span class="p">:</span><span class="s2">"bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PreReleaseTagWithDash"</span><span class="p">:</span><span class="s2">"-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuildMetaData"</span><span class="p">:</span><span class="mi">61</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"FullBuildMetaData"</span><span class="p">:</span><span class="s2">"61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MajorMinorPatch"</span><span class="p">:</span><span class="s2">"1.3.4"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SemVer"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"LegacySemVer"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"LegacySemVerPadded"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AssemblySemVer"</span><span class="p">:</span><span class="s2">"1.3.4.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AssemblyFileSemVer"</span><span class="p">:</span><span class="s2">"1.3.4.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"FullSemVer"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo+61"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"InformationalVersion"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo+61.Branch.feature/bamboo.Sha.3474397158a37e9b9525345d8205d1e4f8eca06a"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ClassicVersion"</span><span class="p">:</span><span class="s2">"1.3.4.61"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ClassicVersionWithTag"</span><span class="p">:</span><span class="s2">"1.3.4.61-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BranchName"</span><span class="p">:</span><span class="s2">"feature/bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Sha"</span><span class="p">:</span><span class="s2">"3474397158a37e9b9525345d8205d1e4f8eca06a"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"NuGetVersionV2"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"NuGetVersion"</span><span class="p">:</span><span class="s2">"1.3.4-bamboo"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<p>At work we are (still!) <a href="blog/2014/02/migrating-from-svn-to-git/">transioning from svn to git</a>. Previously we would use the svn revision as the 4th part of our version number, e.g. 1.0.0.{svn rev}. With git that&rsquo;s not available as we just have a commit hash which doens&rsquo;t fit the bill. So we are using GitVersion to generate just the last number for us by using the BuildMetadata variable. BuildMetadata represents the number of commits on a branch since the last release tag. So if when we started working on v15.2.0, the first commit is tagged and each new commit will result in a unique, increasing version number: first commit = 15.2.0.0, second commit = 15.2.0.1 &hellip;</p>
+<p>At work we are (still!) <a href="blog/2014/02/migrating-from-svn-to-git/">transioning from svn to git</a>. Previously we would use the svn revision as the 4th part of our version number, e.g. 1.0.0.{svn rev}. With git that’s not available as we just have a commit hash which doens’t fit the bill. So we are using GitVersion to generate just the last number for us by using the BuildMetadata variable. BuildMetadata represents the number of commits on a branch since the last release tag. So if when we started working on v15.2.0, the first commit is tagged and each new commit will result in a unique, increasing version number: first commit = 15.2.0.0, second commit = 15.2.0.1 …</p>
 
-<p>Is that a good idea? Shouldn&rsquo;t we have simply jumped onto the semver bandwagon? Probably. However sometimes things are beyond a peon&rsquo;s control and it&rsquo;s nice that I don&rsquo;t have to boil the ocean just to get a number.</p>
+<p>Is that a good idea? Shouldn’t we have simply jumped onto the semver bandwagon? Probably. However sometimes things are beyond a peon’s control and it’s nice that I don’t have to boil the ocean just to get a number.</p>
 ]]></content>
   </entry>
   
@@ -85,120 +82,113 @@
     <link href="http://carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started/"/>
     <updated>2014-08-07T00:00:00-05:00</updated>
     <id>http://carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started</id>
-    <content type="html"><![CDATA[<p>I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian&rsquo;s great SDK, and the ability to view the core application&rsquo;s source code as a reference, developing plugins is very straightforward. My <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">first plugin</a>, was completed and deployed to the marketplace in just a single weekend and after that &hellip; I was hooked.</p>
+    <content type="html"><![CDATA[<p>I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian’s great SDK, and the ability to view the core application’s source code as a reference, developing plugins is very straightforward. My <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">first plugin</a>, was completed and deployed to the marketplace in just a single weekend and after that … I was hooked.</p>
 
 <p>I have now <a href="https://marketplace.atlassian.com/vendors/1211016">published four plugins</a> on the marketplace, some trivial while others really dig into the guts of the core application. This post is the first in a series on writing plugins for Atlassian, sharing some of my lessons learned and consolidating what can be sparse documentation into a more useful format.</p>
 
 <hr />
 
 <ul>
-<li>Getting Started: Create an Atlassian Plugin</li>
-<li>Anatomy of Plugin <em>coming soon!</em></li>
-<li>Unit Testing <em>coming soon!</em></li>
-<li>Wired / Integration Testing <em>coming soon!</em></li>
-<li>Dependency Injection: Using Core Atlassian Classes from your Plugin <em>coming soon!</em></li>
-<li>Accessing the Database <em>coming soon!</em></li>
-<li>SDK Development Tools <em>coming soon!</em></li>
-<li>Building and Testing your Plugin on a Build Server <em>coming soon!</em></li>
-<li>Publishing your Plugin to the Marketplace <em>coming soon!</em></li>
+  <li>Getting Started: Create an Atlassian Plugin</li>
+  <li>Anatomy of Plugin <em>coming soon!</em></li>
+  <li>Unit Testing <em>coming soon!</em></li>
+  <li>Wired / Integration Testing <em>coming soon!</em></li>
+  <li>Dependency Injection: Using Core Atlassian Classes from your Plugin <em>coming soon!</em></li>
+  <li>Accessing the Database <em>coming soon!</em></li>
+  <li>SDK Development Tools <em>coming soon!</em></li>
+  <li>Building and Testing your Plugin on a Build Server <em>coming soon!</em></li>
+  <li>Publishing your Plugin to the Marketplace <em>coming soon!</em></li>
 </ul>
-
 
 <hr />
 
 <p>So you have an idea for a plugin, or perhaps filed a feature request / bug report with Atlassian and are tired of waiting, what next?</p>
 
-<h2>Plugin Types</h2>
+<h2 id="plugin-types">Plugin Types</h2>
 
 <p>Before you start developing a plugin there are a few questions you need to consider:</p>
 
 <ol>
-<li>Do you need to alter the core application&rsquo;s behavior? <strong><em>You must use a server plugin.</em></strong></li>
-<li>Do you want use your plugin on Atlassian&rsquo;s OnDemand? <strong><em>You must use a cloud (Connect) plugin.</em></strong></li>
+  <li>Do you need to alter the core application’s behavior? <strong><em>You must use a server plugin.</em></strong></li>
+  <li>Do you want use your plugin on Atlassian’s OnDemand? <strong><em>You must use a cloud (Connect) plugin.</em></strong></li>
 </ol>
 
-
-<p><aside>I have not yet written a cloud (Connect) plugin, so this series will focus solely on server plugins.</aside></p>
+<aside>I have not yet written a cloud (Connect) plugin, so this series will focus solely on server plugins.</aside>
 
 <p><strong>Server</strong></p>
 
 <p>Server plugins can be deployed to an Atlassian application instance that is hosted on your own server. While there are some limitations, for the most part they have access to the same code that the core application itself is written in.</p>
 
 <ul>
-<li>Hosted on the application server</li>
-<li>Written in Java</li>
-<li>May access most of the application&rsquo;s internal classes</li>
-<li>May save data to the application&rsquo;s database</li>
+  <li>Hosted on the application server</li>
+  <li>Written in Java</li>
+  <li>May access most of the application’s internal classes</li>
+  <li>May save data to the application’s database</li>
 </ul>
-
 
 <p><strong>Cloud</strong></p>
 
 <p>Cloud plugins can be deployed to Atlassian OnDemand cloud hosted applications. They use the <a href="https://developer.atlassian.com/static/connect/docs/guides/introduction.html">Connect plugin framework</a>. A Connect plugin is hosted on a server external to the application server and is similar to a hosted div or iframe. Your plugin will look like it is part of the application but all code is executed on your server and has very limited access to the core application.</p>
 
 <ul>
-<li>Hosted externally from the application server</li>
-<li>Written in any language</li>
-<li>Interacts with the core application via its public REST api</li>
+  <li>Hosted externally from the application server</li>
+  <li>Written in any language</li>
+  <li>Interacts with the core application via its public REST api</li>
 </ul>
 
+<h2 id="setup">Setup</h2>
 
-<h2>Setup</h2>
-
-<h3>Install SDK</h3>
-
+<h3 id="install-sdk">Install SDK</h3>
 <p>First step is to download and install the SDK on your machine (<a href="https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Windows+System">Windows</a>, <a href="https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Linux+or+Mac+System">Linux or Mac</a>).</p>
 
 <p><strong>Windows Tips</strong></p>
 
-<p>I develop plugins both on Windows and Mac; the experience is mostly the same. When on Windows, I prefer bash over cmd and wrote <a href="https://github.com/carolynvs/atlassian-plugin-sdk">wrapper shell scripts</a> for the batch files provided by the SDK. This lets me stay in bash and use the sdk commands exactly the same as I would on Mac or Linux, e.g. <code>atlas-run-standalone --product Jira</code>.</p>
+<p>I develop plugins both on Windows and Mac; the experience is mostly the same. When on Windows, I prefer bash over cmd and wrote <a href="https://github.com/carolynvs/atlassian-plugin-sdk">wrapper shell scripts</a> for the batch files provided by the SDK. This lets me stay in bash and use the sdk commands exactly the same as I would on Mac or Linux, e.g. <code class="highlighter-rouge">atlas-run-standalone --product Jira</code>.</p>
 
-<p>Also I can&rsquo;t help but recommend that you use a real command line terminal instead of cmd.exe. <a href="https://github.com/cbucher/console">Console</a> is easy to use and lets you copy/paste, resize, maximize, use tabs, etc.</p>
+<p>Also I can’t help but recommend that you use a real command line terminal instead of cmd.exe. <a href="https://github.com/cbucher/console">Console</a> is easy to use and lets you copy/paste, resize, maximize, use tabs, etc.</p>
 
-<blockquote><p>Friends don&rsquo;t let friends use cmd.exe.</p></blockquote>
+<blockquote>
+  <p>Friends don’t let friends use cmd.exe.</p>
+</blockquote>
 
-<h3>Download Source</h3>
-
+<h3 id="download-source">Download Source</h3>
 <p>I recommend downloading the source code for the application you are extending. To download the source, purchase a starter license then go to <a href="http://my.atlassian.com">my.atlasian.com</a> and there will be a link to source from your license entry.</p>
 
-<p><aside>While not strictly necessary, I have a much easier time understanding which classes are available and how they should be used by reading the source code than their online class documentation. This also enables you to debug into the core application.</p>
+<aside>While not strictly necessary, I have a much easier time understanding which classes are available and how they should be used by reading the source code than their online class documentation. This also enables you to debug into the core application. 
 
-<p>Note that the license is purely to gain access to the source code, as the SDK automatically generates temporary development licenses and doesn&rsquo;t require or use a real or evaluation license.</aside></p>
+Note that the license is purely to gain access to the source code, as the SDK automatically generates temporary development licenses and doesn't require or use a real or evaluation license.</aside>
 
-<h3>Install Java IDE</h3>
-
+<h3 id="install-java-ide">Install Java IDE</h3>
 <p>While you could go commando and just use your favorite text editor, I prefer an IDE. <a href="http://www.jetbrains.com/idea/">JetBrains IntelliJ IDEA</a> is free, can debug your plugin code and has all the nifty refactorings that have I come to expect from developing in C# with ReSharper.</p>
 
-<h2>Create an Empty Plugin</h2>
-
-<p>The SDK provides a command which scaffolds an empty plugin for each application. From the command line run the appropriate command for the application you are extending: e.g. <code>atlas-create-bamboo-plugin</code> or <code>atlas-create-stash-plugin</code>. The SDK will then ask you a series of questions:</p>
+<h2 id="create-an-empty-plugin">Create an Empty Plugin</h2>
+<p>The SDK provides a command which scaffolds an empty plugin for each application. From the command line run the appropriate command for the application you are extending: e.g. <code class="highlighter-rouge">atlas-create-bamboo-plugin</code> or <code class="highlighter-rouge">atlas-create-stash-plugin</code>. The SDK will then ask you a series of questions:</p>
 
 <ul>
-<li><strong>groupId</strong>: Plugin namespace prefix, e.g. com.carolynvs</li>
-<li><strong>artifactId</strong>: Plugin name, e.g. trade_depot</li>
-<li><strong>version</strong>: Plugin Version, e.g. 1.0.SNAPSHOT. You may change this at any point by editing your pom.xml. I recommend accepting the default.</li>
-<li><strong>package</strong>: This should be groupId.artifactId, e.g. com.carolynvs.trade_depot</li>
+  <li><strong>groupId</strong>: Plugin namespace prefix, e.g. com.carolynvs</li>
+  <li><strong>artifactId</strong>: Plugin name, e.g. trade_depot</li>
+  <li><strong>version</strong>: Plugin Version, e.g. 1.0.SNAPSHOT. You may change this at any point by editing your pom.xml. I recommend accepting the default.</li>
+  <li><strong>package</strong>: This should be groupId.artifactId, e.g. com.carolynvs.trade_depot</li>
 </ul>
 
-
-<p><aside>If you are unfamiliar with Maven and Java, check out <a href="http://maven.apache.org/guides/mini/guide-naming-conventions.html">Maven Naming Conventions</a> and <a href="http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html">Naming a Java Package</a>. The SDK will not validate what you enter and if it is not valid, your plugin won&rsquo;t compile and you will need to start over.</aside></p>
+<aside>If you are unfamiliar with Maven and Java, check out [Maven Naming Conventions](http://maven.apache.org/guides/mini/guide-naming-conventions.html) and [Naming a Java Package](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html). The SDK will not validate what you enter and if it is not valid, your plugin won't compile and you will need to start over.</aside>
 
 <p>At this point you have a skeleton plugin with a sample plugin defined. I recommend committing this to source control before making any changes as it is in a deployable state and will help you identify where you went wrong if you run into problems after making customizations.</p>
 
-<p>Now let&rsquo;s verify that our plugin works and see it in action:</p>
+<p>Now let’s verify that our plugin works and see it in action:</p>
 
 <ol>
-<li>Change into your newly created plugin directory.</li>
-<li>Execute <code>atlas-run</code> and wait until you see the following output from the command line &ldquo;[INFO] bamboo started successfully in 374s at <a href="http://localhost:6990/bamboo">http://localhost:6990/bamboo</a>&rdquo;.</li>
-<li>Open your web browser and go to the URL from step 1.</li>
-<li>Login using user: admin, password: admin.</li>
-<li>Go to the Addons view in the Administration area of the application. You should see entries for your plugin and your plugin&rsquo;s tests.</li>
+  <li>Change into your newly created plugin directory.</li>
+  <li>Execute <code class="highlighter-rouge">atlas-run</code> and wait until you see the following output from the command line “[INFO] bamboo started successfully in 374s at http://localhost:6990/bamboo”.</li>
+  <li>Open your web browser and go to the URL from step 1.</li>
+  <li>Login using user: admin, password: admin.</li>
+  <li>Go to the Addons view in the Administration area of the application. You should see entries for your plugin and your plugin’s tests.</li>
 </ol>
-
 
 <p>Hurray! You now have an empty plugin with everything you need to start developing.</p>
 
-<p>Coming soon&hellip; Part 2: Anatomy of an Atlassian Plugin</p>
+<p>Coming soon… Part 2: Anatomy of an Atlassian Plugin</p>
+
 ]]></content>
   </entry>
   
@@ -209,13 +199,13 @@
     <id>http://carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git</id>
     <content type="html"><![CDATA[<p>This was originally a guest blog post on <a href="https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/">atlassian.com</a>.</p>
 
-<h2>Redefining what is possible</h2>
+<h2 id="redefining-what-is-possible">Redefining what is possible</h2>
 
-<p>I work at a large software company which is heavily invested in Subversion. In my division alone, we have 3 repositories, each with 100+ projects. I don&rsquo;t even know how many repositories and projects we have across the company but it is enough that we have an entire team dedicated to managing our source control, CI and build infrastructure.</p>
+<p>I work at a large software company which is heavily invested in Subversion. In my division alone, we have 3 repositories, each with 100+ projects. I don’t even know how many repositories and projects we have across the company but it is enough that we have an entire team dedicated to managing our source control, CI and build infrastructure.</p>
 
-<p>The general thought on Git has been that while it may have won the &ldquo;DVCS Wars&rdquo;, we could never use it because:</p>
+<p>The general thought on Git has been that while it may have won the “DVCS Wars”, we could never use it because:</p>
 
-<BLOCKQUOTE>
+<blockquote>
 <p>Everyone knows Subversion.</p>
 
 <p>All of our shared infrastructure relies on interacting with Subversion.</p>
@@ -225,61 +215,59 @@
 <p>Git is too hard for a 'Joe SixPack' developer</p>
 
 <p><strong>... unthinkable!</strong></p>
-</BLOCKQUOTE>
+</blockquote>
 
+<p>I have been using Git for the past two years and while I must admit that I hated it at first (mostly because I tried to muddle my way through using my knowledge of Subversion), I am now a convert. I see a lot of value in the workflows that it opens up and if I ever have to manually resolve another Subversion tree conflict, someone is going to get hurt. :-) The idea of going back to using Subversion and giving up everything I had come to rely on was unthinkable. So I set off on a crazy journey to bring Git to my company.</p>
 
-<p>I have been using Git for the past two years and while I must admit that I hated it at first (mostly because I tried to muddle my way through using my knowledge of Subversion), I am now a convert. I see a lot of value in the workflows that it opens up and if I ever have to manually resolve another Subversion tree conflict, someone is going to get hurt. :&ndash;) The idea of going back to using Subversion and giving up everything I had come to rely on was unthinkable. So I set off on a crazy journey to bring Git to my company.</p>
+<p><em>NOTE: At my company we simply call our Subversion projects “repositories”, ignoring that they are usually hosted together inside a Subversion repository. Each project, once imported into Git, is a separate repository so going forward, I will refer to them as repositories.</em></p>
 
-<p><em>NOTE: At my company we simply call our Subversion projects &ldquo;repositories&rdquo;, ignoring that they are usually hosted together inside a Subversion repository. Each project, once imported into Git, is a separate repository so going forward, I will refer to them as repositories.</em></p>
+<h2 id="git-svn-is-not-git">Git-SVN is not Git</h2>
 
-<h2>Git-SVN is not Git</h2>
+<p>My first thought was to use Git-SVN, mostly because Git-TFS had served me well in the past. It had added appeal because <a href="http://blogs.atlassian.com/2013/12/git-svn-tips-and-tricks/">no one had to know that I was using Git-SVN</a>. While this does work, it was frustrating on many levels. The main problem being that Git-SVN isn’t really Git.</p>
 
-<p>My first thought was to use Git-SVN, mostly because Git-TFS had served me well in the past. It had added appeal because <a href="http://blogs.atlassian.com/2013/12/git-svn-tips-and-tricks/">no one had to know that I was using Git-SVN</a>. While this does work, it was frustrating on many levels. The main problem being that Git-SVN isn&rsquo;t really Git.</p>
+<p>On a superficial level, the commands are not the same. Instead of <code class="highlighter-rouge">git pull</code>, it is <code class="highlighter-rouge">git svn rebase</code>, <code class="highlighter-rouge">git push</code> is <code class="highlighter-rouge">git svn dcommit</code>, etc. Why is it <code class="highlighter-rouge">dcommit</code> instead of <code class="highlighter-rouge">commit</code>? The world may never know.</p>
 
-<p>On a superficial level, the commands are not the same. Instead of <code>git pull</code>, it is <code>git svn rebase</code>, <code>git push</code> is <code>git svn dcommit</code>, etc. Why is it <code>dcommit</code> instead of <code>commit</code>? The world may never know.</p>
-
-<p>If it had just been syntax differences, I would have stuck with it. However, as I tried to use Git-SVN with my normal workflow, I quickly realized that this &hellip; is &hellip; not &hellip; Git. For example, I had to worry about how I would merge master into my feature branch so that the last changeset on the branch had a Git-SVN reference to my target svn branch. Otherwise my next push (sorry, I mean <code>git svn dcommit</code>) intended for that feature branch could accidentally end up on trunk. Why? Because <a href="http://stackoverflow.com/questions/4168411/how-does-git-svn-know-which-branch-to-dcommit-to">Git-SVN does not track remotes in the same way as Git</a>. Instead Git-SVN relies on metadata injected into the commit messages, where it appends the path of the repository and the svn revision number.</p>
+<p>If it had just been syntax differences, I would have stuck with it. However, as I tried to use Git-SVN with my normal workflow, I quickly realized that this … is … not … Git. For example, I had to worry about how I would merge master into my feature branch so that the last changeset on the branch had a Git-SVN reference to my target svn branch. Otherwise my next push (sorry, I mean <code class="highlighter-rouge">git svn dcommit</code>) intended for that feature branch could accidentally end up on trunk. Why? Because <a href="http://stackoverflow.com/questions/4168411/how-does-git-svn-know-which-branch-to-dcommit-to">Git-SVN does not track remotes in the same way as Git</a>. Instead Git-SVN relies on metadata injected into the commit messages, where it appends the path of the repository and the svn revision number.</p>
 
 <p>That said, I did use Git-SVN exclusively everyday for 2 months and its merge capabilities saved my bacon more than once. I do not mean to bash it unnecessarily, only to call out the troubles I ran into thinking that I could simply use Git-SVN just like Git.</p>
 
-<p>Eventually other developers at my company noticed that I was using Git and wanted to try it as well which was all part of my evil plan. However they quickly decided it wasn&rsquo;t worth the effort, as they would have to repeat the same work that I had just done to configure and import each repository into their own local Git-SVN repository: refining what history should be imported, crafting .gitignore and .gitattributes files, making coffee while importing our giant repositories, etc.</p>
+<p>Eventually other developers at my company noticed that I was using Git and wanted to try it as well which was all part of my evil plan. However they quickly decided it wasn’t worth the effort, as they would have to repeat the same work that I had just done to configure and import each repository into their own local Git-SVN repository: refining what history should be imported, crafting .gitignore and .gitattributes files, making coffee while importing our giant repositories, etc.</p>
 
-<h2>Removing the big bang from our migration</h2>
+<h2 id="removing-the-big-bang-from-our-migration">Removing the big bang from our migration</h2>
 
 <p>Whenever I would search for help with Git-SVN, I saw mentions of something called <a href="http://subgit.com">SubGit</a>. It initially appeared to be yet another git-to-svn importer but once I realized what SubGit <strong>really</strong> did, that was a turning point in my git crusade.</p>
 
-<p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use &ldquo;pure Git&rdquo; and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn&rsquo;t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible&hellip; because we already had!</p>
+<p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use “pure Git” and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn’t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible… because we already had!</p>
 
-<p><figure style="text-align:center">
-<img src="http://carolynvanslyck.com/images/migrating-from-svn-to-git/subgit.png"/>
+<figure style="text-align:center">
+<img src="/images/migrating-from-svn-to-git/subgit.png" />
 <figcaption>Image courtesy of <a href="http://subgit.com">SubGit</a></figcaption>
-</figure></p>
+</figure>
 
-<p>I spent a few days testing out the best way to migrate our Subversion repositories to Git. For example, one repository is a 400MB Subversion checkout (excluding the .svn directory overhead). With over 14 years of history, if I had attempted to import the entire repository into Git, it would have taken weeks and been too large to clone easily. So I settled on only importing history from our last release, which took 14 hours to import and the resulting Git repository is a manageable 600MB. Honestly I have still not figured out what our long term strategy should be with respect to history, other than keeping the original Subversion repositories for any &ldquo;archaeological digs&rdquo; that may arise.</p>
+<p>I spent a few days testing out the best way to migrate our Subversion repositories to Git. For example, one repository is a 400MB Subversion checkout (excluding the .svn directory overhead). With over 14 years of history, if I had attempted to import the entire repository into Git, it would have taken weeks and been too large to clone easily. So I settled on only importing history from our last release, which took 14 hours to import and the resulting Git repository is a manageable 600MB. Honestly I have still not figured out what our long term strategy should be with respect to history, other than keeping the original Subversion repositories for any “archaeological digs” that may arise.</p>
 
-<p>Additionally, SubGit can do some interesting things like translating svn-ignore properties to <code>.gitignore</code> files, or creating a <code>.gitattributes</code> file for you. However this significantly increased import time, and long term I wanted to manage these settings independently in Git without them being synchronized back to Subversion properties so I disabled those features.</p>
+<p>Additionally, SubGit can do some interesting things like translating svn-ignore properties to <code class="highlighter-rouge">.gitignore</code> files, or creating a <code class="highlighter-rouge">.gitattributes</code> file for you. However this significantly increased import time, and long term I wanted to manage these settings independently in Git without them being synchronized back to Subversion properties so I disabled those features.</p>
 
 <p>Eventually I came up with a standard configuration for importing a repository, making the process pretty painless and repeatable. After I had road tested this for a few weeks, I was sure I had finally found a solution to our migration problem. We could stand up these Git mirrors and slowly migrate repositories, teams and infrastructure. The migration could take as long as it needed as neither Subversion nor Git were impacted by the presence of the other. In fact, we plan on migrating our repositories over the course of a year. This really took the pressure off of those in charge of the migration and will allow us to move at a pace that makes sense for our business.</p>
 
-<h2>Stash + SubGit go together like peas and carrots</h2>
+<h2 id="stash--subgit-go-together-like-peas-and-carrots">Stash + SubGit go together like peas and carrots</h2>
 
-<p>The next step was selecting a Git server, as a bare Git repository only gets you so far and we needed security, web views of changesets, code reviews&hellip; basically everything that our current setup of VisualSVN, FishEye and Crucible provided. I was delighted to learn that <a href="https://www.atlassian.com/software/stash">Atlassian Stash</a> not only had the functionality of FishEye and Crucible baked-in, it also has a <a href="https://marketplace.atlassian.com/plugins/org.tmatesoft.subgit.stash-svn-importer">plugin for SubGit</a>. The plugin provides a simple UI for bootstrapping a new Git repository from a Subversion repository, handles the initial configuration and ensures that the SubGit synchronization service is always running. Stash has all the features of GitHub (which is what most of our developers were familiar with) plus some extras that in my opinion are must haves in an enterprise environment. There are lots useful plugins such as the Reject Force Push Hook or the <a href="https://marketplace.atlassian.com/plugins/com.risingoak.stash.plugins.stash-enforce-author-hook">Enforce Author Hook</a> which verifies that the Git author on every commit matches the authenticated user.</p>
+<p>The next step was selecting a Git server, as a bare Git repository only gets you so far and we needed security, web views of changesets, code reviews… basically everything that our current setup of VisualSVN, FishEye and Crucible provided. I was delighted to learn that <a href="https://www.atlassian.com/software/stash">Atlassian Stash</a> not only had the functionality of FishEye and Crucible baked-in, it also has a <a href="https://marketplace.atlassian.com/plugins/org.tmatesoft.subgit.stash-svn-importer">plugin for SubGit</a>. The plugin provides a simple UI for bootstrapping a new Git repository from a Subversion repository, handles the initial configuration and ensures that the SubGit synchronization service is always running. Stash has all the features of GitHub (which is what most of our developers were familiar with) plus some extras that in my opinion are must haves in an enterprise environment. There are lots useful plugins such as the Reject Force Push Hook or the <a href="https://marketplace.atlassian.com/plugins/com.risingoak.stash.plugins.stash-enforce-author-hook">Enforce Author Hook</a> which verifies that the Git author on every commit matches the authenticated user.</p>
 
-<p>Another concern was ensuring that people who were not yet using Git didn&rsquo;t see oddball commits from the Git side. I had a few developers who were working directly off of master and every time they pulled, it was creating merge commits that were being synched back to Subversion. Our policy was to use <code>git pull -- rebase</code> but whenever someone forgot, it would pollute the Subversion repository with empty commits and confusing messages like &ldquo;Merging master into origin/master&hellip;&rdquo;. In a single weekend, I was able to write a Stash plugin, <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">Reject Merge Commits Hook</a>, a pre-receive hook that identifies &ldquo;unnecessary&rdquo; merge commits and rejects the push. The plugin development experience was surprisingly easy, once I learned a bit of Java. Over time it will become more important that we can easily fill any gaps with a plugin and enforce our company policies without too much trouble.</p>
+<p>Another concern was ensuring that people who were not yet using Git didn’t see oddball commits from the Git side. I had a few developers who were working directly off of master and every time they pulled, it was creating merge commits that were being synched back to Subversion. Our policy was to use <code class="highlighter-rouge">git pull -- rebase</code> but whenever someone forgot, it would pollute the Subversion repository with empty commits and confusing messages like “Merging master into origin/master…”. In a single weekend, I was able to write a Stash plugin, <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">Reject Merge Commits Hook</a>, a pre-receive hook that identifies “unnecessary” merge commits and rejects the push. The plugin development experience was surprisingly easy, once I learned a bit of Java. Over time it will become more important that we can easily fill any gaps with a plugin and enforce our company policies without too much trouble.</p>
 
-<h2>SourceTree teaches old developers new tricks</h2>
+<h2 id="sourcetree-teaches-old-developers-new-tricks">SourceTree teaches old developers new tricks</h2>
 
-<p>We kicked off our migration with 10 developers from two teams, a handful of our most active repositories and I thought that the biggest obstacles to the great Git experiment were behind me. I could not have been more off-base! Due to my background with Linux, even though I am a Windows developer by day, I am pretty comfortable in a command line terminal. I didn&rsquo;t anticipate that my fellow developers would find the switch from TortoiseSVN to Git a confusing awkward mess.</p>
+<p>We kicked off our migration with 10 developers from two teams, a handful of our most active repositories and I thought that the biggest obstacles to the great Git experiment were behind me. I could not have been more off-base! Due to my background with Linux, even though I am a Windows developer by day, I am pretty comfortable in a command line terminal. I didn’t anticipate that my fellow developers would find the switch from TortoiseSVN to Git a confusing awkward mess.</p>
 
-<p>What everyone wanted was big friendly buttons that they could mentally map to what they were familiar with: <code>git pull</code> &rarr; <code>svn update</code>, <code>git commit &amp;&amp; git push</code> &rarr; <code>svn commit</code>, etc. Every Git Windows client that we tried was lacking in a critical area:</p>
+<p>What everyone wanted was big friendly buttons that they could mentally map to what they were familiar with: <code class="highlighter-rouge">git pull</code> → <code class="highlighter-rouge">svn update</code>, <code class="highlighter-rouge">git commit &amp;&amp; git push</code> → <code class="highlighter-rouge">svn commit</code>, etc. Every Git Windows client that we tried was lacking in a critical area:</p>
 
 <ul>
-<li>Git for Visual Studio doesn&rsquo;t support blame and in general feels like they have shoehorned Git into the existing TFS interface</li>
-<li>Git Extensions is ugly and clunky</li>
-<li>TortiseGit is close but doesn&rsquo;t provide a view of the repository&rsquo;s overall state</li>
-<li>GitHub for Windows is so limited that it is a total non-starter</li>
+  <li>Git for Visual Studio doesn’t support blame and in general feels like they have shoehorned Git into the existing TFS interface</li>
+  <li>Git Extensions is ugly and clunky</li>
+  <li>TortiseGit is close but doesn’t provide a view of the repository’s overall state</li>
+  <li>GitHub for Windows is so limited that it is a total non-starter</li>
 </ul>
-
 
 <p><em>What good were all my efforts to migrate us to Git if the developers rejected it as too complicated?</em></p>
 
@@ -287,17 +275,18 @@
 
 <p>Unfortunately, there are still some missing features that will hold up our rollout until they are implemented in the Windows client. Mainly the lack of a <a href="https://jira.atlassian.com/browse/SRCTREEWIN-391">tree view of the file hierarchy</a> and interactive rebase support.</p>
 
-<h2>Git is the new normal</h2>
+<h2 id="git-is-the-new-normal">Git is the new normal</h2>
 
 <p>All of this could not have come at a more opportune time for us. We have just embarked on an enormous effort which involves forking some of our repositories while pulling in the new features that are still being developed on the original repositories into our rapidly diverging fork. This would have been impossible with Subversion, a merge nightmare filled with tree-conflicts and regret. With Git, we are merging two months worth of features without blinking an eye.</p>
 
-<p>Instead of wasting time coordinating &ldquo;who&rsquo;s working where&rdquo; across teams and forks, we are charging forward and people are already taking for granted all of their new found freedom. Previously we would delay any refactoring efforts until our &ldquo;bug fix&rdquo; sprint when it was less likely to cause merge problems. Now developers can refactor without fear, when it makes the most sense, during feature development.</p>
+<p>Instead of wasting time coordinating “who’s working where” across teams and forks, we are charging forward and people are already taking for granted all of their new found freedom. Previously we would delay any refactoring efforts until our “bug fix” sprint when it was less likely to cause merge problems. Now developers can refactor without fear, when it makes the most sense, during feature development.</p>
 
-<h2>Mission Accomplished!</h2>
+<h2 id="mission-accomplished">Mission Accomplished!</h2>
 
-<p>I am still working on changing developer workflows now that we aren&rsquo;t forced to all work on trunk. Encouraging the use of feature branches, so developers can commit and push regularly, instead of sitting on local changes because the feature isn&rsquo;t ready to be integrated. I knew we were finally getting the hang of things when one of the developers who had struggled the most with learning Git confided to me that he hated it when he had to work on a repository that wasn&rsquo;t yet mirrored in Git.</p>
+<p>I am still working on changing developer workflows now that we aren’t forced to all work on trunk. Encouraging the use of feature branches, so developers can commit and push regularly, instead of sitting on local changes because the feature isn’t ready to be integrated. I knew we were finally getting the hang of things when one of the developers who had struggled the most with learning Git confided to me that he hated it when he had to work on a repository that wasn’t yet mirrored in Git.</p>
 
 <p>Now here I am, ramping up teams on Git as quickly as I can. Did I mention that this whole Git migration is not my day job? Always a sucker for punishment, I have already switched my sights to pushing for our CI builds to do more: building feature branches,  requiring good builds before a pull request can be accepted, automatically merging bug fixes into master, triggering deployments to various environments. Obviously it would be silly to take a moment, sit back and appreciate all that we have accomplished in a few short months. Right?</p>
+
 ]]></content>
   </entry>
   

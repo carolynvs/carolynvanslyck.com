@@ -9,7 +9,33 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="I recently added a secured payment page to my MVC site using the RequireHttps attribute and quickly noticed that once the user went to the page, all &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      Using both HTTP and HTTPS in ASP.NET MVC
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+January 17, 2013
+      
+    
+  
+
+
+I recently added ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,14 +44,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2013/01/mixing-http-https-in-mvc">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2013/01/mixing-http-https-in-mvc/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -34,7 +59,7 @@
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -42,7 +67,7 @@
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -75,7 +100,7 @@
   
   <header>
     
-      <h1 class="entry-title">Using Both HTTP and HTTPS in ASP.NET MVC</h1>
+      <h1 class="entry-title">Using both HTTP and HTTPS in ASP.NET MVC</h1>
     
     
       <p class="meta">
@@ -88,24 +113,17 @@
 
 
 
-  
 
 
-<time datetime="2013-01-17T00:00:00-06:00" pubdate data-updated="true">Jan 17<span>th</span>, 2013</time>
+<time datetime="2013-01-17T00:00:00-06:00" pubdate data-updated="true">January 17, 2013</time>
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I recently added a secured payment page to my MVC site using the <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute%28v=vs.108%29.aspx">RequireHttps</a> attribute and quickly noticed that once the user went to the page, all other pages were now being served up via https as well. I prefer to only use https when necessary and wanted the user to be redirected back to http for any pages that didn&#8217;t require https.</p>
-
-
-
+<div class="entry-content"><p>I recently added a secured payment page to my MVC site using the <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute%28v=vs.108%29.aspx">RequireHttps</a> attribute and quickly noticed that once the user went to the page, all other pages were now being served up via https as well. I prefer to only use https when necessary and wanted the user to be redirected back to http for any pages that didn't require https.</p>
 
 <p>Below is the code for my RequireHttp attribute. It can be placed on either a controller or action and will redirect from https to http when necessary.</p>
-
-
-
 
 <script src="https://gist.github.com/4558181.js"></script>
 
@@ -115,8 +133,6 @@
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -128,10 +144,9 @@
 
 
 
-  
 
 
-<time datetime="2013-01-17T00:00:00-06:00" pubdate data-updated="true">Jan 17<span>th</span>, 2013</time>
+<time datetime="2013-01-17T00:00:00-06:00" pubdate data-updated="true">January 17, 2013</time>
       
 
 
@@ -155,86 +170,60 @@
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2013/01/mixing-http-https-in-mvc/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2013/01/mixing-http-https-in-mvc/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

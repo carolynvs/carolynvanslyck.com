@@ -9,7 +9,33 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade BytesForHealth to &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      Upgrade to .NET vNext
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+January 02, 2015
+      
+    
+  
+
+
+While I have read informal comments ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,14 +44,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -34,7 +59,7 @@
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -42,7 +67,7 @@
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -88,10 +113,9 @@
 
 
 
-  
 
 
-<time datetime="2015-01-02T12:13:00-06:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2015</time>
+<time datetime="2015-01-02T12:13:00-06:00" pubdate data-updated="true">January 02, 2015</time>
       </p>
     
   </header>
@@ -99,7 +123,7 @@
 
 <div class="entry-content"><p>While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade <a href="http://bytesforhealth.com">BytesForHealth</a> to .NET vNext (.NET 5).</p>
 
-<p><aside>This is just my first step towards migrating, I&rsquo;m sticking with the .NET Framework and am not making changes to work with .NET Core. Once I get this working, I&rsquo;ll start refactoring to only use Core packages.</aside></p>
+<aside>This is just my first step towards migrating, I'm sticking with the .NET Framework and am not making changes to work with .NET Core. Once I get this working, I'll start refactoring to only use Core packages.</aside>
 
 <p>Here are some of the steps I took to upgrade:</p>
 
@@ -113,10 +137,10 @@
     
   <li>Verify that you are using at least the beta of KPM: <code>kpm --version</code> should return <code>1.0.0-beta1-10662</code>. If not run <code>kvm upgrade</code> to get the latest KRE and then <code>kvm use 1.0.0-beta1 -x86 -r CLR -p</code> to set it as the active version.</li>
   
-  <li>Open Visual Studio and create a ASP.NET Class Library (vnext) project. Take that kproj file and copy it into your each of your project directories, name it after the project and if you like overkill, update the project&#8217;s guid to match the original in the csproj. Now edit your solution file and tweak the project reference to use the kproj file instead of the csproj file and update the project type guids from FAE04EC0-301F-11D3-BF4B-00C04F79EFBC to 8BB2217D-0F2D-49D1-97BC-3654ED321F3B.</li>
+  <li>Open Visual Studio and create a ASP.NET Class Library (vnext) project. Take that kproj file and copy it into your each of your project directories, name it after the project and if you like overkill, update the project's guid to match the original in the csproj. Now edit your solution file and tweak the project reference to use the kproj file instead of the csproj file and update the project type guids from FAE04EC0-301F-11D3-BF4B-00C04F79EFBC to 8BB2217D-0F2D-49D1-97BC-3654ED321F3B.</li>
   
   <li>Rename packages.config to <a href="https://github.com/aspnet/Home/wiki/Project.json-file">project.json</a>. Add <code>{ "dependencies": {</code> at the top and using some creative find/replace, alter your packages xml to the new json format.
-  <br/>
+  <br />
   <b>Before</b>
   <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;packages&gt;
@@ -124,7 +148,7 @@
     &lt;package id="Microsoft.AspNet.Mvc" version="4.0.20710.0" targetFramework="net45" /&gt;
 &lt;/packages&gt;
 </code></pre>
-<br/>
+<br />
 <b>After</b><pre><code>{
   "dependencies": {
     "AutoMapper": "2.2.1",
@@ -134,7 +158,7 @@
 
 <li>Using your original csproj, find .NET Framework references (e.g. System.Web, or just look for anything without a packages hintpath), and add them to the frameworkassemblies section in project.json.
 
-<br/>
+<br />
 <pre><code>{
   "dependencies": {
     "AutoMapper": "2.2.1",
@@ -153,26 +177,24 @@
 <li>Using your original csproj file, find project references and add them as dependencies in your project.json file. The name of the dependency will be the name of the project. For example if ProjectA references ProjectB, then it should have the following line in its project.json dependencies section <code>"ProjectB": ""</code>.
 <li>Delete your old csproj files.</li>
 <li>If all of your source code is in a single directory and at the same level, i.e. not nested, then you can skip this next step. Otherwise you will need to add a global.json to the root of your solution. In order for projects to reference each other when they are not in the same directory, add a hint path for where the projects can be found.
-<br/>
+<br />
 <pre><code>{
   "sources": ["Src", "Src/ReallyAwesomeStuff", "RandomDir"]
 }</code></pre>
-</ol>
+&lt;/ol&gt;
 
+You should now be able to build your solution using Visual Studio. You can build individual projects by first running `kpm restore` in the soluiton directory, then by running `kpm build` from within each project directory. If it builds with Visual Studio but not via the command line, review step 3 and make sure you are using the latest version of the KRE.
 
-<p>You should now be able to build your solution using Visual Studio. You can build individual projects by first running <code>kpm restore</code> in the soluiton directory, then by running <code>kpm build</code> from within each project directory. If it builds with Visual Studio but not via the command line, review step 3 and make sure you are using the latest version of the KRE.</p>
-
-<p><aside>
-To learn more about building outside of Visual Studio, check out <a href="http://blog.maartenballiauw.be/post/2014/12/19/Building-future-NET-projects-is-quite-pleasant.aspx">Building future .NET projects is quite pleasant</a> for a breakdown of what the builds currently look like for some of Microsoft&rsquo;s projects on GitHub. It&rsquo;s not quite clear yet if <a href="https://github.com/sakeproject/sake">sake</a> is going to be the recommended build tool for all .NET projects or if it&rsquo;s only an internal tool; there&rsquo;s very little documentation and guidance at this point and I&rsquo;ve seen <a href="http://forums.dotnetfoundation.org/t/compiling-net-core-code-on-linux-os-x/302/6">musings about open-sourcing msbuild</a>&hellip; so things are still up in the air.
-</aside></p>
+<aside>
+To learn more about building outside of Visual Studio, check out [Building future .NET projects is quite pleasant](http://blog.maartenballiauw.be/post/2014/12/19/Building-future-NET-projects-is-quite-pleasant.aspx) for a breakdown of what the builds currently look like for some of Microsoft's projects on GitHub. It's not quite clear yet if [sake](https://github.com/sakeproject/sake) is going to be the recommended build tool for all .NET projects or if it's only an internal tool; there's very little documentation and guidance at this point and I've seen [musings about open-sourcing msbuild](http://forums.dotnetfoundation.org/t/compiling-net-core-code-on-linux-os-x/302/6)... so things are still up in the air.
+</aside>
+</li></li></ol>
 </div>
 
 
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -184,10 +206,9 @@ To learn more about building outside of Visual Studio, check out <a href="http:/
 
 
 
-  
 
 
-<time datetime="2015-01-02T12:13:00-06:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2015</time>
+<time datetime="2015-01-02T12:13:00-06:00" pubdate data-updated="true">January 02, 2015</time>
       
 
 <span class="categories">
@@ -217,86 +238,60 @@ To learn more about building outside of Visual Studio, check out <a href="http:/
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2015/01/upgrade-to-net-vnext/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

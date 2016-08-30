@@ -4,13 +4,12 @@
   <title><![CDATA[Category: stash | Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/blog/categories/stash/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-08-15T09:31:41-05:00</updated>
+  <updated>2016-08-29T19:13:12-05:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
@@ -18,19 +17,16 @@
     <link href="http://carolynvanslyck.com/blog/2015/03/right-hook/"/>
     <updated>2015-03-27T00:00:00-05:00</updated>
     <id>http://carolynvanslyck.com/blog/2015/03/right-hook</id>
-    <content type="html"><![CDATA[<p><img src="http://carolynvanslyck.com/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
+    <content type="html"><![CDATA[<p><img src="/images/right-hook/logo.png" style="float: right; margin: 5px" /></p>
 
-<p>I was recently invited to join Atlassian Allstars program, which I would love to link to but they don&rsquo;t appear to have a public page so&hellip; oops maybe I wasn&rsquo;t supposed to let anyone know about it. <em>First rule of Atlassian Allstars is you don&rsquo;t talk about Atlassian Allstars!</em> In my ongoing quest to earn enough achievment points to be a part of the <span style="text-decoration: line-through">Atlassian Justice League</span> Atlassian Customer Advisory panel&hellip; I took on the <a href="https://developer.atlassian.com/blog/2015/01/beer-o-clock-stash-plugin-tutorial/">Stash: Beer-o-Clock challenge</a>.</p>
+<p>I was recently invited to join Atlassian Allstars program, which I would love to link to but they don’t appear to have a public page so… oops maybe I wasn’t supposed to let anyone know about it. <em>First rule of Atlassian Allstars is you don’t talk about Atlassian Allstars!</em> In my ongoing quest to earn enough achievment points to be a part of the <span style="text-decoration: line-through">Atlassian Justice League</span> Atlassian Customer Advisory panel… I took on the <a href="https://developer.atlassian.com/blog/2015/01/beer-o-clock-stash-plugin-tutorial/">Stash: Beer-o-Clock challenge</a>.</p>
 
 <p>I decided to create a Stash repository hook that prints out a Chuck Norris quote every time you push. I whipped up the plugin in short order and tweeted a screenshot to claim my achievos.</p>
 
 <blockquote class="twitter-tweet tw-align-center" lang="en"><p>I just built an <a href="https://twitter.com/Atlassian">@atlassian</a> <a href="https://twitter.com/hashtag/stash?src=hash">#stash</a> hook that quotes Chuck Norris with every push: Right Hook <a href="http://t.co/pIxN4mHarn">http://t.co/pIxN4mHarn</a> <a href="http://t.co/2YAj749CkE">http://t.co/2YAj749CkE</a></p>&mdash; Carolyn Van Slyck (@carolynvs) <a href="https://twitter.com/carolynvs/status/581064247330779137">March 26, 2015</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-<script async src="http://carolynvanslyck.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-<p>Who would have guessed that would become my most popular tweet to date? Other than Chuck Norris that is. :&ndash;) So by popular demand I give you&hellip; <strong><a href="/projects/right-hook/">Right Hook!</a></strong> Install, enjoy and feel free to fork and use for your own evil purposes.</p>
+<p>Who would have guessed that would become my most popular tweet to date? Other than Chuck Norris that is. :-) So by popular demand I give you… <strong><a href="/projects/right-hook/">Right Hook!</a></strong> Install, enjoy and feel free to fork and use for your own evil purposes.</p>
 ]]></content>
   </entry>
   
@@ -41,13 +37,13 @@
     <id>http://carolynvanslyck.com/blog/2014/02/migrating-from-svn-to-git</id>
     <content type="html"><![CDATA[<p>This was originally a guest blog post on <a href="https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/">atlassian.com</a>.</p>
 
-<h2>Redefining what is possible</h2>
+<h2 id="redefining-what-is-possible">Redefining what is possible</h2>
 
-<p>I work at a large software company which is heavily invested in Subversion. In my division alone, we have 3 repositories, each with 100+ projects. I don&rsquo;t even know how many repositories and projects we have across the company but it is enough that we have an entire team dedicated to managing our source control, CI and build infrastructure.</p>
+<p>I work at a large software company which is heavily invested in Subversion. In my division alone, we have 3 repositories, each with 100+ projects. I don’t even know how many repositories and projects we have across the company but it is enough that we have an entire team dedicated to managing our source control, CI and build infrastructure.</p>
 
-<p>The general thought on Git has been that while it may have won the &ldquo;DVCS Wars&rdquo;, we could never use it because:</p>
+<p>The general thought on Git has been that while it may have won the “DVCS Wars”, we could never use it because:</p>
 
-<BLOCKQUOTE>
+<blockquote>
 <p>Everyone knows Subversion.</p>
 
 <p>All of our shared infrastructure relies on interacting with Subversion.</p>
@@ -57,61 +53,59 @@
 <p>Git is too hard for a 'Joe SixPack' developer</p>
 
 <p><strong>... unthinkable!</strong></p>
-</BLOCKQUOTE>
+</blockquote>
 
+<p>I have been using Git for the past two years and while I must admit that I hated it at first (mostly because I tried to muddle my way through using my knowledge of Subversion), I am now a convert. I see a lot of value in the workflows that it opens up and if I ever have to manually resolve another Subversion tree conflict, someone is going to get hurt. :-) The idea of going back to using Subversion and giving up everything I had come to rely on was unthinkable. So I set off on a crazy journey to bring Git to my company.</p>
 
-<p>I have been using Git for the past two years and while I must admit that I hated it at first (mostly because I tried to muddle my way through using my knowledge of Subversion), I am now a convert. I see a lot of value in the workflows that it opens up and if I ever have to manually resolve another Subversion tree conflict, someone is going to get hurt. :&ndash;) The idea of going back to using Subversion and giving up everything I had come to rely on was unthinkable. So I set off on a crazy journey to bring Git to my company.</p>
+<p><em>NOTE: At my company we simply call our Subversion projects “repositories”, ignoring that they are usually hosted together inside a Subversion repository. Each project, once imported into Git, is a separate repository so going forward, I will refer to them as repositories.</em></p>
 
-<p><em>NOTE: At my company we simply call our Subversion projects &ldquo;repositories&rdquo;, ignoring that they are usually hosted together inside a Subversion repository. Each project, once imported into Git, is a separate repository so going forward, I will refer to them as repositories.</em></p>
+<h2 id="git-svn-is-not-git">Git-SVN is not Git</h2>
 
-<h2>Git-SVN is not Git</h2>
+<p>My first thought was to use Git-SVN, mostly because Git-TFS had served me well in the past. It had added appeal because <a href="http://blogs.atlassian.com/2013/12/git-svn-tips-and-tricks/">no one had to know that I was using Git-SVN</a>. While this does work, it was frustrating on many levels. The main problem being that Git-SVN isn’t really Git.</p>
 
-<p>My first thought was to use Git-SVN, mostly because Git-TFS had served me well in the past. It had added appeal because <a href="http://blogs.atlassian.com/2013/12/git-svn-tips-and-tricks/">no one had to know that I was using Git-SVN</a>. While this does work, it was frustrating on many levels. The main problem being that Git-SVN isn&rsquo;t really Git.</p>
+<p>On a superficial level, the commands are not the same. Instead of <code class="highlighter-rouge">git pull</code>, it is <code class="highlighter-rouge">git svn rebase</code>, <code class="highlighter-rouge">git push</code> is <code class="highlighter-rouge">git svn dcommit</code>, etc. Why is it <code class="highlighter-rouge">dcommit</code> instead of <code class="highlighter-rouge">commit</code>? The world may never know.</p>
 
-<p>On a superficial level, the commands are not the same. Instead of <code>git pull</code>, it is <code>git svn rebase</code>, <code>git push</code> is <code>git svn dcommit</code>, etc. Why is it <code>dcommit</code> instead of <code>commit</code>? The world may never know.</p>
-
-<p>If it had just been syntax differences, I would have stuck with it. However, as I tried to use Git-SVN with my normal workflow, I quickly realized that this &hellip; is &hellip; not &hellip; Git. For example, I had to worry about how I would merge master into my feature branch so that the last changeset on the branch had a Git-SVN reference to my target svn branch. Otherwise my next push (sorry, I mean <code>git svn dcommit</code>) intended for that feature branch could accidentally end up on trunk. Why? Because <a href="http://stackoverflow.com/questions/4168411/how-does-git-svn-know-which-branch-to-dcommit-to">Git-SVN does not track remotes in the same way as Git</a>. Instead Git-SVN relies on metadata injected into the commit messages, where it appends the path of the repository and the svn revision number.</p>
+<p>If it had just been syntax differences, I would have stuck with it. However, as I tried to use Git-SVN with my normal workflow, I quickly realized that this … is … not … Git. For example, I had to worry about how I would merge master into my feature branch so that the last changeset on the branch had a Git-SVN reference to my target svn branch. Otherwise my next push (sorry, I mean <code class="highlighter-rouge">git svn dcommit</code>) intended for that feature branch could accidentally end up on trunk. Why? Because <a href="http://stackoverflow.com/questions/4168411/how-does-git-svn-know-which-branch-to-dcommit-to">Git-SVN does not track remotes in the same way as Git</a>. Instead Git-SVN relies on metadata injected into the commit messages, where it appends the path of the repository and the svn revision number.</p>
 
 <p>That said, I did use Git-SVN exclusively everyday for 2 months and its merge capabilities saved my bacon more than once. I do not mean to bash it unnecessarily, only to call out the troubles I ran into thinking that I could simply use Git-SVN just like Git.</p>
 
-<p>Eventually other developers at my company noticed that I was using Git and wanted to try it as well which was all part of my evil plan. However they quickly decided it wasn&rsquo;t worth the effort, as they would have to repeat the same work that I had just done to configure and import each repository into their own local Git-SVN repository: refining what history should be imported, crafting .gitignore and .gitattributes files, making coffee while importing our giant repositories, etc.</p>
+<p>Eventually other developers at my company noticed that I was using Git and wanted to try it as well which was all part of my evil plan. However they quickly decided it wasn’t worth the effort, as they would have to repeat the same work that I had just done to configure and import each repository into their own local Git-SVN repository: refining what history should be imported, crafting .gitignore and .gitattributes files, making coffee while importing our giant repositories, etc.</p>
 
-<h2>Removing the big bang from our migration</h2>
+<h2 id="removing-the-big-bang-from-our-migration">Removing the big bang from our migration</h2>
 
 <p>Whenever I would search for help with Git-SVN, I saw mentions of something called <a href="http://subgit.com">SubGit</a>. It initially appeared to be yet another git-to-svn importer but once I realized what SubGit <strong>really</strong> did, that was a turning point in my git crusade.</p>
 
-<p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use &ldquo;pure Git&rdquo; and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn&rsquo;t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible&hellip; because we already had!</p>
+<p>SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use “pure Git” and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn’t need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible… because we already had!</p>
 
-<p><figure style="text-align:center">
-<img src="http://carolynvanslyck.com/images/migrating-from-svn-to-git/subgit.png"/>
+<figure style="text-align:center">
+<img src="/images/migrating-from-svn-to-git/subgit.png" />
 <figcaption>Image courtesy of <a href="http://subgit.com">SubGit</a></figcaption>
-</figure></p>
+</figure>
 
-<p>I spent a few days testing out the best way to migrate our Subversion repositories to Git. For example, one repository is a 400MB Subversion checkout (excluding the .svn directory overhead). With over 14 years of history, if I had attempted to import the entire repository into Git, it would have taken weeks and been too large to clone easily. So I settled on only importing history from our last release, which took 14 hours to import and the resulting Git repository is a manageable 600MB. Honestly I have still not figured out what our long term strategy should be with respect to history, other than keeping the original Subversion repositories for any &ldquo;archaeological digs&rdquo; that may arise.</p>
+<p>I spent a few days testing out the best way to migrate our Subversion repositories to Git. For example, one repository is a 400MB Subversion checkout (excluding the .svn directory overhead). With over 14 years of history, if I had attempted to import the entire repository into Git, it would have taken weeks and been too large to clone easily. So I settled on only importing history from our last release, which took 14 hours to import and the resulting Git repository is a manageable 600MB. Honestly I have still not figured out what our long term strategy should be with respect to history, other than keeping the original Subversion repositories for any “archaeological digs” that may arise.</p>
 
-<p>Additionally, SubGit can do some interesting things like translating svn-ignore properties to <code>.gitignore</code> files, or creating a <code>.gitattributes</code> file for you. However this significantly increased import time, and long term I wanted to manage these settings independently in Git without them being synchronized back to Subversion properties so I disabled those features.</p>
+<p>Additionally, SubGit can do some interesting things like translating svn-ignore properties to <code class="highlighter-rouge">.gitignore</code> files, or creating a <code class="highlighter-rouge">.gitattributes</code> file for you. However this significantly increased import time, and long term I wanted to manage these settings independently in Git without them being synchronized back to Subversion properties so I disabled those features.</p>
 
 <p>Eventually I came up with a standard configuration for importing a repository, making the process pretty painless and repeatable. After I had road tested this for a few weeks, I was sure I had finally found a solution to our migration problem. We could stand up these Git mirrors and slowly migrate repositories, teams and infrastructure. The migration could take as long as it needed as neither Subversion nor Git were impacted by the presence of the other. In fact, we plan on migrating our repositories over the course of a year. This really took the pressure off of those in charge of the migration and will allow us to move at a pace that makes sense for our business.</p>
 
-<h2>Stash + SubGit go together like peas and carrots</h2>
+<h2 id="stash--subgit-go-together-like-peas-and-carrots">Stash + SubGit go together like peas and carrots</h2>
 
-<p>The next step was selecting a Git server, as a bare Git repository only gets you so far and we needed security, web views of changesets, code reviews&hellip; basically everything that our current setup of VisualSVN, FishEye and Crucible provided. I was delighted to learn that <a href="https://www.atlassian.com/software/stash">Atlassian Stash</a> not only had the functionality of FishEye and Crucible baked-in, it also has a <a href="https://marketplace.atlassian.com/plugins/org.tmatesoft.subgit.stash-svn-importer">plugin for SubGit</a>. The plugin provides a simple UI for bootstrapping a new Git repository from a Subversion repository, handles the initial configuration and ensures that the SubGit synchronization service is always running. Stash has all the features of GitHub (which is what most of our developers were familiar with) plus some extras that in my opinion are must haves in an enterprise environment. There are lots useful plugins such as the Reject Force Push Hook or the <a href="https://marketplace.atlassian.com/plugins/com.risingoak.stash.plugins.stash-enforce-author-hook">Enforce Author Hook</a> which verifies that the Git author on every commit matches the authenticated user.</p>
+<p>The next step was selecting a Git server, as a bare Git repository only gets you so far and we needed security, web views of changesets, code reviews… basically everything that our current setup of VisualSVN, FishEye and Crucible provided. I was delighted to learn that <a href="https://www.atlassian.com/software/stash">Atlassian Stash</a> not only had the functionality of FishEye and Crucible baked-in, it also has a <a href="https://marketplace.atlassian.com/plugins/org.tmatesoft.subgit.stash-svn-importer">plugin for SubGit</a>. The plugin provides a simple UI for bootstrapping a new Git repository from a Subversion repository, handles the initial configuration and ensures that the SubGit synchronization service is always running. Stash has all the features of GitHub (which is what most of our developers were familiar with) plus some extras that in my opinion are must haves in an enterprise environment. There are lots useful plugins such as the Reject Force Push Hook or the <a href="https://marketplace.atlassian.com/plugins/com.risingoak.stash.plugins.stash-enforce-author-hook">Enforce Author Hook</a> which verifies that the Git author on every commit matches the authenticated user.</p>
 
-<p>Another concern was ensuring that people who were not yet using Git didn&rsquo;t see oddball commits from the Git side. I had a few developers who were working directly off of master and every time they pulled, it was creating merge commits that were being synched back to Subversion. Our policy was to use <code>git pull -- rebase</code> but whenever someone forgot, it would pollute the Subversion repository with empty commits and confusing messages like &ldquo;Merging master into origin/master&hellip;&rdquo;. In a single weekend, I was able to write a Stash plugin, <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">Reject Merge Commits Hook</a>, a pre-receive hook that identifies &ldquo;unnecessary&rdquo; merge commits and rejects the push. The plugin development experience was surprisingly easy, once I learned a bit of Java. Over time it will become more important that we can easily fill any gaps with a plugin and enforce our company policies without too much trouble.</p>
+<p>Another concern was ensuring that people who were not yet using Git didn’t see oddball commits from the Git side. I had a few developers who were working directly off of master and every time they pulled, it was creating merge commits that were being synched back to Subversion. Our policy was to use <code class="highlighter-rouge">git pull -- rebase</code> but whenever someone forgot, it would pollute the Subversion repository with empty commits and confusing messages like “Merging master into origin/master…”. In a single weekend, I was able to write a Stash plugin, <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">Reject Merge Commits Hook</a>, a pre-receive hook that identifies “unnecessary” merge commits and rejects the push. The plugin development experience was surprisingly easy, once I learned a bit of Java. Over time it will become more important that we can easily fill any gaps with a plugin and enforce our company policies without too much trouble.</p>
 
-<h2>SourceTree teaches old developers new tricks</h2>
+<h2 id="sourcetree-teaches-old-developers-new-tricks">SourceTree teaches old developers new tricks</h2>
 
-<p>We kicked off our migration with 10 developers from two teams, a handful of our most active repositories and I thought that the biggest obstacles to the great Git experiment were behind me. I could not have been more off-base! Due to my background with Linux, even though I am a Windows developer by day, I am pretty comfortable in a command line terminal. I didn&rsquo;t anticipate that my fellow developers would find the switch from TortoiseSVN to Git a confusing awkward mess.</p>
+<p>We kicked off our migration with 10 developers from two teams, a handful of our most active repositories and I thought that the biggest obstacles to the great Git experiment were behind me. I could not have been more off-base! Due to my background with Linux, even though I am a Windows developer by day, I am pretty comfortable in a command line terminal. I didn’t anticipate that my fellow developers would find the switch from TortoiseSVN to Git a confusing awkward mess.</p>
 
-<p>What everyone wanted was big friendly buttons that they could mentally map to what they were familiar with: <code>git pull</code> &rarr; <code>svn update</code>, <code>git commit &amp;&amp; git push</code> &rarr; <code>svn commit</code>, etc. Every Git Windows client that we tried was lacking in a critical area:</p>
+<p>What everyone wanted was big friendly buttons that they could mentally map to what they were familiar with: <code class="highlighter-rouge">git pull</code> → <code class="highlighter-rouge">svn update</code>, <code class="highlighter-rouge">git commit &amp;&amp; git push</code> → <code class="highlighter-rouge">svn commit</code>, etc. Every Git Windows client that we tried was lacking in a critical area:</p>
 
 <ul>
-<li>Git for Visual Studio doesn&rsquo;t support blame and in general feels like they have shoehorned Git into the existing TFS interface</li>
-<li>Git Extensions is ugly and clunky</li>
-<li>TortiseGit is close but doesn&rsquo;t provide a view of the repository&rsquo;s overall state</li>
-<li>GitHub for Windows is so limited that it is a total non-starter</li>
+  <li>Git for Visual Studio doesn’t support blame and in general feels like they have shoehorned Git into the existing TFS interface</li>
+  <li>Git Extensions is ugly and clunky</li>
+  <li>TortiseGit is close but doesn’t provide a view of the repository’s overall state</li>
+  <li>GitHub for Windows is so limited that it is a total non-starter</li>
 </ul>
-
 
 <p><em>What good were all my efforts to migrate us to Git if the developers rejected it as too complicated?</em></p>
 
@@ -119,17 +113,18 @@
 
 <p>Unfortunately, there are still some missing features that will hold up our rollout until they are implemented in the Windows client. Mainly the lack of a <a href="https://jira.atlassian.com/browse/SRCTREEWIN-391">tree view of the file hierarchy</a> and interactive rebase support.</p>
 
-<h2>Git is the new normal</h2>
+<h2 id="git-is-the-new-normal">Git is the new normal</h2>
 
 <p>All of this could not have come at a more opportune time for us. We have just embarked on an enormous effort which involves forking some of our repositories while pulling in the new features that are still being developed on the original repositories into our rapidly diverging fork. This would have been impossible with Subversion, a merge nightmare filled with tree-conflicts and regret. With Git, we are merging two months worth of features without blinking an eye.</p>
 
-<p>Instead of wasting time coordinating &ldquo;who&rsquo;s working where&rdquo; across teams and forks, we are charging forward and people are already taking for granted all of their new found freedom. Previously we would delay any refactoring efforts until our &ldquo;bug fix&rdquo; sprint when it was less likely to cause merge problems. Now developers can refactor without fear, when it makes the most sense, during feature development.</p>
+<p>Instead of wasting time coordinating “who’s working where” across teams and forks, we are charging forward and people are already taking for granted all of their new found freedom. Previously we would delay any refactoring efforts until our “bug fix” sprint when it was less likely to cause merge problems. Now developers can refactor without fear, when it makes the most sense, during feature development.</p>
 
-<h2>Mission Accomplished!</h2>
+<h2 id="mission-accomplished">Mission Accomplished!</h2>
 
-<p>I am still working on changing developer workflows now that we aren&rsquo;t forced to all work on trunk. Encouraging the use of feature branches, so developers can commit and push regularly, instead of sitting on local changes because the feature isn&rsquo;t ready to be integrated. I knew we were finally getting the hang of things when one of the developers who had struggled the most with learning Git confided to me that he hated it when he had to work on a repository that wasn&rsquo;t yet mirrored in Git.</p>
+<p>I am still working on changing developer workflows now that we aren’t forced to all work on trunk. Encouraging the use of feature branches, so developers can commit and push regularly, instead of sitting on local changes because the feature isn’t ready to be integrated. I knew we were finally getting the hang of things when one of the developers who had struggled the most with learning Git confided to me that he hated it when he had to work on a repository that wasn’t yet mirrored in Git.</p>
 
 <p>Now here I am, ramping up teams on Git as quickly as I can. Did I mention that this whole Git migration is not my day job? Always a sucker for punishment, I have already switched my sights to pushing for our CI builds to do more: building feature branches,  requiring good builds before a pull request can be accepted, automatically merging bug fixes into master, triggering deployments to various environments. Obviously it would be silly to take a moment, sit back and appreciate all that we have accomplished in a few short months. Right?</p>
+
 ]]></content>
   </entry>
   

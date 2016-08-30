@@ -9,7 +9,33 @@
   <meta name="author" content="Carolyn Van Slyck">
 
   
-  <meta name="description" content="I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me &hellip;">
+  <meta name="description" content="
+
+  
+  
+    
+      Create an Atlassian Plugin
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+August 07, 2014
+      
+    
+  
+
+
+I am a big fan of continuous int...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,14 +44,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started">
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -34,7 +59,7 @@
 
 </head>
 
-<body   >
+<body  class="no-sidebar">
   <header role="banner"><hgroup>
   <h1><a href="/">Carolyn Van Slyck</a></h1>
   
@@ -42,7 +67,7 @@
 
 </header>
   <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   -->
@@ -88,137 +113,127 @@
 
 
 
-  
 
 
-<time datetime="2014-08-07T00:00:00-05:00" pubdate data-updated="true">Aug 7<span>th</span>, 2014</time>
+<time datetime="2014-08-07T00:00:00-05:00" pubdate data-updated="true">August 07, 2014</time>
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian&rsquo;s great SDK, and the ability to view the core application&rsquo;s source code as a reference, developing plugins is very straightforward. My <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">first plugin</a>, was completed and deployed to the marketplace in just a single weekend and after that &hellip; I was hooked.</p>
+<div class="entry-content"><p>I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian’s great SDK, and the ability to view the core application’s source code as a reference, developing plugins is very straightforward. My <a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">first plugin</a>, was completed and deployed to the marketplace in just a single weekend and after that … I was hooked.</p>
 
 <p>I have now <a href="https://marketplace.atlassian.com/vendors/1211016">published four plugins</a> on the marketplace, some trivial while others really dig into the guts of the core application. This post is the first in a series on writing plugins for Atlassian, sharing some of my lessons learned and consolidating what can be sparse documentation into a more useful format.</p>
 
 <hr />
 
 <ul>
-<li>Getting Started: Create an Atlassian Plugin</li>
-<li>Anatomy of Plugin <em>coming soon!</em></li>
-<li>Unit Testing <em>coming soon!</em></li>
-<li>Wired / Integration Testing <em>coming soon!</em></li>
-<li>Dependency Injection: Using Core Atlassian Classes from your Plugin <em>coming soon!</em></li>
-<li>Accessing the Database <em>coming soon!</em></li>
-<li>SDK Development Tools <em>coming soon!</em></li>
-<li>Building and Testing your Plugin on a Build Server <em>coming soon!</em></li>
-<li>Publishing your Plugin to the Marketplace <em>coming soon!</em></li>
+  <li>Getting Started: Create an Atlassian Plugin</li>
+  <li>Anatomy of Plugin <em>coming soon!</em></li>
+  <li>Unit Testing <em>coming soon!</em></li>
+  <li>Wired / Integration Testing <em>coming soon!</em></li>
+  <li>Dependency Injection: Using Core Atlassian Classes from your Plugin <em>coming soon!</em></li>
+  <li>Accessing the Database <em>coming soon!</em></li>
+  <li>SDK Development Tools <em>coming soon!</em></li>
+  <li>Building and Testing your Plugin on a Build Server <em>coming soon!</em></li>
+  <li>Publishing your Plugin to the Marketplace <em>coming soon!</em></li>
 </ul>
-
 
 <hr />
 
 <p>So you have an idea for a plugin, or perhaps filed a feature request / bug report with Atlassian and are tired of waiting, what next?</p>
 
-<h2>Plugin Types</h2>
+<h2 id="plugin-types">Plugin Types</h2>
 
 <p>Before you start developing a plugin there are a few questions you need to consider:</p>
 
 <ol>
-<li>Do you need to alter the core application&rsquo;s behavior? <strong><em>You must use a server plugin.</em></strong></li>
-<li>Do you want use your plugin on Atlassian&rsquo;s OnDemand? <strong><em>You must use a cloud (Connect) plugin.</em></strong></li>
+  <li>Do you need to alter the core application’s behavior? <strong><em>You must use a server plugin.</em></strong></li>
+  <li>Do you want use your plugin on Atlassian’s OnDemand? <strong><em>You must use a cloud (Connect) plugin.</em></strong></li>
 </ol>
 
-
-<p><aside>I have not yet written a cloud (Connect) plugin, so this series will focus solely on server plugins.</aside></p>
+<aside>I have not yet written a cloud (Connect) plugin, so this series will focus solely on server plugins.</aside>
 
 <p><strong>Server</strong></p>
 
 <p>Server plugins can be deployed to an Atlassian application instance that is hosted on your own server. While there are some limitations, for the most part they have access to the same code that the core application itself is written in.</p>
 
 <ul>
-<li>Hosted on the application server</li>
-<li>Written in Java</li>
-<li>May access most of the application&rsquo;s internal classes</li>
-<li>May save data to the application&rsquo;s database</li>
+  <li>Hosted on the application server</li>
+  <li>Written in Java</li>
+  <li>May access most of the application’s internal classes</li>
+  <li>May save data to the application’s database</li>
 </ul>
-
 
 <p><strong>Cloud</strong></p>
 
 <p>Cloud plugins can be deployed to Atlassian OnDemand cloud hosted applications. They use the <a href="https://developer.atlassian.com/static/connect/docs/guides/introduction.html">Connect plugin framework</a>. A Connect plugin is hosted on a server external to the application server and is similar to a hosted div or iframe. Your plugin will look like it is part of the application but all code is executed on your server and has very limited access to the core application.</p>
 
 <ul>
-<li>Hosted externally from the application server</li>
-<li>Written in any language</li>
-<li>Interacts with the core application via its public REST api</li>
+  <li>Hosted externally from the application server</li>
+  <li>Written in any language</li>
+  <li>Interacts with the core application via its public REST api</li>
 </ul>
 
+<h2 id="setup">Setup</h2>
 
-<h2>Setup</h2>
-
-<h3>Install SDK</h3>
-
+<h3 id="install-sdk">Install SDK</h3>
 <p>First step is to download and install the SDK on your machine (<a href="https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Windows+System">Windows</a>, <a href="https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Linux+or+Mac+System">Linux or Mac</a>).</p>
 
 <p><strong>Windows Tips</strong></p>
 
-<p>I develop plugins both on Windows and Mac; the experience is mostly the same. When on Windows, I prefer bash over cmd and wrote <a href="https://github.com/carolynvs/atlassian-plugin-sdk">wrapper shell scripts</a> for the batch files provided by the SDK. This lets me stay in bash and use the sdk commands exactly the same as I would on Mac or Linux, e.g. <code>atlas-run-standalone --product Jira</code>.</p>
+<p>I develop plugins both on Windows and Mac; the experience is mostly the same. When on Windows, I prefer bash over cmd and wrote <a href="https://github.com/carolynvs/atlassian-plugin-sdk">wrapper shell scripts</a> for the batch files provided by the SDK. This lets me stay in bash and use the sdk commands exactly the same as I would on Mac or Linux, e.g. <code class="highlighter-rouge">atlas-run-standalone --product Jira</code>.</p>
 
-<p>Also I can&rsquo;t help but recommend that you use a real command line terminal instead of cmd.exe. <a href="https://github.com/cbucher/console">Console</a> is easy to use and lets you copy/paste, resize, maximize, use tabs, etc.</p>
+<p>Also I can’t help but recommend that you use a real command line terminal instead of cmd.exe. <a href="https://github.com/cbucher/console">Console</a> is easy to use and lets you copy/paste, resize, maximize, use tabs, etc.</p>
 
-<blockquote><p>Friends don&rsquo;t let friends use cmd.exe.</p></blockquote>
+<blockquote>
+  <p>Friends don’t let friends use cmd.exe.</p>
+</blockquote>
 
-<h3>Download Source</h3>
-
+<h3 id="download-source">Download Source</h3>
 <p>I recommend downloading the source code for the application you are extending. To download the source, purchase a starter license then go to <a href="http://my.atlassian.com">my.atlasian.com</a> and there will be a link to source from your license entry.</p>
 
-<p><aside>While not strictly necessary, I have a much easier time understanding which classes are available and how they should be used by reading the source code than their online class documentation. This also enables you to debug into the core application.</p>
+<aside>While not strictly necessary, I have a much easier time understanding which classes are available and how they should be used by reading the source code than their online class documentation. This also enables you to debug into the core application. 
 
-<p>Note that the license is purely to gain access to the source code, as the SDK automatically generates temporary development licenses and doesn&rsquo;t require or use a real or evaluation license.</aside></p>
+Note that the license is purely to gain access to the source code, as the SDK automatically generates temporary development licenses and doesn't require or use a real or evaluation license.</aside>
 
-<h3>Install Java IDE</h3>
-
+<h3 id="install-java-ide">Install Java IDE</h3>
 <p>While you could go commando and just use your favorite text editor, I prefer an IDE. <a href="http://www.jetbrains.com/idea/">JetBrains IntelliJ IDEA</a> is free, can debug your plugin code and has all the nifty refactorings that have I come to expect from developing in C# with ReSharper.</p>
 
-<h2>Create an Empty Plugin</h2>
-
-<p>The SDK provides a command which scaffolds an empty plugin for each application. From the command line run the appropriate command for the application you are extending: e.g. <code>atlas-create-bamboo-plugin</code> or <code>atlas-create-stash-plugin</code>. The SDK will then ask you a series of questions:</p>
+<h2 id="create-an-empty-plugin">Create an Empty Plugin</h2>
+<p>The SDK provides a command which scaffolds an empty plugin for each application. From the command line run the appropriate command for the application you are extending: e.g. <code class="highlighter-rouge">atlas-create-bamboo-plugin</code> or <code class="highlighter-rouge">atlas-create-stash-plugin</code>. The SDK will then ask you a series of questions:</p>
 
 <ul>
-<li><strong>groupId</strong>: Plugin namespace prefix, e.g. com.carolynvs</li>
-<li><strong>artifactId</strong>: Plugin name, e.g. trade_depot</li>
-<li><strong>version</strong>: Plugin Version, e.g. 1.0.SNAPSHOT. You may change this at any point by editing your pom.xml. I recommend accepting the default.</li>
-<li><strong>package</strong>: This should be groupId.artifactId, e.g. com.carolynvs.trade_depot</li>
+  <li><strong>groupId</strong>: Plugin namespace prefix, e.g. com.carolynvs</li>
+  <li><strong>artifactId</strong>: Plugin name, e.g. trade_depot</li>
+  <li><strong>version</strong>: Plugin Version, e.g. 1.0.SNAPSHOT. You may change this at any point by editing your pom.xml. I recommend accepting the default.</li>
+  <li><strong>package</strong>: This should be groupId.artifactId, e.g. com.carolynvs.trade_depot</li>
 </ul>
 
-
-<p><aside>If you are unfamiliar with Maven and Java, check out <a href="http://maven.apache.org/guides/mini/guide-naming-conventions.html">Maven Naming Conventions</a> and <a href="http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html">Naming a Java Package</a>. The SDK will not validate what you enter and if it is not valid, your plugin won&rsquo;t compile and you will need to start over.</aside></p>
+<aside>If you are unfamiliar with Maven and Java, check out [Maven Naming Conventions](http://maven.apache.org/guides/mini/guide-naming-conventions.html) and [Naming a Java Package](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html). The SDK will not validate what you enter and if it is not valid, your plugin won't compile and you will need to start over.</aside>
 
 <p>At this point you have a skeleton plugin with a sample plugin defined. I recommend committing this to source control before making any changes as it is in a deployable state and will help you identify where you went wrong if you run into problems after making customizations.</p>
 
-<p>Now let&rsquo;s verify that our plugin works and see it in action:</p>
+<p>Now let’s verify that our plugin works and see it in action:</p>
 
 <ol>
-<li>Change into your newly created plugin directory.</li>
-<li>Execute <code>atlas-run</code> and wait until you see the following output from the command line &ldquo;[INFO] bamboo started successfully in 374s at <a href="http://localhost:6990/bamboo">http://localhost:6990/bamboo</a>&rdquo;.</li>
-<li>Open your web browser and go to the URL from step 1.</li>
-<li>Login using user: admin, password: admin.</li>
-<li>Go to the Addons view in the Administration area of the application. You should see entries for your plugin and your plugin&rsquo;s tests.</li>
+  <li>Change into your newly created plugin directory.</li>
+  <li>Execute <code class="highlighter-rouge">atlas-run</code> and wait until you see the following output from the command line “[INFO] bamboo started successfully in 374s at http://localhost:6990/bamboo”.</li>
+  <li>Open your web browser and go to the URL from step 1.</li>
+  <li>Login using user: admin, password: admin.</li>
+  <li>Go to the Addons view in the Administration area of the application. You should see entries for your plugin and your plugin’s tests.</li>
 </ol>
-
 
 <p>Hurray! You now have an empty plugin with everything you need to start developing.</p>
 
-<p>Coming soon&hellip; Part 2: Anatomy of an Atlassian Plugin</p>
+<p>Coming soon… Part 2: Anatomy of an Atlassian Plugin</p>
+
 </div>
 
 
   <footer>
     <p class="meta">
       
-  
-
 <span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
 
       
@@ -230,10 +245,9 @@
 
 
 
-  
 
 
-<time datetime="2014-08-07T00:00:00-05:00" pubdate data-updated="true">Aug 7<span>th</span>, 2014</time>
+<time datetime="2014-08-07T00:00:00-05:00" pubdate data-updated="true">August 07, 2014</time>
       
 
 <span class="categories">
@@ -263,86 +277,60 @@
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/03/use-jupyter-stacks-with-docker/">Use Docker Optimized Jupyter Stacks With JupyterHub</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina-with-visual-studio/">Getting Started With ASP.NET on Carina With Visual Studio</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/aspnet-on-carina/">Publish an ASP.NET Website to Carina From the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/use-mysql-db-with-carina/">Connect a Carina Container to a Rackspace Cloud Database</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/stealth-lolnix/">Install a Linux-like Environment on Your Windows Machine in Minutes</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; Carolyn Van Slyck -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; Carolyn Van Slyck
 </p>
 
 </footer>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'carolynvanslyck';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started/';
-        var disqus_url = 'http://carolynvanslyck.com/blog/2014/08/atlassian-plugin-getting-started/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

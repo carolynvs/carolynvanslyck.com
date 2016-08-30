@@ -4,13 +4,12 @@
   <title><![CDATA[Category: jupyter | Carolyn Van Slyck]]></title>
   <link href="http://carolynvanslyck.com/blog/categories/jupyter/atom.xml" rel="self"/>
   <link href="http://carolynvanslyck.com/"/>
-  <updated>2016-08-15T09:31:41-05:00</updated>
+  <updated>2016-08-29T19:13:12-05:00</updated>
   <id>http://carolynvanslyck.com/</id>
   <author>
     <name><![CDATA[Carolyn Van Slyck]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
@@ -20,24 +19,27 @@
     <id>http://carolynvanslyck.com/blog/2016/03/use-jupyter-stacks-with-docker</id>
     <content type="html"><![CDATA[<p>Jupyter is a crazy awesome. Head over to <a href="http://tmpnb.org">tmpnb.org</a> to try it out. <em>waits</em>
 Have fun playing with Python? Or did you maybe learn yourself a Haskell for great good?
-Hopefully it&rsquo;s obvious that Jupyter is not only a cool concept, but a pretty damn powerful one too.</p>
+Hopefully it’s obvious that Jupyter is not only a cool concept, but a pretty damn powerful one too.</p>
 
-<p>I&rsquo;ve been digging into JupyterHub lately, specifically toying with running it on <a href="http://getcarina.com">Carina</a>
+<p>I’ve been digging into JupyterHub lately, specifically toying with running it on <a href="http://getcarina.com">Carina</a>
 because I like to Docker <em>ALL THE THINGS</em>! By pairing them up, when a user logs into the Jupyter hub,
-a Carina cluster is created on-the-fly to run that user&rsquo;s personal Jupyter server.
-It&rsquo;s Jupyter + bring your own compute.</p>
+a Carina cluster is created on-the-fly to run that user’s personal Jupyter server.
+It’s Jupyter + bring your own compute.</p>
 
 <p><a href="https://github.com/jupyter/docker-stacks">Jupyter Stacks</a> are opinionated stacks of
 ready-to-run Jupyter applications in Docker, and are useful when you want to use
 bare minimum necessary to run a notebook (hint: minimal-notebook) or grab something off-the-shelf
-for a particular language. Here&rsquo;s how you can build a Docker image based on a Jupyter Stack that works with JupyterHub:</p>
+for a particular language. Here’s how you can build a Docker image based on a Jupyter Stack that works with JupyterHub:</p>
 
 <ol>
-<li><p>Pick the stack that you would like to use, such as <code>minimal-notebook</code>.</p></li>
-<li><p>Make a Dockerfile with the following contents. Replace <code>&lt;stack&gt;</code> with
+  <li>
+    <p>Pick the stack that you would like to use, such as <code class="highlighter-rouge">minimal-notebook</code>.</p>
+  </li>
+  <li>
+    <p>Make a Dockerfile with the following contents. Replace <code class="highlighter-rouge">&lt;stack&gt;</code> with
  the name of your Jupyter Stack.</p>
 
-<pre><code> FROM jupyter/&lt;stack&gt;
+    <div class="highlighter-rouge"><pre class="highlight"><code> FROM jupyter/&lt;stack&gt;
 
  # Setup the JupyterHub single user entrypoint
  USER root
@@ -54,28 +56,35 @@ for a particular language. Here&rsquo;s how you can build a Docker image based o
  # Configure the JupyterHub entrypoint
  CMD ["sh", "/srv/singleuser/singleuser.sh"]
 </code></pre>
+    </div>
 
-<p> <strong>Note</strong>: The black magic voodoo is copied from <a href="https://github.com/jupyter/dockerspawner/blob/master/singleuser/Dockerfile">Jupyter/DockerSpawner&rsquo;s singleuser Dockerfile</a>
- and hopefully shouldn&rsquo;t change often enough to matter.</p></li>
-<li><p>Connect to your docker host and run the following commands. Replace <code>&lt;docker-hub-user&gt;</code>
- with your Docker Hub username and <code>&lt;stack&gt;</code> with the name of your Jupyter Stack.</p>
+    <p><strong>Note</strong>: The black magic voodoo is copied from <a href="https://github.com/jupyter/dockerspawner/blob/master/singleuser/Dockerfile">Jupyter/DockerSpawner’s singleuser Dockerfile</a>
+ and hopefully shouldn’t change often enough to matter.</p>
+  </li>
+  <li>
+    <p>Connect to your docker host and run the following commands. Replace <code class="highlighter-rouge">&lt;docker-hub-user&gt;</code>
+ with your Docker Hub username and <code class="highlighter-rouge">&lt;stack&gt;</code> with the name of your Jupyter Stack.</p>
 
-<pre><code> docker build -t &lt;docker-hub-user&gt;/&lt;stack&gt; .
+    <div class="highlighter-rouge"><pre class="highlight"><code> docker build -t &lt;docker-hub-user&gt;/&lt;stack&gt; .
  docker push &lt;docker-hub-user&gt;/&lt;stack&gt;
-</code></pre></li>
-<li><p>Update your JupyterHub configuration to use your custom Docker image when
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Update your JupyterHub configuration to use your custom Docker image when
  it creates user servers:</p>
 
-<p> <strong>jupyter-config.py</strong></p>
+    <p><strong>jupyter-config.py</strong></p>
 
-<pre><code> import os
+    <div class="highlighter-rouge"><pre class="highlight"><code> import os
 
  c = get_config()
  c.DockerSpawner.container_image = "&lt;docker-hub-user&gt;/&lt;stack&gt;"
  # ... Do the rest of your usual configuration
-</code></pre></li>
+</code></pre>
+    </div>
+  </li>
 </ol>
-
 ]]></content>
   </entry>
   
