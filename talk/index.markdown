@@ -10,6 +10,25 @@ footer: true
 <!-- This page should be copied to github.com/carolynvs/talk/index.html after being generated -->
 
 <div class="projects">
+  <div class="project" id="GoWin">
+    <div class="title">
+        <a href="http://carolynvanslyck.com/talk/devex/gowin/">
+            <img src="/images/gopher-plane.png" alt="Gopher Sky Writer Plane" title="Gopher Windows"/>
+            Gopher Windows: Beyond Cross-Compiling
+        </a>
+    </div>
+    <div class="locations">GopherCon 2016</div>
+    <p class="description">
+      You may not realize it but there are a lot of Windows developers moving into your neighborhood.
+      They are using and contributing to open source projects, even those that aren't just for Windows.
+      But here's the rub: Often tools are written Unix first", shoehorning Windows support in later.
+      This approach can shut out potential users.
+    </p>
+    <p class="description">
+      Lucky for us, Go has strong support for cross-platform development. So let's start writing cross-platform first and welcome our Windows
+      neighbors. Learn some of the Windows quirks that you should take into account, and the Go goodies to help you conquer them.
+    </p>
+  </div>
   <div class="project" id="ThinkOutsideTheContainer">
     <div class="title">
         <a href="http://getcarina.github.io/carina-use-cases/#/howtowhale">
