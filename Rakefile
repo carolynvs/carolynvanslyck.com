@@ -52,7 +52,7 @@ multitask :push do
   puts "\n## Copying #{public_dir} to #{deploy_dir}"
   cp_r "#{public_dir}/.", deploy_dir
   cd "#{deploy_dir}" do
-    rm "Gemfile Gemfile.lock Rakefile"
+    system "rm Gemfile Gemfile.lock Rakefile"
 
     system "git add -A"
     puts "\n## Commiting: Site updated at #{Time.now.utc}"
