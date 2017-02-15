@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Set the line endings for all files in a directory - Carolyn Van Slyck</title>
+  <meta name="author" content="Carolyn Van Slyck">
+
+  
+  <meta name="description" content="
+
+  
+  
+    
+      Set the line endings for all files in a directory
+    
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+February 14, 2017
+      
+    
+  
+
+
+The Git...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://carolynvanslyck.com/blog/2017/02/set-git-eol-entire-directory/">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="Carolyn Van Slyck" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body  class="no-sidebar">
+  <header role="banner"><hgroup>
+  <h1><a href="/">Carolyn Van Slyck</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><!--<ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  -->
+<ul class="main-navigation">
+  <li>
+      <a href="/projects/" title="I &lt;3 code!">
+        <i class="fa fa-github fa-3x"></i><br/>
+        Projects
+    </a>
+  </li>
+  <li>
+      <a href="/blog/" title="Today I Learned...">
+          <i class="fa fa-file-text fa-3x"></i><br/>
+          Writing
+      </a>
+  </li>
+  <li>
+      <a href="/talk/" title="Who doesn't love preparing a talk on their weekend?">
+          <i class="fa fa-comment fa-3x"></i><br/>
+          Talks
+      </a>
+  </li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Set the line endings for all files in a directory</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+
+
+<time datetime="2017-02-14T00:00:00-06:00" pubdate data-updated="true">February 14, 2017</time>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The Git for Windows installer often leads people to turn on AutoCRLF, an
+occasionally useful feature that can also cause a ton of trouble. Luckily,
+you aren’t at the mercy of whatever settings a developer may have when
+contributing to your project. You can force git to do things your way by
+adding a <code class="highlighter-rouge">.gitattributes</code> file to your repository.</p>
+
+<p>This all started when Windows users with AutoCRLF enabled ran the test suite,
+tests would fail because the files containing expected values were helpfully
+modified by AutoCRLF to use CRLF instead of LF. It was difficult to troubleshoot
+because the test’s console output looked fine
+<code class="highlighter-rouge">expected value: foo actual value: foo</code>.</p>
+
+<p>The solution was to setup a <code class="highlighter-rouge">.gitattributes</code> file at the root of the repo. This
+allowed me to override a developer’s AutoCRLF setting and specify that all
+files in my <code class="highlighter-rouge">testdata/</code> directories should use LF. It can be a bit tricky
+because patterns which work in <code class="highlighter-rouge">.gitignore</code>, like <code class="highlighter-rouge">testdata/*</code> don’t work
+the same when used in <code class="highlighter-rouge">.gitattributes</code>.</p>
+
+<p>Here’s the magic pattern to use LF as the line ending for all files in a <code class="highlighter-rouge">testdata/</code> directory, whether
+at the root of the repo, or nested in subdirectories:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>**/testdata/** text eol=lf
+</code></pre>
+</div>
+
+<p>The leading <code class="highlighter-rouge">**</code> applies the test pattern at both the root and subdirectories,
+while the trailing <code class="highlighter-rouge">**</code> ensures that directories nested under <code class="highlighter-rouge">testdata/</code> also
+match. So this pattern forces LF for the following paths:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/testdata/kittens.json
+/testdata/stuff/things.go
+/util/testdata/puppies.json
+/util/testdata/foo/bar.js
+</code></pre>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+<span class="byline author vcard">Posted by <span class="fn">Carolyn Van Slyck</span></span>
+
+      
+
+
+
+
+
+
+
+
+
+
+<time datetime="2017-02-14T00:00:00-06:00" pubdate data-updated="true">February 14, 2017</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/git/'>git</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/03/use-jupyter-stacks-with-docker/" title="Previous Post: Use Docker optimized Jupyter Stacks with JupyterHub">&laquo; Use Docker optimized Jupyter Stacks with JupyterHub</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; Carolyn Van Slyck
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+</body>
+</html>
