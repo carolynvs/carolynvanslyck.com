@@ -10,14 +10,14 @@ footer: true
 <div class="projects">
     <div class="project">
         <div class="title">
-            <a href="http://github.com/getcarina/dvm">
-                <img src="{{root_url}}/images/docker.png" alt="Docker Logo" title="Docker Version Manager"/>
-                Docker Version Manager (dvm)
+            <a href="https://carolynvs.github.io/dvm/">
+                <img src="{{root_url}}/images/dvm.png" alt="dvm Logo" title="Docker Version Manager"/>
+                Docker Version Manager
             </a>
         </div>
         <div class="technologies">go docker bash powershell</div>
         <p class="description">
-          Docker Version Manager (dvm) is a cross-platform command-line tool that helps you install and switch between Docker clients. Check out a <a href="https://getcarina.com/blog/docker-version-manager/">quick tutorial</a> or <a href="https://getcarina.com/docs/tutorials/docker-version-manager/">read the docs</a>.
+          Docker Version Manager (dvm) is a cross-platform command-line tool that helps you install and switch between Docker clients.
         </p>
     </div>
     <div class="project">
