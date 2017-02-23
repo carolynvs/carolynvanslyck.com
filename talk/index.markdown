@@ -12,7 +12,7 @@ footer: true
 <div class="projects">
   <div class="project" id="GoWin">
     <div class="title">
-        <a href="http://carolynvanslyck.com/talk/devex/gowin/">
+        <a href="/talk/devex/gowin/">
             <img src="/images/gopher-plane.png" alt="Gopher Sky Writer Plane" title="Gopher Windows"/>
             Gopher Windows: Beyond Cross-Compiling
         </a>
@@ -31,7 +31,7 @@ footer: true
   </div>
   <div class="project" id="ThinkOutsideTheContainer">
     <div class="title">
-        <a href="http://getcarina.github.io/carina-use-cases/#/howtowhale">
+        <a href="/talk/carina/think-outside-the-container/#/howtowhale">
             <img src="{{root_url}}/images/whale-dream.png" alt="Whale" title="Learning How to Whale"/>
             Think Outside the Container: Learning How to Whale
         </a>
