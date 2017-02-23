@@ -16,7 +16,7 @@ footer: true
 
 <div class="social-media">
     <p>Stalk me on</p>
-    <a href="http://www.linkedin.com/in/vanslyck" class="fa fa-linkedin fa-2x" title="LinkedIn"></a>
-    <a href="http://careers.stackoverflow.com/carolynvs" class="fa fa-signal fa-2x fa-stackexchange" title="StackExchange Careers 2.0"></a>
-    <a href="http://twitter.com/carolynvs" class="fa fa-twitter fa-2x" title="Twitter"></a>
+    <a href="https://www.linkedin.com/in/vanslyck" class="fa fa-linkedin fa-2x" title="LinkedIn"></a>
+    <a href="https://stackoverflow.com/cv/carolynvs" class="fa fa-signal fa-2x fa-stackexchange" title="StackOverflow"></a>
+    <a href="https://twitter.com/carolynvs" class="fa fa-twitter fa-2x" title="Twitter"></a>
 </div>
