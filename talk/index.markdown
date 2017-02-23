@@ -28,6 +28,7 @@ footer: true
       Lucky for us, Go has strong support for cross-platform development. So let's start writing cross-platform first and welcome our Windows
       neighbors. Learn some of the Windows quirks that you should take into account, and the Go goodies to help you conquer them.
     </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UOeeR7odY1I" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
   </div>
   <div class="project" id="ThinkOutsideTheContainer">
     <div class="title">
