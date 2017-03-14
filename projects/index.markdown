@@ -10,7 +10,7 @@ footer: true
 <div class="projects">
     <div class="project">
         <div class="title">
-            <a href="https://carolynvs.github.io/dvm/">
+            <a href="https://howtowhale.github.io/dvm/">
                 <img src="{{root_url}}/images/dvm.png" alt="dvm Logo" title="Docker Version Manager"/>
                 Docker Version Manager
             </a>
