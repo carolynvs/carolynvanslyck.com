@@ -10,6 +10,19 @@ footer: true
 <div class="projects">
     <div class="project">
         <div class="title">
+            <a href="https://github.com/golang/dep">
+                <img src="{{root_url}}/images/gopher.png" alt="golang Logo" title="Gophers!"/>
+                Go Dependency Manager
+            </a>
+        </div>
+        <div class="technologies">go dependency management</div>
+        <p class="description">
+          <code>dep</code> is (hopefully) the upcoming dependency manager for
+          Go.
+        </p>
+    </div>
+    <div class="project">
+        <div class="title">
             <a href="https://howtowhale.github.io/dvm/">
                 <img src="{{root_url}}/images/dvm.png" alt="dvm Logo" title="Docker Version Manager"/>
                 Docker Version Manager
@@ -18,6 +31,22 @@ footer: true
         <div class="technologies">go docker bash powershell</div>
         <p class="description">
           Docker Version Manager (dvm) is a cross-platform command-line tool that helps you install and switch between Docker clients.
+        </p>
+    </div>
+    <div class="project">
+        <div class="title">
+            <a href="https://howtowhale.com">
+                <img src="{{root_url}}/images/howtowhale.png" alt="" title="Spouting Whale"/>
+                How to Whale
+            </a>
+        </div>
+        <div class="technologies">docker swarm jupyter</div>
+        <p class="description">
+          Learn Docker in your web browser, no setup or installation required.
+        </p>
+        <p class="description">
+          The components of howtowhale are available for you to use to run your own workshop: <a href="http://whaleinabox.com">Whale in a Box</a>. Host a website with your training materials and
+          participants can run through them in their browser.
         </p>
     </div>
     <div class="project">
