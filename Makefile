@@ -25,3 +25,6 @@ serve:
   	${JEKYLL_IMAGE} \
   	bundle exec rake serve
 	open http://0.0.0.0:4000
+
+ci:
+	bundle exec rake build
