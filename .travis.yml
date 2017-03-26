@@ -1,0 +1,3 @@
+language: ruby
+sudo: false # container-based build
+script: make build

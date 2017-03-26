@@ -36,7 +36,5 @@ github_username:  carolynvs
 gems:
   - jekyll-feed
 markdown: kramdown
-sass:
-  sass_dir: _sass
 
 recent_posts: 5

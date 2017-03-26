@@ -10,16 +10,22 @@ source_dir      = "source"    # source file directory
 blog_index_dir  = 'source/blog'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
 deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 
+desc "Compile sass"
+task :sass do
+  puts "## Compiling SASS"
+  system "compass compile"
+end
+
 desc "Build site"
-task :build do
+task :build => [:sass] do
   puts "## Building site"
   system "jekyll build"
 end
 
 desc "Watch the site and regenerate when it changes"
-task :serve do
-  puts "Previewing site at http://127.0.0.1:4000"
-  system "jekyll serve"
+task :serve => [:sass] do
+  puts "Previewing site at http://0.0.0.0:4000"
+  system "jekyll serve --watch -H 0.0.0.0"
 end
 
 desc "Deploy site to github.com"
