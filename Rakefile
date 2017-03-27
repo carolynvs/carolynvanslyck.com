@@ -13,7 +13,9 @@ deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 desc "Compile sass"
 task :sass do
   puts "## Compiling SASS"
-  system "compass compile"
+  cd "_sass" do
+    system "compass compile"
+  end
 end
 
 desc "Build site"
