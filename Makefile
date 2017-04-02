@@ -6,7 +6,8 @@ build:
 	-rm -fr _site/
 	docker build -t carolynvanslyck.com .
 	docker run \
-  	--volume=`pwd`:/srv/jekyll \
+  	-v `pwd`:/srv/jekyll \
+		-v /etc/localtime:/etc/localtime \
   	carolynvanslyck.com \
   	bundle exec rake build
 
@@ -22,3 +23,17 @@ serve: build
 
 ci:
 	bundle exec rake build
+
+_deploy:
+	git clone --branch gh-pages `git remote get-url origin` _deploy
+
+deploy: build _deploy
+	cd _deploy && \
+		git fetch origin && \
+		git checkout gh-pages && \
+		git reset --hard origin/gh-pages && \
+		git clean -xdf
+	rsync -a --delete --exclude .git --exclude talk _site/ _deploy/
+	cd _deploy && git add -A && git commit -m "Site updated at `date`" && git push
+
+.PHONY: build serve deploy

@@ -36,5 +36,11 @@ github_username:  carolynvs
 gems:
   - jekyll-feed
 markdown: kramdown
-
+exclude:
+  - vendor/bundle
+  - Dockerfile
+  - Gemfile*
+  - Makefile
+  - Rakefile
+timezone: America/Chicago
 recent_posts: 5
