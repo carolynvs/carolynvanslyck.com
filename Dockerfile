@@ -5,3 +5,4 @@ COPY Gemfile.lock /tmp
 RUN cd /tmp && bundle install --jobs 3 --retry 3
 
 WORKDIR /srv/jekyll
+CMD bundle exec rake serve

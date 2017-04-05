@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cvs
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: carolynvanslyck.com
+    spec:
+      containers:
+      - name: cvs
+        image: carolynvanslyck.com:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 4000
+        volumeMounts:
+        - mountPath: /srv/jekyll
+          name: cvs
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 4000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 4000
+          initialDelaySeconds: 60
+          periodSeconds: 5
+      volumes:
+      - name: cvs
+        hostPath:
+          # directory location on host
+          path: /Users/carolynvs/src/carolynvanslyck.com
