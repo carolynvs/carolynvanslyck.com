@@ -9,5 +9,7 @@ kubectl config set current-context minikube
 echo "Deploying carolynvanslyck.com to the cluster"
 kubectl apply -f $ROOT/manifests/deployment.yaml
 kubectl apply -f $ROOT/manifests/service.yaml
+kubectl apply -f $ROOT/manifests/ingress.yaml
 
-open `minikube service cvs --url`
+echo "Site ready at http://carolynvanslyck.mini -> $(minikube service cvs --url)"
+open http://carolynvanslyck.mini

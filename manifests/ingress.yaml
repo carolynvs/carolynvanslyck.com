@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cvs
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: carolynvanslyck.mini
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cvs
+          servicePort: 80
