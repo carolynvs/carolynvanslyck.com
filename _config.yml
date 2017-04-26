@@ -42,5 +42,7 @@ exclude:
   - Gemfile*
   - Makefile
   - Rakefile
+  - scripts/
+  - manifests/
 timezone: America/Chicago
 recent_posts: 5
