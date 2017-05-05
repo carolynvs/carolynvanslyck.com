@@ -65,7 +65,7 @@ footer: true
       <p class="description">
         Jupyter is an exciting tool, empowering you to quickly dive into the fun parts of whatever problem you are solving. With it, you can do so much more than just your research. By combining JupyterHub with Carina, you have a learning platform, perfect for leading a workshop, trying a new language or just playing around with code. It provides push button user notebooks, where each user is not only isolated from others, but they are running on their own compute resources and can hit the "reset" button at any time to start fresh.</p>
       <p class="description">
-        Learn how <a href="https://howtowhale.com">howtowhale.com</a> uses JupyterHub and Carina to teach Docker, with zero setup and immediate results. With these essential building blocks, you too can create the ultimate learning environment.</p>
+        Learn how <a href="http://howtowhale.com">howtowhale.com</a> uses JupyterHub and Carina to teach Docker, with zero setup and immediate results. With these essential building blocks, you too can create the ultimate learning environment.</p>
   </div>
   <div class="project" id="IntroductionToCarina">
       <div class="title">

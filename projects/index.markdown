@@ -35,7 +35,7 @@ footer: true
     </div>
     <div class="project">
         <div class="title">
-            <a href="https://howtowhale.com">
+            <a href="http://howtowhale.com">
                 <img src="{{root_url}}/images/howtowhale.png" alt="" title="Spouting Whale"/>
                 How to Whale
             </a>
