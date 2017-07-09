@@ -1,0 +1,33 @@
+intro - 1 min
+ - carolyn, i am a maintainer for dep.
+ - you heard Sam Boyer's keynote yesterday, let's give it a try
+ - I am going over how dep works TODAY Still is still under active development
+
+* explain the config file purpose - 1 min
+  * manifest - Gopkg.toml - lets you control deps magic, it can do a TON without anything in here.
+      * example: use a fork or a mirror of a package
+  * lock - Gopkg.lock - the result of deps magic, says what revision was last solved by dep, and lets you know what tag or branch it is from.
+  * vendor/ - controlled 100% by dep, this is where we unpack everything from the lock.
+    * you can check this in or rely on dep ensure.
+* Generate the initial configuration files. - 3 min
+  ( show same code, and different results based on where you started )
+  * blank repo
+  * blank repo + gopath ( DROP?)
+  * someone who was using glide (mention others godep for now)
+  * someone who was using vendor/ (build by hand, or run dep init and tweak to match)
+* Instructions for users or CI (i.e. what do you do after running go get) - 1 min
+  * dep ensure
+  * example travis.yaml
+* Add, upgrade, and remove a dependency. - 3 min
+  * Add (see faq) - note that we are making this better real soon - 1 min
+  * upgrade - 3 min
+    * upgrade my lock according to the manifest - dep ensure -update
+      * what happens if it wasn't constrained? How does dep pick?
+    * update just one thing according to the manifest - dep ensure -update github.com/myuser/example
+    * update the allowed version range - hand edit then run dep ensure
+  * remove - update code, run dep ensure
+    dep will update the lock, it's up to you to update the manifest. Not required but otherwise you'll be confused.
+* Test local changes to a dependency (see faq) - 1 min DROP?
+* Find out what is safe to rely on, and what is under active development. - 1 min
+  * init is safe
+  * ensure has a big PR incoming, making it easier to restore exactly what is in vendor without solving, add a new dep without importing first.
