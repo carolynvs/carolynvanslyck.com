@@ -51,15 +51,128 @@
 						<p>Carolyn Van Slyck</p>
 
 						<figure>
-							<img src="images/movinggopher.png" alt="Gopher working hard to move packages/boxes"/>
+							<img src="images/moving-gopher.png" alt="Gopher working hard to move packages/boxes"/>
 							<figcaption>
-								<a href="https://github.com/ashleymcnamara/gophers/blob/master/MovingGopher.png">
-									Gopher by Ashley McNamara</a>
+								<a href="https://github.com/ashleymcnamara/gophers/">
+									Gophers by Ashley McNamara</a>
 							</figcaption>
 						</figure>
 
 						<aside class="notes">
 						</aside>
+				</section>
+
+				<section id="partslist">
+					<h2><span class="green">import graph</span> + <span class="blue">manifest</span> + <span class="purple">lock</span</h2>
+					<h2>↓</h2>
+					<h4>vendor directory</h4>
+					<aside class="notes">
+						* import graph: identifies dependencies
+						* manifest: controls dep
+						* lock: list of dependencies and their versions
+						* vendor: local copy of your dependencies, supercedes GOPATH
+					</aside>
+				</section>
+
+				<section id="manifest">
+					<h2>Manifest - Gopkg.toml</h2>
+
+<pre><code class="big toml" data-trim data-noescape>
+[[constraint]]
+  name = "github.com/sdboyer/deptest"
+	source = "http://github.com/carolynvs/deptest"
+  version = "0.8.0"
+
+[[constraint]]
+  branch = master
+	name = "github.com/pkg/errors"
+</code></pre>
+
+					<aside class="notes">
+						* managed by YOU
+						* Fun fact, dep still works when this file is empty!
+						* source: mirror or fork
+						* branch or version range
+					</aside>
+				</section>
+
+				<section id="lock">
+					<h2>Lock - Gopkg.lock</h2>
+
+					<p>
+<pre><code class="big toml" data-trim data-noescape>
+[[projects]]
+  name = "github.com/sdboyer/deptest"
+  revision = "ff2948a2ac8f538c4ecd55962e919d1e13e74baf"
+  version = "v0.8.1"
+
+[[projects]]
+  name = "github.com/pkg/errors"
+  revision = "17b591df37844cde689f4d5813e5cea0927d8dd2"
+  version = "v0.7.1"
+</code></pre>
+
+					<p>&nbsp;</p>
+					<p><em>What the what? Why v0.8.1 instead of 0.8.0? Where did master go?</em> 🤔</p>
+
+					<aside class="notes">
+						* manged by DEP
+						* says which revisions were last picked by dep
+						* Notice that the manifest said "0.8.0" but the version is "v0.8.1" RANGES!
+						* Same for pkg/errors, dep picked the highest version on the master branch
+					</aside>
+				</section>
+
+				<section id="guidelines">
+					<img src="images/pirate-gopher.png" />
+					<p>They are more what you'd call "guidelines"...</p>
+				</section>
+
+				<section id="semver">
+					<h2>dep prefers ranges over specific versions</h2>
+
+					<p>
+						1.2.3 becomes >=1.2.3, <2.0.0<br/>
+						0.2.3 becomes >=0.2.3, <0.3.0<br/>
+						0.0.3 becomes >=0.0.3, <0.1.0<br/>
+					</p>
+
+					<aside class="notes">
+						* why dep automatically uses ranges
+						* PSA - dep can't pull versions out of its butt, so start tagging your releases!
+					</aside>
+				</section>
+
+				<section id="vendor">
+					<h2>Vendor Directory</h2>
+
+					<div style="float: left; width:50%">
+						<p>Owned by dep, no files are safe from its tyranny<p>
+						<img src="images/nerdy-gopher.png" />
+					</div>
+					<div style="float: left; width:50%">
+						<p>&nbsp;</p>
+						<img src="images/cool-gopher.png" />
+						<p>Check it in for a smug sense of superiority</p>
+					</div>
+
+					<aside class="notes">
+						* says which revisions were last picked by dep
+					</aside>
+				</section>
+
+				<section id="init">
+					<h2>Switch to dep in two commands</h2>
+
+<pre><code class="big bash" data-trim data-noescape>
+go get -u github.com/golang/dep/cmd/dep
+dep init
+</code></pre>
+
+					<p class="big"></p>
+
+					<aside class="notes">
+					</aside>
 				</section>
 
 				<section id="resources">
