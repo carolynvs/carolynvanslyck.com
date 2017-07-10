@@ -162,16 +162,70 @@
 				</section>
 
 				<section id="init">
-					<h2>Switch to dep in two commands</h2>
+					<h2>dep init</h2>
 
-<pre><code class="big bash" data-trim data-noescape>
-go get -u github.com/golang/dep/cmd/dep
-dep init
-</code></pre>
+					<p class="comment">Doing probably the right thing since that PR the other week</p>
+					<aside class="notes">
+						* default looks for existing glide/godep config and falls back picking the highest compatible version from the repo
+						* gopath optional - if you are cool like that, and your gopath isn't a steaming 💩
+					</aside>
+				</section>
 
-					<p class="big"></p>
+				<section id="init-simple">
+					<h2 class="purple">You have no dependency management plan</h2>
+
+					<p>dep init</p>
+					<ol>
+						<li>Identifies your dependencies.</li>
+						<li>Checks if your dependencies use dep.</li>
+						<li>Picks the highest compatible version for each dependency.</li>
+					</ol>
 
 					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="init-external">
+					<h2 class="purple">You are already using another dependency manager</h2>
+
+					<p>dep init</p>
+					<ol>
+						<li><strong>Imports your existing dependency configuration.</strong></li>
+						<li>Checks if your dependencies use dep.</li>
+						<li>Falls back to the simple case to fill in gaps.</li>
+					</ol>
+
+					<aside class="notes">
+						We try to end up with you using the exact same revisions as you were with the other tool.
+					</aside>
+				</section>
+
+				<section id="init-gopath">
+					<h2 class="purple">Your GOPATH isn't a steaming 💩</h2>
+
+					<p>dep init -gopath</p>
+					<ol>
+						<li><strong>Uses the branch/version/revision found in GOPATH.</strong></li>
+						<li>Checks if your dependencies use dep.</li>
+						<li>Falls back to the simple case to fill in gaps.</li>
+					</ol>
+
+					<aside class="notes">
+						Great for when it's working on your computer.
+					</aside>
+				</section>
+
+				<section id="init-vendor">
+					<h2 class="purple">Your dependencies are already vendored</h2>
+
+					<p>dep init</p>
+					<ol>
+						<li>Generates an initial set of configuration files.</li>
+						<li>Leaves it up to you to update them by hand... Sorry.</li>
+					</ol>
+
+					<aside class="notes">
+						Sadly this is hard mode.
 					</aside>
 				</section>
 
@@ -180,6 +234,7 @@ dep init
 
 					<ul style="list-style-type: none">
 						<li><a href="https://github.com/golang/dep">github.com/golang/dep</a></li>
+						<li><a href="https://github.com/Masterminds/semver">github.com/Masterminds/semver</a></li>
 					</ul>
 
 					<aside class="notes">
