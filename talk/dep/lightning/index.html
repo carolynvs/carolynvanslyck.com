@@ -58,12 +58,14 @@
 							</figcaption>
 						</figure>
 
+						<p><a href="http://carolynvs.com/dep-in-10">http://carolynvs.com/dep-in-10</a></p>
+
 						<aside class="notes">
 						</aside>
 				</section>
 
 				<section id="partslist">
-					<h2><span class="green">import graph</span> + <span class="blue">manifest</span> + <span class="purple">lock</span</h2>
+					<h2><span class="green">imports</span> + <span class="blue">manifest</span> + <span class="purple">lock</span</h2>
 					<h2>↓</h2>
 					<h4>vendor directory</h4>
 					<aside class="notes">
@@ -147,7 +149,7 @@
 					<h2>Vendor Directory</h2>
 
 					<div style="float: left; width:50%">
-						<p>Owned by dep, no files are safe from its tyranny<p>
+						<p>Owned by dep<br/>No files are safe from its tyranny!<p>
 						<img src="images/nerdy-gopher.png" />
 					</div>
 					<div style="float: left; width:50%">
@@ -171,8 +173,8 @@
 					</aside>
 				</section>
 
-				<section id="init-simple">
-					<h2 class="purple">You have no dependency management plan</h2>
+				<section id="init-fresh">
+					<h2 class="purple">You are making a fresh start</h2>
 
 					<p>dep init</p>
 					<ol>
@@ -190,7 +192,7 @@
 
 					<p>dep init</p>
 					<ol>
-						<li><strong>Imports your existing dependency configuration.</strong></li>
+						<li>Imports your existing configuration.</li>
 						<li>Checks if your dependencies use dep.</li>
 						<li>Falls back to the simple case to fill in gaps.</li>
 					</ol>
@@ -205,7 +207,7 @@
 
 					<p>dep init -gopath</p>
 					<ol>
-						<li><strong>Uses the branch/version/revision found in GOPATH.</strong></li>
+						<li>Uses the branch/version/revision found in GOPATH.</li>
 						<li>Checks if your dependencies use dep.</li>
 						<li>Falls back to the simple case to fill in gaps.</li>
 					</ol>
@@ -220,12 +222,115 @@
 
 					<p>dep init</p>
 					<ol>
-						<li>Generates an initial set of configuration files.</li>
-						<li>Leaves it up to you to update them by hand... Sorry.</li>
+						<li>Makes a backup of vendor and takes over.</li>
+						<li>Generates an initial set of configuration files.<br/><em>These do not match your original vendor</em>!</li>
+						<li>Leaves it up to you to fix them by hand... Sorry.</li>
+					</ol>
+
+					<p>
+						<img src="images/mlp-shrug.png" alt="shrugging my little pony" width="300"/>
+					</p>
+					<aside class="notes">
+						Sadly this is hard mode.
+					</aside>
+				</section>
+
+				<section id="restore">
+					<h2>dep ensure</h2>
+
+					<p class="comment">For those who don't check-in their vendor directory</p>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="status">
+					<h2>dep status</h2>
+
+<pre><code class="big diff" data-trim data-noescape>
+PROJECT                             CONSTRAINT     VERSION        REVISION  LATEST
+github.com/Masterminds/semver       branch 2.x     branch 2.x     139cc09   c2e7f6c
+github.com/Masterminds/vcs          ^1.11.0        v1.11.1        3084677   3084677
+github.com/armon/go-radix           *              branch master  4239b77   4239b77
+</code></pre>
+
+					<aside class="notes">
+						See what you are using and check your lock for problems.
+					</aside>
+				</section>
+
+				<section id="add">
+					<h2>How do I add a dependency?</h2>
+
+					<ol>
+						<li>Add an import statement.</li>
+						<li>Run dep ensure.</li>
 					</ol>
 
 					<aside class="notes">
-						Sadly this is hard mode.
+						We are working on make this work better for those using IDEs.
+					</aside>
+				</section>
+
+				<section id="update">
+					<h2>How do I update a dependency?</h2>
+
+					<p style="text-align: left; color: gray">
+						dep ensure -update -n<br/>
+					</p>
+					<p style="text-align: left">
+						dep ensure -update<br/>
+						dep ensure -update github.com/carolynvs/loves-ponies<br/>
+						dep ensure -update github.com/carolynvs/loves-ponies@v2-nowwithmoresparkles<br/>
+					</p>
+
+					<aside class="notes">
+						Update everything, one thing using the manifest, one thing to a specific version/branch/revision
+					</aside>
+				</section>
+
+				<section id="remove">
+					<h2>How do I remove a dependency?</h2>
+
+					<ol>
+						<li>Stop using it in your code.</li>
+						<li>Run dep ensure.</li>
+						<li>If it was in your manifest, you may remove it.</li>
+					</ol>
+
+					<aside class="notes">
+						dep ensure tries to do the right thing in the face of oddball config.
+						If you have defined a constraint for something not used, dep ignores it
+						and it won't end up in the lock or vendor/.
+					</aside>
+				</section>
+
+				<section id="test">
+					<h2>How do I test uncommitted changes to a dependency?</h2>
+
+					<ol>
+						<li>Delete it from the vendor directory.</li>
+						<li>Avoid running dep ensure for a wee bit.</li>
+						<li>Make your changes to the project in your GOPATH.</li>
+					</ol>
+
+					<aside class="notes">
+						Don't work on the code from within the vendor directory.
+						Alternatively, work on a fork and use the source property in your manifest.
+					</aside>
+				</section>
+
+				<section id="safety-first">
+					<h2>The Floor is Lava</h2>
+
+					<ul style="list-style-type: none">
+						<li>🤞 The config file format is stable.</li>
+						<li>🎉 dep init is ready for you to try out!</li>
+						<li>🚧 dep ensure has big changes fermenting in a PR.</li>
+
+					<aside class="notes">
+						Not all dep mgmt supported yet.
+						dep ensure is staying
 					</aside>
 				</section>
 
@@ -234,7 +339,7 @@
 
 					<ul style="list-style-type: none">
 						<li><a href="https://github.com/golang/dep">github.com/golang/dep</a></li>
-						<li><a href="https://github.com/Masterminds/semver">github.com/Masterminds/semver</a></li>
+						<li><a href="https://github.com/Masterminds/semver">github.com/Masterminds/semver</a> for supported operators</li>
 					</ul>
 
 					<aside class="notes">
@@ -244,7 +349,7 @@
 				<section id="takeout">
 					<h2>Thank you</h2>
 
-					<p><img src="images/me.gif" width="120px"/></p>
+					<p><img src="images/mlp-salute.png"/></p>
 					<p><a href="http://twitter.com/carolynvs" target="_blank">@carolynvs</a></p>
 					<p><a href="http://carolynvs.com/dep-in-10">http://carolynvs.com/dep-in-10</a></p>
 					<!--<p>Post - <a href="http://carolynvanslyck.com/blog/2016/07/gowin">http://carolynvanslyck.com/blog/2016/07/gowin</a></p>-->
