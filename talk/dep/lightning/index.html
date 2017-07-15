@@ -65,9 +65,7 @@
 				</section>
 
 				<section id="partslist">
-					<h2><span class="green">imports</span> + <span class="blue">manifest</span> + <span class="purple">lock</span</h2>
-					<h2>↓</h2>
-					<h4>vendor directory</h4>
+					<img src="images/states-flow.png" />
 					<aside class="notes">
 						* import graph: identifies dependencies
 						* manifest: controls dep
@@ -78,7 +76,6 @@
 
 				<section id="manifest">
 					<h2>Manifest - Gopkg.toml</h2>
-
 <pre><code class="big toml" data-trim data-noescape>
 [[constraint]]
   name = "github.com/sdboyer/deptest"
@@ -86,10 +83,10 @@
   version = "0.8.0"
 
 [[constraint]]
-  branch = master
+  branch = "master"
 	name = "github.com/pkg/errors"
 </code></pre>
-
+					<p class="comment">maintained by you</p>
 					<aside class="notes">
 						* managed by YOU
 						* Fun fact, dep still works when this file is empty!
@@ -100,7 +97,6 @@
 
 				<section id="lock">
 					<h2>Lock - Gopkg.lock</h2>
-
 					<p>
 <pre><code class="big toml" data-trim data-noescape>
 [[projects]]
@@ -113,6 +109,8 @@
   revision = "17b591df37844cde689f4d5813e5cea0927d8dd2"
   version = "v0.7.1"
 </code></pre>
+
+					<p class="comment">maintained by dep</p>
 
 					<p>&nbsp;</p>
 					<p><em>What the what? Why v0.8.1 instead of 0.8.0? Where did master go?</em> 🤔</p>
@@ -139,6 +137,8 @@
 						0.0.3 becomes >=0.0.3, <0.1.0<br/>
 					</p>
 
+					<p>&nbsp;</p>
+					<p>Use =0.8.1 to pin to a version</p>
 					<aside class="notes">
 						* why dep automatically uses ranges
 						* PSA - dep can't pull versions out of its butt, so start tagging your releases!

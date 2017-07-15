@@ -3,3 +3,4 @@ _deploy
 .sass-cache
 .jekyll-metadata
 /stylesheets/
+.DS_Store
