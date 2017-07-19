@@ -9,7 +9,7 @@ footer: true
 <ul style="list-style-type:  none; text-align: center; margin: 2em 0 2em; line-height: 200%; white-space: nowrap; font-size: 1.1em;">
     <li>I am a polyglot developer</li>
     <li>I love contributing to open source software</li>
-    <li>I am a data nerd</li>
+    <li>I play in the developer tools space</li>
     <li>I have a soft spot for fuzzy animals</li>
 </ul>
 
