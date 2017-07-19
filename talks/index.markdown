@@ -8,6 +8,24 @@ footer: true
 ---
 
 <div class="projects">
+  <div class="project" id="dep-in-10">
+    <div class="title">
+        <a href="/talk/dep/lightning/">
+            <img src="/images/dep-icon.png" alt="Nerdy Gopher" title="Digby is watching"/>
+            dep in 10 minutes
+        </a>
+    </div>
+    <div class="locations">GopherCon 2017</div>
+    <p class="description">
+      The upcoming Go dependency manager, <a href="https://github.com/golang/dep/">dep</a>, is ready for you to try out! Learn how to get started with dep, whether you are used to go get or another dependency manager.
+    </p>
+    <ul>
+      <li>Generate the initial configuration files.</li>
+      <li>Add, upgrade, and remove a dependency.</li>
+      <li>Test local changes to a dependency.</li>
+      <li>Find out what is safe to rely on, and what is under active development.</li>
+    </ul>
+  </div>
   <div class="project" id="GoWin">
     <div class="title">
         <a href="/talk/devex/gowin/">
