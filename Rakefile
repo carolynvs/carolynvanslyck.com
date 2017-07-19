@@ -26,8 +26,6 @@ end
 
 desc "Watch the site and regenerate when it changes"
 task :serve => [:sass] do
-  puts "Copying talks..."
-  system "rsync -a --delete talk _site/"
   puts "Previewing site at http://0.0.0.0:4000"
   system "jekyll serve --watch -H 0.0.0.0"
 end

@@ -7,8 +7,6 @@ sidebar: false
 footer: true
 ---
 
-<!-- This page should be copied to github.com/carolynvs/talk/index.html after being generated -->
-
 <div class="projects">
   <div class="project" id="GoWin">
     <div class="title">

@@ -31,7 +31,6 @@ feed:
 twitter_username: carolynvs
 github_username:  carolynvs
 
-
 # Build settings
 gems:
   - jekyll-feed
@@ -44,8 +43,8 @@ exclude:
   - Rakefile
   - scripts
   - manifests
-  - talk
+  - talk/
 keep_files:
-  - talk
+  - talk # Don't delete existing files in _site so we can rsync it quickly
 timezone: America/Chicago
 recent_posts: 5
