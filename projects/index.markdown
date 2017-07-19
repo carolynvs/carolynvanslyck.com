@@ -11,14 +11,13 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="https://github.com/golang/dep">
-                <img src="{{root_url}}/images/gopher.png" alt="golang Logo" title="Gophers!"/>
-                Go Dependency Manager
+                <img src="{{root_url}}/images/dep-icon.png" alt="nerdy gopher" title="Gophers!"/>
+                dep
             </a>
         </div>
         <div class="technologies">go dependency management</div>
         <p class="description">
-          <code>dep</code> is (hopefully) the upcoming dependency manager for
-          Go.
+          I am dep maintainer, the upcoming dependency manager for Go.
         </p>
     </div>
     <div class="project">
