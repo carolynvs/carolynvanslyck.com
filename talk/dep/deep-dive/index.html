@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>dep: deep dive</title>
+
+		<meta name="description" content="Dependency Management in Go: a deep dive into dep">
+		<meta name="author" content="Carolyn Van Slyck">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="icon" type="image/png" href="images/favicon.ico"/>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Open links outside of presentation -->
+		<base target="_blank">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+						<h2>Dependency Management in Go<br/>a deep dive into dep</h2>
+
+						<p>Carolyn Van Slyck</p>
+
+						<figure>
+							<img src="images/moving-gopher.png" alt="Gopher working hard to move packages/boxes"/>
+							<figcaption>
+								<a href="https://github.com/ashleymcnamara/gophers/">
+									Gophers by Ashley McNamara</a>
+							</figcaption>
+						</figure>
+
+						<p><a href="http://carolynvs.com/dep-deep-dive">http://carolynvs.com/dep-deep-dive</a></p>
+
+						<aside class="notes">
+						</aside>
+				</section>
+
+				<section id="dep-mgmt">
+					<h2>Why Dependency Management?</h2>
+					<aside class="notes">
+						* Let's talk about dependency mgmt in general
+						* What problems are we solving?
+						  * repeatable builds
+							* use external code
+						* Examples you may have used
+							* bundler
+							* npm
+							* nuget
+							* maven
+					</aside>
+				</section>
+
+				<section id="history">
+					<h2>go no need dependency management!</h2>
+					<aside class="notes">
+						* Commonality is ~1 tool per language/ecosystem
+						* google's original answer was "you don't need it"
+						* copy the code sillypants
+					</aside>
+				</section>
+
+				<section id="landscape">
+					<h1>I have regrets</h1>
+					<aside class="notes">
+						* go has ... a few more than that
+						* go 1.5 added vendor, hurray!
+						* this is still too hard
+						* none of the tools work together...
+						* no one is tagging releases because go get discourages it
+					</aside>
+				</section>
+
+				<section id="onering">
+					<img src="images/standards.png" alt="xkcd.com/927" width="1024" />
+				</section>
+
+				<section id="dep" data-background="images/dep.png" data-background-size="contain">
+					<aside class="notes">
+						* enter dep!
+						* official experiment
+						* static analysis
+					  * sync-based
+						* understands other tools config
+					</aside>
+				</section>
+
+				<section id="partslist">
+					<img src="images/states-flow.png" />
+					<aside class="notes">
+						* import graph: identifies dependencies
+						* manifest: controls dep
+						* lock: list of dependencies and their versions
+						* vendor: local copy of your dependencies, supercedes GOPATH
+					</aside>
+				</section>
+
+				<section id="manifest">
+					<h2>Manifest - Gopkg.toml</h2>
+<pre><code class="big toml" data-trim data-noescape>
+[[constraint]]
+  name = "github.com/sdboyer/deptest"
+	source = "http://github.com/carolynvs/deptest"
+  version = "0.8.0"
+
+[[constraint]]
+  branch = "master"
+	name = "github.com/pkg/errors"
+</code></pre>
+					<p class="comment">maintained by you</p>
+					<aside class="notes">
+						* managed by YOU
+						* Fun fact, dep still works when this file is empty!
+						* source: mirror or fork
+						* branch or version range
+					</aside>
+				</section>
+
+				<section id="lock">
+					<h2>Lock - Gopkg.lock</h2>
+					<p>
+<pre><code class="big toml" data-trim data-noescape>
+[[projects]]
+  name = "github.com/sdboyer/deptest"
+  revision = "ff2948a2ac8f538c4ecd55962e919d1e13e74baf"
+  version = "v0.8.1"
+
+[[projects]]
+  name = "github.com/pkg/errors"
+  revision = "17b591df37844cde689f4d5813e5cea0927d8dd2"
+  version = "v0.7.1"
+</code></pre>
+
+					<p class="comment">maintained by dep</p>
+
+					<p>&nbsp;</p>
+					<p><em>What the what? Why v0.8.1 instead of 0.8.0? Where did master go?</em> 🤔</p>
+
+					<aside class="notes">
+						* manged by DEP
+						* says which revisions were last picked by dep
+						* Notice that the manifest said "0.8.0" but the version is "v0.8.1" RANGES!
+						* Same for pkg/errors, dep picked the highest version on the master branch
+					</aside>
+				</section>
+
+				<section id="guidelines">
+					<img src="images/pirate-gopher.png" />
+					<p>They are more what you'd call "guidelines"...</p>
+				</section>
+
+				<section id="semver">
+					<h2>dep prefers ranges over specific versions</h2>
+
+					<p>
+						1.2.3 becomes >=1.2.3, <2.0.0<br/>
+						0.2.3 becomes >=0.2.3, <0.3.0<br/>
+						0.0.3 becomes >=0.0.3, <0.1.0<br/>
+					</p>
+
+					<p>&nbsp;</p>
+					<p>Use =0.8.1 to pin to a version</p>
+					<aside class="notes">
+						* why dep automatically uses ranges
+						* PSA - dep can't pull versions out of its butt, so start tagging your releases!
+					</aside>
+				</section>
+
+				<section id="vendor">
+					<h2>Vendor Directory</h2>
+
+					<div style="float: left; width:50%">
+						<p>Owned by dep<br/>No files are safe from its tyranny!<p>
+						<img src="images/nerdy-gopher.png" />
+					</div>
+					<div style="float: left; width:50%">
+						<p>&nbsp;</p>
+						<img src="images/cool-gopher.png" />
+						<p>Check it in for a smug sense of superiority</p>
+					</div>
+
+					<aside class="notes">
+						* says which revisions were last picked by dep
+					</aside>
+				</section>
+
+				<section id="init">
+					<h2>dep init</h2>
+
+					<p class="comment">Doing probably the right thing since that PR the other week</p>
+					<aside class="notes">
+						* default looks for existing glide/godep config and falls back picking the highest compatible version from the repo
+						* gopath optional - if you are cool like that, and your gopath isn't a steaming 💩
+					</aside>
+				</section>
+
+				<section id="init-fresh">
+					<h2 class="purple">You are making a fresh start</h2>
+
+					<p>dep init</p>
+					<ol>
+						<li>Identifies your dependencies.</li>
+						<li>Checks if your dependencies use dep.</li>
+						<li>Picks the highest compatible version for each dependency.</li>
+					</ol>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="init-external">
+					<h2 class="purple">You are already using another dependency manager</h2>
+
+					<p>dep init</p>
+					<ol>
+						<li>Imports your existing configuration.</li>
+						<li>Checks if your dependencies use dep.</li>
+						<li>Falls back to the simple case to fill in gaps.</li>
+					</ol>
+
+					<aside class="notes">
+						We try to end up with you using the exact same revisions as you were with the other tool.
+					</aside>
+				</section>
+
+				<section id="init-gopath">
+					<h2 class="purple">Your GOPATH isn't a steaming 💩</h2>
+
+					<p>dep init -gopath</p>
+					<ol>
+						<li>Uses the branch/version/revision found in GOPATH.</li>
+						<li>Checks if your dependencies use dep.</li>
+						<li>Falls back to the simple case to fill in gaps.</li>
+					</ol>
+
+					<aside class="notes">
+						Great for when it's working on your computer.
+					</aside>
+				</section>
+
+				<section id="init-vendor">
+					<h2 class="purple">Your dependencies are already vendored</h2>
+
+					<p>dep init</p>
+					<ol>
+						<li>Makes a backup of vendor and takes over.</li>
+						<li>Generates an initial set of configuration files.<br/><em>These do not match your original vendor</em>!</li>
+						<li>Leaves it up to you to fix them by hand... Sorry.</li>
+					</ol>
+
+					<p>
+						<img src="images/mlp-shrug.png" alt="shrugging my little pony" width="300"/>
+					</p>
+					<aside class="notes">
+						Sadly this is hard mode.
+					</aside>
+				</section>
+
+				<section id="restore">
+					<h2>dep ensure</h2>
+
+					<ul>
+						<li>Run on fresh clones if you don't check-in vendor</li>
+						<li>Run after modifying your manifest</li>
+					</li>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="status">
+					<h2>dep status</h2>
+
+<pre><code class="big diff" data-trim data-noescape>
+PROJECT                             CONSTRAINT     VERSION        REVISION  LATEST
+github.com/Masterminds/semver       branch 2.x     branch 2.x     139cc09   c2e7f6c
+github.com/Masterminds/vcs          ^1.11.0        v1.11.1        3084677   3084677
+github.com/armon/go-radix           *              branch master  4239b77   4239b77
+</code></pre>
+
+					<aside class="notes">
+						See what you are using and check your lock for problems.
+					</aside>
+				</section>
+
+				<section id="add">
+					<h2>How do I add a dependency?</h2>
+
+					<ol>
+						<li>Add an import statement.</li>
+						<li>Run dep ensure.</li>
+					</ol>
+
+					<aside class="notes">
+						We are working on make this work better for those using IDEs.
+					</aside>
+				</section>
+
+				<section id="update">
+					<h2>How do I update a dependency?</h2>
+
+					<p style="text-align: left; color: gray">
+						dep ensure -update -n<br/>
+					</p>
+					<p style="text-align: left">
+						dep ensure -update<br/>
+						dep ensure -update github.com/carolynvs/loves-ponies<br/>
+						dep ensure -update github.com/carolynvs/loves-ponies@v2.0.1<br/>
+					</p>
+
+					<aside class="notes">
+						Update everything, one thing using the manifest, one thing to a specific version/branch/revision
+					</aside>
+				</section>
+
+				<section id="remove">
+					<h2>How do I remove a dependency?</h2>
+
+					<ol>
+						<li>Stop using it in your code.</li>
+						<li>Run dep ensure.</li>
+						<li>If it was in your manifest, you may remove it.</li>
+					</ol>
+
+					<aside class="notes">
+						dep ensure tries to do the right thing in the face of oddball config.
+						If you have defined a constraint for something not used, dep ignores it
+						and it won't end up in the lock or vendor/.
+					</aside>
+				</section>
+
+				<section id="test">
+					<h2>How do I test uncommitted changes to a dependency?</h2>
+
+					<ol>
+						<li>Delete it from the vendor directory.</li>
+						<li>Avoid running dep ensure for a wee bit.</li>
+						<li>Make your changes to the project in your GOPATH.</li>
+					</ol>
+
+					<aside class="notes">
+						Don't work on the code from within the vendor directory.
+						Alternatively, work on a fork and use the source property in your manifest.
+					</aside>
+				</section>
+
+				<section id="safety-first">
+					<h2>The Floor is Lava</h2>
+
+					<ul style="list-style-type: none">
+						<li>🤞 The config file format is stable.</li>
+						<li>🎉 dep init is ready for you to try out!</li>
+						<li>🚧 dep ensure has big changes fermenting in a PR.</li>
+
+					<aside class="notes">
+						Not all dep mgmt supported yet.
+						dep ensure is staying
+					</aside>
+				</section>
+
+				<section id="up-next">
+					<h2>Fun problems yet to be solved</h2>
+					<ul>
+						<li>Enterprise / Private Repositories</li>
+						<li>os, arch and build tags</li>
+						<li>Local repositories</li>
+						<li>Long-term support for other tools</li>
+					</ul>
+				</section>
+
+				<section id="resources">
+					<h2>Resources</h2>
+
+					<ul style="list-style-type: none">
+						<li><a href="https://github.com/golang/dep">github.com/golang/dep</a></li>
+						<li><a href="https://invite.slack.golangbridge.org">invite.slack.golangbridge.org</a> - #vendor</li>
+					</ul>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="takeout">
+					<h2>Thank you</h2>
+
+					<p><img src="images/mlp-salute.png"/></p>
+					<p><a href="http://twitter.com/carolynvs" target="_blank">@carolynvs</a></p>
+					<p><a href="http://carolynvs.com/dep-deep-dive">http://carolynvs.com/dep-deep-dive</a></p>
+
+					<aside class="notes">
+					</aside>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				// use 16:9 aspect ratio
+				width: 1600,
+				height: 900,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				keyboard: {
+					190: null // Disable blank screen hell
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

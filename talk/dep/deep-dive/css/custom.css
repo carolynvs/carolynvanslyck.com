@@ -1,0 +1,26 @@
+.reveal figcaption {
+  font-size: smaller;
+  font-style: italic;
+  text-align: center;
+}
+
+.reveal .comment {
+  font-size: smaller;
+  font-style: italic;
+}
+
+.reveal .big {
+  font-size: larger;
+}
+
+.blue {
+  color: #6dbcdb;
+}
+
+.green {
+  color: #8BC34A;
+}
+
+.reveal .purple {
+  color: #9575d1;
+}
