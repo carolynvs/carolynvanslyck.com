@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to get going with Go
+description: Building up experience when being a gopher isn't your day job
 date: 2017-08-18
 comments: true
 categories:
