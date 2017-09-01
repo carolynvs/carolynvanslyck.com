@@ -8,6 +8,22 @@ footer: true
 ---
 
 <div class="projects">
+  <div class="project" id="gotime55">
+    <div class="title">
+        <a href="https://changelog.com/gotime/55">
+            <img src="/images/gotime.icon.png" alt="Go Time FM" title="It's go time!"/>
+            Go Time #55: Dep, Cross-platform, and Getting Started
+        </a>
+    </div>
+    <div class="locations">GoTimeFM</div>
+    <p class="description">
+      The GoTimeFM crew and I chat about welcoming our Windows Gopher bretheren into the Go Community,
+      how I became a maintainer for dep (the Go Dependency Manager), and my adventures
+      running a my little pony themed bare metal Kubernetes cluster.
+    </p>
+    <audio data-theme="night" data-src="https://changelog.com/gotime/55/embed" src="https://cdn.changelog.com/uploads/gotime/55/go-time-55.mp3" preload="none" class="changelog-episode" controls></audio><p><a href="https://changelog.com/gotime/55">Go Time 55: Dep, Cross-platform, and Getting Started with Carolyn Van Slyck</a> – Listen on <a href="https://changelog.com/">Changelog.com</a></p><script async src="//cdn.changelog.com/embed.js"></script>
+  </div>
+
   <div class="project" id="dep-in-10">
     <div class="title">
         <a href="/talk/dep/lightning/">
