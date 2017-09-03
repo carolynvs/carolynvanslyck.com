@@ -15,7 +15,7 @@ categories:
   </figcaption>
 </figure>
 
-Yesterday I had a great time chatting with [GoTimeFM](https://changelog.com/gotime)
+Yesterday I had a great time chatting with [GoTimeFM](https://changelog.com/gotime/55)
 about how to land a job in Go. Often the question of how to get a job in Go boils down to:
 
 > I'm not paid to write Go and am struggling to build up relevant experience
@@ -26,7 +26,7 @@ Ask for forgiveness, not permission. Then start incorporating Go (or whatever yo
 into all the little automation tasks that make up your day. You don't have to come
 up with some great idea or project, just find existing code.
 
-This is how I learned Go! I tried to use the Docker Version Manager on my Windows
+This is how I learned Go: I tried to use the Docker Version Manager on my Windows
 machine and was saddened to discover that it was written in Bash. Over the weekend,
 I rewrote it in Go and that started me on the path to discovering my inner gopher.
 
