@@ -26,7 +26,7 @@ of using this cluster to offload compiling programs, so I erred on the side of a
 *The taller model has space for a second 2.5" drive*
 
 In the beginning I had trouble telling the nodes
-apart because they all looked the same. _Did I set up the third on from the left already?_ 🤔
+apart because they all looked the same. _Did I set up the third one from the left already?_ 🤔
 So I named each node after a My Little Pony character and put the corresponding pony
 atop for shits and giggles:
 Rainbow Dash, Pinkie Pie, Twilight Sparkle, Fluttery Shy, and Apple Jack.

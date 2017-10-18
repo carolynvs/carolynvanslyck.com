@@ -38,7 +38,7 @@ in Docker.
 
 I found this very nice Docker image, [jlesage/handbrake](https://hub.docker.com/r/jlesage/handbrake/),
 capable of operating in either GUI or CLI mode. Plus it could even watch a directory
-for files to transcode! This was a nice stepping stone from running HandBrake
+for files to transcode! This was the perfect stepping stone from running HandBrake
 in a GUI to running it in Docker.
 
 In no time, I figured out how to load my Tivo-friendly HandBrake settings into the
