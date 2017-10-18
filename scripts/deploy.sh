@@ -13,7 +13,8 @@ git clean -xdf
 popd
 
 echo "Copying _site to _deploy"
-rsync -a --delete --exclude .git _site/ _deploy/
+rsync -a --delete --exclude .git --exclude talk _site/ _deploy/
+rsync -a --delete talk _deploy/
 
 echo "Pushing _deploy to GitHub"
 pushd _deploy

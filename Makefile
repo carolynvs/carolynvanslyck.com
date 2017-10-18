@@ -29,12 +29,7 @@ _deploy:
 	git clone --branch gh-pages `git remote get-url origin` _deploy
 
 deploy: build _deploy
-	cd _deploy && \
-		git fetch origin && \
-		git checkout gh-pages && \
-		git reset --hard origin/gh-pages && \
-		git clean -xdf
-	rsync -a --delete --exclude .git --exclude talk _site/ _deploy/
-	cd _deploy && git add -A && git commit -m "Site updated at `date`" && git push
+	scripts/deploy.sh
 
-.PHONY: build serve deploy
+
+.PHONY: build serve deploy ci
