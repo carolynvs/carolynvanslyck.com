@@ -1,0 +1,156 @@
+* what people say about docker
+** future of awesome
+** replaces vms
+* instead of starting with what docker does, or how to use docker,
+let's look at what it is. beyond the cute whales and hype
+* demystifying docker
+* consider an app that you just made. when you run it, what is happening?
+** there is a script or binary on your filesystem
+** you run a command to execute it
+** the operating system runs it
+** it does cool stuff like read the filesystem for images/text, opens a port to talk on the network,
+ reads environment variables for a db config setting, print to the console
+
+Your app can interact with everything else running on your computer. It can:
+* list other running processes
+* if you ran it as root, it can even stop those processes
+* it can write files
+
+Noisy neighbors
+* what if you both want the same port?
+* another process can overwrite your config files
+* another process can read your top secret environment variable
+* another process can eat up all the computer's memory or file system
+
+Over the years people who work on Linux have been adding neat features that enable
+isolating various parts of a computer:
+* pid (process)
+* mount (filesystem)
+* net (network)
+
+Google worked on something called cgroups, or control groups: this let you group together sets of resources
+* filesystem
+* devices (everything from the console, a connected printer, )
+* CPU, Memory and file system limits
+
+Each one of these features by itself lets you control what a process can see, and do:
+* list other running processes on the computer
+* print to your monitor
+* read/write the filesystem
+* talk on the network
+
+but you had to use different series of commands, flags and whatnot to combine them all.
+
+Linux containers, LXC combines all that together making it easier to start a process
+in near total isolation, almost as if it was running in a virtual machine.
+Only in a virtual machine, _everything_ is virtualized. It has its own copy of an operating system
+host filesystem, and host devices can be exposed to the VM (or not).
+
+with a container, instead of making copies of everything, and running an entire OS inside the host os,
+it simply isolates a process and carefully shows it whatever you want so that it thinks that it
+has an entire computer to itself.
+
+Containers is like the matrix for processes
+
+So what is docker then? It's not magic. It's a really nice packaging around
+linux containers. They took something that only really motivated sysadmins would ever use
+and created a set of tools around it so that most devs could pick it up and use it.
+they abstracted all that stuff and gave you other terms to think about:
+
+* containers
+* images
+
+Wait containers?! We know that term already. It's an isolated group of filesystem,
+namespaces, cpu / memory/ disk restrictions. Docker starts with that and adds a bit more:
+
+* linux container (this is the matrix)
+* a command to run (this is neo)
+* a filesystem (this is the program that we are loading into the matrix)
+
+Docker has a really slick way to deal with the file system:
+* union fs, layers
+
+Now what we've described so far is pretty neat but the other part, images,
+is why you are seeing Docker being used by people in DevOps:
+
+* pretty package that encompasses ALL of this into a unit that you can run anywhere that Docker is installed
+
+You don't need to know much, just `docker run puppy-farts`
+
+Now dev can make an app, and turn their app into a black box with a standard interface
+* the image contains the files needed by your app, all its dependencies, the magic command to run your app
+* now ops just needs to hook that into the host by adding a few extra things:
+** fill in any env variables needed
+** provide a place to store files persistently
+** the container has ports, and you can hook them up to ports on the host computer and expose it to the network
+
+So is docker magic? Is it really a thing at all? No.
+But it takes something that realistically no one would have done, isolating an application and
+making it easier to run it anywhere, and make it usable by the masses.
+
+So let's think about why people are excited about it:
+* the image is smaller
+* the dev gains control over more of the logistics of how to run their app
+* isolation - we can run things next to eachother and know that they are less likely to ruin things
+* we have moved more of the magic sauce into code. I can check in a file that describes things that used to be in a wiki
+* docker image registry (easier distribution and less hand rolled ways to move files around)
+
+Let's think about this and compare it to other stuff we may have more experience with:
+* virtual machine
+** faster to start
+** less things are potentially running in a container
+** both can either remember things (hard stop loses any changes, same with stopping a container without committing)
+** lets you package up an app and deploy it on your laptop, or on aws
+* chef/puppet
+** desired state management
+** helps with the initial setup (docker can do this too)
+** ensures that a computer stays in the right state (docker alone doesn't do this)
+* vagrant
+** you can define your app, everything it needs and put it into a named virutal machine
+** vagrant makes it easy to distrubute it and run it locally
+** you can do the same with docker images and a registry
+** both make for a quick dev env setup and easier time running your app locally
+
+Let's talk about some of the things that Docker _doesn't_ do:
+* there's things that ops needs to know before they can run your image (env vars, persistant data storage, exposing to the network)
+* scale out your app, say you need 5 of them, that's up to you to coordinate
+* rollout deployments of your latest code
+* coordinate related apps
+
+It handles things at the process level, but theres another level higher than that when running
+your application or an entire system. It doesn't deal with infrastructure. It doesn't know your cloud.
+That's OKAY! It just made one layer of it easier.
+
+So let's see what it would look like to take a go program and run it in docker:
+* go http handler that prints emoji and logs requests
+* compile it
+* build a docker image
+* run it on port 8080
+* watch the logs
+
+Let's give it files to serve up:
+* run it and mount a volume with pictures
+* hit it and have it serve them
+
+Let's give it some configuration with environment variables:
+* env var that says how it should respond to a request
+* hit it and notice that it prints your custom message
+
+Docker Hub
+* mention that it exists, it's public, and lets you share images for others to run
+
+Docker for Mac/Windows
+* linux is native (they aren't called linux containers for nothing!)
+* mac or windows needs to run a vm with linux, and then it runs the containers there
+
+Why is Docker and go special?
+* go compiles into a binary, check out that sexy dockerfile
+* go is used by nearly all of the cloud infrastructure around docker
+** docker itself
+** kubernetes
+
+So that was cool but my job doesn't use docker:
+* you can use it even if no one else does!
+* make a dockerfile for your app and run it locally
+* I use it for my website. I don't have ruby/jekyll or npm etc installed on my computer. But my website needs them.
+I run my site in a docker container so that I don't have to remember how to get my computer set up properly.
