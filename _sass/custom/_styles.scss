@@ -82,6 +82,14 @@ article pre {
 
 article figcaption {
   font-size: .75em;
+  text-align: center;
+}
+
+// Poor man's figcaption in markdown
+img + em {
+  font-size: .9em;
+  display: block;
+  text-align: center;
 }
 
 article .emoji {

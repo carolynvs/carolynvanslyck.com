@@ -5,7 +5,7 @@ default: serve
 build:
 	-rm -fr _site/
 	docker build -t carolynvanslyck.com .
-	docker run \
+	docker run --rm \
   	-v `pwd`:/srv/jekyll \
 		-v /etc/localtime:/etc/localtime \
   	carolynvanslyck.com \

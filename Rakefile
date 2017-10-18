@@ -21,13 +21,13 @@ end
 desc "Build site"
 task :build => [:sass] do
   puts "## Building site"
-  system "jekyll build --verbose"
+  system "jekyll build --verbose --future"
 end
 
 desc "Watch the site and regenerate when it changes"
 task :serve => [:sass] do
   puts "Previewing site at http://0.0.0.0:4000"
-  system "jekyll serve --drafts --watch -H 0.0.0.0"
+  system "jekyll serve  --drafts --future --watch -H 0.0.0.0"
 end
 
 desc "Deploy site to github.com"
