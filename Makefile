@@ -31,5 +31,4 @@ _deploy:
 deploy: build _deploy
 	scripts/deploy.sh
 
-
 .PHONY: build serve deploy ci
