@@ -45,3 +45,5 @@ You know how much work it was to redo those 100 videos?
 1. There is no step 2.
 
 ![Gopher droppin' the mic](/images/handbrk8s/gopher-mic-drop.png)
+
+Next: [I Did a Thing]({{site.baseurl}}{% post_url 2017-10-22-i-did-a-thing %})
