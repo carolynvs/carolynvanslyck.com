@@ -68,8 +68,8 @@ my videos in a Tivo-friendly format up-front, and then play them directly on my 
 The result is no buffering, better quality, and world peace.
 
 ### Transcoded Videos
-I used [MakeMKV](http://www.makemvk.com) to save the disk to a file, and
-then [HandBrake](http://handbrake.fr) to perform the transcoding.
+I used [MakeMKV](http://www.makemkv.com) to save the disk to a file, and
+then [HandBrake](https://handbrake.fr) to perform the transcoding.
 
 Depending on how you go about transcoding a video, it could take anywhere from
 30 minutes to 12 hours(!). It requires a lot of raw computing power,
