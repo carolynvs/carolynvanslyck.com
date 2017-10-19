@@ -18,7 +18,7 @@ One night a few months back, my husband decided to stream a movie on Netflix,
 something that we already owned on DVD because getting off the couch to put the DVD in the player is hard.
 Silly? You bet! Until I remembered that Comcast has recently imposed a 1TB monthly bandwidth cap on our account, and then it felt a whole lot more silly. 🤦‍♀️
 
-Suddenly I was a women on a mission:
+Suddenly I was a woman on a mission:
 to save all my DVDs so that I could watch them without getting off the couch.
 A most honorable honorable quest indeed.
 
