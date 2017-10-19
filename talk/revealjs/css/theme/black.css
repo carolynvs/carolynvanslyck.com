@@ -140,7 +140,7 @@ body {
   content: "\201C";
   font-size: 2em;
   position: absolute;
-  left: 1em;
+  left: -0.5em;
   top: -0.5em;
 }
 

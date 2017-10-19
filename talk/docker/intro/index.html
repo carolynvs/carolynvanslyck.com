@@ -50,7 +50,7 @@
 
 						<p>Carolyn Van Slyck</p>
 
-						<img src="images/docker.png" alt="Docker Logo"/>
+						<img src="images/whale-hello.png" alt="Whale saying hello"/>
 
 						<p><a href="http://carolynvs.com/whale-hello">http://carolynvs.com/whale-hello</a></p>
 
@@ -76,33 +76,26 @@
 				</section>
 
 				<section id="my-computer">
+					<h2>Classic Application Deployment</h2>
 					<img src="images/my-computer.png" />
 
 					<aside class="notes">
 					</aside>
 				</section>
 
-				<section id="namespaces">
+				<section id="virtual-machine">
+					<h2>Virtual Application Deployment</h2>
 
-					<h2>Linux Namespaces</h2>
-					<ul>
-						<li>Process (pid)</li>
-						<li>Filesystem (mnt)</li>
-						<li>Networking (net)</li>
-					</ul>
+					<img src="images/virtual-machine.png"/>
 
 					<aside class="notes">
 					</aside>
 				</section>
 
-				<section id="cgroups">
+				<section id="docker-namespaces">
+					<h2>Containerized Application Deployment</h2>
 
-					<h2>Control Groups (cgroups)</h2>
-					<ul>
-						<li>Filesystem</li>
-						<li>Devices</li>
-						<li>Resource Limits: CPU, Memory</li>
-					</ul>
+					<img src="images/docker-namespaces.png"/>
 
 					<aside class="notes">
 					</aside>
@@ -117,21 +110,42 @@
 					</aside>
 				</section>
 
-				<section id="docker-namespaces">
-					<img src="images/docker-namespaces.png"/>
+				<section id="namespaces">
+					<h2>Linux Namespaces</h2>
+
+					<p class="comment">Isolation without virtualization</p>
+
+					<ul>
+						<li>Process (pid): Can't see other processes</li>
+						<li>Filesystem (mnt): Can only see its own files</li>
+						<li>Networking (net): Gets its own network interface</li>
+					</ul>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="cgroups">
+
+					<h2>Control Groups (cgroups)</h2>
+
+					<p class="comment">Restrict resource usage: CPU, RAM, IO, Network</p>
 
 					<aside class="notes">
 					</aside>
 				</section>
 
 				<section id="matrix-quote">
-					<blockquote>The Matrix is everywhere. It is all around us. Even now, in this very room.
+					<blockquote>
+						<p>The Matrix is everywhere. It is all around us. Even now, in this very room.
 						You can see it when you look out your window or when you turn on your television.
 						You can feel it when you go to work... when you go to church... when you pay your taxes.
 						It is the world that has been pulled over your eyes to blind you from the truth...
-						<br/><br/>
-						That you are a slave, Neo. Like everyone else you were born into bondage.
+						</p>
+						<p>That you are a slave, Neo. Like everyone else you were born into bondage.
 						Into a prison that you cannot taste or see or touch. A prison for your mind.
+						</p>
+						<cite>Morpheus in The Matrix</cite>
 					</blockquote>
 
 					<aside class="notes">
@@ -145,10 +159,31 @@
 					</aside>
 				</section>
 
+				<section id="reminder-docker-namespaces">
+
+					<img src="images/docker-namespaces.png"/>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
 				<section id="docker">
 					<h2>So what is Docker, anyway?</h2>
 
 					<p>linux container + packaging + tools</p>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="docker-reveal">
+					<blockquote>
+						Docker took something that previously was only an option
+						for highly motivated sysadmins, and gave
+						it away to the masses.
+						<cite>Carolyn Van Slyck</cite>
+					</blockquote>
+
 					<aside class="notes">
 					</aside>
 				</section>
@@ -165,7 +200,9 @@
 				<section id="tools">
 					<h2>Docker Tools</h2>
 
-					<pre><code>docker run -d -v `pwd`:/var/www nginx</code></pre>
+<pre><code class="big" data-trim data-noescape>
+docker run --detach --volume `pwd`:/var/www --publish 80:80 nginx
+</code></pre>
 
 					<aside class="notes">
 					</aside>
@@ -202,9 +239,9 @@
 					<h2>The Catch</h2>
 
 					<ul>
-						<li>Filesystem is ephemeral, not persistent</li>
-						<li>Not <em>all</em> knowledge is packaged in an image: volumes, ports</li>
-						<li>Application Lifecycle Management: Scale-out, Upgrade</li>
+						<li>Filesystem is ephemeral, not persistent ➡ <span class="green">External file system</span></li>
+						<li>Images aren't enough ➡ <span class="green">Compose, Helm</span></li>
+						<li>Application Lifecycle Management ➡ <span class="green">Swarm, Kubernetes</span></li>
 					</ul>
 				</section>
 
@@ -222,11 +259,11 @@
 				<section id="dockerfile">
 						<h2>Define a Docker image</h2>
 
-<p><strong>Dockerfile</strong></p>
-<pre><code>FROM ubuntu
-RUN apt-get install -y python
-COPY myapp /myapp
-CMD ["python", "/myapp/run.py"]
+						<p><strong>Dockerfile</strong></p>
+<pre><code class="big" data-trim data-noescape>
+FROM ubuntu:16.04
+COPY bin/Linux/x86_64/magic /
+CMD ["/magic"]
 </code></pre>
 
 				</section>
@@ -234,22 +271,46 @@ CMD ["python", "/myapp/run.py"]
 				<section id="docker-build">
 						<h2>Build a Docker image</h2>
 
-<pre><code>docker build -t carolynvs/myapp .</code></pre>
+<pre><code class="big" data-trim data-noescape>
+docker build -t carolynvs/magic .
+</code></pre>
 
 				</section>
 
 				<section id="docker-push">
 						<h2>Publish a Docker image</h2>
 
-				<pre><code>docker push carolynvs/myapp</code></pre>
+<pre><code class="big" data-trim data-noescape>
+docker push carolynvs/magic
+</code></pre>
 
 				</section>
 
 				<section id="docker-run">
 						<h2>Run a Docker container</h2>
 
-<pre><code>docker run -d carolynvs/myapp</code></pre>
+<pre><code class="big" data-trim data-noescape>
+docker run --rm carolynvs/magic
+</code></pre>
 
+				</section>
+
+				<section id="beginner-resources">
+					<h2>Beginner Resources</h2>
+
+					<ul>
+						<li><a href="https://medium.com/@deepakshakya/beginners-guide-to-use-docker-build-run-push-and-pull-4a132c094d75">Docker build, run, push and pull<a></li>
+						<li><a href="http://training.play-with-docker.com/">Docker Online Classroom</a></li>
+					</ul>
+
+				</section>
+
+				<section id="advanced-resources">
+					<h2>Advanced Resources</h2>
+					<ul>
+						<li><a href="https://ericchiang.github.io/post/containers-from-scratch/">Containers from Scratch</a></li>
+						<li><a href="https://jvns.ca/blog/2016/10/10/what-even-is-a-container/">What even is a container?</a></li>
+					</ul>
 				</section>
 
 				<section id="takeout">

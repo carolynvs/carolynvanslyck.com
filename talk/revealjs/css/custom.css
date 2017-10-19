@@ -24,3 +24,7 @@
 .reveal .purple {
   color: #9575d1;
 }
+
+blockquote {
+  text-align: left;
+}
