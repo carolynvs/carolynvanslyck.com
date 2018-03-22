@@ -28,3 +28,20 @@
 blockquote {
   text-align: left;
 }
+
+.code-title {
+  text-align: left;
+  font-size: 0.8em;
+}
+
+slide-footer{
+  display: block;
+  padding-top: 2em;
+  text-align: center;
+  color: lightgreen;
+  font-size: 0.75em;
+}
+
+.reveal slide-footer a, .reveal slide-footer a:visited {
+  color: lightgreen;
+}
