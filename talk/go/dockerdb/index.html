@@ -112,16 +112,6 @@ $ docker exec -it mydb bash -c 'mysql -p"$MYSQL_ROOT_PASSWORD"'
           <h2>Make a database</h2>
 
 <pre><code class="sql big" data-trim data-noescape>
-mysql> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| performance_schema |
-| sys                |
-+--------------------+
-
 mysql> create database wwg;
 Query OK, 1 row affected (0.00 sec)
 
@@ -204,7 +194,7 @@ mysql> quit;
 Bye
 </code></pre>
 
-          <p>Yay our data is still there after restarting!</p>
+          <p>Yay, our data is still there after restarting!</p>
 
           <slide-footer>
             Slides @ <a href="http://carolynvs.com/go-dockerdb">carolynvs.com/go-dockerdb</a>
@@ -249,14 +239,14 @@ Bye
 
 <pre><code class="bash big" data-trim data-noescape>
 $ docker rm -f mydb
-$ mkdir my-data
-$ docker run --name mydb -v `pwd`/my-data:/var/lib/mysql \
+$ mkdir /tmp/my-data
+$ docker run --name mydb -v /tmp/my-data:/var/lib/mysql \
        -e MYSQL_ROOT_PASSWORD=womenwhogo -p 3306:3306 -d mysql:5.7
 </code></pre>
 
           <ul>
             <li>Save database on the Docker host instead of in the container</li>
-            <li>Mounts my-data in the current directory to /var/lib/mysql in the container</li>
+            <li>Mounts /tmp/my-data to /var/lib/mysql in the container</li>
           </ul>
 
           <slide-footer>
@@ -316,7 +306,7 @@ Bye
 
 <pre><code class="bash big" data-trim data-noescape>
 $ docker rm -f mydb
-$ docker run --name mydb -v `pwd`/my-data:/var/lib/mysql \
+$ docker run --name mydb -v /tmp/my-data:/var/lib/mysql \
        -e MYSQL_ROOT_PASSWORD=womenwhogo -p 3306:3306 -d mysql:5.7
 $ docker exec -it mydb bash -c 'mysql -p"$MYSQL_ROOT_PASSWORD"'
 </code></pre>
@@ -348,7 +338,8 @@ Bye
           <h2>Clone Sample Repository</h2>
 
 <pre><code class="bash big" data-trim data-noescape>
-git clone https://github.com/carolynvs/go-dockerdb.git
+$ go get github.com/carolynvs/go-dockerdb
+$ cd $(go env GOPATH)/src/github.com/carolynvs/go-dockerdb
 </code></pre>
 
           <slide-footer>
@@ -453,7 +444,7 @@ $ docker network create wwgnet
 
 <pre><code class="bash big" data-trim data-noescape>
 $ docker rm -f mydb
-$ docker run --name mydb --net wwgnet -v `pwd`/my-data:/var/lib/mysql \
+$ docker run --name mydb --net wwgnet -v /tmp/my-data:/var/lib/mysql \
        -e MYSQL_ROOT_PASSWORD=womenwhogo -p 3306:3306 -d mysql:5.7
 </code></pre>
 
