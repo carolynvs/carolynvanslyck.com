@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Let's Talk About Types</title>
+
+		<meta name="description" content="Go types and interfaces">
+		<meta name="author" content="Carolyn Van Slyck">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="icon" type="image/png" href="images/favicon.ico"/>
+		<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="../../revealjs/css/custom.css">
+
+		<!-- Open links outside of presentation -->
+		<base target="_blank">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+						<h2>Let's Talk About Types</h2>
+
+						<p>Carolyn Van Slyck</p>
+
+						<img src="images/whale-hello.png" alt="Whale saying hello"/>
+
+						<p><a href="http://carolynvs.com/whale-hello">http://carolynvs.com/go-types</a></p>
+
+						<aside class="notes">
+						</aside>
+				</section>
+
+				<section id="hype">
+					<h2>The Hype</h2>
+					<h1>🐳 🐳 🐳 🍄</h1>
+
+					<aside class="notes">
+						- docker = devops<br/>
+						- vm is dead
+					</aside>
+				</section>
+
+				<section id="no-magic-zone">
+					<h2>Demystifying Docker</h2>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="my-computer">
+					<h2>Classic Application Deployment</h2>
+					<img src="images/my-computer.png" />
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="virtual-machine">
+					<h2>Virtual Application Deployment</h2>
+
+					<img src="images/virtual-machine.png"/>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="docker-namespaces">
+					<h2>Containerized Application Deployment</h2>
+
+					<img src="images/docker-namespaces.png"/>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="lxc">
+					<h2>Linux Containers (LXC)</h2>
+
+					<p>namespaces + cgroups = ISOLATION</p>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="namespaces">
+					<h2>Linux Namespaces</h2>
+
+					<p class="comment">Isolation without virtualization</p>
+
+					<ul>
+						<li>Process (pid): Can't see other processes</li>
+						<li>Filesystem (mnt): Can only see its own files</li>
+						<li>Networking (net): Gets its own network interface</li>
+					</ul>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="cgroups">
+
+					<h2>Control Groups (cgroups)</h2>
+
+					<p class="comment">Restrict resource usage: CPU, RAM, IO, Network</p>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="matrix-quote">
+					<blockquote>
+						<p>The Matrix is everywhere. It is all around us. Even now, in this very room.
+						You can see it when you look out your window or when you turn on your television.
+						You can feel it when you go to work... when you go to church... when you pay your taxes.
+						It is the world that has been pulled over your eyes to blind you from the truth...
+						</p>
+						<p>That you are a slave, Neo. Like everyone else you were born into bondage.
+						Into a prison that you cannot taste or see or touch. A prison for your mind.
+						</p>
+						<cite>Morpheus in The Matrix</cite>
+					</blockquote>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="matrix-pods">
+					<img src="images/matrix-pods.jpg"/>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="reminder-docker-namespaces">
+
+					<img src="images/docker-namespaces.png"/>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="docker">
+					<h2>So what is Docker, anyway?</h2>
+
+					<p>linux container + packaging + tools</p>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="docker-reveal">
+					<blockquote>
+						Docker took something that previously was only an option
+						for highly motivated sysadmins, and gave
+						it away to the masses.
+						<cite>Carolyn Van Slyck</cite>
+					</blockquote>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="packaging">
+					<h2>Docker Image Packaging</h2>
+
+					<img src="images/docker-image.png" />
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="tools">
+					<h2>Docker Tools</h2>
+
+<pre><code class="big" data-trim data-noescape>
+docker run --detach --volume `pwd`:/var/www --publish 80:80 nginx
+</code></pre>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="cool-factor">
+					<h2>What does this let us do?</h2>
+
+<p>
+	<br/><br/>
+					<strong>Moves knowledge on how to run your app out of a readme and into code</strong>
+</p>
+					<aside class="notes">
+						it takes something that realistically no one would have done, isolating an application and
+						making it easier to run it anywhere, and make it usable by the masses.
+					</aside>
+				</section>
+
+				<section id="comparison">
+					<table>
+						<thead>
+							<tr><th>&nbsp;</th><th>VMs</th><th>Docker</th><th>Chef</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Isolated</td><td>✅</td><td>✅</td><td>❌</td></tr>
+							<tr><td>Repeatable</td><td>✅</td><td>✅</td><td>✅</td></tr>
+							<tr><td>Sharable</td><td>✅</td><td>✅</td><td>✅</td></tr>
+							<tr><td>Maintainable</td><td>❌</td><td>❌</td><td>✅</td></tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section id="docker-gaps">
+					<h2>The Catch</h2>
+
+					<ul>
+						<li>Filesystem is ephemeral, not persistent ➡ <span class="green">External file system</span></li>
+						<li>Images aren't enough ➡ <span class="green">Compose, Helm</span></li>
+						<li>Application Lifecycle Management ➡ <span class="green">Swarm, Kubernetes</span></li>
+					</ul>
+				</section>
+
+				<section id="get-started">
+					<h2>How to get started</h2>
+
+					<ul>
+						<li><a href="https://www.docker.com/docker-mac">Docker for Mac</a></li>
+						<li><a href="https://www.docker.com/docker-windows">Docker for Windows</a></li>
+						<li><a href="https://www.docker.com/docker-ubuntu">Linux - Native Docker</a></li>
+					</ul>
+
+				</section>
+
+				<section id="dockerfile">
+						<h2>Define a Docker image</h2>
+
+						<p><strong>Dockerfile</strong></p>
+<pre><code class="big" data-trim data-noescape>
+FROM ubuntu:16.04
+COPY bin/Linux/x86_64/magic /
+CMD ["/magic"]
+</code></pre>
+
+				</section>
+
+				<section id="docker-build">
+						<h2>Build a Docker image</h2>
+
+<pre><code class="big" data-trim data-noescape>
+docker build -t carolynvs/magic .
+</code></pre>
+
+				</section>
+
+				<section id="docker-push">
+						<h2>Publish a Docker image</h2>
+
+<pre><code class="big" data-trim data-noescape>
+docker push carolynvs/magic
+</code></pre>
+
+				</section>
+
+				<section id="docker-run">
+						<h2>Run a Docker container</h2>
+
+<pre><code class="big" data-trim data-noescape>
+docker run --rm carolynvs/magic
+</code></pre>
+
+				</section>
+
+				<section id="beginner-resources">
+					<h2>Beginner Resources</h2>
+
+					<ul>
+						<li><a href="https://medium.com/@deepakshakya/beginners-guide-to-use-docker-build-run-push-and-pull-4a132c094d75">Docker build, run, push and pull<a></li>
+						<li><a href="http://training.play-with-docker.com/">Docker Online Classroom</a></li>
+					</ul>
+
+				</section>
+
+				<section id="advanced-resources">
+					<h2>Advanced Resources</h2>
+					<ul>
+						<li><a href="https://ericchiang.github.io/post/containers-from-scratch/">Containers from Scratch</a></li>
+						<li><a href="https://jvns.ca/blog/2016/10/10/what-even-is-a-container/">What even is a container?</a></li>
+					</ul>
+				</section>
+
+				<section id="takeout">
+					<h2>Thank you</h2>
+
+					<p><img src="../../../images/mlp-salute.png"/></p>
+					<p><a href="http://twitter.com/carolynvs" target="_blank">@carolynvs</a></p>
+					<p><a href="http://carolynvs.com/whale-hello">http://carolynvs.com/whale-hello</a></p>
+
+					<aside class="notes">
+					</aside>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../../revealjs/lib/js/head.min.js"></script>
+		<script src="../../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				// use 16:9 aspect ratio
+				width: 1600,
+				height: 900,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				keyboard: {
+					190: null // Disable blank screen hell
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+					{ src: '../../revealjs/plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
