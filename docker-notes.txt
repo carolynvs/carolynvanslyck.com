@@ -1,0 +1,84 @@
+https://hub.docker.com/_/mysql/
+http://go-database-sql.org/accessing.html
+
+install docker
+
+run a database in a container
+docker run --name mydb -e MYSQL_ROOT_PASSWORD=womenwhogo -p 3306:3306 -d mysql:5.7
+
+connect to it from another container and run a query
+docker exec -it mydb bash -c 'mysql -p"$MYSQL_ROOT_PASSWORD"'
+
+show databases;
+create database wwg;
+use wwg;
+show tables;
+
+add some data and view it
+
+create table gophers (name varchar(20));
+show tables;
+select * from gophers;
+insert into gophers values ('ladygogo');
+select * from gophers;
+quit;
+
+restart the container and notice the data is still there
+docker stop mydb
+docker start mydb
+docker exec -it mydb bash -c 'mysql -p"$MYSQL_ROOT_PASSWORD"'
+use wwg;
+select * from gophers;
+quit;
+
+kill and recreate the container and its gone
+docker rm -f mydb
+docker run --name mydb -e MYSQL_ROOT_PASSWORD=womenwhogo -p 3306:3306 -d mysql:5.7
+show databases;
+
+run it again and this time mount the host to store the db files
+mkdir my-data
+docker run --name mydb -v my-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=womenwhogo -p 3306:3306 -d mysql:5.7
+docker exec -it mydb bash -c 'mysql -p"$MYSQL_ROOT_PASSWORD"'
+
+now add data again
+create database wwg;
+use wwg;
+create table gophers (name varchar(20));
+insert into gophers values ('ladygogo');
+select * from gophers;
+quit;
+
+kill and recreate the container
+docker rm -f mydb;
+docker run --name mydb -v my-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=womenwhogo -p 3306:3306 -d mysql:5.7
+docker exec -it mydb bash -c 'mysql -p"$MYSQL_ROOT_PASSWORD"'
+use wwg;
+select * from gophers;
+the database still has the data!
+
+let's write a go app that talks to the database
+go run main.go
+ah okay we need to supply a connection string
+export MYSQL_CONNECTION_STRING="root:womenwhogo@tcp(127.0.0.1:3306)/wwg"
+go run main.go
+it works!
+
+run the go app in a container and connect to the db
+docker build -t go-dockerdb .
+docker run --rm -it go-dockerdb
+needs connection string
+docker run --rm -it -e MYSQL_CONNECTION_STRING go-dockerdb
+cannot connect
+my local host is not the same as the docker containers because the network is isolated
+
+make a network and share it between the database and our container
+docker network create wwgnet
+docker rm -f mydb
+docker run --name mydb --net wwgnet -v my-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=womenwhogo -p 3306:3306 -d mysql:5.7
+docker run --rm -it --net wwgnet -e MYSQL_CONNECTION_STRING="root:womenwhogo@tcp(mydb:3306)/wwg" go-dockerdb
+
+best practices:
+* don't run a db in a container in production. it's fine for dev though
+* don't make containers with hard coded config, pass in env vars
+* follow 12 factor guidelines and your code will be pluggable, whether or not its running in a container. notice we didn't have to change anything to run it in docker or locally.
