@@ -1,0 +1,54 @@
+Contribution Ladder
+Decide how you want to contribute, and why
+I use it, it’s broken, I want to fix it
+I tried, the doc was unclear, I want to fix
+Want to work with the people in that community
+???
+What are types of contributions?
+Doc - focus on doc for people new to the project since you will only be new for so long, this is high value contributions!
+Feature
+Bug Fix
+Increasing test coverage
+Commenting - inline doc
+Working on their website (design, content)
+FAQ
+Reading issues as they come and comenting where you can
+Answering questions
+Find gaps in the doc
+Chatting with people on slack , more user help
+Responding to design propoals
+Trying out fixes - find a pr, build it, try it, note if it worked
+Comment on a PR
+Read the PR and figure out how they fixed/implemented something.
+Attend community meetings
+Project management
+Taking notes in meetings
+Labeling issues
+Closing stale issues or fixed issues
+Asking clarifying questions on issues
+Domains excited about and interested in
+I love cloud stuff
+I use kubernetes
+Community involvement / Civics
+Want to learn
+Find a project
+I use it
+Know about the community
+Call for mentorship opportunities
+Contributing to something you don’t use (pros/cons)
+Pick a first thing to do
+Keep it small
+Look for labels that indicate that they want people to work on it
+Help-wanted, good-first-pr
+Figure out how they like to accept help
+Contributing guides
+Dev guides
+…
+Decide if it’s worth contributing to
+Do they accept prs or ignore them?
+Are they nice?
+How do I become a member? How do I become a maintainer?
+How do I step down?
+How do I keep up?
+When can I stop?
+The crushing guilt...
