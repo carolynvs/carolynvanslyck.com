@@ -43,9 +43,6 @@ exclude:
   - Rakefile
   - scripts
   - manifests
-  - talk/
-keep_files:
-  - talk # Don't delete existing files in _site so we can rsync it quickly
 timezone: America/Chicago
 recent_posts: 5
 drafts: false # Don't publish items under _drafts
