@@ -1,0 +1,6 @@
+[Settings]
+  ID = "carolynvanslyck"
+
+[build]
+  publish = "_site"
+  command = "rake build"
