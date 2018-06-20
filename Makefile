@@ -1,6 +1,17 @@
 SHELL=/bin/bash
 
-serve:
+default: serve
+
+build:
+	-rm -fr _site/
+	docker build -t carolynvanslyck.com .
+	docker run --rm \
+  	-v `pwd`:/srv/jekyll \
+		-v ~/etc/timezone:/etc/localtime:ro \
+		carolynvanslyck.com \
+  	bundle exec rake build
+
+serve: build
 	-docker ps --filter="name=jekyll" -aq | xargs -n1 docker rm -f
 	docker run -d --name jekyll \
   	--volume=`pwd`:/srv/jekyll \
@@ -11,4 +22,4 @@ serve:
 	open http://0.0.0.0:4000
 	docker logs -f jekyll
 
-.PHONY: serve
+.PHONY: build serve
