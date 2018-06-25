@@ -15,8 +15,8 @@ categories:
   </figcaption>
 </figure>
 
-Last year I spent a silly amount of time interviewing for senior Go developer
-positions (100% remote). I'm not sure if I landed my current position on the Azure
+Last year I spent a silly amount of time interviewing for remote senior Go developer
+positions working on upstream Kubernetes. I'm not sure if I landed my current position on the Azure
 Containers team at Microsoft because of my interviewing
 skills. In fact it may have more to do with [my cluster decorating](http://carolynvanslyck.com/blog/2017/10/all-the-pretty-little-ponies/)
 to be quite honest, but I'm not so cool that I won't take all help that I can
