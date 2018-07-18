@@ -8,6 +8,13 @@ categories:
   - oss
 ---
 
+<figure style="text-align: center; float: right; margin: 5px">
+  <img src="/images/go-build.jpg" width="250" />
+  <figcaption>
+    Gophers At Work
+  </figcaption>
+</figure>
+
 > This is a part of a larger effort that I'm calling [GopherSource]({{site.baseurl}}{% post_url 2018-06-19-gopher-source-adventures %}),
 >  and our goal is for more of the gopher community to become upstream Go contributors.
 
@@ -146,8 +153,12 @@ not just master but even a specific version or commit! 🎉
     in the next blog post!
 
 
+![Gopher hanging on GO balloons](/images/go-balloons.png)
+
 Now we are all set up and ready to make changes to the official Go code and
-try out our changes locally. Step 1 of becoming a real Go contributor accomplished!
+try out our changes locally.
+
+<p style="text-align: center">💪 Step 1 of becoming a real Go contributor accomplished! 🚀</p>
 
 If you don't want to wait, a couple of us friendly gophers are sharing what we
 learn as we go along, join us in the Go forums in the [Exploring Go Modules
