@@ -159,10 +159,7 @@ not just master but even a specific version or commit! 🎉
 
 ![Gopher hanging on GO balloons](/images/go-balloons.png)
 
-Now we are all set up and ready to make changes to the official Go code and
-try out our changes locally.
-
-<p style="text-align: center">💪 Step 1 of becoming a real Go contributor accomplished! 🚀</p>
+<p style="text-align: center">🚀 Step 1 of becoming a real Go contributor accomplished! 🚀</p>
 
 If you don't want to wait, a couple of us friendly gophers are sharing what we
 learn as we go along, join us in the Go forums in the [Exploring Go Modules
