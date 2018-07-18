@@ -22,7 +22,7 @@ description: ># Carolyn is a software developer from Chicago,
   developer tools and anything that will make her fellow developers lives easier.
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://carolynvanslyck.com" # the base hostname & protocol for your site
+url: "https://carolynvanslyck.com" # the base hostname & protocol for your site
 permalink: /blog/:year/:month/:title/
 category_dir: blog/categories
 feed:
