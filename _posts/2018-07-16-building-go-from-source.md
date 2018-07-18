@@ -9,7 +9,7 @@ categories:
 ---
 
 <figure style="text-align: center; float: right; margin: 5px">
-  <img src="/images/go-build.jpg" width="250" />
+  <img src="/images/go-build.png" width="250" />
   <figcaption>
     Gophers At Work
   </figcaption>
