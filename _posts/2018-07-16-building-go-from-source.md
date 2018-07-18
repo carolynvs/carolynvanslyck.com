@@ -36,7 +36,7 @@ Here is the tldr of how to download the Go source and build it:
 
     If you want to build a specific version of Go, now's the time to checkout that
     version using a tag, for example `git checkout go1.10.3`. Since we want to try out
-    new features, namely Go Modules (the prototype formerly known as vgo),
+    new features, namely Go Modules (the prototype formerly known as [vgo][vgo]),
     I am going to use the latest changes on the master branch.
     If you _just_ cloned, you can skip this step since you already have the latest changes.
 
@@ -47,7 +47,7 @@ Here is the tldr of how to download the Go source and build it:
 1. Compile Go! If you are on Windows, use `make.bat` instead.
 
     ```
-    $ cd src 
+    $ cd src
     $ ./make.bash
     Building Go cmd/dist using /usr/local/Cellar/go/1.10.3/libexec.
     Building Go toolchain1 using /usr/local/Cellar/go/1.10.3/libexec.
@@ -85,8 +85,8 @@ Here is the tldr of how to download the Go source and build it:
 
 Now that we have the latest version of Go, let's try it out and use a new feature
 that has been added to Go 1.11, Go Modules! Go Modules is the official name going
-forward for the vgo prototype and is the next step in the evolution of dependency
-management in Go.
+forward for the [vgo prototype][vgo] and is the next
+step in the evolution of dependency management in Go.
 
 Luckily, you don't need to know what that is in order to see it in action.
 Now when you run `go build`, Go will take care of retrieving your dependencies,
@@ -167,3 +167,5 @@ learn as we go along and you can join us in the Go forums in the [Exploring Go M
 thread](https://forum.golangbridge.org/t/gophersource-exploring-go-modules/9900).
 Otherwise if you want all the info but don't have time to play, I will do a followup
 post in a few days summarizing what we discover.
+
+[vgo]: https://research.swtch.com/vgo
