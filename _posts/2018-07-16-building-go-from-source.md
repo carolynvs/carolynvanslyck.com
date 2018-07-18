@@ -114,13 +114,17 @@ not just master but even a specific version or commit! 🎉
     go: downloading github.com/pkg/errors v0.8.0
     ```
 
-1. Try running the code again, and you won't see those extra lines because
-    Go downloaded the dependency and cached it in `$GOPATH/src/mod`.
+1. Try running the code again, and you won't see those extra lines.
 
     ```
     $ go run main.go
     hello world!
+    ```
 
+    Go downloaded the dependency and cached it in `$GOPATH/src/mod`. Next time
+    you build, Go will retrieve that package from its cache.
+
+    ```
     $ tree ~/go/src/mod
     ~/go/src/mod
     ├── cache
