@@ -161,9 +161,8 @@ not just master but even a specific version or commit! 🎉
 
 <p style="text-align: center">🚀 Step 1 of becoming a real Go contributor accomplished! 🚀</p>
 
-If you don't want to wait, a couple of us friendly gophers are sharing what we
-learn as we go along, join us in the Go forums in the [Exploring Go Modules
-thread](https://forum.golangbridge.org/t/gophersource-exploring-go-modules/9900)
-if you want to play with this more. Otherwise if you want all the info but don't
-have time to play, I will do a followup post in a few days summarizing what we
-discover.
+If you'd like to play with Go Modules more, a bunch of friendly gophers are sharing what we
+learn as we go along and you can join us in the Go forums in the [Exploring Go Modules
+thread](https://forum.golangbridge.org/t/gophersource-exploring-go-modules/9900).
+Otherwise if you want all the info but don't have time to play, I will do a followup
+post in a few days summarizing what we discover.
