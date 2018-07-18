@@ -89,7 +89,7 @@ not just master but even a specific version or commit! 🎉
     ```
     git clone https://github.com/carolynvs/go-depmgmt-testrepo
     ```
-1. My repo relies upon external code, that isn't checked into the vendor directory.
+1. My repo relies upon external code that isn't checked into the vendor directory.
    When you run the code, Go retrieves v0.8.0 of the errors package before building.
 
     ```
@@ -113,6 +113,33 @@ not just master but even a specific version or commit! 🎉
     ```
     $ go run main.go
     hello world!
+
+    $ tree ~/go/src/mod
+    ~/go/src/mod
+    ├── cache
+    │   ├── download
+    │   │   └── github.com
+    │   │       └── pkg
+    │   │           └── errors
+    │   │               └── @v
+    │   │                   ├── list
+    │   │                   ├── v0.8.0.info
+    │   │                   ├── v0.8.0.mod
+    │   │                   ├── v0.8.0.zip
+    │   │                   └── v0.8.0.ziphash
+    └── github.com
+        └── pkg
+            └── errors@v0.8.0
+                ├── LICENSE
+                ├── README.md
+                ├── appveyor.yml
+                ├── bench_test.go
+                ├── errors.go
+                ├── errors_test.go
+                ├── example_test.go
+                ├── format_test.go
+                ├── stack.go
+                └── stack_test.go
     ```
 
     We will go into more detail about Go modules and what's happening under the covers
