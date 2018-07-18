@@ -47,6 +47,7 @@ Here is the tldr of how to download the Go source and build it:
 1. Compile Go! If you are on Windows, use `make.bat` instead.
 
     ```
+    $ cd src 
     $ ./make.bash
     Building Go cmd/dist using /usr/local/Cellar/go/1.10.3/libexec.
     Building Go toolchain1 using /usr/local/Cellar/go/1.10.3/libexec.
