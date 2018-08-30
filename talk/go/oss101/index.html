@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>GopherSource</title>
+
+		<meta name="description" content="An open-source adventure for gophers">
+		<meta name="author" content="Carolyn Van Slyck">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="icon" type="image/png" href="images/favicon.ico"/>
+		<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="../../revealjs/css/custom.css">
+
+		<!-- Open links outside of presentation -->
+		<base target="_blank">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>GopherSource</h2>
+					<h3>An open-source adventure for gophers</h3>
+
+						<p>Carolyn Van Slyck</p>
+
+						<img src="images/inflatocat.png" width="500em" alt="Young octocat in swimming floaties"/>
+				</section>
+
+        <section id="scope">
+
+          <img src="images/scope.jpg" width="800em" alt="I have altered the scope... pray that I don't alter it further - Darth Vadar"/>
+        </section>
+
+        <section id="me">
+          <h2>Background</h2>
+
+          <img src="images/merge-time.jpg" width="500em" alt="Either way, this is close enough and has gone on way too long. It's time to merge. - Gopher in sunglasses"/>
+        </section>
+
+				<section id="icanteven">
+
+					<img src="images/afraid-to-ask.jpg" width="600em" alt="I don't know why everyone is collaborating... and at this point I'm afraid to ask - Andy Dwyer"/>
+				</section>
+
+				<section id="why-oss">
+
+          <h2>Why do you want to do open source?</h2>
+
+<!-- TODO: philosoraptor -->
+
+					<aside class="notes">
+						Why did you come to this workshop?<br/>
+						What do you want to learn?<br/>
+						What has been your experience with open source? Positive? Negative?<br/>
+					</aside>
+        </section>
+
+				<section id="myths">
+          <h2>Will contributing to open source ...</h2>
+
+          <ul>
+						<li>help me land a job?</li>
+						<li>help me keep my job?</li>
+						<li>be a good learning opportunity?</li>
+						<li>make me internet famous?</li>
+						<li>provide security for my career?</li>
+					</ul>
+        </section>
+
+				<section id="license">
+					<h2>Is anything with a permissive license open source?</h2>
+				</section>
+
+				<section id="corporatesource">
+          <h2>CorporateSource</h2>
+        </section>
+
+				<section id="personal-projects">
+          <h2>Personal Projects</h2>
+        </section>
+
+				<section id="community-projects">
+					<h2>Community Projects</h2>
+				</section>
+
+        <section id="why-me">
+
+          <h2>Why I choose open source</h2>
+        </section>
+
+				<section id="why-community">
+
+          <h2>Why I joined a community</h2>
+
+<!-- TODO: mlp hugs -->
+        </section>
+
+				<section id="bennies">
+          <h2>Why Open Source: Take 2</h2>
+
+					<ul>
+						<li>Impact</li>
+						<li>Remote Friendly</li>
+						<li>Portable Network</li>
+						<li>❤️ Community ❤️</li>
+					</ul>
+        </section>
+
+				<section id="realtalk">
+          <h2>Why You May Not Enjoy Open Source</h2>
+
+					<ul>
+						<li>Politics</li>
+						<li>Velocity</li>
+						<li>Domain</li>
+						<li>Scarcity</li>
+						<li>Personality</li>
+					</ul>
+
+<!-- todo: unhappy picture -->
+        </section>
+
+				<section id="storytime">
+					<h2>My Little Cluster Story</h2>
+
+					<img src="images/pony-cluster.jpg" alt="Five Intel NUC computers with My Little Ponies on each one"/>
+
+					<a href="http://carolynvanslyck.com/blog/2017/10/my-little-cluster/">carolynvanslyck.com/blog/2017/10/my-little-cluster</a>
+
+					<aside class="notes">
+						My open source job hunt<br/>
+						What get me this job?
+					</aside>
+				</section>
+
+        <section id="contribute-code">
+
+          <h2>Contribute - Code</h2>
+
+          <ul>
+            <li>Bug Fixes</li>
+            <li>Features</li>
+            <li>Build Work
+              <ul>
+                <li>Bumping dependency versions</li>
+                <li>Improving local developer experience</li>
+                <li>CI - Code linters</li>
+                <li>CI - Windows</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section id="contribute-test">
+
+          <h2>Contribute - Test</h2>
+
+          <ul>
+            <li>Test coverage</li>
+            <li>Integration / End-to-End tests</li>
+            <li>Testability</li>
+          </ul>
+        </section>
+
+        <section id="contribute-doc">
+
+          <h2>Contribute - Doc</h2>
+
+          <ul>
+            <li>Getting Started</li>
+            <li>Core Concepts</li>
+            <li>Configuration</li>
+            <li>Troubleshooting</li>
+            <li>Meta (contributing, CoC, reviewing, issue templates)</li>
+            <li>Website Framework/Build</li>
+            <li>Website Design</li>
+            <li>Inline comments/doc</li>
+            <li>Answered questions -> FAQ</li>
+            <li><a href="http://writethedocs.org">writethedocs.org</a></li>
+            <li><a href="https://docslikecode.com">docslikecode.com</a></li>
+          </ul>
+        </section>
+
+        <section id="contribute-pm">
+
+          <h2>Contribute - Project Management</h2>
+
+          <ul>
+            <li>Attend community meetings</li>
+            <li>Taking notes, recordings</li>
+            <li>Labeling issues</li>
+            <li>Closing stale issues or fixed issues</li>
+            <li>Tracking milestones</li>
+            <li>Putting together releases</li>
+          </ul>
+          <pre>
+        </section>
+
+        <section id="contribute-help">
+
+          <h2>Contribute - Help</h2>
+
+          <ul>
+            <li>Reading issues as they come and commenting where you can</li>
+            <li>Answering questions</li>
+            <li>Find gaps in the doc</li>
+            <li>Identifying duplicates, related questions or previous answers</li>
+            <li>Reproduce a bug report</li>
+            <li>Trying out fixes</li>
+            <li>Chatting with people on slack, helping other users</li>
+            <li>Providing feedback on design proposals</li>
+            <li>Ask clarifying questions on a code review</li>
+            <li>Experience reports</li>
+          </ul>
+        </section>
+
+        <section id="ladder">
+
+          <h2>Contribution Ladder</h2>
+
+          <img src="images/ladder.jpg" width="800em" alt="Cat on a ladder" />
+        </section>
+
+        <section id="project">
+
+          <h2>Reasons to Pick a Project</h2>
+
+          <ul>
+            <li>You use it</li>
+            <li>You are learning it</li>
+            <li>You need to fix it</li>
+            <li>You want to influence it</li>
+          </ul>
+
+          <aside class="notes">
+            Domains excited about and interested in<br/>
+            Pick a first thing to do<br/>
+            Figure out how they like to accept help<br/>
+            Decide if it’s worth contributing to
+          </aside>
+        </section>
+
+        <section id="lurk">
+
+          <h2>Lurk</h2>
+
+          <img src="images/lurk.jpg" width="500em" alt="Cat peeping into a window" />
+        </section>
+
+        <section id="first-pr">
+
+          <h2>Your First PR</h2>
+
+          <img src="images/happy.jpg" width="800em" alt="Happy kitten is happy" />
+        </section>
+
+        <section id="nope">
+
+          <h2>Your First PR ... Day 2</h2>
+
+          <img src="images/nope.jpg" width="500em" alt="Nope - Grumpy Cat" />
+        </section>
+
+        <section id="casual-contributor">
+
+          <h2>Casual Contributor</h2>
+
+          <img src="images/comfy.jpg" width="800em" alt="Maru the cat, upside down in a box" />
+        </section>
+
+        <section id="member">
+
+          <h2>Member</h2>
+
+          <img src="images/friends.png" width="800em" alt="Two cats in a box together" />
+        </section>
+
+        <section id="maintainer">
+
+          <h2>Maintainer</h2>
+
+          <img src="images/no-regrets.jpg" width="800em" alt="Cat with his mouth full of cheeseburger" />
+        </section>
+
+        <section id="guilt">
+          <h2>The Crushing Guilt</h2>
+
+          <img src="images/guilt.jpg" width="500px" alt="Whether things are good or bad or you're simply eating tacos in the park, there is always the crushing guilt. - Jack Donaghy"/>
+        </section>
+
+        <section id="exit-strategy">
+
+          <h2>Exit Strategy</h2>
+
+          <img src="images/i-r-stuck.jpg" width="800em" alt="Cat looking down, stuck up somewhere high" />
+
+        </section>
+
+				<section id="expectations">
+
+          <h2>(Re)set Your Expectations</h2>
+        </section>
+
+				<section id="normal">
+
+          <h2>What is "Normal"?</h2>
+
+					<aside class="notes">
+						Treated well<br/>
+						Miscommunications<br/>
+						Assume Good Intent... Once<br/>
+					</aside>
+        </section>
+
+				<section id="time">
+
+					<h2>OSS Time Distortion Fields</h2>
+<!-- TODO: wacky swirly image -->
+				</section>
+
+				<section id="peers">
+
+          <h2>Know Your Peers</h2>
+
+					<aside class="notes">
+						Why are they here?<br/>
+						What do they need?<br/>
+						How do they communicate?<br/>
+						Meet people where they are<br/>
+					</aside>
+        </section>
+
+				<section id="stop">
+
+          <h2>Remember Why You Are Here</h2>
+        </section>
+
+				<section id="halp">
+
+          <h2>Asking for Help</h2>
+
+          <img src="images/halp.gif" width="500em" alt="Kitty begging" />
+        </section>
+
+				<section id="trust">
+          <h2>Build Trust</h2>
+        </section>
+
+				<section id="followon-pr">
+
+          <h2>The Art of the Follow-on PR</h2>
+        </section>
+
+				<section id="goals">
+
+          <h2>Remember Your Goals</h2>
+        </section>
+
+				<section id="ego">
+
+          <h2>Check Your Ego</h2>
+        </section>
+
+				<section id="compromise">
+
+          <h2>Seek Compromise...</h2>
+        </section>
+
+				<section id="boundaries">
+
+          <h2>... Know Your Boundaries</h2>
+        </section>
+
+				<section id="reviews">
+
+          <h2>Kind Code Reviews</h2>
+
+          <img src="images/judgemental-cat.jpg" width="500em" alt="Judgemental cat is judging you" />
+        </section>
+
+        <section id="resources">
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://opensource.guide/">GitHub Open Source Guide</a></li>
+            <li><a href="https://www.fordfoundation.org/library/reports-and-studies/roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure">Roads and Bridges:<br/>The unseen labor behind our digital infrastructure</a></li>
+            <li><a href="https://vimeo.com/71732283">Stop Drinking Spoiled Milk</a></li>
+          </ul>
+
+        </section>
+
+				<section id="next-steps">
+					<h2>Next Steps</h2>
+
+					<p><a href="https://gophersource.com">gophersource.com</a></p>
+
+				</section>
+
+				<section id="upstream">
+          <img src="images/go-community.png" alt="Community with cute gophers" />
+        </section>
+
+				<section id="takeout">
+					<h2>Thank you</h2>
+
+					<p><img src="../../../images/mlp-salute.png"/></p>
+					<p><a href="http://twitter.com/carolynvs" target="_blank">@carolynvs</a></p>
+				</section>
+
+				<slide-footer>
+					Slides @ <a href="http://carolynvs.com/go-oss101">carolynvs.com/go-oss101</a>
+				</slide-footer>
+			</div>
+
+		</div>
+
+		<script src="../../revealjs/lib/js/head.min.js"></script>
+		<script src="../../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				// use 16:9 aspect ratio
+				width: 1600,
+				height: 900,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				keyboard: {
+					190: null // Disable blank screen hell
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+					{ src: '../../revealjs/plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

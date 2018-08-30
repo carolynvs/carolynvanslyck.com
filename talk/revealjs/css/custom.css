@@ -35,6 +35,17 @@ blockquote {
 }
 
 slide-footer{
+  position: fixed;
+  bottom: 0;
+  display: table;
+  width: 100%;
+  padding-top: 2em;
+  text-align: center;
+  color: lightgreen;
+  font-size: 0.75em;
+}
+
+section slide-footer{
   display: block;
   padding-top: 2em;
   text-align: center;
@@ -42,6 +53,8 @@ slide-footer{
   font-size: 0.75em;
 }
 
-.reveal slide-footer a, .reveal slide-footer a:visited {
+.reveal slide-footer a, slide-footer a,
+.reveal slide-footer a:visited, slide-footer a:visited,
+.reveal slide-footer a:hover, slide-footer a:hover {
   color: lightgreen;
 }
