@@ -1,10 +1,20 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
+hr {
+  border-top: 1px solid #ffd47d;
+  border-bottom: none;
+  margin: 1em 0 1em 0;
+}
+
 article img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+article img.borderless {
+    border: none;
 }
 
 .social-media {
