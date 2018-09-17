@@ -7,7 +7,6 @@ build:
 	docker build -t carolynvanslyck.com .
 	docker run --rm \
   	-v `pwd`:/srv/jekyll \
-		-v ~/etc/timezone:/etc/localtime:ro \
 		carolynvanslyck.com \
   	bundle exec rake build
 
