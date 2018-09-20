@@ -1,0 +1,27 @@
+{{ define "header"}} {{ partial "header" .}} {{end}}
+
+{{ define "main" }}
+
+<div id="post-box">
+  <div class="wrap">
+    <h2>{{ .Title }}</h2>
+  </div>
+
+  <center><a href="{{ .RSSLink }}">RSS Feed</a></center>
+  <div id="post" itemprop="articleBody">
+
+      {{.Content | safeHTML}}
+
+  </div>
+
+  <ul id="posts">
+
+   {{ range .Paginator.Pages.ByWeight }} {{ partial "blog-summary" . }} {{ end }}
+    <section>{{ partial "pagination" .}}</section>
+  </ul>
+</div>
+
+{{ end }}
+{{ define "footer" }}
+  {{ partial "footer" . }}
+{{ end }}

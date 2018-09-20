@@ -4,3 +4,7 @@
 [build]
   publish = "_site"
   command = "rake build"
+
+[[redirects]]
+  from = "/index.xml"
+  to = "/blog/index.xml"
