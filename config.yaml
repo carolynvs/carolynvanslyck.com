@@ -1,7 +1,6 @@
-baseURL: https://carolynvanslyck.com
+baseURL: /
 disablePathToLower: true
 languageCode: en-us
 title: Carolyn Van Slyck
 theme: cvs
-
 RSSLink: "https://carolynvanslyck.com/blog/index.xml"
