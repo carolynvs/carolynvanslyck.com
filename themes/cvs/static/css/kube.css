@@ -1480,7 +1480,7 @@ button:hover,
   width: 740px; }
 
 .w-large {
-  width: 840px; }
+  width: 1200px; }
 
 @media (max-width: 768px) {
   .w-auto-sm {
@@ -1562,7 +1562,7 @@ button:hover,
   max-width: 740px; }
 
 .max-w-large {
-  max-width: 840px; }
+  max-width: 1200px; }
 
 @media (max-width: 768px) {
   .max-w-auto-sm,

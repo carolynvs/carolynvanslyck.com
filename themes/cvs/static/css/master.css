@@ -178,18 +178,26 @@ h1, h2, h3, h4, h5, h6 {
         color: #000;
         text-decoration: underline; }
 
-#hero {
+header {
   margin-bottom: 4em;
+  white-space: nowrap;
   text-align: center; }
-  #hero h1 {
+  header h1 {
+    color: #b22222;
     max-width: 880px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 12px;
-    font-size: 64px;
+    font-size: 2.5rem;
     line-height: 72px;
-    font-weight: 900; }
-  #hero p {
+    font-weight: 400; }
+  header h1 a,
+  header h1 a:hover,
+  header h1 a:visited {
+    text-decoration: none;
+    color: #b22222;
+  }
+  header p {
     max-width: 740px;
     margin: auto;
     font-size: 21px;
@@ -197,11 +205,11 @@ h1, h2, h3, h4, h5, h6 {
     color: rgba(0, 0, 0, 0.5);
     margin-bottom: 0;
     position: relative; }
-    #hero p a {
+    header p a {
       color: #000; }
-    #hero p a:hover {
+    header p a:hover {
       color: rgba(0, 0, 0, 0.6); }
-    #hero p:before {
+    header p:before {
       position: absolute;
       content: '';
       width: 40px;
@@ -320,7 +328,7 @@ body.page-account #hero {
     margin-bottom: 48px; }
 
 .content {
-  max-width: 840px;
+  max-width: 1200px;
   margin: auto; }
 
 #redactor-intro-box {
@@ -750,7 +758,7 @@ body.page-account #hero {
   color: rgba(0, 0, 0, 0.5); }
 
 #post-box {
-  max-width: 840px;
+  max-width: 1200px;
   margin: auto; }
 
 #post {
