@@ -36,7 +36,7 @@ be excluded from your reports.
         </script>
 
 3. Now in your Google Analytics report settings page, add a Custom Filter to exclude any traffic that has this special cookie.
-<img src="{{root_url}}/blog/images/google_analytics_ignore_your_traffic.png" alt="Exclude User Defined with a Filter Pattern of test_value" />
+<img src="/images/google_analytics_ignore_your_traffic.png" alt="Exclude User Defined with a Filter Pattern of test_value" />
 
             Name of Filter: Exclude me
             Filter Type: Custom filter > Exclude
@@ -45,11 +45,10 @@ be excluded from your reports.
             Case Sensitive: No
 
 4. If you develop your site locally, you will need one more filter to exclude traffic to your development web server. Replace "localhost" with the name of the development server.
-<img src="{{root_url}}/blog/images/google_analytics_ignore_localhost.png" alt="Exclude Hostname with a Filter Pattern of localhost" />
+<img src="/images/google_analytics_ignore_localhost.png" alt="Exclude Hostname with a Filter Pattern of localhost" />
 
         Name of Filter: Exclude Localhost
         Filter Type: Custom filter > Exclude
         Filter Field: Hostname
         Filter Pattern: localhost
         Case Sensitive: No
-

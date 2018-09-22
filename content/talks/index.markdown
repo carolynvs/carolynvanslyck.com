@@ -1,10 +1,5 @@
 ---
-layout: page
 title: Talks
-comments: false
-sharing: false
-sidebar: false
-footer: true
 ---
 
 <div class="projects">
@@ -60,7 +55,7 @@ footer: true
   <div class="project" id="ThinkOutsideTheContainer">
     <div class="title">
         <a href="/talk/carina/think-outside-the-container/#/howtowhale">
-            <img src="{{root_url}}/images/whale-dream.png" alt="Whale" title="Learning How to Whale"/>
+            <img src="/images/whale-dream.png" alt="Whale" title="Learning How to Whale"/>
             Think Outside the Container: Learning How to Whale
         </a>
     </div>
@@ -84,7 +79,7 @@ footer: true
   <div class="project" id="JupyterHubCarina">
       <div class="title">
           <a href="/talk/carina/jupyterhub/">
-              <img src="{{root_url}}/images/jupyter-icon.png" alt="Jupyter Logo" title="Running JupyterHub on Carina"/>
+              <img src="/images/jupyter-icon.png" alt="Jupyter Logo" title="Running JupyterHub on Carina"/>
               Running JupyterHub on Carina
           </a>
       </div>
@@ -97,7 +92,7 @@ footer: true
   <div class="project" id="IntroductionToCarina">
       <div class="title">
           <a href="/talk/carina/lightning/">
-              <img src="{{root_url}}/images/carina.png" alt="Carina Logo" title="An Introduction to Carina"/>
+              <img src="/images/carina.png" alt="Carina Logo" title="An Introduction to Carina"/>
               An Introduction to Carina
           </a>
       </div>

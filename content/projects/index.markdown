@@ -11,7 +11,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="https://github.com/golang/dep">
-                <img src="{{root_url}}/images/dep-icon.png" alt="nerdy gopher" title="Gophers!"/>
+                <img src="/images/dep-icon.png" alt="nerdy gopher" title="Gophers!"/>
                 dep
             </a>
         </div>
@@ -23,7 +23,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="https://howtowhale.github.io/dvm/">
-                <img src="{{root_url}}/images/dvm.png" alt="dvm Logo" title="Docker Version Manager"/>
+                <img src="/images/dvm.png" alt="dvm Logo" title="Docker Version Manager"/>
                 Docker Version Manager
             </a>
         </div>
@@ -35,7 +35,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="http://howtowhale.com">
-                <img src="{{root_url}}/images/howtowhale.png" alt="" title="Spouting Whale"/>
+                <img src="/images/howtowhale.png" alt="" title="Spouting Whale"/>
                 How to Whale
             </a>
         </div>
@@ -51,7 +51,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="http://github.com/openstacknetsdk/openstack.net">
-                <img src="{{root_url}}/images/openstack.png" alt="OpenStack Logo" title="OpenStack.NET"/>
+                <img src="/images/openstack.png" alt="OpenStack Logo" title="OpenStack.NET"/>
                 OpenStack.NET
             </a>
         </div>
@@ -63,7 +63,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="http://bytesforhealth.com">
-                <img src="{{root_url}}/images/bytesforhealth.png" alt="Bytes for Health" title="Bytes for Health"/>
+                <img src="/images/bytesforhealth.png" alt="Bytes for Health" title="Bytes for Health"/>
                 Bytes for Health
             </a>
         </div>
@@ -78,7 +78,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="https://github.com/carolynvs/nutritionix">
-                <img src="{{root_url}}/images/nutritionix.png" alt="Nutritionix Logo" title="Nutritionix API .NET Client"/>
+                <img src="/images/nutritionix.png" alt="Nutritionix Logo" title="Nutritionix API .NET Client"/>
                 Nutritionix API .NET Client
             </a>
         </div>
@@ -96,7 +96,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="https://bitbucket.org/carolynvs/bamboo-trade-depot">
-                <img src="{{root_url}}/images/trade-depot.png" alt="Cargo Ship" title="Trade Depot"/>
+                <img src="/images/trade-depot.png" alt="Cargo Ship" title="Trade Depot"/>
                 Trade Depot for Bamboo
             </a>
         </div>
@@ -115,7 +115,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="https://bitbucket.org/carolynvs/bamboo-deployment-notifications">
-                <img src="{{root_url}}/images/deployment-notifications.png" alt="Cloud Alert!" title="Deployment Notifications"/>
+                <img src="/images/deployment-notifications.png" alt="Cloud Alert!" title="Deployment Notifications"/>
                 Deployment Notifications for Bamboo
             </a>
         </div>
@@ -135,7 +135,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="https://bitbucket.org/carolynvs/reject-merge-commit-hook">
-                <img src="{{root_url}}/images/reject-merge-commit-hook.png" alt="Merge Sign" title="Reject Merge Commit Hook"/>
+                <img src="/images/reject-merge-commit-hook.png" alt="Merge Sign" title="Reject Merge Commit Hook"/>
                 Reject Merge Commit Hook for Stash
             </a>
         </div>
@@ -154,7 +154,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="https://bitbucket.org/carolynvs/stash-force-field">
-                <img src="{{root_url}}/images/force-field.png" alt="Force Field" title="Force Field"/>
+                <img src="/images/force-field.png" alt="Force Field" title="Force Field"/>
                 Force Field for Stash
             </a>
         </div>
@@ -170,7 +170,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="/projects/gitversion/">
-                <img src="{{root_url}}/images/gitversion.png" alt="Happy Tree" title="GitVersion for Bamboo"/>
+                <img src="/images/gitversion.png" alt="Happy Tree" title="GitVersion for Bamboo"/>
                 GitVersion for Bamboo
             </a>
         </div>
@@ -186,7 +186,7 @@ footer: true
     <div class="project">
         <div class="title">
             <a href="/projects/right-hook/">
-                <img src="{{root_url}}/images/right-hook.png" alt="Lightning Fist of Fury" title="Right Hook! for Stash"/>
+                <img src="/images/right-hook.png" alt="Lightning Fist of Fury" title="Right Hook! for Stash"/>
                 Right Hook! for Stash
             </a>
         </div>
