@@ -1,3 +1,7 @@
+:root {
+  --yellow: #ffd47d;
+}
+
 body {
   background-color: #FFFEFC;
 }
@@ -36,6 +40,10 @@ h1 {
  line-height: 1.2em;
 }
 
+#top {
+    border-bottom: 1px solid var(--yellow);
+}
+
 #top.hide-sm {
   display: block;
 }
@@ -65,7 +73,7 @@ ul.main-navigation {
 }
 
 hr {
-  border-top: 1px solid #ffd47d;
+  border-top: 1px solid var(--yellow); /* yellow */
   border-bottom: none;
   margin: 1em 0 1em 0;
 }
@@ -116,7 +124,7 @@ hr {
 .project .title,
 .talk .title {
   padding-bottom: 1em;
-  border-bottom: 1px solid $nav-border-bottom;
+  border-bottom: 1px solid black;
 }
 
 .project img {
