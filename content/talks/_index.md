@@ -30,7 +30,7 @@ title: Talks
     <p class="description">
       The upcoming Go dependency manager, <a href="https://github.com/golang/dep/">dep</a>, is ready for you to try out! Learn how to get started with dep, whether you are used to go get or another dependency manager.
     </p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/eZwR8qr2BfI" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eZwR8qr2BfI" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
   </div>
   <div class="project" id="GoWin">
     <div class="title">
@@ -50,7 +50,7 @@ title: Talks
       Lucky for us, Go has strong support for cross-platform development. So let's start writing cross-platform first and welcome our Windows
       neighbors. Learn some of the Windows quirks that you should take into account, and the Go goodies to help you conquer them.
     </p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/UOeeR7odY1I" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UOeeR7odY1I" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
   </div>
   <div class="project" id="ThinkOutsideTheContainer">
     <div class="title">
@@ -63,18 +63,18 @@ title: Talks
     <p class="description">
       There is much more to Docker than just deploying your flagship application. Carolyn VanSlyck, Ash Wilson, and Nick Silkey look at three use cases for Docker that go beyond the typical software development pipeline:
     </p>
-    <ol class="description">
-      <li>The Rackspace Cloud DNS product team is running a Hubot-based ChatOps bot on Carina to automate routine operational tasks in the open via a team-based chat. The team successfully migrated this service from another provider into Carina in under an hour from start to finish, including a datastore migration. (Nick Silkey @ 2:55)</li>
+<ol class="description">
+  <li>The Rackspace Cloud DNS product team is running a Hubot-based ChatOps bot on Carina to automate routine operational tasks in the open via a team-based chat. The team successfully migrated this service from another provider into Carina in under an hour from start to finish, including a datastore migration. (Nick Silkey @ 2:55)</li>
 
-      <li>Rackspace’s developer documentation is open to external contributors and has streamlined the editing process with a staging environment that previews the full site on-demand for pull requests. All of its infrastructure is hosted within Docker containers, managed by Ansible, on a CoreOS cluster. (Ash Wilson @ 13:57)</li>
+  <li>Rackspace’s developer documentation is open to external contributors and has streamlined the editing process with a staging environment that previews the full site on-demand for pull requests. All of its infrastructure is hosted within Docker containers, managed by Ansible, on a CoreOS cluster. (Ash Wilson @ 13:57)</li>
 
-      <li style="font-weight: bold">How to Whale is teaching Docker with zero setup from the comfort of your web browser. Every user has an interactive sandbox, courtesy of JupyterHub, which spins up a Jupyter server on the user’s own Docker Swarm cluster. (Carolyn Van Slyck @ 24:32)</li>
-    </ol>
+  <li style="font-weight: bold">How to Whale is teaching Docker with zero setup from the comfort of your web browser. Every user has an interactive sandbox, courtesy of JupyterHub, which spins up a Jupyter server on the user’s own Docker Swarm cluster. (Carolyn Van Slyck @ 24:32)</li>
+</ol>
     <p class="description">
       You’ll leave knowing how you can use Docker on the side, even if you haven’t tackled Dockerizing your application.
     </p>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/B9bAWsCslqg" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/B9bAWsCslqg" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
   </div>
   <div class="project" id="JupyterHubCarina">
       <div class="title">
@@ -99,6 +99,6 @@ title: Talks
       <div class="locations">DevOps Chicago Meetup, ChicagoRuby Meetup</div>
       <p class="description">A lightning fast introduction to Carina by Rackspace, which provides Docker Containers as a Service. Learn how to "think above the whale" and start <em>doing the Dockers</em> in just a few easy commands.</p>
 
-      <iframe src="https://player.vimeo.com/video/162183519?color=ff9933&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+<iframe src="https://player.vimeo.com/video/162183519?color=ff9933&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
   </div>
 </div>
