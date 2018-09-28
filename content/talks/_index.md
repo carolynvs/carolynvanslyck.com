@@ -1,5 +1,6 @@
 ---
 title: Talks
+layout: single
 ---
 
 <div class="projects">
@@ -16,7 +17,7 @@ title: Talks
       how I became a maintainer for dep (the Go Dependency Manager), and my adventures
       running a my little pony themed bare metal Kubernetes cluster.
     </p>
-    <audio data-theme="night" data-src="https://changelog.com/gotime/55/embed" src="https://cdn.changelog.com/uploads/gotime/55/go-time-55.mp3" preload="none" class="changelog-episode" controls></audio><p><a href="https://changelog.com/gotime/55">Go Time 55: Dep, Cross-platform, and Getting Started with Carolyn Van Slyck</a> – Listen on <a href="https://changelog.com/">Changelog.com</a></p><script async src="//cdn.changelog.com/embed.js"></script>
+    <center><a href="https://changelog.com/gotime/55">Go Time 55: Dep, Cross-platform, and Getting Started</a></center>
   </div>
 
   <div class="project" id="dep-in-10">

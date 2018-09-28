@@ -1,3 +1,3 @@
 ---
-title: Technical Writing
+title: Writing
 ---
