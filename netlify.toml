@@ -2,5 +2,16 @@
   ID = "carolynvanslyck"
 
 [build]
-  publish = "_site"
-  command = "rake build"
+  publish = "public"
+  command = "hugo"
+
+[context.production.environment]
+  HUGO_VERSION = "0.48"
+[context.deploy-preview.environment]
+  HUGO_VERSION = "0.48"
+[context.branch-deploy.environment]
+  HUGO_VERSION = "0.48"
+
+[[redirects]]
+  from = "/index.xml"
+  to = "/blog/index.xml"

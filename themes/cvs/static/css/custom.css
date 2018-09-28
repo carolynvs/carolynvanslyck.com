@@ -1,0 +1,236 @@
+:root {
+  --yellow: #ffd47d;
+}
+
+body {
+  background-color: #FFFEFC;
+}
+
+header {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+a {
+  color: #356277; /* dark blue */
+}
+a:visited,
+a:active {
+  color: Maroon;
+}
+a:hover,
+a:active {
+  color: #94A9B3; /* light blue */
+}
+
+
+body {
+ line-height:1.5em;
+ color:#222
+}
+h1,h2,h3,h4,h5,h6 {
+ font-family:"Bookman Old Style",Palatino,"Palatino Linotype",Utopia,Georgia,serif
+}
+.mono,pre,code {
+ font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace
+}
+h1 {
+ font-size: 2em;
+ font-weight: bold;
+ line-height: 1.2em;
+}
+
+#top {
+    border-bottom: 1px solid var(--yellow);
+}
+
+#top.hide-sm {
+  display: block;
+}
+
+ul.main-navigation {
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.main-navigation li+li {
+  margin-left: 2rem;
+}
+
+.main-navigation a {
+  color: #356277; /* dark blue */
+}
+
+.main-navigation a:hover {
+  color: #94A9B3; /* light blue */
+}
+
+.main-navigation a,
+.main-navigation a:hover {
+  text-decoration: none;
+}
+
+hr {
+  border-top: 1px solid var(--yellow); /* yellow */
+  border-bottom: none;
+  margin: 1em 0 1em 0;
+}
+
+#post img {
+  display: inline;
+  border-radius: .3em;
+}
+
+#post img.borderless {
+    border: none;
+}
+
+#social-media {
+  text-align: center;
+  font-weight: bold;
+}
+
+#social-media a{
+  padding-left: 1em;
+  text-decoration: none;
+}
+
+#social-media a.fa-github,
+#social-media a.fa-github:hover,
+#social-media a.fa-github:visited {
+  color: #800000;
+}
+
+#social-media a.fa-linkedin,
+#social-media a.fa-linkedin:hover,
+#social-media a.fa-linkedin:visited {
+  color: #4875B4;
+}
+
+#social-media a.fa-twitter,
+#social-media a.fa-twitter:hover,
+#social-media a.fa-twitter:visited {
+  color: #00ACED;
+}
+
+.project, .talk {
+  padding-bottom: 1em;
+}
+
+.project .title,
+.talk .title {
+  padding-bottom: 1em;
+  border-bottom: 1px solid var(--yellow);
+}
+
+.project img {
+  margin-right: 1em;
+  margin-left: 0;
+  display: inline;
+  background-color: white;
+}
+
+.project a {
+  font-weight: bold;
+  color: #b22222;
+  text-decoration: none;
+}
+
+.project .technologies,
+.project .locations {
+  color: #666666;
+  text-align: right;
+}
+
+/* Blog */
+#post blockquote {
+	font-size: 1em;
+}
+
+#post aside {
+    border: thin solid grey;
+    background-color: #F7F5EF;
+    padding: 0;
+}
+
+#post aside p {
+  margin: 0;
+  padding: 0;
+}
+
+#post pre {
+  border: 1px dashed SteelBlue;
+  background-color: WhiteSmoke;
+  border-radius: 0;
+  padding: 0;
+}
+
+#post figcaption {
+  font-size: .75em;
+  text-align: center;
+}
+
+/* Poor man's figcaption in markdown */
+img + em {
+  font-size: .9em;
+  display: block;
+  text-align: center;
+}
+
+#post .emoji {
+  width: 1.1em;
+  height: 1.1em;
+  border: none;
+  border-radius: none;
+  box-shadow: none;
+}
+
+code, li pre code, p pre code {
+  white-space: pre;
+  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+  font-size: 0.9em;
+  color: black;
+  display: block;
+  margin: 0 0;
+}
+
+.gist {
+  font-size: .9em;
+}
+
+.line-numbers {
+  display: none;
+}
+
+.comments-link {
+  text-align: right;
+}
+
+.gist table.lines {
+  width: 100%;
+}
+
+.flash-video {
+  display: inline;
+}
+
+#posts {
+  text-align: left;
+  margin: 1rem;
+}
+
+#posts h2 {
+  font-size: 1.5rem;
+}
+#posts time {
+  font-size: 1.1rem;
+}
+
+.post-time {
+  text-transform: uppercase;
+  color: grey;
+  font-family: "PT Sans","Helvetica Neue",Arial,sans-serif;
+  font-size: 1.2rem;
+}
