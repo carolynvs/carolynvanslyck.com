@@ -3,13 +3,9 @@
 
 [build]
   publish = "public"
-  command = "hugo"
+  command = "hugo -b $DEPLOY_PRIME_URL"
 
-[context.production.environment]
-  HUGO_VERSION = "0.48"
-[context.deploy-preview.environment]
-  HUGO_VERSION = "0.48"
-[context.branch-deploy.environment]
+[build.environment]
   HUGO_VERSION = "0.48"
 
 [[redirects]]

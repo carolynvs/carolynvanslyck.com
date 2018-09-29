@@ -1,5 +1,6 @@
 ---
 title: Carolyn Van Slyck
+description: Professional Yak Shaver
 ---
 
 <div style="display:flex; justify-content:center; align-items:center;">
