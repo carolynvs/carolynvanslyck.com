@@ -1,5 +1,8 @@
 ---
 title: Talks
+description: |
+  Hauling my cookies around the world to share my love of Go, containers,
+  and excessive emoji. 🌈 ✨
 layout: single
 ---
 

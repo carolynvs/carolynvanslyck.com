@@ -1,5 +1,7 @@
 ---
 title: "Projects"
+description: |
+  Dorking around on the internet since 1995
 layout: single
 ---
 
