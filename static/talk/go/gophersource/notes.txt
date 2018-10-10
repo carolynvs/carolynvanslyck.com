@@ -1,0 +1,66 @@
+* Explain what gophersource is (later?)
+  * hype
+  * support
+  * landing page
+* Why I'm doing gophersource in the first place
+  * building the community that I needed when I first began, and also what I need today
+  * I've done it wrong, many many times
+  * Often asked how to do it right
+  * Go community is often heralded as being awesome because of some of our great people,
+    let's figure out how to scale them, and replicate what they do.
+  * I want people to be more informed about both the realities of open source,
+    understand their own motivations for being in it, and how to do it in a
+    sustainable way.
+* why oss
+  * newbies
+  * senior devs
+* communities
+  * network effect (personal anecdote about me getting into OSS)
+  * mentors
+  * remote friendly
+  * not tied to company
+* Messaging gap
+  We currently focus on how to contribute instead of how to become a member of the community
+  * example of a contributor who is contributing to the community
+  * example of a contributor who is contributing to the code
+* ladder
+* for maintainers
+  * why recruit?
+  * why community build?
+  * when to NOT do these things?
+* Safety Net - Water Wings - Bowling with Bumpers
+  * setting expectations for contributors
+  * setting boundaries for maintainers
+* case study: Go
+  * I'd love to see Go build a different type of community. Right now I'd call
+    it hub and spoke. Go is controlled by the Go team. You can contribute on their
+    terms, it is not a democratic community.
+  * example of a project instead of a community in some ways
+* case study: kubernetes
+  * huge community, overwhelming, lots of great community leaders, working on
+    supporting both our maintainers and the new contributors better.
+  * Anyone can not only contribute but become a leader regardless of their background.
+  * Democratic
+* case study: service catalog
+  * Great new contributor experience
+  * Brittle support for maintainers
+  * Big bus factor
+  * community added after the project was developed
+* case study: athens
+  * Great new contributor experience
+  * Many maintainers, clear path to becoming a leader
+  * Things mostly keep moving when Aaron is out, but we could still do more
+    to empower and support maintainers to make decisions.
+  * The community and the project grew at the same time instead of as an afterthought.
+  * Good pattern to follow. Still using it as an incubator for ideas.
+* case study: vim-go
+  * https://arslan.io/2018/10/09/taking-an-indefinite-sabbatical-from-my-projects/
+* GopherSource Next Steps
+  * Engage with more projects and maintainers
+  * Build up more content, scale Carolyn ;-)
+  * Keep iterating on techniques and refining (deciding what's repeatable)
+* Action Items
+  * Decide for yourself how you want to fit into OSS
+  * Reevaluate how to make it sustainable and healthy for you
+  * Try out some of these ideas as you join a new project, or interact with people on your own projects
+  * Reach out to me if you are a project who would like to be listed on the site.
