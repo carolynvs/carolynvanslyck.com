@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>GopherSource</title>
+
+		<meta name="description" content="Open Source for Gophers">
+		<meta name="author" content="Carolyn Van Slyck">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="icon" type="image/png" href="images/favicon.ico"/>
+		<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="../../revealjs/css/custom.css">
+
+		<!-- Open links outside of presentation -->
+		<base target="_blank">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+          <h2 class="blue">
+            GopherSource<br/>
+            Open Source for Gophers
+          </h2>
+
+          <img src="images/go-balloons.png" height="400"/>
+
+					<p>
+            Carolyn Van Slyck<br/>
+            Senior Software Engineer at Microsoft
+          </p>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+        <section id="me">
+          <h2>I am an OSS nerd</h2>
+
+          <ul style="margin-top: 1em">
+            <li>Kubernetes Service Catalog Maintainer</li>
+            <li>Athens Proxy Maintainer</li>
+            <li>Docker Version Manager Maintainer</li>
+            <li>Dep Maintainer ☠️</li>
+            <li>OpenStack.NET Maintainer ☠️</li>
+            <li>Atlassian Plugins Maintainer ☠️</li>
+          </ul>
+
+          <img align="right" src="images/merge-time.jpg" width="400em" alt="Either way, this is close enough and has gone on way too long. It's time to merge. - Gopher in sunglasses"/>
+
+					<aside class="notes">
+						* Progression through OSS
+						* Getting a full-time OSS job, and why
+					</aside>
+        </section>
+
+        <section id="newphone-whodis">
+          <blockquote>
+            <p>GopherSource is an initiative to <span class="highlight">strengthen and diversify the Go
+            ecosystem</span> through building up contributors to upstream Go and
+            key Go projects from the within the community.</p>
+
+            <p>Let's create inclusive communities where people feel safe joining in
+            and have a <span class="highlight">clearly-defined path</span> towards becoming members and leaders</p>
+          </blockquote>
+
+          <aside class="notes">
+						* landing page
+            * debunking OSS hype
+            * support contributors and maintainers
+          </aside>
+        </section>
+
+				<section id="icanteven">
+					<img src="images/afraid-to-ask.jpg" width="600em" alt="I don't know why everyone is collaborating... and at this point I'm afraid to ask - Andy Dwyer"/>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="myths">
+          <h2>Will contributing to open source ...</h2>
+
+          <ul>
+						<li>help me land a job?</li>
+						<li>help me keep my job?</li>
+						<li>be a good learning opportunity?</li>
+						<li>make me internet famous?</li>
+						<li>provide security for my career?</li>
+					</ul>
+
+          <h1 class="fragment" style="margin-top: 1em">maybe... maybe not</h1>
+
+					<aside class="notes">
+					</aside>
+        </section>
+
+        <section id="benefits">
+          <h2>The benefits of open source <br/>come from the <span class="highlight">community not code</span></h2>
+
+					<aside class="notes">
+						* Think about what you want to get out of OSS, and what would really help, vs. just sound good.
+					</aside>
+        </section>
+
+        <section id="code-vs-community">
+          <table>
+            <thead>
+              <tr><th>Code</th><th>Community</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Features</td><td>Code reviews</td></tr>
+              <tr><td>Bug fixes</td><td>FAQ, Dev Guide, Readme</td></tr>
+              <tr><td>Build scripts</td><td>Mentor newcomers</td></tr>
+              <tr><td>Tests</td><td>User documentation</td></tr>
+              <tr><td>Software design</td><td>Triage new issues</td></tr>
+              <tr><td></td><td>Create follow-on issues</td></tr>
+              <tr><td></td><td>Backlog grooming</td></tr>
+              <tr><td></td><td>Participate in meetings</td></tr>
+              <tr><td></td><td>Reproduce a bug report</td></tr>
+              <tr><td></td><td>Validate pull requests</td></tr>
+              <tr><td></td><td>Write about the project</td></tr>
+            </tbody>
+          </table>
+
+					<aside class="notes">
+						* traditional contributions
+						* what they focus on with a "first PR"
+						* Tasks that actually help keep a project going
+					</aside>
+        </section>
+
+        <section id="interact">
+          <h2>Community comes from the <span class="highlight">interactions</span></h2>
+
+          <img src="images/contributor-balance.png" width="500em" />
+
+					<aside class="notes">
+						* What's in common? Interaction not just creation
+						* Think of your OSS heroes
+						* How many just write code and don't interact with anyone else?
+					</aside>
+        </section>
+
+				<section>
+        	<section id="ladder">
+	          <h2>Contribution Ladder</h2>
+	          <img src="images/ladder.jpg" width="800em" alt="Cat on a ladder" />
+
+						<aside class="notes">
+						</aside>
+					</section>
+
+	        <section id="lurk">
+	          <h2>Lurk</h2>
+	          <img src="images/lurk.jpg" width="500em" alt="Cat peeping into a window" />
+
+						<aside class="notes">
+							* Watch for norms, decide if this will be a postive place to hang out
+						</aside>
+	        </section>
+
+	        <section id="first-pr">
+	          <h2>Your First PR</h2>
+	          <img src="images/happy.jpg" width="800em" alt="Happy kitten is happy" />
+
+						<aside class="notes">
+							* Always another first PR, you are never past this stage
+						</aside>
+	        </section>
+
+	        <section id="nope">
+	          <h2>Your First PR ... Day 2</h2>
+	          <img src="images/nope.jpg" width="500em" alt="Nope - Grumpy Cat" />
+
+						<aside class="notes">
+							* Asses, was that positive? Do I want to continue with this group?
+						</aside>
+	        </section>
+
+	        <section id="casual-contributor">
+	          <h2>Casual Contributor</h2>
+	          <img src="images/comfy.jpg" width="800em" alt="Maru the cat, upside down in a box" />
+
+						<aside class="notes">
+							* Sweet spot
+							* All the fun, none of the responsibilities
+						</aside>
+	        </section>
+
+	        <section id="member">
+	          <h2>Member</h2>
+	          <img src="images/friends.png" width="800em" alt="Two cats in a box together" />
+
+						<aside class="notes">
+							* You have friends in the community
+							* Reviewing code
+						</aside>
+	        </section>
+
+	        <section id="maintainer">
+	          <h2>Maintainer</h2>
+	          <img src="images/no-regrets.jpg" width="800em" alt="Cat with his mouth full of cheeseburger" />
+
+						<aside class="notes">
+							* Fame
+							* Responsibility
+						</aside>
+	        </section>
+
+	        <section id="exit-strategy">
+	          <h2>Climbing Back Down the Ladder</h2>
+	          <img src="images/i-r-stuck.jpg" width="800em" alt="Cat looking down, stuck up somewhere high" />
+
+						<aside class="notes">
+							* Good communities have off ramps
+						  * Can you leave without the project failing?
+						</aside>
+	        </section>
+				</section>
+
+				<section id="guilt">
+					<h2>The Crushing Guilt</h2>
+					<img src="images/guilt.jpg" width="500px" alt="Whether things are good or bad or you're simply eating tacos in the park, there is always the crushing guilt. - Jack Donaghy"/>
+
+					<aside class="notes">
+						* Burnout often comes from never being able to step away
+					</aside>
+				</section>
+
+        <section id="guilt-management">
+          <h2>Why bother building a community?</h2>
+          <h1 class="highlight fragment" style="margin-top: 2em">guilt management</h1>
+
+					<aside class="notes">
+					</aside>
+        </section>
+
+        <section id="sustainability">
+          <h2><span class="highlight">Sustainable</span> Open Source</h2>
+
+					<aside class="notes">
+						* A project that is cared for by many people
+						* Doesn't rely on a single person or company to continue
+						* Communities need pipelines
+					</aside>
+        </section>
+
+				<section id="case-studies">
+					<h2>Case Studies</h2>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="golang">
+					<img src="images/go-community.png" alt="Go community logo with gophers" height="500"/>
+
+					<aside class="notes">
+						* Upstream Go only
+						* Controlled by Google's Go team
+						* Ladder has a ceiling
+						* Not democratic
+						* Example of a project instead of a community in some ways
+					</aside>
+				</section>
+
+        <section id="kubernetes">
+          <img src="images/kubernetes.png" alt="Kubernetes logo with gophers" height="500"/>
+
+					<aside class="notes">
+						* huge community, overwhelming for contributors
+						* lots of great community leaders focused on improvment
+						* Anyone can not only contribute but become a leader regardless of background
+						* Democratic
+					</aside>
+        </section>
+
+        <section id="service-catalog">
+          <img src="images/service-catalog.png" alt="Service Catalog logo"  height="350"/>
+					<aside class="notes">
+						* Great new contributor experience
+						* Brittle support for maintainers
+						* Bus factor
+						* Community added after the project was developed
+					</aside>
+        </section>
+
+        <section id="athens">
+          <img src="images/athens.png" alt="Athens project logo"  height="500"/>
+
+					<aside class="notes">
+						* Many maintainers, clear path to becoming a maintainer
+						* Improving on "bus factor"
+						* Community first project
+						* Good pattern to follow. Still using it as an incubator for ideas.
+					</aside>
+        </section>
+
+        <section id="resources">
+					<h2>Resources</h2>
+
+          <p><a href="https://gophersource.com">gophersource.com</a></p>
+
+          <ul>
+            <li>Connect with the Go community</li>
+            <li>Find Go projects and join them</li>
+            <li>Make friends at the Go Study Group</li>
+          </ul>
+
+				</section>
+
+				<section id="takeout">
+					<h2>Thank you</h2>
+
+					<p><img src="../../../images/mlp-salute.png"/></p>
+					<p><a href="http://twitter.com/carolynvs" target="_blank">@carolynvs</a></p>
+
+          <p class="comment">
+            Gopher artwork by Ashley McNamara <br/>
+            licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License
+          </p>
+				</section>
+
+				<slide-footer>
+					<a href="http://carolynvs.com/gophersource">carolynvs.com/gophersource</a>
+				</slide-footer>
+			</div>
+
+		</div>
+
+		<script src="../../revealjs/lib/js/head.min.js"></script>
+		<script src="../../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				// use 16:9 aspect ratio
+				width: 1600,
+				height: 900,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				keyboard: {
+					190: null // Disable blank screen hell
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+					{ src: '../../revealjs/plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

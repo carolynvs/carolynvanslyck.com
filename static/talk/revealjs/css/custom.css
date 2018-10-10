@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.reveal .highlight {
+  white-space: nowrap;
+  color: #9575d1;
+}
 .reveal .comment {
   font-size: smaller;
   font-style: italic;
@@ -13,11 +17,11 @@
   font-size: larger;
 }
 
-.blue {
+.reveal .blue {
   color: #6dbcdb;
 }
 
-.green {
+.reveal .green {
   color: #8BC34A;
 }
 
@@ -57,4 +61,5 @@ section slide-footer{
 .reveal slide-footer a:visited, slide-footer a:visited,
 .reveal slide-footer a:hover, slide-footer a:hover {
   color: lightgreen;
+  font-size: smaller;
 }
