@@ -55,7 +55,7 @@ var RevealNotes = (function() {
 				type: 'state',
 				notes: '',
 				markdown: false,
-				whitespace: 'normal',
+				whitespace: 'pre-line',
 				state: Reveal.getState()
 			};
 
