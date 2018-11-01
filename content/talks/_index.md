@@ -23,6 +23,24 @@ layout: single
     <iframe width="560" height="315" src="https://www.youtube.com/embed/PZmTPRRfW5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
   </div>
 
+  <div class="project" id="docker101">
+    <div class="title">
+        <a href="/talk/docker/intro/">
+            <img src="/images/docker.png" alt="Docker Whale" title="Whale Hello There!"/>
+            A Gentle Introduction to Docker
+        </a>
+    </div>
+    <div class="locations">Women Who Go (Chicago) October 2017</div>
+    <p class="description">
+    We will be tackling some of the great philosophical questions of our time:</p>
+    <ul>
+      <li>What is Docker?</li>
+      <li>Why would I use it?</li>
+      <li>Can I still do it if no one at my company is doing the Dockers?</li>
+      <li>What are some fun things I can do with Docker and Go?</li>
+    </ul>
+  </div>
+
   <div class="project" id="gotime55">
     <div class="title">
         <a href="https://changelog.com/gotime/55">
