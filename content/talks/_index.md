@@ -6,32 +6,46 @@ description: |
 layout: single
 ---
 
-<div class="project" id="gophersource-workshop">
-  <div class="title">
-      <a href="/talk/go/gophersource/">
-          <img src="/talk/go/gophersource/images/go-balloons.png" alt="gopher with balloons" width="40"/>
-          GopherSource: Open Source for Gophers (Workshop)
-      </a>
-  </div>
-  <div class="locations">GopherCon 2018</div>
-  <p class="description">
-  Everyone says how welcoming the Go Open Source Community is, but it can still be a bit intimidating and overwhelming when you first join. Led by Carolyn Van Slyck, during this full-day workshop you’ll learn how to become a valued contributor and member of any open source community.</p>
-</div>
-
-<div class="project" id="wsc-impact">
-  <div class="title">
-      <a href="/talk/write-speak-code/impact/">
-          <img src="/talk/write-speak-code/impact/images/mlp-group-hug.png" alt="my little ponies group hug" width="100"/>
-          How Write/Speak/Code Changed My Career and My Life
-      </a>
-  </div>
-  <div class="locations">Write/Speak/Code 2018</div>
-  <p class="description">
-  Carolyn shares how <a href="https://writespeakcode.com">Write/Speak/Code</a> kicked her career into high-gear and inspired her to double-down on paying it forward. Follow her journey from an underpaid, unknown developer to a well-respected international speaker and community leader, working 100% on open source at Microsoft.
-  </p>
-</div>
-
 <div class="projects">
+  <div class="project" id="gophersource">
+    <div class="title">
+        <a href="/talk/go/oss101/">
+            <img src="/talk/go/gophersource/images/go-balloons.png" alt="gopher with balloons" width="40"/>
+            GopherSource: Open Source for Gophers
+        </a>
+    </div>
+    <div class="locations">Gopherpalooza 2018</div>
+    <p class="description">
+    Go’s reputation for having a great community often precedes it. At the same time figuring out how to contribute and influence upstream Go is intimidating. A band of plucky gophers are working together to change that, clearing the way for more community involvement, and I want you to join us!</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ybrItw6KnZk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  </div>
+
+  <div class="project" id="oss101-workshop">
+    <div class="title">
+        <a href="/talk/go/oss101/">
+            <img src="/talk/go/oss101/images/inflatocat.png" alt="GitHug Logo" width="64"/>
+            GopherSource: Open Source for Gophers (Workshop)
+        </a>
+    </div>
+    <div class="locations">GopherCon 2018</div>
+    <p class="description">
+    Everyone says how welcoming the Go Open Source Community is, but it can still be a bit intimidating and overwhelming when you first join. Led by Carolyn Van Slyck, during this full-day workshop you’ll learn how to become a valued contributor and member of any open source community.</p>
+  </div>
+
+  <div class="project" id="wsc-impact">
+    <div class="title">
+        <a href="/talk/write-speak-code/impact/">
+            <img src="/talk/write-speak-code/impact/images/mlp-group-hug.png" alt="my little ponies group hug" width="100"/>
+            How Write/Speak/Code Changed My Career and My Life
+        </a>
+    </div>
+    <div class="locations">Write/Speak/Code 2018</div>
+    <p class="description">
+    Carolyn shares how <a href="https://writespeakcode.com">Write/Speak/Code</a> kicked her career into high-gear and inspired her to double-down on paying it forward. Follow her journey from an underpaid, unknown developer to a well-respected international speaker and community leader, working 100% on open source at Microsoft.
+    </p>
+  </div>
+
   <div class="project" id="kubectl-plugins-101">
     <div class="title">
         <a href="https://schd.ws/hosted_files/kccnceu18/ff/Kubectl%20Plugins%20101%20-%20KubeCon%20Europe%202018.pdf">
@@ -43,9 +57,9 @@ layout: single
     <p class="description">
     Learn how to add custom commands to kubectl and write your first plugin. If you have written a bash script that extracts data from kubectl output, then you are already halfway there! Plugins can add powerful new commands to interact with Kubernetes, saving you time and keystrokes. This session will showcase lessons learned from our development of a kubectl plugin for the Kubernetes Service Catalog.</p>
 
-    <p class="description">Whether you are a Kubernetes user looking to script common commands, a developer building custom Kubernetes resources, or a provider looking to encapsulate specific functionality for your users, come learn how to write your own custom commands using kubectl plugins.</p>
+  <p class="description">Whether you are a Kubernetes user looking to script common commands, a developer building custom Kubernetes resources, or a provider looking to encapsulate specific functionality for your users, come learn how to write your own custom commands using kubectl plugins.</p>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/PZmTPRRfW5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PZmTPRRfW5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
   </div>
 
   <div class="project" id="oss-101">
@@ -95,11 +109,11 @@ layout: single
     </div>
     <div class="locations">GoTimeFM</div>
     <p class="description">
-      The GoTimeFM crew and I chat about welcoming our Windows Gopher bretheren into the Go Community,
+      The GoTimeFM crew and I chat about welcoming our Windows Gopher brethren into the Go Community,
       how I became a maintainer for dep (the Go Dependency Manager), and my adventures
       running a my little pony themed bare metal Kubernetes cluster.
     </p>
-    <center><a href="https://changelog.com/gotime/55">Go Time 55: Dep, Cross-platform, and Getting Started</a></center>
+    <center><a href="https://changelog.com/gotime/55">Listen to Go Time 55: Dep, Cross-platform, and Getting Started</a></center>
   </div>
 
   <div class="project" id="dep-in-10">
