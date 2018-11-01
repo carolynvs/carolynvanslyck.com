@@ -6,6 +6,19 @@ description: |
 layout: single
 ---
 
+<div class="project" id="wsc-impact">
+  <div class="title">
+      <a href="/talk/write-speak-code/impact/">
+          <img src="/talk/write-speak-code/impact/images/mlp-group-hug.png" alt="my little ponies group hug" width="64"/>
+          How Write/Speak/Code Changed My Career and My Life
+      </a>
+  </div>
+  <div class="locations">Write/Speak/Code 2018</div>
+  <p class="description">
+  Carolyn shares how <a href="https://writespeakcode.com">Write/Speak/Code</a> kicked her career into high-gear and inspired her to double-down on paying it forward. Follow her journey from an underpaid, unknown developer to a well-respected international speaker and community leader, working 100% on open source at Microsoft
+  </p>
+</div>
+
 <div class="projects">
   <div class="project" id="kubectl-plugins-101">
     <div class="title">
