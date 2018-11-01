@@ -7,6 +7,22 @@ layout: single
 ---
 
 <div class="projects">
+  <div class="project" id="kubectl-plugins-101">
+    <div class="title">
+        <a href="https://schd.ws/hosted_files/kccnceu18/ff/Kubectl%20Plugins%20101%20-%20KubeCon%20Europe%202018.pdf">
+            <img src="/images/k8s.png" alt="Kubernetes Logo"/>
+            Kubectl Plugins 101
+        </a>
+    </div>
+    <div class="locations">KubeCon EU 2018</div>
+    <p class="description">
+    Learn how to add custom commands to kubectl and write your first plugin. If you have written a bash script that extracts data from kubectl output, then you are already halfway there! Plugins can add powerful new commands to interact with Kubernetes, saving you time and keystrokes. This session will showcase lessons learned from our development of a kubectl plugin for the Kubernetes Service Catalog.</p>
+
+    <p class="description">Whether you are a Kubernetes user looking to script common commands, a developer building custom Kubernetes resources, or a provider looking to encapsulate specific functionality for your users, come learn how to write your own custom commands using kubectl plugins.</p>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/PZmTPRRfW5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  </div>
+
   <div class="project" id="gotime55">
     <div class="title">
         <a href="https://changelog.com/gotime/55">
