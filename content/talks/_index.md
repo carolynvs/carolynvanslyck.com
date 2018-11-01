@@ -154,7 +154,7 @@ layout: single
               Running JupyterHub on Carina
           </a>
       </div>
-      <div class="locations">PyData Chicago Meetup</div>
+      <div class="locations">PyData (Chicago) March 2016</div>
       <p class="description">
         Jupyter is an exciting tool, empowering you to quickly dive into the fun parts of whatever problem you are solving. With it, you can do so much more than just your research. By combining JupyterHub with Carina, you have a learning platform, perfect for leading a workshop, trying a new language or just playing around with code. It provides push button user notebooks, where each user is not only isolated from others, but they are running on their own compute resources and can hit the "reset" button at any time to start fresh.</p>
       <p class="description">
@@ -167,7 +167,7 @@ layout: single
               An Introduction to Carina
           </a>
       </div>
-      <div class="locations">DevOps Chicago Meetup, ChicagoRuby Meetup</div>
+      <div class="locations">DevOps Chicago Meetup, ChicagoRuby Meetup March 2016</div>
       <p class="description">A lightning fast introduction to Carina by Rackspace, which provides Docker Containers as a Service. Learn how to "think above the whale" and start <em>doing the Dockers</em> in just a few easy commands.</p>
 
 <iframe src="https://player.vimeo.com/video/162183519?color=ff9933&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
