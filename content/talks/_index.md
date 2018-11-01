@@ -23,6 +23,26 @@ layout: single
     <iframe width="560" height="315" src="https://www.youtube.com/embed/PZmTPRRfW5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
   </div>
 
+  <div class="project" id="oss-101">
+    <div class="title">
+        <a href="/talk/oss/101/">
+            <img src="/talk/oss/101/images/inflatocat.png" alt="GitHub Logo" width="64"/>
+            Open Source 101
+        </a>
+    </div>
+    <div class="locations">Write/Speak/Code (Chicago) March 2018</div>
+    <p class="description">
+    Have you been thinking of getting into Open Source but aren't quite sure where to start or what to expect? Together we will discuss the ins and outs of getting into, and sticking with, Open Source Software:</p>
+
+  <ul>
+    <li>Why would you contribute?</li>
+    <li>Who should you contribute to?</li>
+    <li>Where can you help?</li>
+    <li>How do you start?</li>
+    <li>What should you do next?</li>
+  </ul>
+  </div>
+
   <div class="project" id="docker101">
     <div class="title">
         <a href="/talk/docker/intro/">
