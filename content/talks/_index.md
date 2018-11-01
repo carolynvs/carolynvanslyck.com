@@ -6,16 +6,28 @@ description: |
 layout: single
 ---
 
+<div class="project" id="gophersource-workshop">
+  <div class="title">
+      <a href="/talk/go/gophersource/">
+          <img src="/talk/go/gophersource/images/go-balloons.png" alt="gopher with balloons" width="40"/>
+          GopherSource: Open Source for Gophers (Workshop)
+      </a>
+  </div>
+  <div class="locations">GopherCon 2018</div>
+  <p class="description">
+  Everyone says how welcoming the Go Open Source Community is, but it can still be a bit intimidating and overwhelming when you first join. Led by Carolyn Van Slyck, during this full-day workshop you’ll learn how to become a valued contributor and member of any open source community.</p>
+</div>
+
 <div class="project" id="wsc-impact">
   <div class="title">
       <a href="/talk/write-speak-code/impact/">
-          <img src="/talk/write-speak-code/impact/images/mlp-group-hug.png" alt="my little ponies group hug" width="64"/>
+          <img src="/talk/write-speak-code/impact/images/mlp-group-hug.png" alt="my little ponies group hug" width="100"/>
           How Write/Speak/Code Changed My Career and My Life
       </a>
   </div>
   <div class="locations">Write/Speak/Code 2018</div>
   <p class="description">
-  Carolyn shares how <a href="https://writespeakcode.com">Write/Speak/Code</a> kicked her career into high-gear and inspired her to double-down on paying it forward. Follow her journey from an underpaid, unknown developer to a well-respected international speaker and community leader, working 100% on open source at Microsoft
+  Carolyn shares how <a href="https://writespeakcode.com">Write/Speak/Code</a> kicked her career into high-gear and inspired her to double-down on paying it forward. Follow her journey from an underpaid, unknown developer to a well-respected international speaker and community leader, working 100% on open source at Microsoft.
   </p>
 </div>
 
