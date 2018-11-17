@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2012-09-07T00:00:00Z"
 title: How to get compile-time checking of ASP.NET MVC views
+slug: compile-time-support-for-mvc-views
 ---
 
 <h2>The Backstory</h2>

@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2012-08-01T00:00:00Z"
 title: Intellitrace, New Relic and Windows Azure
+slug: intellitrace-newrelic-azure-performance
 ---
 
 <p>I recently discovered Intellitrace and think it's the bee's knees. It was especially helpful

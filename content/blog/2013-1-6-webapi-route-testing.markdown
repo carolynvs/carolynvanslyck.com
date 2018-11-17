@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2013-01-06T00:00:00Z"
 title: Unit testing your ASP.NET Web API routes
+slug: webapi-route-testing
 ---
 
 <p>When your API is purely RESTful, your routes are pretty simple and there isn't much need to test. But if you are like me and decided to <a href="webapi_mixed_rest_rpc_routing.html">mix RPC and RESTful style methods on the same controller</a>, then some tests are in order.</p>

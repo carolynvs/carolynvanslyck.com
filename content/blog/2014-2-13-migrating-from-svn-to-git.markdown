@@ -3,13 +3,14 @@ categories: git atlassian stash
 comments: true
 date: "2014-02-13T00:00:00Z"
 title: Migrating a large codebase to Git with Atlassian Stash
+slug: migrating-from-svn-to-git
 ---
 
 This was originally a guest blog post on [atlassian.com](https://blogs.atlassian.com/2014/02/migrating-codebase-svn-to-git-with-stash/).
 
 ## Redefining what is possible
 
-I work at a large software company which is heavily invested in Subversion. In my division alone, we have 3 repositories, each with 100+ projects. I don't even know how many repositories and projects we have across the company but it is enough that we have an entire team dedicated to managing our source control, CI and build infrastructure. 
+I work at a large software company which is heavily invested in Subversion. In my division alone, we have 3 repositories, each with 100+ projects. I don't even know how many repositories and projects we have across the company but it is enough that we have an entire team dedicated to managing our source control, CI and build infrastructure.
 
 The general thought on Git has been that while it may have won the "DVCS Wars", we could never use it because:
 
@@ -39,11 +40,11 @@ If it had just been syntax differences, I would have stuck with it. However, as 
 
 That said, I did use Git-SVN exclusively everyday for 2 months and its merge capabilities saved my bacon more than once. I do not mean to bash it unnecessarily, only to call out the troubles I ran into thinking that I could simply use Git-SVN just like Git.
 
-Eventually other developers at my company noticed that I was using Git and wanted to try it as well which was all part of my evil plan. However they quickly decided it wasn't worth the effort, as they would have to repeat the same work that I had just done to configure and import each repository into their own local Git-SVN repository: refining what history should be imported, crafting .gitignore and .gitattributes files, making coffee while importing our giant repositories, etc. 
+Eventually other developers at my company noticed that I was using Git and wanted to try it as well which was all part of my evil plan. However they quickly decided it wasn't worth the effort, as they would have to repeat the same work that I had just done to configure and import each repository into their own local Git-SVN repository: refining what history should be imported, crafting .gitignore and .gitattributes files, making coffee while importing our giant repositories, etc.
 
 ## Removing the big bang from our migration
 
-Whenever I would search for help with Git-SVN, I saw mentions of something called [SubGit](http://subgit.com). It initially appeared to be yet another git-to-svn importer but once I realized what SubGit **really** did, that was a turning point in my git crusade. 
+Whenever I would search for help with Git-SVN, I saw mentions of something called [SubGit](http://subgit.com). It initially appeared to be yet another git-to-svn importer but once I realized what SubGit **really** did, that was a turning point in my git crusade.
 
 SubGit creates a bidirectional connection between Git and Subversion, safely synchronizing commits between each other. With SubGit I could use "pure Git" and everything I do is synchronized with Subversion. Any intrepid developers using the Git mirror didn't need to concern themselves with how it was synchronized. Meanwhile everyone else could happily work on Subversion and never even know that I had gone rogue and was using Git. Considering that at this point I had absolutely no buy-in with respect to Git, that aspect was quite critical, buying me time to build up a following of developers and demonstrate how adopting Git was possible... because we already had!
 
@@ -66,9 +67,9 @@ Another concern was ensuring that people who were not yet using Git didn't see o
 
 ## SourceTree teaches old developers new tricks
 
-We kicked off our migration with 10 developers from two teams, a handful of our most active repositories and I thought that the biggest obstacles to the great Git experiment were behind me. I could not have been more off-base! Due to my background with Linux, even though I am a Windows developer by day, I am pretty comfortable in a command line terminal. I didn't anticipate that my fellow developers would find the switch from TortoiseSVN to Git a confusing awkward mess. 
+We kicked off our migration with 10 developers from two teams, a handful of our most active repositories and I thought that the biggest obstacles to the great Git experiment were behind me. I could not have been more off-base! Due to my background with Linux, even though I am a Windows developer by day, I am pretty comfortable in a command line terminal. I didn't anticipate that my fellow developers would find the switch from TortoiseSVN to Git a confusing awkward mess.
 
-What everyone wanted was big friendly buttons that they could mentally map to what they were familiar with: `git pull` &rarr; `svn update`, `git commit && git push` &rarr; `svn commit`, etc. Every Git Windows client that we tried was lacking in a critical area: 
+What everyone wanted was big friendly buttons that they could mentally map to what they were familiar with: `git pull` &rarr; `svn update`, `git commit && git push` &rarr; `svn commit`, etc. Every Git Windows client that we tried was lacking in a critical area:
 
 * Git for Visual Studio doesn't support blame and in general feels like they have shoehorned Git into the existing TFS interface
 * Git Extensions is ugly and clunky
@@ -92,6 +93,3 @@ Instead of wasting time coordinating "who's working where" across teams and fork
 I am still working on changing developer workflows now that we aren't forced to all work on trunk. Encouraging the use of feature branches, so developers can commit and push regularly, instead of sitting on local changes because the feature isn't ready to be integrated. I knew we were finally getting the hang of things when one of the developers who had struggled the most with learning Git confided to me that he hated it when he had to work on a repository that wasn't yet mirrored in Git.
 
 Now here I am, ramping up teams on Git as quickly as I can. Did I mention that this whole Git migration is not my day job? Always a sucker for punishment, I have already switched my sights to pushing for our CI builds to do more: building feature branches,  requiring good builds before a pull request can be accepted, automatically merging bug fixes into master, triggering deployments to various environments. Obviously it would be silly to take a moment, sit back and appreciate all that we have accomplished in a few short months. Right?
- 
-
-

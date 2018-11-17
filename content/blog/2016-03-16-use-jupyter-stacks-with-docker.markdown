@@ -5,6 +5,7 @@ categories:
 comments: true
 date: "2016-03-16T00:00:00Z"
 title: Use Docker optimized Jupyter Stacks with JupyterHub
+slug: use-jupyter-stacks-with-docker
 ---
 
 Jupyter is a crazy awesome. Head over to [tmpnb.org](http://tmpnb.org) to try it out. _waits_

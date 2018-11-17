@@ -5,6 +5,7 @@ comments: false
 date: "2017-10-17T00:00:00Z"
 description: How I setup my own in-home Netflix experience for my personal videos
 title: DIY Netflix - My Little Cluster
+slug: diy-netflix
 ---
 
 > This is part of the story of how I went from chipping away at archiving my movie collection one DVD

@@ -3,9 +3,10 @@ categories: dotnet vnext
 comments: true
 date: "2014-09-11T00:00:00Z"
 title: First Impression of .NET vNext
+slug: dotnet-vnext-impressions
 ---
 
-When ASP.NET vNext was first announced, I was scratching my head over how it would impact developing .NET in non-Windows environments. There was a lot of hype, snippets of info coming from multiple sources, and nothing I could try out for myself. Well now that the [Visual Studio 2014 CTP](http://www.visualstudio.com/en-us/downloads/visual-studio-14-ctp-vs.aspx) is out, I finally can! 
+When ASP.NET vNext was first announced, I was scratching my head over how it would impact developing .NET in non-Windows environments. There was a lot of hype, snippets of info coming from multiple sources, and nothing I could try out for myself. Well now that the [Visual Studio 2014 CTP](http://www.visualstudio.com/en-us/downloads/visual-studio-14-ctp-vs.aspx) is out, I finally can!
 
 <aside>If you have an Azure account, I recommend using their Visual Studio 2014 VM image to test things out without wreaking havoc on your day-to-day machine.</aside>
 
@@ -31,7 +32,7 @@ Run `mono --version` to verify. You should see something like this `Mono JIT com
 
 ## Worst naming ever, k all the things! ##
 
-For some reason, all the new commands and associated concepts start with the letter 'k' and god help you if you need to search the web using these terms, they are too generic and often already had another meaning, such as 'kvm'... [Read this for an explanation of all the k's](http://weblogs.asp.net/imranbaloch/k-kvm-kpm-klr-kre-in-asp-net-vnext). 
+For some reason, all the new commands and associated concepts start with the letter 'k' and god help you if you need to search the web using these terms, they are too generic and often already had another meaning, such as 'kvm'... [Read this for an explanation of all the k's](http://weblogs.asp.net/imranbaloch/k-kvm-kpm-klr-kre-in-asp-net-vnext).
 
 On a Windows + Visual Studio environment, learning these commands is not necessary. However if you are targeting cross-platform or would like to develop on a different operating system than what you are running in production, these commands handle everything that previously was performed by msbuild, NuGet, etc.
 
@@ -101,7 +102,6 @@ Now if you use Visual Studio, you will see that a few extra files are created. D
 ## Final Thoughts ##
 I love developing in C# and I am really excited about where things are heading. Why?
 
-Because my main complaint about ASP.NET is requiring Windows/IIS for hosting.  Now with vNext I'm deploying to Linux which is an environment I am much more comfortable securing, maintaining and licensing. 
+Because my main complaint about ASP.NET is requiring Windows/IIS for hosting.  Now with vNext I'm deploying to Linux which is an environment I am much more comfortable securing, maintaining and licensing.
 
 I think that one day soon, .NET will be a viable cross-platform alternative to Java. A girl can dream, right?
-

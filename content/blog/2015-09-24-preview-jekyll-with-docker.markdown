@@ -4,6 +4,7 @@ categories:
 comments: true
 date: "2015-09-24T00:00:00Z"
 title: Preview a Jekyll site with Docker
+slug: preview-jekyll-with-docker
 ---
 
 Learn how to preview a Jekyll site in a Docker container, so that there is no need to install Ruby or Jekyll on your local machine.

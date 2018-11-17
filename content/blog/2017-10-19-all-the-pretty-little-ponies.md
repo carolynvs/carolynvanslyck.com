@@ -5,6 +5,7 @@ comments: false
 date: "2017-10-19T00:00:00Z"
 description: What if my Kubernetes cluster had nodes named after My Little Ponies?
 title: All the Pretty Little Ponies - My Little Cluster
+slug: all-the-pretty-little-ponies
 ---
 
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD

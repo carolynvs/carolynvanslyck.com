@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2013-02-02T00:00:00Z"
 title: Setting up Jenkins on Windows Azure
+slug: setting-up-jenkins-on-azure
 ---
 
 <p>I have used a few different continuous integration (ci) servers before and really like Jenkins. So when running my suite of unit and integration tests started taking more than a minute, it was time for a ci server, specifically Jenkins. Originally I installed Jenkins on my dev machine but it required annoying config tweaks to not interfere with my existing IIS configuration and really needed a home of its own. Since I have been happily hosting my website on Windows Azure and an extra-small node is only $9/month... it seemed like a better option than scrounging up physical hardware.</p>

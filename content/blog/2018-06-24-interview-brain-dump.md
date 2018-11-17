@@ -5,6 +5,7 @@ categories:
 comments: false
 date: "2018-06-24T00:00:00Z"
 title: Interview Brain Dump
+slug: interview-brain-dump
 ---
 
 <figure style="text-align: center; float: right; margin: 5px">

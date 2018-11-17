@@ -3,13 +3,14 @@ categories: atlassian bamboo git
 comments: true
 date: "2015-03-06T00:00:00Z"
 title: GitVersion for Bamboo
+slug: gitversion-for-bamboo
 ---
 
 <img src="/images/gitversion/logo.png" style="float: right; margin: 5px" />
 
 I have just released a plugin for Atlassian Bamboo which integrates with GitVersion: [GitVersion for Bamboo](/projects/gitversion). Check out the link for info on how to install and configure the plugin.
 
-GitVersion is a tool which automates generating unique, [semantic versions](http://semver.org/). It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc. 
+GitVersion is a tool which automates generating unique, [semantic versions](http://semver.org/). It detects your branching pattern and uses your tags to generate a repeatable version number which you can then use to stamp assemblies, version NuGet packages, etc.
 
 What I like about GitVersion is the flexibility it provides. Instead of generating a single version number, "take it or leave it", GitVersion provides over a dozen variables that you can choose from to build your own version number. If you are lucky and can just use pure semver, great!, use the FullSemVer variable and call it a day. However if you are perhaps like me, working on a legacy code base with an existing versioning scheme, it's still incredibly useful.
 

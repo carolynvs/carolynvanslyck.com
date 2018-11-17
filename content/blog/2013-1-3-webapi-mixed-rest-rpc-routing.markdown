@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2013-01-03T00:00:00Z"
 title: Mixing REST and RPC style methods on an ASP.NET Web API Controller
+slug: webapi-mixed-rest-rpc-routing
 ---
 
 <p>I wanted to have an API controller that had the normal RESTful actions (Get/Put/Post/Delete) and also some RPC style actions. This used to work in the MVC 4 Beta but now in RTM I would get the following error <i>"Multiple actions were found that match the request: Get() on type CarController and Blue() on type CarController"</i>.</p>

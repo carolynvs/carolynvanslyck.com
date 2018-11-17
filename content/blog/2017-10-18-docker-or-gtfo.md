@@ -5,6 +5,7 @@ comments: false
 date: "2017-10-18T00:00:00Z"
 description: Running the HandBrake CLI in Docker
 title: Docker or GTFO - My Little Cluster
+slug: docker-or-gtfo
 ---
 
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD

@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2012-02-26T00:00:00Z"
 title: Installing Windows 7 on a MacBook Air
+slug: windows7-macbook-air
 ---
 
 <p>"No bootable device -- insert boot disk and press an key"</p>
@@ -32,4 +33,3 @@ title: Installing Windows 7 on a MacBook Air
     Windows Support installer (a.k.a. Boot Camp), you can open the Boot Camp
     application and change the default OS. Or you can hold down the option key
     while booting and you can select the OS.</p>
-

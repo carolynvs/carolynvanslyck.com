@@ -1,8 +1,11 @@
 ---
-categories: lolnix windows
+categories:
+- lolnix
+- windows
 comments: true
 date: "2016-01-01T00:00:00Z"
 title: Set Up a Proper Windows Terminal
+slug: a-proper-windows-terminal
 ---
 
 I don't know how to put this politely but the command-line experience on Windows sucks*.

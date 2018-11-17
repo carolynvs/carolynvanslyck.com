@@ -5,6 +5,7 @@ comments: false
 date: "2017-10-22T00:00:00Z"
 description: A look back at what I have created
 title: I Did a Thing - My Little Cluster
+slug: i-did-a-thing
 ---
 
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD

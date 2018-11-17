@@ -5,6 +5,7 @@ categories:
 comments: false
 date: "2018-06-19T00:00:00Z"
 title: Adventures in Gopher Source
+slug: gopher-source-adventures
 ---
 
 I work in OSS because I enjoy collaborating with people. I've made friendships

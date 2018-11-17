@@ -5,6 +5,7 @@ comments: false
 date: "2017-10-20T00:00:00Z"
 description: Or how I had so much fun writing Go that I forgot to do things incrementally
 title: It's Go Time! - My Little Cluster
+slug: its-go-time
 ---
 
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD

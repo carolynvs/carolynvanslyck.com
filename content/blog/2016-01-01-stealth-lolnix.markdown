@@ -1,8 +1,12 @@
 ---
-categories: git lolnix windows
+categories:
+- git
+- lolnix
+- windows
 comments: true
 date: "2016-01-01T00:00:00Z"
 title: Install a Linux-like Environment on Your Windows Machine in Minutes
+slug: stealth-lolnix
 ---
 
 <figure style="text-align: center; float: right; margin: 5px">

@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2012-12-10T00:00:00Z"
 title: Using Generic Methods in Entity Framework Queries
+slug: entity-framework-generic-methods
 ---
 
 <p>Many of my models have a common property that I wanted to use in Entity Framework queries. After creating a generic method to encapsulate the filter logic, everything compiled but at runtime I ran into the following error:</p>

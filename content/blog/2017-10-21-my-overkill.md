@@ -5,6 +5,7 @@ comments: false
 date: "2017-10-21T00:00:00Z"
 description: When half-assing it just isn't enough
 title: My Overkill - My Little Cluster
+slug: my-overkill
 ---
 
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD

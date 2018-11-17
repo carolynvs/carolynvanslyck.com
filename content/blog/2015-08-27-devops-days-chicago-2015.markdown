@@ -3,11 +3,12 @@ categories: devops conferences
 comments: true
 date: "2015-08-27T00:00:00Z"
 title: DevOps Days Chicago 2015
+slug: devops-days-chicago-2015
 ---
 
 I just attended [DevOps Days Chicago 2015][devopsdays] and **loved** it. My usual MO for a conferences is to go with friends and keep to myself. So I was quite surprised that I came away having met dozens of people and bubbling with excitement about the experience.
 
-DevOps Days is a two day event with presentations in the morning, followed by ignite or lightning talks, and then the rest of the day is dedicated to open spaces. I had never heard of open spaces and honestly my gut reaction was that it sounded like something that I would *hate*. Unstructured social interactions with strangers? *Eek!* I could not have been more wrong and this turned out to be my favorite part of the conference. 
+DevOps Days is a two day event with presentations in the morning, followed by ignite or lightning talks, and then the rest of the day is dedicated to open spaces. I had never heard of open spaces and honestly my gut reaction was that it sounded like something that I would *hate*. Unstructured social interactions with strangers? *Eek!* I could not have been more wrong and this turned out to be my favorite part of the conference.
 
 It starts with a call for suggestions. Anyone can come up to the front and write down a topic on a sticky note. They don't need to (and really shouldn't) have prepared anything, be a subject expert and aren't required to lead, or even attend, the discussion. Just throw out an idea and whoever is interested raises their hand to show their support. The conference organizers go through the suggestions and find appropriately sized venues and times for each. Some only get a handful of participants and they'll meet up in a small conference room, while those that drew a larger crowd remain in the main conference area.
 
@@ -16,7 +17,7 @@ Below is a sample of the topics:
 * Share your DevOps war stories!
 * When would I use a virtual machine vs. Docker?
 * Are you using DevOps tools on Windows? Come commiserate with me!
-* Let's talk about the challenges of DevOps in an enterprise environment. 
+* Let's talk about the challenges of DevOps in an enterprise environment.
 * Postmortem experiences and best practices.
 * How do you handle blogging on behalf of your company?
 

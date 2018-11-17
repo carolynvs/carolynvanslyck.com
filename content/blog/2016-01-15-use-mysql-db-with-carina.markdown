@@ -5,6 +5,7 @@ categories:
 comments: true
 date: "2016-01-15T00:00:00Z"
 title: Connect a Carina container to a Rackspace cloud database
+slug: use-mysql-db-with-carina
 ---
 
 Learn how to [connect a Carina container to a Rackspace cloud database][tutorial] and span your infrastructure across both Carina and the Rackspace Cloud

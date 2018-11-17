@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2012-10-26T00:00:00Z"
 title: Unit Testing ASP.NET MVC Bundles
+slug: unit-testing-mvc-bundles
 ---
 
 <p>In order to unit test your bundles you must assign <b>BundleTable.MapPathMethod</b> to a function which mocks mapping from the bundle item's virtual path to the physical path of the file. I created a simple method (see MapBundleItemPath below) that uses a hard-coded string to find the root physical path of the MVC project. If your tests are run on multiple environments, you should replace the implementation to dynamically discover the project's path.</p>

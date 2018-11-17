@@ -5,6 +5,7 @@ categories:
 comments: false
 date: "2018-07-16T00:00:00Z"
 title: Building Go from Source
+slug: building-go-from-source
 ---
 
 <figure style="text-align: center; float: right; margin: 5px">

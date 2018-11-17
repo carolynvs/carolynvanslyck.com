@@ -5,6 +5,7 @@ comments: true
 date: "2017-08-18T00:00:00Z"
 description: Building up experience when being a gopher isn't your day job
 title: How to get going with Go
+slug: how-to-get-going
 ---
 
 <figure style="text-align: center; float: right; margin: 5px">

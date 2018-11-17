@@ -4,6 +4,7 @@ categories:
 comments: true
 date: "2017-02-14T00:00:00Z"
 title: Set the line endings for all files in a directory
+slug: set-git-eol-entire-directory
 ---
 
 The Git for Windows installer often leads people to turn on AutoCRLF, an

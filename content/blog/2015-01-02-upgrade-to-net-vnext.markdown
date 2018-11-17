@@ -3,6 +3,7 @@ categories: dotnet vnext
 comments: true
 date: "2015-01-02T00:00:00Z"
 title: Upgrade to .NET vNext
+slug: upgrade-to-net-vnext
 ---
 
 While I have read informal comments from the .NET developers that vNext is intended for new development, I really wanted to upgrade [BytesForHealth](http://bytesforhealth.com) to .NET vNext (.NET 5).
@@ -14,15 +15,15 @@ Here are some of the steps I took to upgrade:
 <ol>
 
   <li>Install Visual Studio 2015 Preview.</li>
-  
+
   <li><a href="https://github.com/aspnet/Home#install-the-k-version-manager-kvm">Install KVM</a>.
     <br />
     <pre><code class="list-code">iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.ps1')"</code></pre></li>
-    
+
   <li>Verify that you are using at least the beta of KPM: <code>kpm --version</code> should return <code>1.0.0-beta1-10662</code>. If not run <code>kvm upgrade</code> to get the latest KRE and then <code>kvm use 1.0.0-beta1 -x86 -r CLR -p</code> to set it as the active version.</li>
-  
+
   <li>Open Visual Studio and create a ASP.NET Class Library (vnext) project. Take that kproj file and copy it into your each of your project directories, name it after the project and if you like overkill, update the project's guid to match the original in the csproj. Now edit your solution file and tweak the project reference to use the kproj file instead of the csproj file and update the project type guids from FAE04EC0-301F-11D3-BF4B-00C04F79EFBC to 8BB2217D-0F2D-49D1-97BC-3654ED321F3B.</li>
-  
+
   <li>Rename packages.config to <a href="https://github.com/aspnet/Home/wiki/Project.json-file">project.json</a>. Add <code>{ "dependencies": {</code> at the top and using some creative find/replace, alter your packages xml to the new json format.
   <br/>
   <b>Before</b>

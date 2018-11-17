@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2012-09-04T00:00:00Z"
 title: When should I implement GetHashCode, Equals, IEquatable and IComparable?
+slug: when-to-implement-equality
 ---
 
 <ul style="list-style-type: none">

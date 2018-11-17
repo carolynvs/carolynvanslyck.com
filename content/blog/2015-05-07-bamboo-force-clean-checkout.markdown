@@ -3,6 +3,7 @@ categories: bamboo
 comments: true
 date: "2015-05-07T00:00:00Z"
 title: A Better Force Clean Checkout in Bamboo
+slug: bamboo-force-clean-checkout
 ---
 
 Recently, I was asked for help to alter one of our builds to "run dirty". They use npm and were incurring a significant cost by starting with a fresh checkout on every build. By leaving the node_modules diretory around between builds, it would shave 4 minutes off the build time.
@@ -12,7 +13,7 @@ While I could have simply unchecked "Force Clean Checkout" on our Source Code Ch
 1. Have admin rights on the plan
 2. Edit the definition to check "Force Clean Checkout"
 3. Run a build
-4. Then (hopefully) remember flip it back again. 
+4. Then (hopefully) remember flip it back again.
 
 A bit clunky... plus it would affect all builds, not just the single branch that needed the clean build.
 
@@ -22,13 +23,13 @@ Actually I never use the "Force Clean Checkout" option because what that does is
 
 What I wanted was a push button method for someone with build rights to force a clean build on a single branch. Here's how it works:
 
-1. Add a plan variable, force_clean, with a value of false. 
+1. Add a plan variable, force_clean, with a value of false.
 
    ![image](/images/bamboo-force-clean-checkout/force-clean-variable.png)
-   
-2. Add a Script task before the Source Code Checkout task. 
+
+2. Add a Script task before the Source Code Checkout task.
    In it, check if force_clean = true, then clean the working directory.
-   
+
    ![image](/images/bamboo-force-clean-checkout/force-clean-task.png)
 
 3. Now to force a clean build, use "Run Customized..." and override force_clean to true! Simple.

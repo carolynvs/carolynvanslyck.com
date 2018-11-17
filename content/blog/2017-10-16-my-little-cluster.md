@@ -7,6 +7,7 @@ description: This is the story of how I went from chipping away at archiving my 
   collection one DVD at at time to running a bare-metal Kubernetes cluster capable
   of transcoding dozens a day.
 title: My Little Cluster Story
+slug: my-little-cluster
 ---
 
 > If there is anything more satisfying then putting a computer to good use, it would

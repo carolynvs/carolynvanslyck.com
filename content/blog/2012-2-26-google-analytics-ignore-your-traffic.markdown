@@ -3,6 +3,7 @@ categories: null
 comments: true
 date: "2012-02-26T00:00:00Z"
 title: How do I make Google Analytics ignore my traffic?
+slug: google-analytics-ignore-your-traffic
 ---
 
 Originally I tried having Google ignore my IP address but since it does

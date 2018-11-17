@@ -3,6 +3,7 @@ categories: atlassian
 comments: true
 date: "2014-08-07T00:00:00Z"
 title: Create an Atlassian Plugin
+slug: atlassian-plugin-getting-started
 ---
 
 I am a big fan of continuous integration, testing and improving the development experience. Using Atlassian Stash and Bamboo every day has given me lots of ideas for making them better. Thanks to Atlassian's great SDK, and the ability to view the core application's source code as a reference, developing plugins is very straightforward. My [first plugin](https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook), was completed and deployed to the marketplace in just a single weekend and after that ... I was hooked.
@@ -29,7 +30,7 @@ So you have an idea for a plugin, or perhaps filed a feature request / bug repor
 
 Before you start developing a plugin there are a few questions you need to consider:
 
-1. Do you need to alter the core application's behavior? ***You must use a server plugin.*** 
+1. Do you need to alter the core application's behavior? ***You must use a server plugin.***
 2. Do you want use your plugin on Atlassian's OnDemand? ***You must use a cloud (Connect) plugin.***
 
 <aside>I have not yet written a cloud (Connect) plugin, so this series will focus solely on server plugins.</aside>
@@ -54,13 +55,13 @@ Cloud plugins can be deployed to Atlassian OnDemand cloud hosted applications. T
 ## Setup
 
 ### Install SDK
-First step is to download and install the SDK on your machine ([Windows](https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Windows+System), [Linux or Mac](https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Linux+or+Mac+System)). 
+First step is to download and install the SDK on your machine ([Windows](https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Windows+System), [Linux or Mac](https://developer.atlassian.com/display/DOCS/Install+the+Atlassian+SDK+on+a+Linux+or+Mac+System)).
 
 **Windows Tips**
 
 I develop plugins both on Windows and Mac; the experience is mostly the same. When on Windows, I prefer bash over cmd and wrote [wrapper shell scripts](https://github.com/carolynvs/atlassian-plugin-sdk) for the batch files provided by the SDK. This lets me stay in bash and use the sdk commands exactly the same as I would on Mac or Linux, e.g. `atlas-run-standalone --product Jira`.
 
-Also I can't help but recommend that you use a real command line terminal instead of cmd.exe. [Console](https://github.com/cbucher/console) is easy to use and lets you copy/paste, resize, maximize, use tabs, etc. 
+Also I can't help but recommend that you use a real command line terminal instead of cmd.exe. [Console](https://github.com/cbucher/console) is easy to use and lets you copy/paste, resize, maximize, use tabs, etc.
 
 
 > Friends don't let friends use cmd.exe.
@@ -68,7 +69,7 @@ Also I can't help but recommend that you use a real command line terminal instea
 ### Download Source
 I recommend downloading the source code for the application you are extending. To download the source, purchase a starter license then go to [my.atlasian.com](http://my.atlassian.com) and there will be a link to source from your license entry.
 
-<aside>While not strictly necessary, I have a much easier time understanding which classes are available and how they should be used by reading the source code than their online class documentation. This also enables you to debug into the core application. 
+<aside>While not strictly necessary, I have a much easier time understanding which classes are available and how they should be used by reading the source code than their online class documentation. This also enables you to debug into the core application.
 
 Note that the license is purely to gain access to the source code, as the SDK automatically generates temporary development licenses and doesn't require or use a real or evaluation license.</aside>
 
@@ -98,5 +99,3 @@ Now let's verify that our plugin works and see it in action:
 Hurray! You now have an empty plugin with everything you need to start developing.
 
 Coming soon... Part 2: Anatomy of an Atlassian Plugin
-
-
