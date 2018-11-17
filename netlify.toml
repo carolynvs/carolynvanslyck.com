@@ -3,7 +3,7 @@
 
 [build]
   publish = "public"
-  command = "hugo -b $DEPLOY_PRIME_URL"
+  command = "hugo"
 
 [build.environment]
   HUGO_VERSION = "0.48"
@@ -11,3 +11,9 @@
 [[redirects]]
   from = "/index.xml"
   to = "/blog/index.xml"
+
+[context.branch-deploy]
+  command = "hugo -b $DEPLOY_PRIME_URL"
+
+[context.deploy-preview]
+  command = "hugo -b $DEPLOY_PRIME_URL"
