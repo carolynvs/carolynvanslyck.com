@@ -11,7 +11,7 @@ slug: diy-netflix
 > This is part of the story of how I went from chipping away at archiving my movie collection one DVD
 at at time to running a bare-metal Kubernetes cluster capable of transcoding dozens a day.
 >
-> [Start from the beginning](`{{< ref "2017-10-16-my-little-cluster.md" >}}`)
+> [Start from the beginning]({{< ref "2017-10-16-my-little-cluster.md" >}})
 
 
 Putting together your own Netflix at home takes a bit of cobbling together. Here
