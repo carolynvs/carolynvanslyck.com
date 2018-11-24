@@ -8,12 +8,25 @@ layout: single
 <div class="projects">
     <div class="project">
         <div class="title">
+            <a href="https://kubernetes.io">
+                <img src="/images/k8s.png" alt="kubernetes logo" title="Whales in Boats"/>
+                Kubernetes
+            </a>
+        </div>
+        <div class="technologies">kubernetes, go, docker</div>
+        <p class="description">
+          I am a chair for <a href="http://svc-cat.io">Kubernetes SIG Service Catalog</a>,
+          and a member of the Kubernetes Code of Conduct Committee.
+        </p>
+    </div>
+    <div class="project">
+        <div class="title">
             <a href="https://github.com/golang/dep">
                 <img src="/images/dep-icon.png" alt="nerdy gopher" title="Gophers!"/>
                 dep
             </a>
         </div>
-        <div class="technologies">go dependency management</div>
+        <div class="technologies">go, dependency management</div>
         <p class="description">
           I am a maintainer for dep, the upcoming dependency manager for Go.
         </p>
@@ -25,7 +38,7 @@ layout: single
                 Docker Version Manager
             </a>
         </div>
-        <div class="technologies">go docker bash powershell</div>
+        <div class="technologies">go, docker, bash, powershell</div>
         <p class="description">
           Docker Version Manager (dvm) is a cross-platform command-line tool that helps you install and switch between Docker clients.
         </p>
@@ -37,7 +50,7 @@ layout: single
                 How to Whale
             </a>
         </div>
-        <div class="technologies">docker swarm jupyter</div>
+        <div class="technologies">docker swarm, jupyter</div>
         <p class="description">
           Learn Docker in your web browser, no setup or installation required.
         </p>
@@ -53,7 +66,7 @@ layout: single
                 OpenStack.NET
             </a>
         </div>
-        <div class="technologies">c# openstack cloud</div>
+        <div class="technologies">c#, openstack</div>
         <p class="description">
           OpenStack.NET is the .NET SDK for the OpenStack cloud platform. It is designed to enable developers to seamlessly work with the many services provided by the OpenStack cloud operating system.
         </p>
@@ -136,7 +149,7 @@ layout: single
             Reject Merge Commit Hook for Stash
         </a>
     </div>
-    <div class="technologies">Java, Atlassian Stash, Git</div>
+    <div class="technologies">Java, Atlassian Stash, git</div>
     <div class="description">
         <p>
           A pre-receive hook plugin for Atlassian Stash. It rejects merge commits where all the parents for the commit are from the same branch. Merges which involve multiple branches, e.g. merging a feature branch into master, are allowed.
@@ -155,7 +168,7 @@ layout: single
             Force Field for Stash
         </a>
     </div>
-    <div class="technologies">Java, Atlassian Stash, Git</div>
+    <div class="technologies">Java, Atlassian Stash, git</div>
     <div class="description">
     	<p>
         Force Field is a pre-receive hook plugin for Atlassian Stash. It protects specific branches from force pushes, e.g git push --force.
@@ -171,7 +184,7 @@ layout: single
             GitVersion for Bamboo
         </a>
     </div>
-    <div class="technologies">Java, Atlassian Bamboo, Git</div>
+    <div class="technologies">Java, Atlassian Bamboo, git</div>
     <div class="description">
         <p>
           Integrates <a href="https://github.com/GitTools/GitVersion">GitVersion</a> into Bamboo, provides a task which generates a <a href="http://semver.org">semantic version</a> for your build and deployments.
