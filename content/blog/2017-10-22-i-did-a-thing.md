@@ -56,7 +56,7 @@ no matter how tenuous the connection, until I finally heard back and landed a ph
 
 And you know what? This time it wasn't a dramatic reenactment of the Spanish Inquisition. We just
 talked about the things I loved, until he really had to go. They called me in for an on-site
-interview, and this time no one questioned whether I belonged in that interview. We all talked shop,
+interview, and no one questioned whether I belonged there. We all talked shop,
 I babbled about the latest k8's release, my little pony cluster, and of course tried to trick people
 into using dep.
 
