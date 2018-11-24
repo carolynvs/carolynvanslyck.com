@@ -11,7 +11,7 @@ slug: my-overkill
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD
 at at time to running a bare-metal Kubernetes cluster capable of transcoding dozens a day.
 >
-> [Start from the beginning]({{site.baseurl}}{% post_url 2017-10-16-my-little-cluster %})
+> [Start from the beginning]({{< ref "2017-10-16-my-little-cluster.md" >}})
 
 Now to some of you, this all may seem like overkill but believe me, it wasn't.
 If I had stopped sooner, half-assing it until things mostly worked, what happened
@@ -19,7 +19,7 @@ next would have been a disaster.
 
 ![Ron Swanson: Never half-ass two things, whole ass one thing](/images/handbrk8s/whole-ass.jpg)
 
-Remember my [rigorous cownado testing]({{site.baseurl}}/blog/2017/10/diy-netflix/#we-got-cows)?
+Remember my [rigorous cownado testing]({{< ref "2017-10-17-diy-netflix.md" >}}/#we-got-cows)?
 Well... I got it wrong. Really wrong. **Getting up off the couch wrong**.
 
 Everything was working great at first. My little pony cluster had made short work of about 100 videos,
@@ -46,4 +46,4 @@ You know how much work it was to redo those 100 videos?
 
 ![Gopher droppin' the mic](/images/handbrk8s/gopher-mic-drop.png)
 
-Next: [I Did a Thing]({{site.baseurl}}{% post_url 2017-10-22-i-did-a-thing %})
+Next: [I Did a Thing]({{< ref "2017-10-22-i-did-a-thing.md" >}})

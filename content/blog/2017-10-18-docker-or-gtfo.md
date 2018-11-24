@@ -11,7 +11,7 @@ slug: docker-or-gtfo
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD
 at at time to running a bare-metal Kubernetes cluster capable of transcoding dozens a day.
 >
-> [Start from the beginning]({{site.baseurl}}{% post_url 2017-10-16-my-little-cluster %})
+> [Start from the beginning]({{< ref "2017-10-16-my-little-cluster.md" >}})
 
 At this point, I knew what needed to happen in order to go from a physical disc to
 watching the movie on Plex. However, I only knew how to do it by hand. My goal was to save the disc to a file,
@@ -98,6 +98,6 @@ For the sake of my side-project, my dignity as a developer, I had to do better!
 
 \* _Manifesto? When the hell did this turn into a manifesto?_
 
-Next: [All the Pretty Little Ponies]({{site.baseurl}}{% post_url 2017-10-19-all-the-pretty-little-ponies %})
+Next: [All the Pretty Little Ponies]({{< ref "2017-10-19-all-the-pretty-little-ponies.md" >}})
 
 [wrapper]: https://github.com/jlesage/docker-handbrake/blob/master/rootfs/etc/services.d/autovideoconverter/run

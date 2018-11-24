@@ -15,7 +15,7 @@ slug: building-go-from-source
   </figcaption>
 </figure>
 
-> This is a part of a larger effort that I'm calling [GopherSource]({{site.baseurl}}{% post_url 2018-06-19-gopher-source-adventures %}),
+> This is a part of a larger effort that I'm calling [GopherSource]({{< ref "2018-06-19-gopher-source-adventures.md" >}}),
 >  and our goal is for more of the gopher community to become upstream Go contributors.
 
 Before we can become Go contributors, the very first step is being able to build

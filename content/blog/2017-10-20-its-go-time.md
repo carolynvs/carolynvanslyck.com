@@ -11,7 +11,7 @@ slug: its-go-time
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD
 at at time to running a bare-metal Kubernetes cluster capable of transcoding dozens a day.
 >
-> [Start from the beginning]({{site.baseurl}}{% post_url 2017-10-16-my-little-cluster %})
+> [Start from the beginning]({{< ref "2017-10-16-my-little-cluster.md" >}})
 
 At this point even though everything was running in Docker containers on a Kubernetes cluster,
 it wasn't really all that resilient. When things went sideways
@@ -71,6 +71,6 @@ In my defense, I _did_ manage to do everything incrementally up until this point
 But when I had finally outgrown that stock HandBrake container, and saw in front of
 me a greenfield of Go development... I got a little excited. 😉
 
-Next: [My Overkill]({{site.baseurl}}{% post_url 2017-10-21-my-overkill %})
+Next: [My Overkill]({{< ref "2017-10-21-my-overkill.md" >}})
 
 [initcontainer]: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/#understanding-init-containers

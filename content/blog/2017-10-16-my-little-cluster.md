@@ -60,10 +60,10 @@ and a handful of uncommitted changes that I didn't remember making three weeks a
 
 So here it is. The true story of how I actually finished something:
 
-* [DIY Netflix]({{site.baseurl}}{% post_url 2017-10-17-diy-netflix %})
-* [Docker or GTFO]({{site.baseurl}}{% post_url 2017-10-18-docker-or-gtfo %})
-* [All the Pretty Little Ponies]({{site.baseurl}}{% post_url 2017-10-19-all-the-pretty-little-ponies %})
-* [It's Go Time!]({{site.baseurl}}{% post_url 2017-10-20-its-go-time %})
-* [My Overkill]({{site.baseurl}}{% post_url 2017-10-21-my-overkill %})
+* [DIY Netflix]({{< ref "2017-10-17-diy-netflix.md" >}})
+* [Docker or GTFO]({{< ref "2017-10-18-docker-or-gtfo.md" >}})
+* [All the Pretty Little Ponies]({{< ref "2017-10-19-all-the-pretty-little-ponies.md" >}})
+* [It's Go Time!]({{< ref "2017-10-20-its-go-time.md" >}})
+* [My Overkill]({{< ref "2017-10-21-my-overkill.md" >}})
 
-Next: [DIY Netflix]({{site.baseurl}}{% post_url 2017-10-17-diy-netflix %})
+Next: [DIY Netflix]({{< ref "2017-10-17-diy-netflix.md" >}})

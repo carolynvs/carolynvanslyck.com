@@ -11,7 +11,7 @@ slug: diy-netflix
 > This is part of the story of how I went from chipping away at archiving my movie collection one DVD
 at at time to running a bare-metal Kubernetes cluster capable of transcoding dozens a day.
 >
-> [Start from the beginning]({{site.baseurl}}{% post_url 2017-10-16-my-little-cluster %})
+> [Start from the beginning](`{{< ref "2017-10-16-my-little-cluster.md" >}}`)
 
 
 Putting together your own Netflix at home takes a bit of cobbling together. Here
@@ -95,4 +95,4 @@ Wow that was easy! I bet I can do the rest in just a few more weekends, right?
 Erm... yeah that's not how it went. The remainder of my journey revolves around
 how I got the "horse power" to tackle transcoding over 200 videos.
 
-Next: [Docker or GTFO]({{site.baseurl}}{% post_url 2017-10-18-docker-or-gtfo %})
+Next: [Docker or GTFO]({{< ref "2017-10-18-docker-or-gtfo.md" >}})

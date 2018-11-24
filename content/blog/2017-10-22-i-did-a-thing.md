@@ -11,7 +11,7 @@ slug: i-did-a-thing
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD
 at at time to running a bare-metal Kubernetes cluster capable of transcoding dozens a day.
 >
-> [Start from the beginning]({{site.baseurl}}{% post_url 2017-10-16-my-little-cluster %})
+> [Start from the beginning]({{< ref "2017-10-16-my-little-cluster.md" >}})
 
 So I haven't been completely honest with you. I left some parts out of my story.
 This isn't just about video transcoding, Kubernetes, or rainbow-colored

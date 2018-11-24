@@ -11,7 +11,7 @@ slug: all-the-pretty-little-ponies
 > This is a part of the story of how I went from chipping away at archiving my movie collection one DVD
 at at time to running a bare-metal Kubernetes cluster capable of transcoding dozens a day.
 >
-> [Start from the beginning]({{site.baseurl}}{% post_url 2017-10-16-my-little-cluster %})
+> [Start from the beginning]({{< ref "2017-10-16-my-little-cluster.md" >}})
 
 Now that I had a working HandBrake container capable of running in parallel,
 obviously the next step was to buy a proper cluster of computers, right? 😇
@@ -77,7 +77,7 @@ For those keeping score at home, I had:
 ✅ Moved the party into Kubernetes<br/>
 🔥 Ruined a video when I unplugged a node while vacuuming
 
-Next: [It's Go Time!]({{site.baseurl}}{% post_url 2017-10-20-its-go-time %})
+Next: [It's Go Time!]({{< ref "2017-10-20-its-go-time.md" >}})
 
 [shorty]: https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc7i5bnk.html
 [tallboy]: https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc7i5bnh.html
