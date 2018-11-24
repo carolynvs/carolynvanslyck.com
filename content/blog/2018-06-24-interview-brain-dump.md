@@ -96,6 +96,7 @@ route, memorize Cracking the Code and have fun interviewing at Google. 👋
   deeper into _how_ it happens, such as walking through the lower level components
   (kubectl, the api server, kubelet, docker, the kernel) and the actions they
   perform.
+
 * Seriously, read that concurrency book and watch Kavya's talk. In all of my
   interviews the only thing consistent was that **everyone asked about concurrency**,
   how channels work, how they are implemented (such as "Is every goroutine on a
@@ -104,7 +105,8 @@ route, memorize Cracking the Code and have fun interviewing at Google. 👋
   a variety of questions about them. Practice your answer, write down key points
   and keep that handy for a phone interview.
 
-  Common questions are:
+Common questions are:
+
   * Explain the project at a high level in 30 seconds.
   * Tell me about a time when you had to debug something really hard, how did you go
     about figuring out what was wrong?
@@ -117,6 +119,7 @@ route, memorize Cracking the Code and have fun interviewing at Google. 👋
     talking about will make it easier to be prepared, easier for the interviewer to
     follow your answers, and show them that you enjoy your work.
 * Make sure that you understand what you are looking for in a job/career:
+
   * Do you want to work on a tight knit team? Or are you okay with being on a "team
     of one"?
   * Do you prefer to independently work and then sync up with people? Or do you
@@ -139,12 +142,10 @@ in front of people, here my some tips:
   answer.
 * Speak out loud as you think. It's okay to be quiet for a few seconds while you
   collect your thoughts, especially at the beginning but let the person know what
-  you are thinking.
-
-  Examples:
-  * _"Let me think about that for a second"_
-  * _"Hmm, here are some concerns that I would have and want to verify"_
-  * _"I am stuck on this part, here's what I think but maybe I am missing something related to X"_
+  you are thinking. For example:
+    * _"Let me think about that for a second"_
+    * _"Hmm, here are some concerns that I would have and want to verify"_
+    * _"I am stuck on this part, here's what I think but maybe I am missing something related to X"_
 * Focus on solving the problem iteratively. It's perfectly ok to start with a
   brute force or bad solution, identify its problems, and then make another pass
   and improving your solution. That is _much_ better than focusing immediately

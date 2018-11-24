@@ -189,7 +189,7 @@ img + em {
   box-shadow: none;
 }
 
-code, li pre code, p pre code {
+pre code, li pre code, p pre code {
   white-space: pre;
   font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
   font-size: 0.9em;
