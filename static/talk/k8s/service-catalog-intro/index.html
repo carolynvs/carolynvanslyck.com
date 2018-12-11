@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Service Catalog Intro</title>
+
+		<meta name="description" content="Intro to SIG Service Catalog">
+		<meta name="author" content="Carolyn Van Slyck">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="icon" type="image/png" href="images/favicon.ico"/>
+		<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="../../revealjs/css/custom.css">
+
+		<!-- Open links outside of presentation -->
+		<base target="_blank">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+          <h2 class="blue">
+            Introduction to SIG
+          </h2>
+
+          <img src="images/svc-cat-logo.png" width="800" alt="Service Catalog"/>
+
+					<p>
+            Carolyn Van Slyck<br/>
+            Senior Software Engineer at Microsoft
+          </p>
+
+					<aside class="notes">
+						* Carolyn Van Slyck
+				    * Senior Software Engineer at Microsoft
+				    * SIG Chair - My job is to make the project successful, ensure everyone is
+				      able to participate.
+					</aside>
+				</section>
+
+				<section id="expectations">
+          <h2>Not sure if this talk is for you?</h2>
+
+					<!-- TODO: fry not sure if -->
+
+          <aside class="notes">
+				    * Answer your questions
+				    * Demo Service Catalog to people who haven't seen it before
+				    * Invite you to participate in Service Catalog and highlight opportunities
+          </aside>
+        </section>
+
+				<section id="raise-your-hand">
+					<h2>This is your time</h2>
+					<!-- TODO: eager hand raising -->
+
+					<aside class="notes">
+						- Please raise your hand if you are in a SIG already?
+					  - Who is window shopping for a place to join in and contribute to Kubernetes?
+					  - Who is from another SIG and wants updates of SIG Service Catalog?
+					</aside>
+				</section>
+
+        <section id="sig">
+          <h2>SIG = Special Interest Group</h2>
+
+          <ul>
+            <li>Part of Kubernetes</li>
+						<li>Formal charter outlining what we work on and how</li>
+            <li>Group of people, not just mega companies</li>
+            <li>Anyone can join and participate</li>
+          </ul>
+
+					<aside class="notes">
+					</aside>
+        </section>
+
+				<section id="svcat-in-5">
+          <h2>Service Catalog in Five Minutes</h2>
+
+					<!-- TODO: speedy mlp -->
+					<aside class="notes">
+						- Who has used Service Catalog before?
+					  - Who has used a broker with Cloud Foundry before?
+					</aside>
+        </section>
+
+				<section id="osb-api">
+          <h2>Open <span class="highlight">Service</span> Broker API</h2>
+
+					<aside class="notes">
+						* Standardizes how platforms (like K8s) can work with a cloud's services.
+						* Came from Cloud Foundry.
+						* Reuse the same broker!
+						* Clouds with Brokers: Microsoft, Google, Amazon, IBM and more.
+					</aside>
+        </section>
+
+				<section id="osb-api">
+					<ul>
+						<li>Data & Analytics – databases, ElasticSearch</li>
+						<li>Integration – Box, Twitter, SendGrid</li>
+						<li>Utilities – conversions, speech to text</li>
+						<li>Infrastructure – networks, volumes, routing</li>
+						<li>DevOps – monitoring, metrics, auto-scaling</li>
+					</ul>
+
+					<aside class="notes">
+					</aside>
+        </section>
+
+				<section id="why-bother">
+					<h2>Why is this a problem again?</h2>
+
+					<aside class="notes">
+						Quick thought experiment of what it is like to provision entirely from
+						k8s, and manage from k8s. vs provisioning pieces from the cloud
+						portal or a cli.
+					</aside>
+				</section>
+
+				<section id="why-not-operators">
+					<h2>Why Not Operators?</h2>
+
+					<aside class="notes">
+						This is a not a unique problem and we aren't the only solution.
+						Service Catalog takes advantage of all the existing brokers that
+						were made for Cloud Foundry and lets us use them in K8s.
+					</aside>
+				</section>
+
+				<section id="demo">
+					<h2>Service Catalog in Action</h2>
+
+					<aside class="notes">
+						- Wordpress + MySQL demo
+				    - svcat or manifests?
+					  - OSBA - svcat marketplace
+						- Kubeapps
+					</aside>
+				</section>
+
+				<section id="deep-dive">
+					<h2>Deep Dive</h2>
+
+					<h3 class="highlight">Thursday, December 13</h3>
+          <h3 class="highlight">2 A/B from 1:45pm - 2:20pm</h3>
+
+					<aside class="notes">
+						If you are interested in more use cases and features, come to our Deep Dive!
+					</aside>
+				</section>
+
+				<section id="join-us">
+					<h2>Join Us!</h2>
+
+					<ul>
+						<li>Mentoring for new contributors</li>
+						<li>Lots of room for contributors and reviewers</li>
+						<li>Clear path towards becoming a SIG Chair</li>
+					</ul>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section id="crds">
+					<h2>Opportunity: <span class="highlight">CRD</span> Migration</h2>
+
+					<aside class="notes">
+						Evaluating if we can move to CRDs. Looking for someone, ideally a
+						group of people, who want to learn a ton about CRDs and try to do
+						the migration.
+					</aside>
+				</section>
+
+				<section id="kep">
+					<h2>Opportunity: <span class="highlight">Greenfield</span> collaboration with SIG Apps</h2>
+
+					<aside class="notes">
+						- Amazing developer experience ON TOP of Service Catalog.
+				    * There's more to the ecosystem than brokers: Amazon's operator, CNAB bundles.
+				    * Kubernetes Native Developer Experience!
+				    * User Experience improvements: defaulting, customization, assistance selecting from
+				      a large selection of services and their service levels.
+				    * Hooking up to existing services, sharing services.
+					</aside>
+				</section>
+
+        <section id="resources">
+					<h2>Resources</h2>
+
+          <ul>
+						<li><a href="https://svc-cat.io">svc-cat.io</a></li>
+						<li><a href="https://github.com/osbkit">List of Brokers in the Wild</a></li>
+            <li><a href="https://github.com/oskbit/minibroker">Minibroker</a></li>
+          </ul>
+
+					<aside class="notes">
+						Website has dev guide and a walkthrough
+					</aside>
+				</section>
+
+				<section id="takeout">
+					<h2>Thank you</h2>
+
+					<p><img src="../../../images/mlp-salute.png"/></p>
+					<p><a href="http://twitter.com/carolynvs" target="_blank">@carolynvs</a></p>
+
+				</section>
+
+				<slide-footer>
+					<a href="http://carolynvs.com/svc-cat-intro">carolynvs.com/svc-cat-intro</a>
+				</slide-footer>
+			</div>
+
+		</div>
+
+		<script src="../../revealjs/lib/js/head.min.js"></script>
+		<script src="../../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				// use 16:9 aspect ratio
+				width: 1600,
+				height: 900,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				keyboard: {
+					190: null // Disable blank screen hell
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+					{ src: '../../revealjs/plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
