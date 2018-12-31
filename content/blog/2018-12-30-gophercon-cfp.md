@@ -16,8 +16,8 @@ I want to encourage you to [submit a talk to GopherCon](https://www.papercall.io
 You. Yes you, hiding
 behind the potted plant. If you are afraid of public speaking, I am not the type
 of person to convince you otherwise. But if what's holding you back is worry that
-you are not an expert, or don't know what to talk about, or how to get a talk accepted,
-I would like to help.
+you are not an expert, or that you don't know what to talk about, or how to get your
+talk accepted, I would like to help.
 
 Before 2016, I had never given a public talk. When I had to speak in front of my
 team during scrum or during tech lunches, I felt like I was going to hurl. Then
@@ -56,8 +56,8 @@ blog post. For example, a perfectly fine blog post may focus on "How to do X", w
 a great talk may dive into "Why I thought I needed to solve X but ended up doing Y"
 or bringing a difficult topic to life like Kavya's wonderful talks on how [channels](https://www.youtube.com/watch?v=KBZlN0izeiY)
 or the [scheduler](https://www.youtube.com/watch?v=YHRO5WQGh0k) works under the hood.
-As blog posts, I would have been overwhelmed,
-but it was easier to follow along as she explained it.
+If I had stumbled upon blog posts explaining those topics, I would have noped
+out after 15 seconds, overwhelmed, but with Kavya explaining it, it was easy to follow along.
 
 ##### Focus on details that are fun to listen to in person
 
@@ -66,12 +66,14 @@ but it was easier to follow along as she explained it.
 As a reviewer, I am responsible for the attendees getting their monies worth,
 preserving the conference's reputation and respecting everyone's time. I can't do
 that with a talk proposal that doesn't give me enough information to know what they
-will talk about. Not just the topic, and the main points but details. I need to know
+will talk about. Not just the topic, and the main points, but _details_. I need to know
 the best practices that they will recommend, the libraries they are going to tell
 people to use, the myths they are debunking, etc.
 
 The CFP gives you a text box to put in top secret notes that only the reviewers can see.
-**USE IT** Tell me everything. Give me an outline. Link to code gists and blog posts.
+**USE IT**.
+
+Tell me everything. Give me an outline. Link to code gists and blog posts.
 Do whatever you can to make it clear to me that you are going to use your speaking
 slot for good.
 
@@ -83,15 +85,16 @@ You know who also doesn't like surprises? Attendees. They are often picking whic
 talk to go to minutes before it starts. Make it easy for them to pick your talk.
 
 Cute titles may be cute, but they don't help people know what your talk will be about.
-In your abstract, don't tease with hints. Make it clear what people will learn
+In your abstract, don't tease or hint. Make it clear what people will learn
 or come away with.
 
 ##### Make is easy for attendees to want to come to your talk
 
 ## My Process
 
-Everyone comes up with talk ideas differently. When I have an idea, this is my
-process for turning an idea into a proposal:
+Everyone comes up with talk ideas differently and I don't have suggestions for
+that part. However, once I do I have an idea, this is my process for turning that
+idea into a proposal:
 
 1. Write down a bulleted list of everything that I could say about it.
 1. Add nested details on anything that is interesting to me.
@@ -119,4 +122,4 @@ Even if you just put it in a gist, having something that you can link to other p
 makes it easier to ask for feedback. I will often ask people on slack in gophers,
 and womenwhogo to take a look before submitting.
 
-<h1 align="center">Good Luck!</h1>
+<h1 align="center">🤞 Good Luck! 🤞</h1>
