@@ -6,6 +6,6 @@ build:
 	hugo build
 
 serve:
-	hugo serve
-	
+	hugo serve -b http://localhost/
+
 .PHONY: build serve
