@@ -39,7 +39,9 @@ h1 {
  font-weight: bold;
  line-height: 1.2em;
 }
-
+h5 {
+  text-align: center;
+}
 #top {
     border-bottom: 1px solid var(--yellow);
 }
