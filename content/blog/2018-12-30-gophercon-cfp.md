@@ -122,4 +122,6 @@ Even if you just put it in a gist, having something that you can link to other p
 makes it easier to ask for feedback. I will often ask people on slack in gophers,
 and womenwhogo to take a look before submitting.
 
+The trick is to keep submitting. Don't self select out. Give it a try!
+
 <h1 align="center">🤞 Good Luck! 🤞</h1>
