@@ -8,4 +8,4 @@ permalinks:
   blog: /blog/:year/:month/:slug/
 
 params:
-  image: /images/carolynvs.twitter.jpg
+  image: images/carolynvs.twitter.jpg

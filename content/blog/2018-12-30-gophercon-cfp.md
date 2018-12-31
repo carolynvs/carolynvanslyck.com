@@ -3,6 +3,10 @@ comments: false
 date: "2018-12-30"
 title: Submit a Talk to GopherCon!
 slug: talk-at-gophercon
+description: |
+  I am on the program committee again this year for GopherCon San Diego! I would
+  like to see more new faces up on stage this year and thought that I could use the
+  magic of the internet to trick y'all into submitting a talk.
 ---
 
 <figure style="text-align: center; float: right; margin: 5px">
