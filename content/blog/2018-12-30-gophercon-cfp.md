@@ -106,9 +106,9 @@ idea into a proposal:
 1. Identify the story. All of my talks usually have a story line holding the entire
   talk together to make it engaging, and honestly because it just fits into my
   speaking style. If there isn't a story, I don't bother making it into a talk.
-1. Write an abstract.
-1. Write a title.
-1. Write a bio for the conference. I usually customize my bio for each conference,
+1. Take that theme, the problem, the takeaways, the story and turn that into an abstract.
+1. Write a title from the abstract.
+1. Write a bio. I usually customize my bio for each conference,
   sometimes even per talk if I submit more than once, to highlight different parts of
   my background.
 1. Submit variations of the talk to multiple conferences.
