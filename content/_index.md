@@ -5,7 +5,7 @@ description: Professional Yak Shaver
 
 <div style="display:flex; justify-content:center; align-items:center;">
 
-  <img src="/images/carolynvs.small.jpg" class="borderless" alt="photo of carolyn" width="200px"/>
+  <a href="/images/carolynvs.jpg"><img src="/images/carolynvs.small.jpg" class="borderless" alt="photo of carolyn" width="200px"/></a>
 
   <ul style="list-style-type:none; font-size: 1.3rem; line-height: 2rem;">
       <li>🦄 I am a polyglot developer</li>
