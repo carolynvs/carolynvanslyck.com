@@ -148,11 +148,37 @@
 					</aside>
 				</section>
 
+				<section id="grammar">
+					<h2>Pick a <span class="highlight">Grammar</span></h2>
+
+					<aside class="notes">
+						* Follow what works in your native language
+						* Mostly be consistent
+						* Break consistenty in favor of domain at times
+					</aside>
+				</section>
+
+				<section id="precedent">
+					<h2>Understand <span class="highlight">precedent</span> in your ecosystem</h2>
+
+					<ul style="padding-top: 2em;">
+						<li>svcat follows kubectl</li>
+						<li>dvm followed nvm (for a while)</li>
+						<li>dep <em>didn't</em> follow glide, or npm, etc</li>
+					</ul>
+
+					<aside class="notes">
+						* muscle memory
+						* know when it's helpful, and when you need to move beyond it
+					</aside>
+				</section>
+
 				<section id="command-design-demo">
 					<h2>Emote CLI</h2>
 
 <pre><code class="big plain" data-trim data-noescape>
 $ emote list
+NAME               VALUE
 shrug              ¯\_(ツ)_/¯
 
 tableflip          (╯°□°）╯︵ ┻━┻
@@ -162,22 +188,44 @@ monocle            ಠ_ರೃ
 $ emote shrug
 ¯\_(ツ)_/¯ copied to the clipboard
 
-$ emote add emoticon gopher ʕ •ᴥ•ʔ
+$ emote add emoticon gopher --value ʕ •ᴥ•ʔ
 gopher added to the big list 'o emoji
 
 $ emote delete emoticon foo
 blerg is no more
 
-$ emote add repo --name efunk --url https://carolynvs.com/funky-emoticons.json
+$ emote add repo efunk --url https://carolynvs.com/funky-emoticons.json
 added 100 emoticons
+
+$ emote list repos
+NAME          URL                                                 SIZE
+efunk         https://carolynvs.com/funky-emoticons.json          100 
 </code></pre>
 
 
 					<aside class="notes">
-
+						CMD VERB NOUN (English)
 					</aside>
 				</section>
 
+				<section id="implicit-noun">
+					<h2>Exception: Implicit Noun or Verb</h2>
+
+					<p style="padding: 2em 0">Depends on your judgement about the <span class="highlight">domain</span></p>
+					
+				
+					<ul>
+						<li>emote list</li>
+						<li>emote add EMOTICON_NAME</li>
+						<li>emote EMOTICON_NAME</li>
+					</ul>
+
+					<aside class="notes">
+						the domain is emoticons, it may be okay to drop the noun and be inconsistent
+						the cli name itself _is_ a verb, so we cheat
+					</aside>
+				</section>
+				
 				<section id="frameworks">
 					<h2>Frameworks</h2>
 
