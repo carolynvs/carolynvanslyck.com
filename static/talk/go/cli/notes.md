@@ -5,6 +5,8 @@ from the previous, throw out things that didn't work well, and try new ideas.
 
 Here's what has stuck around:
 
+- Suggestions for structuring your commands to help users quickly and intuitively
+  learn your cli.
 - Making use of pre-existing libraries or tools like spf13/cobra for structuring the cli,
   and combining it with spf13/viper to handle defaulting flags with environment variables.
 - Package structure, such as splitting up domain logic from the cli wiring so
@@ -20,5 +22,3 @@ Here's what has stuck around:
   services, without creating awkward, fragile tests.
 - Common publishing tasks such as a version command, cross compiling, installation
   and upgrading your cli.
-- Suggestions for structuring your commands to help users quickly and intuitively
-  learn your cli.
