@@ -116,21 +116,11 @@
 					<img src="images/porter.png" height="150px"/>
 				</section>
 
-				<section id="graveyard">
-					<h1>🐘 ☠️</h1>
-
-					<aside class="notes">
-						* For every cli that is still used, there's more that I tried new
-						things on but for various reasons, aren't around anymore.
-						* Won't be demonstrating them, but I did learn and apply to the next project.
-					</aside>
-				</section>
-
 				<section id="recommendations">
 					<h2>Recommendations</h2>
 					
 					<ul>
-						<li><a href="#command-design">Command and Flag Design</a></li>
+						<li><a href="#command-design">Command Design</a></li>
 						<li><a href="#frameworks">Frameworks</a></li>
 						<li><a href="#package-structure">Package Structure</a></li>
 						<li><a href="#composition">Command Composition</a></li>
@@ -141,10 +131,10 @@
 				</section>
 
 				<section id="command-design">
-					<h2>Command and Flag Design</h2>
+					<h2>Command Design</h2>
 
 					<aside class="notes">
-
+						Decide early, otherwise you are stuck with however it happened to work before you came up with a design
 					</aside>
 				</section>
 
@@ -164,7 +154,7 @@
 					<ul style="padding-top: 2em;">
 						<li>svcat follows kubectl</li>
 						<li>dvm followed nvm (for a while)</li>
-						<li>dep <em>didn't</em> follow glide, or npm, etc</li>
+						<li>dep doesn't follow glide, npm, etc</li>
 					</ul>
 
 					<aside class="notes">
@@ -174,8 +164,6 @@
 				</section>
 
 				<section id="command-design-demo">
-					<h2>Emote CLI</h2>
-
 <pre><code class="big plain" data-trim data-noescape>
 $ emote list
 NAME               VALUE
@@ -225,23 +213,190 @@ efunk         https://carolynvs.com/funky-emoticons.json          100
 						the cli name itself _is_ a verb, so we cheat
 					</aside>
 				</section>
-				
+
 				<section id="frameworks">
 					<h2>Frameworks</h2>
 
+					<ul style="font-family: monospace; padding-top: 2em;">
+						<li>spf13/cobra - Commands and Flags</li>
+						<li>spf13/viper - Configuration Management</li>
+						<li>spf13/afero - File System Abstraction</li>
+					</ul>
+
+					<p style="padding-top: 2em;">Thank you, Steve Francia! 💖</p>
+
 					<aside class="notes">
-						
+						Defacto in most cloudy CLIs such as docker, kuberentes
+						Not really made to work with each other 😀
+					</aside>
+				</section>
+
+				<section id="cobra">
+					<h2>Example: cobra</h2>
+
+<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
+func newRootCmd(args []string) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:          "helm",
+		Short:        "The Helm package manager for Kubernetes.",
+	}
+	out := cmd.OutOrStdout()
+	cmd.AddCommand(
+		newInstallCmd(nil, out), // helm install
+		newListCmd(nil, out), // helm list
+	)
+
+	return cmd
+}
+
+func main() {
+	cmd := newRootCmd(os.Args[1:])
+	if err := cmd.Execute(); err != nil {
+		os.Exit(1)
+	}
+}
+</code></pre>
+
+<p class="comment" style="padding-top: 2em;">
+	From <a href="https://github.com/helm/helm/blob/9596dc768ad4b44aa3f6772a64912f8d04c4ea44/cmd/helm/helm.go#L79">helm</a> (edited for length)
+</p>
+					<aside class="notes">
+						exec a command / main
+						build a command
+						parse a flag
+
+						-- show a command from emote / porter?
+
+						what can go wrong? putting logic in here
+					</aside>
+				</section>
+
+				<section id="viper">
+					<h2>Example: viper</h2>
+
+<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
+cmd.Flags().StringVarP(&installCmd.path, "plugins-path", "p", "", 
+   "The installation path. Defaults to KUBECTL_PLUGINS_PATH")
+
+cxt.Viper.BindEnv("plugins-path", EnvPluginPath)
+</code></pre>					
+
+<p class="comment" style="padding-top: 2em;">
+	From <a href="https://github.com/kubernetes-incubator/service-catalog/blob/a94b77429e8cac31d0e5f33ac9bb37d3730570f6/cmd/svcat/plugin/install.go#L52-L54">svcat plugin install</a>
+</p>
+
+					<aside class="notes">
+						default a flag to an environment variable
+						what can go wrong? forcing everyone to use viper too
+					</aside>
+				</section>
+
+				<section id="afero">
+					<h2>Example: afero</h2>
+
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+ioutil.ReadFile("/tmp/gopherfarts.txt")
+
+// vs.
+
+var fs = afero.NewOsFs()
+fs.ReadFile("/tmp/gopherfarts.txt")
+</code></pre>	
+
+					<aside class="notes">
+						read a file from the file system using afero 
+						tests later
+						what can go wrong? 🤔
 					</aside>
 				</section>
 
 				<section id="package-structure">
 					<h2>Package Structure</h2>
 
+					<ul style="padding-top: 2em;">
+						<li>cmd/NAME is your CLI's wiring</li>
+						<li>pkg/NAME is your CLI's SDK or libray</li>
+					</ul>
 					<aside class="notes">
-						
+						* anything in main, can't be reused by others
+						* anything hidden in those cobra functions can't be reused by others, or easily tested!
+						* Don't make people take dependencies on frameworks just to get at SDK type stuff
+						* Generate a SDK as a side-effect
+						* I don't care about pkg or whatever, just don't put those in the same package
 					</aside>
 				</section>
 
+				<section id="package-structure-dep">
+					<h2>Example: Logic in Main Package</h2>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package main
+
+func (cmd *ensureCommand) Run(ctx *dep.Ctx, args []string) error {
+	if cmd.examples {
+		ctx.Err.Println(strings.TrimSpace(ensureExamples))
+		return nil
+	}
+
+	if err := cmd.validateFlags(); err != nil {
+		return err
+	}
+
+	p, err := ctx.LoadProject()
+	if err != nil {
+		return err
+	}
+
+	sm, err := ctx.SourceManager()
+	if err != nil {
+		return err
+	}
+	sm.UseDefaultSignalHandling()
+	defer sm.Release()
+
+	if err := dep.ValidateProjectRoots(ctx, p.Manifest, sm); err != nil {
+		return err
+	}
+...
+</code></pre>
+					<p class="comment" style="padding-top: 2em;">From <a href="https://github.com/golang/dep/blob/master/cmd/dep/ensure.go">dep ensure</a></p>
+
+					<aside class="notes">
+						* people tried
+						* there were abstractions to not rely on cobra
+					</aside>
+				</section>
+				
+				<section id="package-structure-porter">
+					<h2>Example: Wiring in Main Package</h2>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package main
+
+import (
+	"github.com/deislabs/porter/pkg/porter"
+	"github.com/deislabs/porter/pkg/printer"
+	"github.com/spf13/cobra"
+)
+
+cmd := &cobra.Command{
+	Use:   "mixins",
+	Short: "List installed mixins",
+	PreRunE: func(cmd *cobra.Command, args []string) error {
+		var err error
+		opts.format, err = printer.ParseFormat(opts.rawFormat)
+		return err
+	},
+	RunE: func(cmd *cobra.Command, args []string) error {
+		o := printer.PrintOptions{ Format: opts.format }
+		return p.PrintMixins(o)
+	},
+}
+</code></pre>
+					<p class="comment" style="padding-top: 2em;">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins.go">porter list mixins</a></p>
+
+					<aside class="notes">
+						* wire up exported functions from other packages to cobra
+					</aside>
+				</section>
 				<section id="composition">
 					<h2>Command Composition</h2>
 
