@@ -200,7 +200,7 @@ efunk         https://carolynvs.com/funky-emoticons.json          100
 				<section id="domain-over-grammar">
 					<h2>Domain vs. Grammar</h2>
 
-					<p style="padding: 2em 0">Use your judgement about the domain when breaking with the grammar</p>
+					<p style="padding: 2em 0">Use your <span class="highlight">judgement</span> about the domain when breaking with the grammar</p>
 					
 				
 					<ul>
@@ -448,9 +448,102 @@ cmd := &cobra.Command{
 					<h2>Dependency Injection</h2>
 
 					<aside class="notes">
-						
+						Make it easy to pass around a set of different implementations for testing
 					</aside>
 				</section>
+
+				<section id="context-porter">
+					<h2>Example: Porter's Context</h2>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package context
+
+// Context holds references to external systems that need to be captured or modified in tests
+type Context struct {
+	Debug      bool
+	FileSystem *afero.Afero
+	In         io.Reader
+	Out        io.Writer
+	Err        io.Writer
+	NewCommand CommandBuilder // Abstraction for executing binaries
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/context.go">Pdorter</a></p>
+
+				</section>
+
+				<section id="composing-porter">
+					<h2>Example: Composing Porter's SDK</h2>
+
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package config
+
+// Config holds flags, env vars and config files contents
+type Config struct {
+	*context.Context
+	Manifest *Manifest
+}
+
+---
+
+package porter
+
+// Porter is the logic behind the porter client.
+type Porter struct {
+	*config.Config
+}
+
+--- 
+
+// Now let's use our CLI's SDK
+p := porter.NewPorter()
+p.Manifest.Load() // Manifest cames from Config
+fmt.Fprintf(p.Out, "\nWriting Dockerfile =======>\n") // Out comes from Context
+err = p.FileSystem.WriteFile("Dockerfile", contents, 0644) // FileSystem comes from Context
+</code></pre>
+				</section>
+
+				<section id="using-porter-sdk">
+					<h2>Example: Using Porter's SDK</h2>
+
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+p := porter.NewPorter()
+
+// Manifest cames from Config
+p.Manifest.Load() 
+
+// Out comes from Context
+fmt.Fprintf(p.Out, "\nWriting Dockerfile =======>\n") 
+
+// FileSystem comes from Context
+err = p.FileSystem.WriteFile("Dockerfile", contents, 0644) 
+</code></pre>
+
+				</section>
+
+				<section id="testing">
+					<h2>Testing Strategies</h2>
+
+					<aside class="notes">
+						Payoff for spending this much engineering and thought on the CLI
+						Safety net for new people contributing to your CLI
+					</aside>
+				</section>
+
+				<section id="test-goals">
+						<h2>Test Goals</h2>
+		
+						<ul>
+							<li>Avoid retesting the SDK from the CLI's tests</li>
+							<li>Prevent fragile tests that are hard to maintain</li>
+							<li>Exercise the CLI validation, output and formatting</li>
+							<li>Safety net for new contributors</li>
+							<li>Remove excuses for people who refuse to do "frontend stuff" 😇</li>
+						</ul>
+						
+						<aside class="notes">
+							
+						</aside>
+					</section>
 
 				<section id="publishing">
 					<h2>Publishing</h2>
