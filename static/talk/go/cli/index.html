@@ -530,21 +530,158 @@ err = p.FileSystem.WriteFile("Dockerfile", contents, 0644)
 				</section>
 
 				<section id="test-goals">
-						<h2>Test Goals</h2>
-		
-						<ul>
-							<li>Avoid retesting the SDK from the CLI's tests</li>
-							<li>Prevent fragile tests that are hard to maintain</li>
-							<li>Exercise the CLI validation, output and formatting</li>
-							<li>Safety net for new contributors</li>
-							<li>Remove excuses for people who refuse to do "frontend stuff" 😇</li>
-						</ul>
+					<h2>Test Goals</h2>
+	
+					<ul>
+						<li>Avoid retesting the SDK from the CLI's tests</li>
+						<li>Prevent fragile tests that are hard to maintain</li>
+						<li>Exercise the CLI validation, output and formatting</li>
+						<li>Safety net for new contributors</li>
+						<li>Remove excuses for people who refuse to do "frontend stuff" 😇</li>
+					</ul>
+					
+					<aside class="notes">
 						
-						<aside class="notes">
-							
-						</aside>
-					</section>
+					</aside>
+				</section>
 
+				<section id="flag-validation">
+					<h2>cmd/emote: flag validation</h2>
+					<p class="code-title">cmd/emote/mixins.go</p>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package main
+
+func buildListMixinsCommand(p *porter.Porter) *cobra.Command {
+	opts := struct {
+		rawFormat string
+		format    printer.Format
+	}{}
+	cmd := &cobra.Command{
+		Use:   "mixins",
+		Short: "List installed mixins",
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			var err error
+			opts.format, err = printer.ParseFormat(opts.rawFormat)
+			return err
+		},
+		RunE: func(cmd *cobra.Command, args []string) error {
+			return p.PrintMixins(printer.PrintOptions{Format: opts.format})
+		},
+	}
+
+	cmd.Flags().StringVarP(&opts.rawFormat, "output", "o", "table", 
+				"Output format, allowed values are: table, json")
+	return cmd
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins.go">Porter</a></p>
+
+				</section>
+
+				<section id="flag-validation-test">
+					<h2>cmd/emote: flag validation test</h2>
+					<p class="code-title">cmd/emote/mixins_test.go</p>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+func TestBuildListMixinsCommand_BadFormat(t *testing.T) {
+	p := porter.NewTestPorter(t)
+	cmd := buildListMixinsCommand(p.Porter)
+	cmd.ParseFlags([]string{"--output", "flarts"})
+
+	err := cmd.PreRunE(cmd, []string{})
+
+	require.NotNil(t, err)
+	require.Contains(t, err.Error(), "invalid format: flarts")
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins_test.go">Porter</a></p>
+
+				</section>
+
+				<section id="test-context">
+					<h2>Test Context</h2>
+<p class="code-title">pkg/context/helpers.go</p>
+<pre><code class="big go" data-trim data-noescape>
+type TestContext struct {
+	*Context
+
+	input  *bytes.Buffer
+	output *bytes.Buffer
+	T      *testing.T
+}
+
+// NewTestContext initializes a configuration suitable for testing, 
+// with the output buffered, and an in-memory file system.
+func NewTestContext(t *testing.T) *TestContext {
+	...
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/helpers.go">Porter</a></p>
+
+				</section>
+
+				<section id="test-sdk">
+					<h2>Test SDK</h2>
+<p class="code-title">pkg/porter/helpers.go</p>
+<pre><code class="big go" data-trim data-noescape>
+type TestPorter struct {
+	*Porter
+	TestConfig *config.TestConfig
+}
+
+// NewTestPorter initializes a porter test client, 
+// with the output buffered, and an in-memory file system.
+func NewTestPorter(t *testing.T) *TestPorter {
+	...
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/helpers.go">Porter</a></p>
+
+				</section>
+
+				<section id="capture-output">
+					<h2>Capturing Output in Tests</h2>
+<p class="code-title">pkg/porter/version_test.go</p>
+<pre><code class="big go" data-trim data-noescape>
+func TestPrintVersion(t *testing.T) {
+	pkg.Commit = "abc123"
+	pkg.Version = "v1.2.3"
+	p := NewTestPorter(t)
+
+	p.PrintVersion()
+
+	// Use our test structs to grab the captured output
+	gotOutput := p.TestConfig.TestContext.GetOutput()
+
+	wantOutput := "porter v1.2.3 (abc123)"
+	if !strings.Contains(gotOutput, wantOutput) {
+		t.Fatalf("invalid output:\nWANT:\t%q\nGOT:\t%q\n", wantOutput, gotOutput)
+	}
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/version_test.go">porter version test</a></p>
+
+				</section>
+
+				<section id="test-filesystem">
+					<h2>Capturing Output in Tests</h2>
+					<p class="code-title">pkg/porter/version_test.go</p>
+<pre><code class="big go" data-trim data-noescape>
+func TestCreate(t *testing.T) {
+	p := NewTestPorter(t)
+	p.TestConfig.SetupPorterHome()
+
+	err := p.Create()
+	require.NoError(t, err)
+
+	// Tests execute against in-memory afero file system
+	configFileExists, err := p.FileSystem.Exists(config.Name)
+	require.NoError(t, err)
+	assert.True(t, configFileExists)
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/create_test.go">porter create test</a></p>
+
+			</section>
 				<section id="publishing">
 					<h2>Publishing</h2>
 
