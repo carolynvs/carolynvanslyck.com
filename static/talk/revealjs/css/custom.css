@@ -14,7 +14,13 @@
 }
 
 .reveal .big {
-  font-size: larger;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+.reveal .huge {
+  font-size: 2em;
+  line-height: 2em;
 }
 
 .reveal .blue {
