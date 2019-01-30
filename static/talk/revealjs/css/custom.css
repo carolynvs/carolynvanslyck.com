@@ -40,12 +40,13 @@ blockquote {
 
 slide-footer{
   position: fixed;
-  bottom: 0;
+  bottom: 1em;
+  left: 1em;
   display: table;
   width: 100%;
   padding-top: 2em;
-  text-align: center;
-  color: lightgreen;
+  text-align: left;
+  color: #8BC34A;
   font-size: 0.75em;
 }
 
@@ -53,18 +54,23 @@ section slide-footer{
   display: block;
   padding-top: 2em;
   text-align: center;
-  color: lightgreen;
+  color: #8BC34A;
   font-size: 0.75em;
 }
 
-.reveal 
 .reveal slide-footer a, slide-footer a,
 .reveal slide-footer a:visited, slide-footer a:visited,
 .reveal slide-footer a:hover, slide-footer a:hover {
-  color: lightgreen;
+  color: #8BC34A;;
   font-size: smaller;
 }
 
 .reveal pre code {
   max-height: 100%;
+}
+
+.reveal .code-source {
+  font-size: smaller;
+  font-style: italic;
+  text-align: right;
 }

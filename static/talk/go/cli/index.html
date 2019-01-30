@@ -241,9 +241,13 @@ efunk         https://carolynvs.com/funky-emoticons.json          100
 				</section>
 
 				<section id="cobra">
-					<h2>Example: cobra</h2>
+					<h2>Example: Initialize Cobra CLI</h2>
 
 <pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
+package main
+
+imports "github.com/spf13/cobra"
+
 func newRootCmd(args []string) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:          "helm",
@@ -266,8 +270,8 @@ func main() {
 }
 </code></pre>
 
-<p class="comment" style="padding-top: 2em;">
-	From <a href="https://github.com/helm/helm/blob/9596dc768ad4b44aa3f6772a64912f8d04c4ea44/cmd/helm/helm.go#L79">helm</a> (edited for length)
+<p class="code-source">
+	From <a href="https://github.com/helm/helm/blob/9596dc768ad4b44aa3f6772a64912f8d04c4ea44/cmd/helm/helm.go#L79">helm</a>
 </p>
 					<aside class="notes">
 						exec a command / main
@@ -290,7 +294,7 @@ cmd.Flags().StringVarP(&installCmd.path, "plugins-path", "p", "",
 cxt.Viper.BindEnv("plugins-path", EnvPluginPath)
 </code></pre>					
 
-<p class="comment" style="padding-top: 2em;">
+<p class="code-source">
 	From <a href="https://github.com/kubernetes-incubator/service-catalog/blob/a94b77429e8cac31d0e5f33ac9bb37d3730570f6/cmd/svcat/plugin/install.go#L52-L54">svcat plugin install</a>
 </p>
 
@@ -323,8 +327,8 @@ fs.ReadFile("/tmp/gopherfarts.txt")
 					<h2>Package Structure</h2>
 
 					<ul style="padding-top: 2em;">
-						<li>cmd/NAME is your CLI's wiring</li>
-						<li>pkg/NAME is your CLI's SDK or libray</li>
+						<li>cmd/emote is the CLI's wiring</li>
+						<li>pkg/emote is CLI's SDK or libray</li>
 					</ul>
 					<aside class="notes">
 						* anything in main, can't be reused by others
@@ -360,14 +364,9 @@ func (cmd *ensureCommand) Run(ctx *dep.Ctx, args []string) error {
 		return err
 	}
 	sm.UseDefaultSignalHandling()
-	defer sm.Release()
-
-	if err := dep.ValidateProjectRoots(ctx, p.Manifest, sm); err != nil {
-		return err
-	}
 ...
 </code></pre>
-					<p class="comment" style="padding-top: 2em;">From <a href="https://github.com/golang/dep/blob/master/cmd/dep/ensure.go">dep ensure</a></p>
+					<p class="code-source">From <a href="https://github.com/golang/dep/blob/master/cmd/dep/ensure.go">dep ensure</a></p>
 
 					<aside class="notes">
 						* people tried
@@ -400,7 +399,7 @@ cmd := &cobra.Command{
 	},
 }
 </code></pre>
-					<p class="comment" style="padding-top: 2em;">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins.go">porter list mixins</a></p>
+					<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins.go">porter list mixins</a></p>
 
 					<aside class="notes">
 						* wire up exported functions from other packages to cobra
@@ -454,11 +453,11 @@ cmd := &cobra.Command{
 					</p>
 				</section>
 
-				<slide-footer>
-					<a href="http://carolynvs.com/cli">carolynvs.com/cli</a>
-				</slide-footer>
+				
 			</div>
-
+			<slide-footer>
+				<a href="http://carolynvs.com/cli">carolynvs.com/cli</a>
+			</slide-footer>
 		</div>
 
 		<script src="../../revealjs/lib/js/head.min.js"></script>
@@ -469,7 +468,7 @@ cmd := &cobra.Command{
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: true,
 				history: true,
 				center: true,
