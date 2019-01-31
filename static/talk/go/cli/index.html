@@ -204,10 +204,23 @@ $ emote add repo funk --url https://example.com/funk.json
 added 100 emoticons
 
 $ emote list repos
-NAME         URL                                                 SIZE
-funk         https://carolynvs.com/funky-emoticons.json          100 
+NAME         URL                                    SIZE
+funk         https://example.com/funk.json          100 
 </code></pre>											
 				</section>
+
+				<section id="emote-json">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote list repos --output json
+[
+  {
+    "name":"funk",
+    "url":"https://example.com/funk.json",
+    "size":100
+  }
+]
+</code></pre>											
+									</section>
 				
 				<section id="domain-over-grammar">
 					<h2>Domain vs. Grammar</h2>
@@ -253,12 +266,12 @@ funk         https://carolynvs.com/funky-emoticons.json          100
 				</section>
 
 				<section id="cobra">
-					<h2>Initialize Cobra CLI</h2>
+					<h2>Getting Started with Cobra</h2>
 
 <pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
 package main
 
-imports "github.com/spf13/cobra"
+import "github.com/spf13/cobra"
 
 func newRootCmd(args []string) *cobra.Command {
 	cmd := &cobra.Command{
@@ -296,22 +309,39 @@ func main() {
 				</section>
 
 				<section id="viper">
-					<h2>Default Flag to Environment Variable</h2>
+					<h2>Read Config Files of Any Type with Viper</h2>
 
 <pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
-cmd.Flags().StringVarP(&installCmd.path, "plugins-path", "p", "", 
-   "The installation path. Defaults to KUBECTL_PLUGINS_PATH")
+type Manifest struct {
+	Name    string `mapstructure:"name"` // mapstructure handles yaml, toml, json, hcl, etc
+	Version string `mapstructure:"version"`
+}
 
-cxt.Viper.BindEnv("plugins-path", EnvPluginPath)
+func Load(name, dir string) (*Manifest, error) {
+	v := viper.New()
+	if name == "" {
+		v.SetConfigName(duffle.DuffleFilename)
+	} else {
+		v.SetConfigFile(filepath.Join(dir, name))
+	}
+	v.AddConfigPath(dir)
+	err := v.ReadInConfig()
+	if err != nil {
+		return nil, fmt.Errorf("Error finding duffle config file: %s", err)
+	}
+
+	m := &Manifest{}
+	v.Unmarshal(m)
+	return m, nil
+}
 </code></pre>					
 
 <p class="code-source">
-	From <a href="https://github.com/kubernetes-incubator/service-catalog/blob/a94b77429e8cac31d0e5f33ac9bb37d3730570f6/cmd/svcat/plugin/install.go#L52-L54">svcat plugin install</a>
+	From <a href="https://github.com/deislabs/duffle/blob/master/pkg/duffle/manifest/load.go">duffle</a>
 </p>
 
 					<aside class="notes">
-						default a flag to an environment variable
-						what can go wrong? forcing everyone to use viper too
+						viper can end up infecting your code if you aren't careful
 					</aside>
 				</section>
 
