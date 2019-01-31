@@ -507,15 +507,15 @@ type Context struct {
 	NewCommand CommandBuilder // Abstraction for executing binaries
 }
 </code></pre>
-<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/context.go">Pdorter</a></p>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/context.go">Porter</a></p>
 
-<p class="comment">Yes, context is a horrible name. Call it whateve you like. 😅</p>
+<p><span class="comment">Yes, context is a horrible name. Call it whateve you like.</span> 😅</p>
 				</section>
 
 				<section id="composing-porter">
 					<h2>Composing Porter's SDK</h2>
 
-<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+<pre><code class="big go" data-trim data-noescape>
 package config
 
 // Config holds flags, env vars and config files contents
