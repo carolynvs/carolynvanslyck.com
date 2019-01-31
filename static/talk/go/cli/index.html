@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Designing Command-Line Tools People Love</title>
+
+		<meta name="description" content="Build command-line tools that are not only easy to learn, but that other developers are willing to maintain">
+		<meta name="author" content="Carolyn Van Slyck">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="icon" type="image/png" href="images/favicon.ico"/>
+		<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="../../revealjs/css/custom.css">
+
+		<!-- Open links outside of presentation -->
+		<base target="_blank">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2 class="blue">
+						Designing Command-Line Tools People Love
+					</h2>
+
+          			<img src="images/console-love.png" />
+
+					<p>
+						Carolyn Van Slyck<br/>
+						Senior Software Engineer at Microsoft
+					</p>
+
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+				<section id="intention">
+					<h2>Often CLIs aren't <span class="highlight">designed</span>,<br/>
+						 functionality is added through happenstance</h2>
+				</section>
+
+				<section id="goals">
+					<h2>Design Goals</h2>
+
+					<ul>
+						<li>Predictable</li>
+						<li>Task oriented commands</li>
+						<li>Friendly to both humans and scripts</li>
+						<li>Creates an SDK as a side-effect</li>
+						<li>New contributor launchpad</li>
+					</ul>
+
+					<aside class="notes">
+						* predictable, consistent
+						* band-aide when must
+						* include tasks, composed commands
+						* human and script friendly
+						* Tests = less regressions but also people are less afraid to contribute
+					</aside>
+				</section>
+
+				<section id="introduction">
+					<h2>Introductions</h2>
+
+					<aside class="notes">
+						introduce the example projects before I show their code and discuss design
+					</aside>
+				</section>
+
+				<section id="dvm">
+					<h2>Docker Version Manager</h2>
+					<img src="images/dvm.png" height="100px"/>
+				</section>
+
+				<section id="dep">
+					<h2>dep</h2>
+
+					<img src="images/dep.png" height="200px"/>
+				</section>
+
+				<section id="svcat">
+					<img src="images/service-catalog.png" height="150" />
+				</section>
+
+				<section id="porter">
+					<h2>Porter</h2>
+
+					<img src="images/porter.png" height="150px"/>
+				</section>
+
+				<section id="recommendations">
+					<h2>Recommendations</h2>
+					
+					<ul>
+						<li><a href="#command-design">Command Design</a></li>
+						<li><a href="#frameworks">Frameworks</a></li>
+						<li><a href="#package-structure">Package Structure</a></li>
+						<li><a href="#composition">Command Composition</a></li>
+						<li><a href="#dependency-injection">Dependency Injection</a></li>
+						<li><a href="#testing">Testing Strategies</a></li>
+						<li><a href="#publishing">Publishing</a></li>
+					</ul>
+				</section>
+
+				<section id="command-design">
+					<h2>Command Design</h2>
+
+					<aside class="notes">
+						Decide early, otherwise you are stuck with however it happened to work before you came up with a design
+					</aside>
+				</section>
+
+				<section id="grammar">
+					<h2>Pick a <span class="highlight">Grammar</span></h2>
+
+					<aside class="notes">
+						* grammar = nouns verbs flags and how you use them
+						* Follow what works in your native language
+						* Mostly be consistent
+						* Break consistenty in favor of domain at times
+					</aside>
+				</section>
+
+				<section id="precedent">
+					<h2>Understand <span class="highlight">precedent</span> in your ecosystem</h2>
+
+					<ul style="padding-top: 2em;">
+						<li>svcat follows kubectl</li>
+						<li>dvm followed nvm (for a while)</li>
+						<li>dep doesn't follow glide, npm, etc</li>
+					</ul>
+
+					<aside class="notes">
+						* muscle memory
+						* know when it's helpful, and when you need to move beyond it
+					</aside>
+				</section>
+
+				<section id="emote-cli">
+					<h2>Let's design a CLI!</h2>
+
+					<h1 class="highlight" style="padding-top:2em;">¯\_(ツ)_/¯</h1>
+				</section>
+
+				<section id="emote-shrug">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote shrug
+¯\_(ツ)_/¯ copied to the clipboard
+</code></pre>
+
+				</section>
+
+				<section id="emote-list">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote list
+NAME               VALUE
+shrug              ¯\_(ツ)_/¯
+tableflip          (╯°□°）╯︵ ┻━┻
+monocle            ಠ_ರೃ
+</code></pre>
+				</section>
+
+				<section id="emote-emoticons">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote add emoticon gopher --value ʕ •ᴥ•ʔ
+added custom emoticon "gopher"
+
+$ emote delete emoticon anxious
+deleted custom emoticon "anxious"
+</code></pre>
+				</section>
+				
+				<section id="emote-repos">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote add repo funk --url https://example.com/funk.json
+added 100 emoticons
+
+$ emote list repos
+NAME         URL                                    SIZE
+funk         https://example.com/funk.json          100 
+</code></pre>											
+				</section>
+
+				<section id="emote-json">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote list repos --output json
+[
+  {
+    "name":"funk",
+    "url":"https://example.com/funk.json",
+    "size":100
+  }
+]
+</code></pre>											
+									</section>
+				
+				<section id="domain-over-grammar">
+					<h2>Domain vs. Grammar</h2>
+
+					<p style="padding: 2em 0">Use your <span class="highlight">judgement</span> about the domain when breaking with the grammar</p>
+					
+				
+					<ul>
+						<li>emote list</li>
+						<li>emote shrug</li>
+					</ul>
+
+					<aside class="notes">
+						the domain is emoticons, it may be okay to drop the noun and be inconsistent
+						the cli name itself _is_ a verb, so we cheat
+					</aside>
+				</section>
+
+				<section id="dont-litter">
+					<h2>Make <span class="highlight">tasks</span> easier,<br/> don't simply wrap an API</h2>
+
+					<aside class="notes">
+						* Sometimes you can fix things in the API directly, do it
+						* Somtimes, there is a flow and it makes sense to combine 2+ commands into a third
+					</aside>
+				</section>
+
+				<section id="frameworks">
+					<h2>Frameworks</h2>
+
+					<ul style="font-family: monospace; padding-top: 2em;">
+						<li>spf13/cobra - Commands and Flags</li>
+						<li>spf13/viper - Configuration Management</li>
+						<li>spf13/afero - File System Abstraction</li>
+					</ul>
+
+					<p style="padding-top: 2em;">Thank you, Steve Francia! 💖</p>
+
+					<aside class="notes">
+						Defacto in most cloudy CLIs such as docker, kuberentes
+						Not really made to work with each other 😀
+					</aside>
+				</section>
+
+				<section id="cobra">
+					<h2>Getting Started with Cobra</h2>
+
+<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
+package main
+
+import "github.com/spf13/cobra"
+
+func newRootCmd(args []string) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:          "helm",
+		Short:        "The Helm package manager for Kubernetes.",
+	}
+	out := cmd.OutOrStdout()
+	cmd.AddCommand(
+		newInstallCmd(nil, out), // helm install
+		newListCmd(nil, out), // helm list
+	)
+	return cmd
+}
+
+func main() {
+	cmd := newRootCmd(os.Args[1:])
+	if err := cmd.Execute(); err != nil {
+		os.Exit(1)
+	}
+}
+</code></pre>
+
+<p class="code-source">
+	From <a href="https://github.com/helm/helm/blob/9596dc768ad4b44aa3f6772a64912f8d04c4ea44/cmd/helm/helm.go#L79">helm</a>
+</p>
+					<aside class="notes">
+						exec a command / main
+						build a command
+						parse a flag
+
+						-- show a command from emote / porter?
+
+						what can go wrong? putting logic in here
+					</aside>
+				</section>
+
+				<section id="viper">
+					<h2>Read Config Files of Any Type with Viper</h2>
+
+<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
+type Manifest struct {
+	Name    string `mapstructure:"name"` // mapstructure handles yaml, toml, json, hcl, etc
+	Version string `mapstructure:"version"`
+}
+
+func Load(name, dir string) (*Manifest, error) {
+	v := viper.New()
+	if name == "" {
+		v.SetConfigName(duffle.DuffleFilename)
+	} else {
+		v.SetConfigFile(filepath.Join(dir, name))
+	}
+	v.AddConfigPath(dir)
+	err := v.ReadInConfig()
+	if err != nil {
+		return nil, fmt.Errorf("Error finding duffle config file: %s", err)
+	}
+
+	m := &Manifest{}
+	v.Unmarshal(m)
+	return m, nil
+}
+</code></pre>					
+
+<p class="code-source">
+	From <a href="https://github.com/deislabs/duffle/blob/master/pkg/duffle/manifest/load.go">duffle</a>
+</p>
+
+					<aside class="notes">
+						viper can end up infecting your code if you aren't careful
+					</aside>
+				</section>
+
+				<section id="afero">
+					<h2>Replace ioutil with Afero</h2>
+
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+ioutil.ReadFile("/tmp/gopherfarts.txt")
+
+// vs.
+
+var fs = afero.NewOsFs()
+fs.ReadFile("/tmp/gopherfarts.txt")
+</code></pre>	
+
+					<aside class="notes">
+						read a file from the file system using afero 
+						tests later
+						what can go wrong? 🤔
+					</aside>
+				</section>
+
+				<section id="package-structure">
+					<h2>Package Structure</h2>
+
+					<ul style="padding-top: 2em;">
+						<li>cmd/* is the wiring</li>
+						<li>pkg/* is the SDK</li>
+					</ul>
+					<aside class="notes">
+						* anything in main, can't be reused by others
+						* anything hidden in those cobra functions can't be reused by others, or easily tested!
+						* Don't make people take dependencies on frameworks just to get at SDK type stuff
+						* Generate a SDK as a side-effect
+						* I don't care about pkg or whatever, just don't put those in the same package
+					</aside>
+				</section>
+
+				<section id="cmd">
+					<h2>cmd/* package</h2>
+
+					<ul>
+						<li>Isolates dependencies on cli frameworks</li>
+						<li>Anything in here can't be reused because it's a main package</li>
+						<li>This stuff is harder to test properly because it's wiring code</li>
+					</ul>
+
+					<p style="padding-top:2em" class="highlight">Keep this as small as possible</p>
+					
+				</section>
+
+				<section id="pkg">
+					<h2>pkg/* package</h2>
+
+					<ul>
+						<li>Make functions that are 1:1 the commands in your CLI</li>
+						<li>Create happy little packages for everything</li>
+						<li>Hide your band-aides and API wrappers in here</li>
+					</ul>
+
+					<p style="padding-top:2em" class="highlight">Forget this is a CLI and follow your dreams 🌈</p>
+					
+				</section>
+
+				<section id="code-gen">
+					<h2 class="highlight">code generation isn't enough</h2>
+				</section>
+
+				<section id="package-structure-dep">
+					<h2>🚨 Logic in Main Package</h2>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package main
+
+func (cmd *ensureCommand) Run(ctx *dep.Ctx, args []string) error {
+	if cmd.examples {
+		ctx.Err.Println(strings.TrimSpace(ensureExamples))
+		return nil
+	}
+
+	if err := cmd.validateFlags(); err != nil {
+		return err
+	}
+
+	p, err := ctx.LoadProject()
+	if err != nil {
+		return err
+	}
+
+	sm, err := ctx.SourceManager()
+	if err != nil {
+		return err
+	}
+	sm.UseDefaultSignalHandling()
+...
+</code></pre>
+					<p class="code-source">From <a href="https://github.com/golang/dep/blob/master/cmd/dep/ensure.go">dep ensure</a></p>
+
+					<aside class="notes">
+						* people tried
+						* there were abstractions to not rely on cobra
+					</aside>
+				</section>
+				
+				<section id="package-structure-porter">
+					<h2>👍 Wiring in Main Package</h2>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package main
+
+import (
+	"github.com/deislabs/porter/pkg/porter"
+	"github.com/deislabs/porter/pkg/printer"
+	"github.com/spf13/cobra"
+)
+
+cmd := &cobra.Command{
+	Use:   "mixins",
+	Short: "List installed mixins",
+	PreRunE: func(cmd *cobra.Command, args []string) error {
+		var err error
+		opts.format, err = printer.ParseFormat(opts.rawFormat)
+		return err
+	},
+	RunE: func(cmd *cobra.Command, args []string) error {
+		o := printer.PrintOptions{ Format: opts.format }
+		return p.PrintMixins(o)
+	},
+}
+</code></pre>
+					<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins.go">porter list mixins</a></p>
+
+					<aside class="notes">
+						* wire up exported functions from other packages to cobra
+					</aside>
+				</section>
+				<section id="composition">
+					<h2>Command Composition</h2>
+
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section id="dependency-injection">
+					<h2>Dependency Injection</h2>
+
+					<aside class="notes">
+						Make it easy to pass around a set of different implementations for testing
+					</aside>
+				</section>
+
+				<section id="context-porter">
+					<h2>Porter's Context</h2>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package context
+
+// Context holds references to external systems that need to be captured or modified in tests
+type Context struct {
+	Debug      bool
+	FileSystem *afero.Afero
+	In         io.Reader
+	Out        io.Writer
+	Err        io.Writer
+	NewCommand CommandBuilder // Abstraction for executing binaries
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/context.go">Pdorter</a></p>
+
+<p class="comment">Yes, context is a horrible name. Call it whateve you like. 😅</p>
+				</section>
+
+				<section id="composing-porter">
+					<h2>Composing Porter's SDK</h2>
+
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package config
+
+// Config holds flags, env vars and config files contents
+type Config struct {
+	*context.Context
+	Manifest *Manifest
+}
+
+---
+
+package porter
+
+// Porter is the logic behind the porter client.
+type Porter struct {
+	*config.Config
+}
+
+--- 
+
+// Now let's use our CLI's SDK
+p := porter.NewPorter()
+p.Manifest.Load() // Manifest cames from Config
+fmt.Fprintf(p.Out, "\nWriting Dockerfile =======>\n") // Out comes from Context
+err = p.FileSystem.WriteFile("Dockerfile", contents, 0644) // FileSystem comes from Context
+</code></pre>
+				</section>
+
+				<section id="using-porter-sdk">
+					<h2>Using Porter's SDK</h2>
+
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+p := porter.NewPorter()
+
+// Manifest cames from Config
+p.Manifest.Load() 
+
+// Out comes from Context
+fmt.Fprintf(p.Out, "\nWriting Dockerfile =======>\n") 
+
+// FileSystem comes from Context
+err = p.FileSystem.WriteFile("Dockerfile", contents, 0644) 
+</code></pre>
+
+				</section>
+
+				<section id="testing">
+					<h2>Testing Strategies</h2>
+
+					<aside class="notes">
+						Payoff for spending this much engineering and thought on the CLI
+						Safety net for new people contributing to your CLI
+					</aside>
+				</section>
+
+				<section id="test-goals">
+					<h2>Test Goals</h2>
+	
+					<ul>
+						<li>Avoid retesting the SDK from the CLI's tests</li>
+						<li>Prevent fragile tests that are hard to maintain</li>
+						<li>Exercise the CLI validation, output and formatting</li>
+						<li>Safety net for new contributors</li>
+						<li>Remove excuses for people who refuse to do "frontend stuff" 😇</li>
+					</ul>
+					
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section id="flag-validation">
+					<h2>Porter Flag Validation</h2>
+					<p class="code-title">cmd/porter/mixins.go</p>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+package main
+
+func buildListMixinsCommand(p *porter.Porter) *cobra.Command {
+	opts := struct {
+		rawFormat string
+		format    printer.Format
+	}{}
+	cmd := &cobra.Command{
+		Use:   "mixins",
+		Short: "List installed mixins",
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			var err error
+			opts.format, err = printer.ParseFormat(opts.rawFormat)
+			return err
+		},
+		RunE: func(cmd *cobra.Command, args []string) error {
+			return p.PrintMixins(printer.PrintOptions{Format: opts.format})
+		},
+	}
+
+	cmd.Flags().StringVarP(&opts.rawFormat, "output", "o", "table", 
+				"Output format, allowed values are: table, json")
+	return cmd
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins.go">Porter</a></p>
+
+				</section>
+
+				<section id="flag-validation-test">
+					<h2>Porter Flag Validation Test</h2>
+					<p class="code-title">cmd/porter/mixins_test.go</p>
+<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
+func TestBuildListMixinsCommand_BadFormat(t *testing.T) {
+	p := porter.NewTestPorter(t)
+	cmd := buildListMixinsCommand(p.Porter)
+	cmd.ParseFlags([]string{"--output", "flarts"})
+
+	err := cmd.PreRunE(cmd, []string{})
+
+	require.NotNil(t, err)
+	require.Contains(t, err.Error(), "invalid format: flarts")
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins_test.go">Porter</a></p>
+
+				</section>
+
+				<section id="test-context">
+					<h2>Test Context</h2>
+<p class="code-title">pkg/context/helpers.go</p>
+<pre><code class="big go" data-trim data-noescape>
+type TestContext struct {
+	*Context
+
+	input  *bytes.Buffer
+	output *bytes.Buffer
+	T      *testing.T
+}
+
+// NewTestContext initializes a configuration suitable for testing, 
+// with the output buffered, and an in-memory file system.
+func NewTestContext(t *testing.T) *TestContext {
+	...
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/helpers.go">Porter</a></p>
+
+				</section>
+
+				<section id="test-sdk">
+					<h2>Test SDK</h2>
+<p class="code-title">pkg/porter/helpers.go</p>
+<pre><code class="big go" data-trim data-noescape>
+type TestPorter struct {
+	*Porter
+	TestConfig *config.TestConfig
+}
+
+// NewTestPorter initializes a porter test client, 
+// with the output buffered, and an in-memory file system.
+func NewTestPorter(t *testing.T) *TestPorter {
+	...
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/helpers.go">Porter</a></p>
+
+				</section>
+
+				<section id="capture-output">
+					<h2>Capturing Output in Tests</h2>
+<p class="code-title">pkg/porter/version_test.go</p>
+<pre><code class="big go" data-trim data-noescape>
+func TestPrintVersion(t *testing.T) {
+	pkg.Commit = "abc123"
+	pkg.Version = "v1.2.3"
+	p := NewTestPorter(t)
+
+	p.PrintVersion()
+
+	// Use our test structs to grab the captured output
+	gotOutput := p.TestConfig.TestContext.GetOutput()
+
+	wantOutput := "porter v1.2.3 (abc123)"
+	if !strings.Contains(gotOutput, wantOutput) {
+		t.Fatalf("invalid output:\nWANT:\t%q\nGOT:\t%q\n", wantOutput, gotOutput)
+	}
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/version_test.go">porter version test</a></p>
+
+				</section>
+
+				<section id="test-filesystem">
+					<h2>Capturing Output in Tests</h2>
+					<p class="code-title">pkg/porter/version_test.go</p>
+<pre><code class="big go" data-trim data-noescape>
+func TestCreate(t *testing.T) {
+	p := NewTestPorter(t)
+	p.TestConfig.SetupPorterHome()
+
+	err := p.Create()
+	require.NoError(t, err)
+
+	// Tests execute against in-memory afero file system
+	configFileExists, err := p.FileSystem.Exists(config.Name)
+	require.NoError(t, err)
+	assert.True(t, configFileExists)
+}
+</code></pre>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/create_test.go">porter create test</a></p>
+
+			</section>
+				<section id="publishing">
+					<h2>Publishing</h2>
+
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section id="references">
+					<h2>References</h2>
+
+					<ul>
+						<li><a href="https://github.com/carolynvs/cli-tutorial">Tutorial Repository</a></li>
+						<li><a href="https://github.com/spf13/cobra">CLI: spf13/cobra</a></li>
+						<li><a href="https://github.com/spf13/viper">Config: spf13/viper</a></li>
+						<li><a href="https://github.com/spf13/afero">File System: spf13/afero</a></li>
+					</ul>
+				</section>
+
+				
+				<section id="takeout">
+					<h2>Thank you</h2>
+
+					<p><img src="../../../images/mlp-salute.png"/></p>
+					<p><a href="http://twitter.com/carolynvs" target="_blank">@carolynvs</a></p>
+
+					<p class="comment">
+						Gopher artwork by Ashley McNamara <br/>
+						licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License
+					</p>
+				</section>
+
+				
+			</div>
+			<slide-footer>
+				<a href="http://carolynvs.com/cli">carolynvs.com/cli</a>
+			</slide-footer>
+		</div>
+
+		<script src="../../revealjs/lib/js/head.min.js"></script>
+		<script src="../../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				// use 16:9 aspect ratio
+				width: 1600,
+				height: 900,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				keyboard: {
+					190: null // Disable blank screen hell
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+					{ src: '../../revealjs/plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
