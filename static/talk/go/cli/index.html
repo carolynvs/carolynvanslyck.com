@@ -64,7 +64,7 @@
 
 				<section id="intention">
 					<h2>Often CLIs aren't <span class="highlight">designed</span>,<br/>
-						 functionality is added through happenstance</h2>
+						 functionality is added haphazardly</h2>
 				</section>
 
 				<section id="goals">
@@ -72,9 +72,8 @@
 
 					<ul>
 						<li>Predictable</li>
-						<li>Task oriented commands</li>
+						<li>Task oriented</li>
 						<li>Friendly to both humans and scripts</li>
-						<li>Creates an SDK as a side-effect</li>
 						<li>New contributor launchpad</li>
 					</ul>
 
@@ -168,24 +167,6 @@
 					<h1 class="highlight" style="padding-top:2em;">¯\_(ツ)_/¯</h1>
 				</section>
 
-				<section id="emote-shrug">
-<pre><code class="huge plain" data-trim data-noescape>
-$ emote shrug
-¯\_(ツ)_/¯ copied to the clipboard
-</code></pre>
-
-				</section>
-
-				<section id="emote-list">
-<pre><code class="huge plain" data-trim data-noescape>
-$ emote list
-NAME               VALUE
-shrug              ¯\_(ツ)_/¯
-tableflip          (╯°□°）╯︵ ┻━┻
-monocle            ಠ_ರೃ
-</code></pre>
-				</section>
-
 				<section id="emote-emoticons">
 <pre><code class="huge plain" data-trim data-noescape>
 $ emote add emoticon gopher --value ʕ •ᴥ•ʔ
@@ -218,8 +199,26 @@ $ emote list repos --output json
   }
 ]
 </code></pre>											
-									</section>
-				
+				</section>
+					
+				<section id="emote-list">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote list
+NAME               VALUE
+shrug              ¯\_(ツ)_/¯
+tableflip          (╯°□°）╯︵ ┻━┻
+monocle            ಠ_ರೃ
+</code></pre>		
+				</section>
+
+				<section id="emote-shrug">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote shrug
+¯\_(ツ)_/¯ copied to the clipboard
+</code></pre>
+					
+				</section>
+
 				<section id="domain-over-grammar">
 					<h2>Domain vs. Grammar</h2>
 
@@ -247,7 +246,7 @@ $ emote list repos --output json
 				</section>
 
 				<section id="code-gen">
-					<h2 class="highlight">code generation isn't enough</h2>
+					<h2>code generation isn't enough</h2>	
 				</section>
 
 				<section id="frameworks">
@@ -387,8 +386,8 @@ fs.ReadFile("/tmp/gopherfarts.txt")
 
 					<ul>
 						<li>Isolates dependencies on cli frameworks</li>
-						<li>Anything in here can't be reused because it's a main package</li>
-						<li>This stuff is harder to test properly because it's wiring code</li>
+						<li>Anything in here can't be exported</li>
+						<li>This stuff is hard to test properly</li>
 					</ul>
 
 					<p style="padding-top:2em" class="highlight">Keep this as small as possible</p>
@@ -408,7 +407,7 @@ fs.ReadFile("/tmp/gopherfarts.txt")
 					
 				</section>
 
-				<section id="package-structure-dep">
+				<!--<section id="package-structure-dep">
 					<h2>🚨 Logic in Main Package</h2>
 <pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
 package main
@@ -441,10 +440,10 @@ func (cmd *ensureCommand) Run(ctx *dep.Ctx, args []string) error {
 						* people tried
 						* there were abstractions to not rely on cobra
 					</aside>
-				</section>
+				</section>-->
 				
 				<section id="package-structure-porter">
-					<h2>👍 Wiring in Main Package</h2>
+					<h2>Wiring in Main Package</h2>
 <pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
 package main
 
@@ -498,9 +497,9 @@ type Context struct {
 	NewCommand CommandBuilder // Abstraction for executing binaries
 }
 </code></pre>
-<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/context.go">Pdorter</a></p>
+<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/context.go">Porter</a></p>
 
-<p class="comment">Yes, context is a horrible name. Call it whateve you like. 😅</p>
+<p><span class="comment">Yes, context is a horrible name. Call it whatever you like.</span> 😅</p>
 				</section>
 
 				<section id="composing-porter">
@@ -557,9 +556,8 @@ err = p.FileSystem.WriteFile("Dockerfile", contents, 0644)
 					<h2>Test Goals</h2>
 	
 					<ul>
-						<li>Avoid retesting the SDK from the CLI's tests</li>
-						<li>Prevent fragile tests that are hard to maintain</li>
 						<li>Exercise the CLI validation, output and formatting</li>
+						<li>Avoid retesting the SDK from the CLI's tests</li>
 						<li>Safety net for new contributors</li>
 						<li>Remove excuses for people who refuse to do "frontend stuff" 😇</li>
 					</ul>
@@ -697,6 +695,10 @@ func TestCreate(t *testing.T) {
 </code></pre>
 <p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/create_test.go">porter create test</a></p>
 
+			</section>
+
+			<section id="takeout">
+				<h2>It's a bit anticlimatic really</h2>
 			</section>
 
 			<section id="takeout">
