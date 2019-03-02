@@ -4,6 +4,7 @@ date: "2019-03-02"
 title: Publish Helm Charts to Azure Storage
 slug: publish-helm-charts-to-azure
 description: Publish Helm charts to Azure Storage during your CI build
+image: images/azure-gophers.png
 ---
 
 I'd like to share my magic script, passed down from repo to repo, for publishing
