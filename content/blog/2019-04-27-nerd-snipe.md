@@ -1,7 +1,7 @@
 ---
 comments: false
 date: "2019-04-27"
-title: "Nerd Sniped: Porter"
+title: "Nerd Sniped - Porter"
 slug: nerd-snipe
 description: "How I was nerd sniped into starting a new project: Porter"
 image: images/swiper.jpg
