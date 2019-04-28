@@ -3,7 +3,7 @@ comments: false
 date: "2019-04-27"
 title: "Nerd Sniped: What I'm working on now"
 slug: nerd-snipe
-description: "The story of I was nerd sniped into working on a new project: Porter"
+description: "How I was nerd sniped into starting a new project: Porter"
 image: images/swiper.jpg
 ---
 
