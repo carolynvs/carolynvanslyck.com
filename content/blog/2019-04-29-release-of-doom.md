@@ -16,7 +16,7 @@ image: images/porter-logo.png
 > [CNAB][cnab] Specification.
 > [Start from the beginning]({{< ref "2019-04-27-nerd-snipe.md" >}})
 
-I just finished the reßlease notes for [Porter v0.5][release] and holy smokes,
+I just finished the release notes for [Porter v0.5][release] and holy smokes,
 this is a MEGA RELEASE OF DOOM! 💥
 
 The official release name is **v0.5.0-ralpha.1+elderflowerspritz** and as part
@@ -110,11 +110,56 @@ porter mixin install terraform --feed-url https://cdn.deislabs.io/porter/atom.xm
 
 ## Reorganized Commands and Help Text
 
+The porter commands have been grouped by resource, such as bundles or mixins,
+so that it's easier to discover and explore the available commands in porter.
+As the number of commands increase in porter, this new help text template should
+make it easier to navigate porter's commands.
+
+```
+$ porter --help
+I am porter 👩🏽‍✈️, the friendly neighborhood CNAB authoring tool
+
+Usage:
+  porter [command]
+
+Examples:
+  porter create
+  porter build
+  porter install
+  porter uninstall
+
+Resources:
+  bundles     Bundle commands
+  mixins      Mixin commands
+
+Aliased Commands:
+  build       Build a bundle
+  create      Create a bundle
+  install     Install a bundle
+  uninstall   Uninstall a bundle
+
+Meta Commands:
+  schema      Print the JSON schema for the Porter manifest
+  version     Print the application version
+```
+
 ## Mask Sensitive Values
 
-## Smart --debug Flag
+Sensitive values are masked with *** in the logs. 😎
 
-## Improved Install Script
+All credentials and outputs are treated as sensitive by default. Parameters
+can be as well by adding `sensitive: true`.
+
+## Smart debugging
+
+When you pass in `--debug` to porter, the flag is passed across contexts,
+such as into the bundle runtime during an install, so that you can see debug
+info EVERYWHERE.
+
+---
+
+Phew, so yeah like I said, MEGA RELEASE OF DOOM! 💥 It was well over 100 commits
+between v0.4 to v0.5 and I hope we all learned a very valuable lesson here. 😅
 
 [release]: https://github.com/deislabs/porter/releases/tag/v0.5.0-ralpha.1%2Belderflowerspritz
 [porter]: https://porter.sh
