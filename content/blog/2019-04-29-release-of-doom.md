@@ -99,7 +99,7 @@ ZOMG! Our first mixin contributed from the community! A huge thank you to [Josh
 Dolitsky](https://twitter.com/jdolitsky) for making this happen, and to Vaughn
 for adding the finishing touches to get it release ready.
 
-We have two real world [examples][terraform-examples demonstrating how to use
+We have two real world [examples][terraform-examples] demonstrating how to use
 the mixin with AKS and KeyVault.
 
 You can install the mixin with the following command:
