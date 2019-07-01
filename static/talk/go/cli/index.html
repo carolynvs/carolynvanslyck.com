@@ -166,6 +166,10 @@
 					<h1 class="highlight" style="padding-top:2em;">¯\_(ツ)_/¯</h1>
 				</section>
 
+				<section id="sentences">
+					<h2>Commands that read like <span class="highlight">sentences</span> are easier to remember</h2>
+				</section>
+
 				<section id="emote-emoticons">
 <pre><code class="huge plain" data-trim data-noescape>
 $ emote add emoticon gopher --value ʕ •ᴥ•ʔ
@@ -176,17 +180,39 @@ deleted custom emoticon "anxious"
 </code></pre>
 				</section>
 				
+				<section id="pos-arg-war">
+					<h2>Avoid positional arguments where the order matters</h2>
+				</section>
+
 				<section id="emote-repos">
 <pre><code class="huge plain" data-trim data-noescape>
 $ emote add repo funk --url https://example.com/funk.json
 added 100 emoticons
 
-$ emote list repos
-NAME         URL                                    SIZE
-funk         https://example.com/funk.json          100 
+$ emote add repo --help 
+
+TODO: insert what the help looks like for the flag vs the positional arg,
+highlight that you can provide structured help for the flags better with cobra
 </code></pre>											
 				</section>
 
+				<section id="mult-pos-args">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote repo delete funk moar-funk
+deleted funk and moar-funk
+</code></pre>
+				</section>
+
+				<section id="outputs">
+					<h2>Support <span class="highlight">automation</span> on your commands</h2>
+					
+					<aside class="notes">
+						* Think about what's easiest for people and machines.
+						* People care about seeing different data than when they are automating.
+						* People first.
+					</aside>
+				</section>
+				
 				<section id="emote-json">
 <pre><code class="huge plain" data-trim data-noescape>
 $ emote list repos --output json
@@ -194,13 +220,42 @@ $ emote list repos --output json
   {
     "name":"funk",
     "url":"https://example.com/funk.json",
-    "size":100
+	"size":100,
+	"created":"2019-07-15T14:32:22Z"
   }
 ]
 </code></pre>											
 				</section>
 					
-				<section id="emote-list">
+				<section id="human-first">
+					<h2>Default to <span class="highlight">human first</span> output</h2>
+
+					<aside class="notes">
+						* humanized dates
+						* maybe show a subset of data that they want to see (avoid overwhelming)
+						* yaml is not a human output
+						* think about the task that they are accomplishing
+					</aside>
+				</section>
+
+				<section id="emote-list-repos">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote list repos
+NAME         CREATED           SIZE
+funk         10 days ago       10
+</code></pre>											
+				</section>
+
+				<section id="implicit-resource">
+					<h2>Sometimes the <span class="highlight">resource is implicit</span> in the domain</h2>
+
+					<aside class="notes">
+						The binary name itself may be the resource or imply it
+						emote -> emoticon
+					</aside>
+				</section>
+
+<section id="emote-list">
 <pre><code class="huge plain" data-trim data-noescape>
 $ emote list
 NAME               VALUE
@@ -208,14 +263,53 @@ shrug              ¯\_(ツ)_/¯
 tableflip          (╯°□°）╯︵ ┻━┻
 monocle            ಠ_ರೃ
 </code></pre>		
+</section>
+
+				<section id="alias">
+					<h2>Aliases can provide balance between bevity and discoverability</h2>
+				</section>
+
+				<section id="emote-list2">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote emoticon list
+NAME               VALUE
+shrug              ¯\_(ツ)_/¯
+tableflip          (╯°□°）╯︵ ┻━┻
+monocle            ಠ_ರೃ
+</code></pre>		
+				</section>
+
+				<section id="alias-helptext">
+<pre><code class="huge plain" data-trim data-noescape>
+$ emote --help
+emote helps you react in realtime
+
+Resources:
+  emoticons
+  repos
+
+Aliased Commands:
+  list		List emoticons
+</code></pre>	
+				</section>
+
+				<section id="shrug">
+					<h2><span class="highlight">Task-oriented</span> commands are the most helpful</h2>
 				</section>
 
 				<section id="emote-shrug">
 <pre><code class="huge plain" data-trim data-noescape>
 $ emote shrug
 ¯\_(ツ)_/¯ copied to the clipboard
+
+$ emote shrug --dest slack
+Your slack status is now ¯\_(ツ)_/¯
 </code></pre>
 					
+					<aside class="notes">
+						This is why the tool is useful.
+						This is why anyone is using it.
+					</aside>
 				</section>
 
 				<section id="domain-over-grammar">
@@ -223,13 +317,8 @@ $ emote shrug
 
 					<p style="padding: 2em 0">Use your <span class="highlight">judgement</span> about the domain when breaking with the grammar</p>
 					
-				
-					<ul>
-						<li>emote list</li>
-						<li>emote shrug</li>
-					</ul>
-
 					<aside class="notes">
+						example: emote list or shrug
 						the domain is emoticons, it may be okay to drop the noun and be inconsistent
 						the cli name itself _is_ a verb, so we cheat
 					</aside>
@@ -239,13 +328,22 @@ $ emote shrug
 					<h2>Make <span class="highlight">tasks</span> easier,<br/> don't simply wrap an API</h2>
 
 					<aside class="notes">
-						* Sometimes you can fix things in the API directly, do it
-						* Somtimes, there is a flow and it makes sense to combine 2+ commands into a third
+						* If you can fix things in the API directly, do it
+						* Sometimes, there is a flow and it makes sense to combine 2+ commands into a third
+						* travis command to encrypt a secret, they don't make you work with openssl, it's baked into the command.
 					</aside>
 				</section>
 
 				<section id="code-gen">
-					<h2>code generation isn't enough</h2>	
+					<h2>code generation isn't enough</h2>
+
+					<aside class="notes">
+						Title: CLIs people -LOVE-
+						People may use it, but it's only as good as the API being wrapped
+						Missing task oriented commands, the most useful
+						Everyone is reinventing the wheel for common tasks
+						It is lazy and it shows when it is your API
+					</aside>
 				</section>
 
 				<section id="frameworks">
