@@ -359,11 +359,23 @@ Your slack status is now ¯\_(ツ)_/¯
 
 					<aside class="notes">
 						Defacto in most cloudy CLIs such as docker, kuberentes
-						Not really made to work with each other 😀
+						Not designed to work with each other 😀
 					</aside>
 				</section>
 
 				<section id="cobra">
+					<h2>Why use spf13/cobra</h2>
+
+					<ul>
+						<li>CLI Framework / Main Entrypoint</li>
+						<li>Command Routing</li>
+						<li>Error Handling</li>
+						<li>Help Text</li>
+						<li>Flag Parsing and Validation</li>
+					</ul>
+				</section>
+
+				<section id="cobra-init">
 					<h2>Getting Started with Cobra</h2>
 
 <pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
@@ -407,6 +419,17 @@ func main() {
 				</section>
 
 				<section id="viper">
+					<h2>Why use spf13/viper</h2>
+
+					<ul>
+						<li>Single combined configuration from multiple sources</li>
+						<li>Reads from flags, config files, remote key/value stores, environment variables</li>
+						<li>Smart defaulting: can tell if it was defaulted or set by the user</li>
+						<li>Supports config files of multiple formats: json, yaml, toml, and more</li>
+					</ul>
+				</section>
+
+				<section id="viper-init">
 					<h2>Read Config Files of Any Type with Viper</h2>
 
 <pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
@@ -444,6 +467,15 @@ func Load(name, dir string) (*Manifest, error) {
 				</section>
 
 				<section id="afero">
+					<h2>Why use spf13/afero</h2>
+
+					<ul>
+						<li>Lightweight filesystem abstraction</li>
+						<li>Faster, more simple unit tests</li>
+					</ul>
+				</section>
+
+				<section id="afero-usage">
 					<h2>Replace ioutil with Afero</h2>
 
 <pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
