@@ -74,11 +74,11 @@
 				<section id="goals">
 					<h2>Design Goals</h2>
 
-					<ul>
-						<li>Predictable</li>
-						<li>Task oriented</li>
-						<li>Friendly to both humans and scripts</li>
-						<li>Engineered</li>
+					<ul style="margin-top: 2em; line-height: 2em;">
+						<li class="fragment">Predictable</li>
+						<li class="fragment">Task oriented</li>
+						<li class="fragment">Friendly to both people and scripts</li>
+						<li class="fragment">High Quality</li>
 					</ul>
 
 					<aside class="notes">
@@ -115,6 +115,11 @@
 
 				<section id="porter">
 					<img src="images/porter.png" height="200px"/>
+
+					<aside class="notes">
+						Had an opportunity to design take what I had learned and design from the ground up
+						This talk is based on the Porter's design
+					</aside>
 				</section>
 
 				<section id="command-design">
@@ -144,11 +149,11 @@
 				<section id="precedent">
 					<h2>Understand <span class="highlight">precedent</span> in your ecosystem</h2>
 
-					<ul style="padding-top: 2em;">
-						<li>svcat follows kubectl</li>
-						<li>dvm followed nvm (for a while)</li>
-						<li>dep explicitly doesn't follow glide or npm</li>
-						<li>porter is setting precedent</li>
+					<ul style="padding-top: 2em; line-height: 2em;">
+						<li class="fragment">service catalog followed kubectl</li>
+						<li class="fragment">docker version manager followed node version manager</li>
+						<li class="fragment">dep didn't follow glide</li>
+						<li class="fragment">porter is setting precedent</li>
 					</ul>
 
 					<aside class="notes">
@@ -183,7 +188,15 @@ deleted custom emoticon "anxious"
 
 				<section id="emote-repos">
 <pre><code class="huge plain" data-trim data-noescape>
-$ emote add repo funk --url https://example.com/funk.json
+$ emote add repo funk https://x.com/funk.json 🤔
+</code></pre>
+
+<pre class="fragment"><code class="huge plain" data-trim data-noescape>
+$ emote add repo https://x.com/funk.json funk 😅
+</code></pre>
+
+<pre class="fragment"><code class="huge plain" data-trim data-noescape>
+$ emote add repo funk --url https://x.com/funk.json ✅
 </code></pre>
 
 				<aside class="notes">
@@ -239,11 +252,17 @@ $ emote list repos --output json
 				</section>
 
 				<section id="emote-list-repos">
-<pre><code class="huge plain" data-trim data-noescape>
+					<h2>I can't read ISO</h2>
+<pre class="fragment step-fade-in-then-out"><code class="huge plain" data-trim data-noescape>
 $ emote list repos
-NAME         CREATED           SIZE
-funk         10 days ago       10
-</code></pre>											
+NAME         CREATED                    SIZE
+funk         2019-07-15T14:32:22Z       10
+</code></pre>	
+<pre class="fragment step-fade-in-then-out"><code class="huge plain" data-trim data-noescape>
+$ emote list repos
+NAME         CREATED                    SIZE
+funk         10 days ago                10
+</code></pre>	
 				</section>
 
 				<section id="implicit-resource">
@@ -368,19 +387,32 @@ $ echo 'MY_SECRET_ENV=super_secret' \
 
 				</section>
 
+				<section id="pipes">
+					<h2>Piping is good for automation but people don't want to pipe</h2>
+
+					<aside class="notes">
+						Don't confuse the functionality that is there for scripting
+						with being sufficient for accomplishing tasks.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Give people a <span class="highlight">single command</span> to perform a task</h2>
+					<h2>and they will thank you</h2>
+
+				</section>
 				<section id="recap">
-					<h2>Pause and Reflect</h2>
+					<h2>Progress Towards Our Goal:</h2>
+					<h2>CLI People ❤️</h2>
 					
-					<ul style="list-style: none">
-						<li class="fragment">✅ Designed for Humans</li>
-						<li class="fragment">✅ Task Oriented</li>
+					<ul style="list-style: none; margin-top: 2em">
+						<li class="fragment">✅ Easy to learn and remember</li>
+						<li class="fragment">✅ Solves day-to-day tasks</li>
 						<li class="fragment">❓ High Quality</li>
 					</ul>
 
 					<aside class="notes">
-						Title: CLIs people -LOVE-
-						Easy to learn and remember
-						Solves their day-to-day tasks
+						Missing a key ingredient
 					</aside>
 				</section>
 
@@ -392,31 +424,23 @@ $ echo 'MY_SECRET_ENV=super_secret' \
 						Can't just be the burden of new/jr developers who graduate to backend
 						Must be maintained so ... you will need testable code
 						As high quality code as backend
-						Respected, equal to backend or it will be shortchanged
+						Respected, equal to backend or it will be shortchanged�
 					</aside>
 				</section>
 
-				<section id="frameworks">
-					<h2>Frameworks</h2>
+				<section id="play">
+					<h2>Let's build a CLI!</h2>
 
-					<ul style="font-family: monospace; padding-top: 2em;">
-						<li>spf13/cobra - Commands and Flags</li>
-						<li>spf13/viper - Configuration Management</li>
-						<li>spf13/afero - File System Abstraction</li>
-						<li>dustin/go-humanize - Natural Language Units</li>
-					</ul>
-
-					<p style="padding-top: 2em;">Thank you, Steve Francia! 💖</p>
-
-					<aside class="notes">
-						Defacto in most cloudy CLIs such as docker, kuberentes
-					</aside>
+<pre><code class="big go" data-trim data-noescape>
+$ emote shrug
+¯\_(ツ)_/¯
+</code></pre>
 				</section>
 
 				<section id="cobra">
-					<h2>Why use spf13/cobra</h2>
+					<h2>What is spf13/cobra</h2>
 
-					<ul>
+					<ul style="margin-top: 2em; line-height: 2em;">
 						<li>CLI Framework / Main Entrypoint</li>
 						<li>Command Routing</li>
 						<li>Error Handling</li>
@@ -425,66 +449,184 @@ $ echo 'MY_SECRET_ENV=super_secret' \
 					</ul>
 				</section>
 
-				<section id="cobra-usage">
-					<h2>Getting Started with Cobra</h2>
+				<section id="boilerplate">
+					<h2>Emote CLI Wiring</h2>
+<pre><code class="big go" data-trim data-noescape>
+package main
 
-<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
-func buildEmoteCommand() *cobra.Command {
+import (
+	"fmt"
+	"os"
 
-	emote := &cobra.Command{
-		Use:   "emote",
-	}
+	"github.com/atotto/clipboard"
+	"github.com/spf13/cobra"
+)
 
-	emote.AddCommands(buildShrugCommand())
-	
-	return emote
-}
-</code></pre>
-
-				</section>
-
-				<section id="cobra-usage-2">
-
-<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
-func buildShrugCommand() *cobra.Command {
-
-	shrug := &cobra.Command{
-		Use: "shrug",
-		
-		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println(`¯\_(ツ)_/¯`)
-		},
-	}
-
-	return emote
-}
-</code></pre>
-					<aside class="notes">
-						For the sake of short slides I'm putting logic in my cobra wiring
-						DO NOT DO THIS
-						I'll show later how to separate this better
-					</aside>
-				</section>
-
-				<section id="cobra-usage-3">
-
-<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
 func main() {
-
 	cmd := buildEmoteCommand()
-	
 	if err := cmd.Execute(); err != nil {
-		// cobra prints the error so you don't have to
 		os.Exit(1)
 	}
 }
+
+func buildEmoteCommand() *cobra.Command {
+	emote := &cobra.Command{
+		Use:   "emote",
+	}
+	emote.AddCommand(buildShrugCommand())
+	return emote
+}	
+</code></pre>
+
+				</section>
+
+				<section id="buildshrug1">
+					<h2>Shrug Wiring</h2>
+<pre><code class="big go" data-trim data-noescape>
+func buildShrugCommand() *cobra.Command {
+	var dest string
+
+	shrug := &cobra.Command{
+		Use: "shrug",
+		Run: func(cmd *cobra.Command, args []string) {
+			const emoticon = `¯\_(ツ)_/¯`
+			switch dest {
+			case "clipboard":
+				clipboard.WriteAll(emoticon)
+				fmt.Println(emoticon, "was copied to the clipboard")
+			default:
+				fmt.Println(emoticon)
+			}
+		},
+	}
+
+	shrug.Flags().StringVar(&dest, "dest", "clipboard", "Where to send your emoticon")
+
+	return shrug
+}	
+</code></pre>
+
+					<aside class="notes">
+						the logic is embedded in the cobra wiring
+						if we wanted to test shrug, we have to test around cobra
+						the default destination is hard coded
+						no way for someone to reuse our code, it's in main
+						no way to test our code, it writes directly to stdout
+					</aside>
+				</section>
+
+				<section id="pkg">
+					<h2>Pro Tip: Create an Application Package</h2>
+
+					<ul style="margin-top: 2em; line-height: 2em;">
+						<li>Make functions that correspond 1:1 to the commands in your CLI</li>
+						<li>Create happy little packages for everything</li>
+						<li>Forget this is a CLI and follow your dreams 🌈</li>
+					</ul>
+
+				</section>
+
+				<section id="extract-app">
+					<h2>Emoticons Application Package</h2>
+<pre><code class="big go" data-trim data-noescape>
+package emoticons
+
+import (
+	"fmt"
+	"github.com/atotto/clipboard"
+)
+
+type App struct {}
+
+func (a *App) Shrug(dest string) {
+	const emoticon = `¯\_(ツ)_/¯`
+
+	switch dest {
+
+	case "clipboard":
+		clipboard.WriteAll(emoticon)
+		fmt.Println(emoticon, "was copied to the clipboard")
+
+	default:
+		fmt.Println(emoticon)
+	}
+}
 </code></pre>
 				</section>
 
-				<section id="viper">
-					<h2>Why use spf13/viper</h2>
+				<section id="buildshrug2">
+					<h2>Shrug Wiring with Application</h2>
+<pre><code class="big go" data-trim data-noescape>
+shrug := &cobra.Command{
+	Use: "shrug",
+	Run: func(cmd *cobra.Command, args []string) {
 
-					<ul>
+		// Much Better! ��
+		app := emoticons.App{}
+		app.Shrug(dest)
+
+	},
+}
+</code></pre>
+		
+					<aside class="notes">
+						our cli uses the app struct
+						someone else could import and use our emote package
+						still has hard coded default for clipboard
+						shrug is hard coded too
+					</aside>
+				</section>
+
+				<section id="config">
+					<h2>Let's Add Configuration</h2>
+<pre><code class="big toml" data-trim data-noescape>
+dest = "slack"
+
+[emoticon]
+	shrug = '¯\_(ツ)_/¯'
+	tableflip = '(╯°□°）╯︵ ┻━┻'
+</code></pre>
+
+					<h2 class="fragment">But I like yaml better</h2>
+<pre class="fragment"><code class="big yaml" data-trim data-noescape>
+destination: "slack"
+
+emoticon:
+  shrug: '¯\_(ツ)_/¯'
+  tableflip: '(╯°□°）╯︵ ┻━┻'
+</code></pre>
+
+					<h2 class="fragment">Excuse me, I need json for reasons...</h2>
+<pre class="fragment"><code class="big yaml" data-trim data-noescape>
+{
+	"destination": "slack",
+	"emoticon": {
+		"shrug": "¯\_(ツ)_/¯",
+		"tableflip": "(╯°□°）╯︵ ┻━┻"
+	}
+}
+</code></pre>
+				</section>
+
+				<section id="why-not-both">
+	
+						<img src="images/mlp-why-not-both.png" alt="pony asking why not both?" width="500px" />
+	
+				</section>
+
+				<section id="agree-to-disagree">
+					<h2>Meet your users where they are</h2>
+
+					<aside class="notes">
+						You could pick a single config, OR ...
+						Let's use viper to support multiple config files and move on with our lives
+					</aside>
+				</section>
+
+				<section id="viper">
+					<h2>What is spf13/viper</h2>
+
+					<ul style="margin-top: 2em; line-height: 2em;">
 						<li>Single combined configuration from multiple sources</li>
 						<li>Reads from flags, config files, remote key/value stores, environment variables</li>
 						<li>Smart defaulting: can tell if it was defaulted or set by the user</li>
@@ -492,52 +634,171 @@ func main() {
 					</ul>
 				</section>
 
-				<section id="viper-init">
-					<h2>Read Config Files of Any Type with Viper</h2>
+				<section id="app-with-viper">
+					<h2>Application Package with Viper</h2>
+<pre><code class="big go" data-trim data-noescape>
+import "github.com/spf13/viper"
 
-<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
-type Manifest struct {
-	Name    string `mapstructure:"name"` // mapstructure handles yaml, toml, json, hcl, etc
-	Version string `mapstructure:"version"`
+type App struct {
+	viper *viper.Viper
 }
 
-func Load(name, dir string) (*Manifest, error) {
+func New() (*App, error) {
 	v := viper.New()
-	if name == "" {
-		v.SetConfigName(duffle.DuffleFilename)
-	} else {
-		v.SetConfigFile(filepath.Join(dir, name))
-	}
-	v.AddConfigPath(dir)
+	v.SetConfigName("emote")
+	v.AddConfigPath(".")
+
 	err := v.ReadInConfig()
 	if err != nil {
-		return nil, fmt.Errorf("Error finding duffle config file: %s", err)
+		return nil, err
 	}
-
-	m := &Manifest{}
-	v.Unmarshal(m)
-	return m, nil
+	return &App{viper: v}, nil
 }
-</code></pre>					
 
-<p class="code-source">
-	From <a href="https://github.com/deislabs/duffle/blob/master/pkg/duffle/manifest/load.go">duffle</a>
-</p>
+func (a *App) Emote(name string, dest string) {
+	emoticon := a.viper.GetString("emoticon." + name)
+
+	...
+}
+</code></pre>
 
 					<aside class="notes">
-						viper can end up infecting your code if you aren't careful
+						set the name of the config, minus the extension
+						tell viper where to look
+						can either marshall to a struct or use dot syntax
 					</aside>
 				</section>
 
-				<section id="afero">
-					<h2>Why use spf13/afero</h2>
+				<section id="boilerplate2">
+					<h2>Emote CLI Wiring with Dynamic Commands</h2>
+<pre><code class="big go" data-trim data-noescape>				
+func main() {
+	app, err := emoticons.New()
+	if err != nil {
+		log.Fatal(err)
+	}
+	cmd := buildEmoteCommand(app)
+	if err := cmd.Execute(); err != nil {
+		os.Exit(1)
+	}
+}
 
-					<ul>
-						<li>Lightweight filesystem abstraction</li>
-						<li>Faster, more simple unit tests</li>
-					</ul>
+func buildEmoteCommand(app *emote.App) *cobra.Command {
+	var dest string
+
+	emote := &cobra.Command{
+		Use:   "emote",
+		Run: func(cmd *cobra.Command, args []string) {
+			emoticonName := args[0]
+			app.Emote(emoticonName, dest)
+		},
+		Args: cobra.ExactArgs(1),
+	}
+
+	emote.Flags().StringVar(&dest, "dest", "clipboard", "Where to send your emoticon")
+
+	return emote
+}
+</code></pre>
 				</section>
 
+				<section id="extract-config-pkg">
+					<h2>Pro Tip: Keep Viper Isolated</h2>
+
+					<aside class="notes">
+						I recommend isolating where you use viper into a single location
+						Just like we isolated cobra to and then interacted with App
+					</aside>
+				</section>
+
+				<section id="sting-of-the-viper">
+					<h2>Config Package</h2>
+<pre><code class="big go" data-trim data-noescape>
+package config
+
+import (
+	"github.com/spf13/viper"
+)
+
+type Config struct {
+	Dest string
+	Emoticon map[string]string
+}
+
+func Load() (*Config, error) {
+	v := viper.New()
+	v.SetConfigName("emote")
+	v.AddConfigPath(".")
+
+	err := v.ReadInConfig()
+	if err != nil {
+		return nil, err
+	}
+
+	c := &Config{}
+	err = v.Unmarshal(c)
+	return c, err
+}
+</code></pre>
+					<aside class="notes">
+						Defaulting based on env vars would go here as well
+					</aside>
+				</section>
+
+				<section id="app-with-config-pkg">
+					<h2>Application with Viper Tucked Away</h2>
+<pre><code class="big go" data-trim data-noescape>
+type App struct {
+	Config *config.Config
+}
+
+func New() (*App, error) {
+	c, err := config.Load()
+	if err != nil {
+		return nil, err
+	}
+	return &App{Config: c}, nil
+}
+
+func (a *App) Emote(name string, dest string) {
+	// Yay! This feels more intuitive ��
+	emoticon := a.Config.Emoticon[name]
+</code></pre>
+				</section>
+
+				<section id="tests">
+					<h2>Testing Emote</h2>
+
+<pre><code class="big go" data-trim data-noescape>
+package emoticons
+
+import (
+	"bytes"
+	"testing"
+
+	"github.com/carolynvs/emote/config"
+	"github.com/stretchr/testify/assert"
+)
+
+func TestApp_Emote(t *testing.T) {
+	const shrugEmoticon = `¯\_(ツ)_/¯`
+
+	out := &bytes.Buffer{}
+	app := &App{
+		Out: out,
+		Config: &config.Config{
+			Emoticon: map[string]string{"shrug": shrugEmoticon},
+		},
+	}
+
+	app.Emote("shrug", "")
+
+	assert.Contains(t, out.String(), shrugEmoticon)
+}
+</code></pre>
+				</section>
+
+				<!--
 				<section id="afero-usage">
 					<h2>Replace ioutil with Afero</h2>
 
@@ -553,7 +814,7 @@ fs.ReadFile("/etc/gopherfarts/config")
 					<aside class="notes">
 						read a file from the file system using afero 
 						tests later
-						what can go wrong? 🤔
+						what can go wrong? ��
 					</aside>
 				</section>
 
@@ -566,307 +827,42 @@ fs.ReadFile("/etc/gopherfarts/config")
 						<li>Pluralize: 1 cat, 2 cats</li>
 					</ul>
 				</section>
-
-				<section id="package-structure">
-					<h2>Package Structure</h2>
-
-					<ul style="padding-top: 2em;">
-						<li>Keep cobra and viper usage in main package</li>
-						<li>Write a standalone app for your CLI in a separate package</li>
-					</ul>
-					<aside class="notes">
-						* anything in main, can't be reused by others
-						* anything hidden in those cobra functions can't be reused by others, or easily tested!
-						* Don't make people take dependencies on frameworks just to get at App type stuff
-						* Generate a App as a side-effect
-						* I don't care about pkg or whatever, just don't put those in the same package
-					</aside>
-				</section>
-
-				<section id="cmd">
-					<h2>main package</h2>
-
-					<ul>
-						<li>Isolates dependencies on cli frameworks</li>
-						<li>Anything in here can't be exported</li>
-						<li>This stuff is hard to test properly</li>
-					</ul>
-
-					<p style="padding-top:2em" class="highlight">Keep this as small as possible</p>
-					
-				</section>
-
-				<section id="pkg">
-					<h2>application package</h2>
-
-					<ul>
-						<li>Make functions that are 1:1 the commands in your CLI</li>
-						<li>Create happy little packages for everything</li>
-						<li>Hide your band-aides and API wrappers in here</li>
-					</ul>
-
-					<p style="padding-top:2em" class="highlight">Forget this is a CLI and follow your dreams 🌈</p>
-					
-				</section>
-
-				<section id="package-structure-porter">
-					<h2>Ideal Wiring in Main Package</h2>
-<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-func buildBundleInstallCommand(p *porter.Porter) *cobra.Command {
-
-	opts := porter.InstallOptions{}
-
-	cmd := &cobra.Command{
-		Use:   "install [NAME]",
-		Short: "Install a bundle",
-		
-		PreRunE: func(cmd *cobra.Command, args []string) error {
-			return opts.Validate(args, p.Context)
-		},
-		
-		RunE: func(cmd *cobra.Command, args []string) error {
-			return p.InstallBundle(opts)
-		},
-
-	return cmd
-}
-</code></pre>
-					<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/bundle.go">porter install</a></p>
-
-					<aside class="notes">
-						* wire up exported functions from other packages to cobra
-						* opts has unit tests to validate, makes it easier for people to code against the app
-						* no need to write unit tests against this simple wiring other than that the command is present
-					</aside>
-				</section>
-
-				<section id="application-context">
-					<h2>Application Context</h2>
-
-					<p>Pass in interfaces for input, output, filesystem so you can verify their contents in your tests</p>
-
-				</section>
-
-				<section id="context-porter">
-					<h2>Porter's Application Context</h2>
-<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-package portercontext
-
-// Context holds references to external systems that need to be captured or modified in tests
-type Context struct {
-	Debug      bool
-	FileSystem *afero.Afero
-	In         io.Reader
-	Out        io.Writer
-	Err        io.Writer
-	NewCommand CommandBuilder // Abstraction for executing binaries
-}
-</code></pre>
-<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/context.go">Porter</a></p>
-
-<p><span class="comment">Yes, context is a horrible name. Call it whatever you like.</span> 😅</p>
-				</section>
-
-				<section id="composing-porter">
-					<h2>Composing Porter's App</h2>
-
-<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-package porter
-
-// Porter is the logic behind the porter client.
-type Porter struct {
-	*portercontext.Context
-}
-</code></pre>
-				</section>
-
-				<section id="using-porter-app">
-					<h2>Using Porter's App</h2>
-
-<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-p := porter.NewPorter()
-
-// Out comes from Context
-fmt.Fprintf(p.Out, "Writing Dockerfile")
-
-// FileSystem comes from Context
-err = p.FileSystem.WriteFile("Dockerfile", contents, 0644)
-</code></pre>
-
-				</section>
-
-				<section id="testing">
-					<h2>Testing Strategies</h2>
-
-					<aside class="notes">
-						Payoff for spending this much engineering and thought on the CLI
-						Safety net for new people contributing to your CLI
-					</aside>
-				</section>
-
-				<section id="test-goals">
-					<h2>Test Goals</h2>
-	
-					<ul>
-						<li>Exercise the CLI validation, output and formatting</li>
-						<li>Avoid retesting the App from the CLI's tests</li>
-						<li>Safety net for new contributors</li>
-						<li>Remove excuses for people who refuse to do "frontend stuff" 😇</li>
-					</ul>
-					
-					<aside class="notes">
-						
-					</aside>
-				</section>
-
-				<section id="main-tests">
-					<h2>What to test in main?</h2>
-					
-					<ul>
-						<li>Are the commands defined in cobra?</li>
-						<li>Are the flags declared, both with long and short forms?</li>
-						<li>Do you have flag defaults set?</li>
-						<li>Is the PreRunE wired up to your option's validation function?</li>
-					</ul>
-					
-					<p align="center" class="highlight"><strong>Only test cobra/viper configuration</strong></p>
-				</section>
-
-				<section id="notmain-tests">
-					<h2>What NOT to test in main?</h2>
-					
-					<ul>
-						<li>Command logic</li>
-						<li>Output formatting</li>
-						<li>Command validation</li>
-					</ul>
-				</section>
-
-				<section id="flag-validation-test">
-					<h2>Porter Flag Validation Test</h2>
-					<p class="code-title">cmd/porter/mixins_test.go</p>
-<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-func TestBuildListMixinsCommand_BadFormat(t *testing.T) {
-	p := porter.NewTestPorter(t)
-	cmd := buildListMixinsCommand(p.Porter)
-	cmd.ParseFlags([]string{"--output", "flarts"})
-
-	err := cmd.PreRunE(cmd, []string{})
-
-	require.NotNil(t, err)
-	require.Contains(t, err.Error(), "invalid format: flarts")
-}
-</code></pre>
-<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins_test.go">Porter</a></p>
-
-				</section>
-
-				<section id="test-context">
-					<h2>Test Context</h2>
-<p class="code-title">pkg/context/helpers.go</p>
-<pre><code class="big go" data-trim data-noescape>
-type TestContext struct {
-	*Context
-
-	input  *bytes.Buffer
-	output *bytes.Buffer
-	T      *testing.T
-}
-
-// NewTestContext initializes a configuration suitable for testing, 
-// with the output buffered, and an in-memory file system.
-func NewTestContext(t *testing.T) *TestContext {
-	...
-}
-</code></pre>
-<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/context/helpers.go">Porter</a></p>
-
-				</section>
-
-				<section id="test-App">
-					<h2>Test App</h2>
-<p class="code-title">pkg/porter/helpers.go</p>
-<pre><code class="big go" data-trim data-noescape>
-type TestPorter struct {
-	*Porter
-	TestConfig *config.TestConfig
-}
-
-// NewTestPorter initializes a porter test client, 
-// with the output buffered, and an in-memory file system.
-func NewTestPorter(t *testing.T) *TestPorter {
-	...
-}
-</code></pre>
-<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/helpers.go">Porter</a></p>
-
-				</section>
-
-				<section id="capture-output">
-					<h2>Capturing Output in Tests</h2>
-<p class="code-title">pkg/porter/version_test.go</p>
-<pre><code class="big go" data-trim data-noescape>
-func TestPrintVersion(t *testing.T) {
-	pkg.Commit = "abc123"
-	pkg.Version = "v1.2.3"
-	p := NewTestPorter(t)
-
-	p.PrintVersion()
-
-	// Use our test structs to grab the captured output
-	gotOutput := p.TestConfig.TestContext.GetOutput()
-
-	wantOutput := "porter v1.2.3 (abc123)"
-	if !strings.Contains(gotOutput, wantOutput) {
-		t.Fatalf("invalid output:\nWANT:\t%q\nGOT:\t%q\n", wantOutput, gotOutput)
-	}
-}
-</code></pre>
-<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/version_test.go">porter version test</a></p>
-
-				</section>
-
-				<section id="test-filesystem">
-					<h2>Testing with an InMemory FileSystem</h2>
-					<p class="code-title">pkg/porter/create_test.go</p>
-<pre><code class="big go" data-trim data-noescape>
-func TestCreate(t *testing.T) {
-	p := NewTestPorter(t)
-	p.TestConfig.SetupPorterHome()
-
-	err := p.Create()
-	require.NoError(t, err)
-
-	// Tests execute against in-memory afero file system
-	configFileExists, err := p.FileSystem.Exists(config.Name)
-	require.NoError(t, err)
-	assert.True(t, configFileExists)
-}
-</code></pre>
-<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/pkg/porter/create_test.go">porter create test</a></p>
-
-			</section>
+-->
 
 			<section id="takeout">
-				<h2>It's a bit anticlimatic really</h2>
-			</section>
-
-			<section id="takeout">
-				<h2>Thank you</h2>
+				<h2>We did it!</h2>
 
 				<p><img src="../../../images/mlp-salute.png"/></p>
-				<p><a href="http://twitter.com/carolynvs" target="_blank">@carolynvs</a></p>
 
 				<p class="comment">
 					Gopher artwork by Ashley McNamara <br/>
 					licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License
 				</p>
+
+				<aside class="notes">
+						I hope this gives you inspiration to create or improve a command-line tool
+						Give you the mindset for coming up with your own improvements
+					</aside>
+			</section>
+
+			<section id="references">
+				<h2>References</h2>
+
+				<ul style="font-family: monospace">
+					<li>github.com/spf13/cobra - Commands and Flags</li>
+					<li>github.com/spf13/viper - Configuration Management</li>
+					<li>github.com/spf13/afero - File System Abstraction</li>
+					<li>github.com/dustin/go-humanize - Natural Language Units</li>
+				</ul>
+
+				<p style="padding-top: 2em;">Thank you, Steve Francia! �</p>>
 			</section>
 
 				
 			</div>
 			<slide-footer>
-				<a href="http://carolynvs.com/cli">carolynvs.com/cli</a>
+				<div id="slides"><a href="http://carolynvs.com/cli">carolynvs.com/cli</a></div>
+				<div id="twitter"><a href="http://twitter.com/carolynvs">@carolynvs</a></div>
 			</slide-footer>
 		</div>
 
