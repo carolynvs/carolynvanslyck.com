@@ -189,10 +189,7 @@ deleted custom emoticon "anxious"
 $ emote add repo funk --url https://example.com/funk.json
 added 100 emoticons
 
-$ emote add repo --help 
-
-TODO: insert what the help looks like for the flag vs the positional arg,
-highlight that you can provide structured help for the flags better with cobra
+$ emote add repo --help
 </code></pre>											
 				</section>
 
@@ -266,7 +263,7 @@ monocle            ಠ_ರೃ
 </section>
 
 				<section id="alias">
-					<h2>Aliases can provide balance between bevity and discoverability</h2>
+					<h2>Aliases can provide balance between brevity and discoverability</h2>
 				</section>
 
 				<section id="emote-list2">
@@ -375,47 +372,60 @@ Your slack status is now ¯\_(ツ)_/¯
 					</ul>
 				</section>
 
-				<section id="cobra-init">
+				<section id="cobra-usage">
 					<h2>Getting Started with Cobra</h2>
 
 <pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
-package main
+func buildEmoteCommand() *cobra.Command {
 
-import "github.com/spf13/cobra"
-
-func newRootCmd(args []string) *cobra.Command {
-	cmd := &cobra.Command{
-		Use:          "helm",
-		Short:        "The Helm package manager for Kubernetes.",
+	emote := &cobra.Command{
+		Use:   "emote",
 	}
-	out := cmd.OutOrStdout()
-	cmd.AddCommand(
-		newInstallCmd(nil, out), // helm install
-		newListCmd(nil, out), // helm list
-	)
-	return cmd
-}
 
+	emote.AddCommands(buildShrugCommand())
+	
+	return emote
+}
+</code></pre>
+
+				</section>
+
+				<section id="cobra-usage-2">
+
+<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
+func buildShrugCommand() *cobra.Command {
+
+	shrug := &cobra.Command{
+		Use: "shrug",
+		
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println(`¯\_(ツ)_/¯`)
+		},
+	}
+
+	return emote
+}
+</code></pre>
+					<aside class="notes">
+						For the sake of short slides I'm putting logic in my cobra wiring
+						DO NOT DO THIS
+						I'll show later how to separate this better
+					</aside>
+				</section>
+
+				<section id="cobra-usage-3">
+
+<pre style="padding-top:2em;"><code class="big go" data-trim data-noescape>
 func main() {
-	cmd := newRootCmd(os.Args[1:])
+
+	cmd := buildEmoteCommand()
+	
 	if err := cmd.Execute(); err != nil {
+		// cobra prints the error so you don't have to
 		os.Exit(1)
 	}
 }
 </code></pre>
-
-<p class="code-source">
-	From <a href="https://github.com/helm/helm/blob/9596dc768ad4b44aa3f6772a64912f8d04c4ea44/cmd/helm/helm.go#L79">helm</a>
-</p>
-					<aside class="notes">
-						exec a command / main
-						build a command
-						parse a flag
-
-						-- show a command from emote / porter?
-
-						what can go wrong? putting logic in here
-					</aside>
 				</section>
 
 				<section id="viper">
@@ -479,12 +489,12 @@ func Load(name, dir string) (*Manifest, error) {
 					<h2>Replace ioutil with Afero</h2>
 
 <pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-ioutil.ReadFile("/tmp/gopherfarts.txt")
+ioutil.ReadFile("/etc/gopherfarts/config")
 
 // vs.
 
 var fs = afero.NewOsFs()
-fs.ReadFile("/tmp/gopherfarts.txt")
+fs.ReadFile("/etc/gopherfarts/config")
 </code></pre>	
 
 					<aside class="notes">
@@ -498,20 +508,20 @@ fs.ReadFile("/tmp/gopherfarts.txt")
 					<h2>Package Structure</h2>
 
 					<ul style="padding-top: 2em;">
-						<li>cmd/* is the wiring</li>
-						<li>pkg/* is the SDK</li>
+						<li>Keep cobra and viper usage in main package</li>
+						<li>Write a standalone app for your CLI in a separate package</li>
 					</ul>
 					<aside class="notes">
 						* anything in main, can't be reused by others
 						* anything hidden in those cobra functions can't be reused by others, or easily tested!
-						* Don't make people take dependencies on frameworks just to get at SDK type stuff
-						* Generate a SDK as a side-effect
+						* Don't make people take dependencies on frameworks just to get at App type stuff
+						* Generate a App as a side-effect
 						* I don't care about pkg or whatever, just don't put those in the same package
 					</aside>
 				</section>
 
 				<section id="cmd">
-					<h2>cmd/* package</h2>
+					<h2>main package</h2>
 
 					<ul>
 						<li>Isolates dependencies on cli frameworks</li>
@@ -524,7 +534,7 @@ fs.ReadFile("/tmp/gopherfarts.txt")
 				</section>
 
 				<section id="pkg">
-					<h2>pkg/* package</h2>
+					<h2>application package</h2>
 
 					<ul>
 						<li>Make functions that are 1:1 the commands in your CLI</li>
@@ -536,85 +546,48 @@ fs.ReadFile("/tmp/gopherfarts.txt")
 					
 				</section>
 
-				<!--<section id="package-structure-dep">
-					<h2>🚨 Logic in Main Package</h2>
-<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-package main
-
-func (cmd *ensureCommand) Run(ctx *dep.Ctx, args []string) error {
-	if cmd.examples {
-		ctx.Err.Println(strings.TrimSpace(ensureExamples))
-		return nil
-	}
-
-	if err := cmd.validateFlags(); err != nil {
-		return err
-	}
-
-	p, err := ctx.LoadProject()
-	if err != nil {
-		return err
-	}
-
-	sm, err := ctx.SourceManager()
-	if err != nil {
-		return err
-	}
-	sm.UseDefaultSignalHandling()
-...
-</code></pre>
-					<p class="code-source">From <a href="https://github.com/golang/dep/blob/master/cmd/dep/ensure.go">dep ensure</a></p>
-
-					<aside class="notes">
-						* people tried
-						* there were abstractions to not rely on cobra
-					</aside>
-				</section>-->
-				
 				<section id="package-structure-porter">
-					<h2>Wiring in Main Package</h2>
+					<h2>Ideal Wiring in Main Package</h2>
 <pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-package main
+func buildBundleInstallCommand(p *porter.Porter) *cobra.Command {
 
-import (
-	"github.com/deislabs/porter/pkg/porter"
-	"github.com/deislabs/porter/pkg/printer"
-	"github.com/spf13/cobra"
-)
+	opts := porter.InstallOptions{}
 
-cmd := &cobra.Command{
-	Use:   "mixins",
-	Short: "List installed mixins",
-	PreRunE: func(cmd *cobra.Command, args []string) error {
-		var err error
-		opts.format, err = printer.ParseFormat(opts.rawFormat)
-		return err
-	},
-	RunE: func(cmd *cobra.Command, args []string) error {
-		o := printer.PrintOptions{ Format: opts.format }
-		return p.PrintMixins(o)
-	},
+	cmd := &cobra.Command{
+		Use:   "install [NAME]",
+		Short: "Install a bundle",
+		
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			return opts.Validate(args, p.Context)
+		},
+		
+		RunE: func(cmd *cobra.Command, args []string) error {
+			return p.InstallBundle(opts)
+		},
+
+	return cmd
 }
 </code></pre>
-					<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins.go">porter list mixins</a></p>
+					<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/bundle.go">porter install</a></p>
 
 					<aside class="notes">
 						* wire up exported functions from other packages to cobra
+						* opts has unit tests to validate, makes it easier for people to code against the app
+						* no need to write unit tests against this simple wiring other than that the command is present
 					</aside>
 				</section>
 
-				<section id="dependency-injection">
-					<h2>Dependency Injection</h2>
+				<section id="application-context">
+					<h2>Application Context</h2>
 
-					<aside class="notes">
-						Make it easy to pass around a set of different implementations for testing
-					</aside>
+					<p>Pass in interfaces for input, output, filesystem so you can verify their contents in your tests</p>
+
 				</section>
 
 				<section id="context-porter">
-					<h2>Porter's Context</h2>
+					<h2>Porter's Application Context</h2>
 <pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-package context
+package portercontext
 
 // Context holds references to external systems that need to be captured or modified in tests
 type Context struct {
@@ -632,42 +605,29 @@ type Context struct {
 				</section>
 
 				<section id="composing-porter">
-					<h2>Composing Porter's SDK</h2>
+					<h2>Composing Porter's App</h2>
 
 <pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-package config
-
-// Config holds flags, env vars and config files contents
-type Config struct {
-	*context.Context
-	Manifest *Manifest
-}
-
----
-
 package porter
 
 // Porter is the logic behind the porter client.
 type Porter struct {
-	*config.Config
+	*portercontext.Context
 }
 </code></pre>
 				</section>
 
-				<section id="using-porter-sdk">
-					<h2>Using Porter's SDK</h2>
+				<section id="using-porter-app">
+					<h2>Using Porter's App</h2>
 
 <pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
 p := porter.NewPorter()
 
-// Manifest cames from Config
-p.Manifest.Load() 
-
 // Out comes from Context
-fmt.Fprintf(p.Out, "\nWriting Dockerfile =======>\n") 
+fmt.Fprintf(p.Out, "Writing Dockerfile")
 
 // FileSystem comes from Context
-err = p.FileSystem.WriteFile("Dockerfile", contents, 0644) 
+err = p.FileSystem.WriteFile("Dockerfile", contents, 0644)
 </code></pre>
 
 				</section>
@@ -686,7 +646,7 @@ err = p.FileSystem.WriteFile("Dockerfile", contents, 0644)
 	
 					<ul>
 						<li>Exercise the CLI validation, output and formatting</li>
-						<li>Avoid retesting the SDK from the CLI's tests</li>
+						<li>Avoid retesting the App from the CLI's tests</li>
 						<li>Safety net for new contributors</li>
 						<li>Remove excuses for people who refuse to do "frontend stuff" 😇</li>
 					</ul>
@@ -696,29 +656,27 @@ err = p.FileSystem.WriteFile("Dockerfile", contents, 0644)
 					</aside>
 				</section>
 
-				<section id="flag-validation">
-					<h2>Porter Flag Validation</h2>
-					<p class="code-title">cmd/porter/mixins.go</p>
-<pre style="padding-top: 2em;"><code class="big go" data-trim data-noescape>
-package main
+				<section id="main-tests">
+					<h2>What to test in main?</h2>
+					
+					<ul>
+						<li>Are the commands defined in cobra?</li>
+						<li>Are the flags declared, both with long and short forms?</li>
+						<li>Do you have flag defaults set?</li>
+						<li>Is the PreRunE wired up to your option's validation function?</li>
+					</ul>
+					
+					<p align="center" class="highlight"><strong>Only test cobra/viper configuration</strong></p>
+				</section>
 
-func buildListMixinsCommand(p *porter.Porter) *cobra.Command {
-	opts := struct {
-		rawFormat string
-		format    printer.Format
-	}{}
-	cmd := &cobra.Command{
-		Use:   "mixins",
-		Short: "List installed mixins",
-		PreRunE: func(cmd *cobra.Command, args []string) error {
-			var err error
-			opts.format, err = printer.ParseFormat(opts.rawFormat)
-			return err
-		},
-		...
-</code></pre>
-<p class="code-source">From <a href="https://github.com/deislabs/porter/blob/master/cmd/porter/mixins.go">Porter</a></p>
-
+				<section id="notmain-tests">
+					<h2>What NOT to test in main?</h2>
+					
+					<ul>
+						<li>Command logic</li>
+						<li>Output formatting</li>
+						<li>Command validation</li>
+					</ul>
 				</section>
 
 				<section id="flag-validation-test">
@@ -762,8 +720,8 @@ func NewTestContext(t *testing.T) *TestContext {
 
 				</section>
 
-				<section id="test-sdk">
-					<h2>Test SDK</h2>
+				<section id="test-App">
+					<h2>Test App</h2>
 <p class="code-title">pkg/porter/helpers.go</p>
 <pre><code class="big go" data-trim data-noescape>
 type TestPorter struct {
