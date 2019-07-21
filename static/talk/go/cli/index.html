@@ -65,6 +65,10 @@
 				<section id="intention">
 					<h2>Often CLIs aren't <span class="highlight">designed</span>,<br/>
 						 functionality is added haphazardly</h2>
+
+				<aside class="notes">
+					Poor decisions now can be used against you later
+				</aside>
 				</section>
 
 				<section id="goals">
@@ -74,7 +78,7 @@
 						<li>Predictable</li>
 						<li>Task oriented</li>
 						<li>Friendly to both humans and scripts</li>
-						<li>New contributor launchpad</li>
+						<li>Engineered</li>
 					</ul>
 
 					<aside class="notes">
@@ -113,18 +117,6 @@
 					<img src="images/porter.png" height="200px"/>
 				</section>
 
-				<section id="recommendations">
-					<h2>Recommendations</h2>
-					
-					<ul>
-						<li><a href="#/command-design" target="_self">Command Design</a></li>
-						<li><a href="#/frameworks" target="_self">Frameworks</a></li>
-						<li><a href="#/package-structure" target="_self">Package Structure</a></li>
-						<li><a href="#/dependency-injection" target="_self">Dependency Injection</a></li>
-						<li><a href="#/testing" target="_self">Testing Strategies</a></li>
-					</ul>
-				</section>
-
 				<section id="command-design">
 					<h2>Command Design</h2>
 
@@ -134,13 +126,18 @@
 				</section>
 
 				<section id="grammar">
-					<h2>Pick a <span class="highlight">Grammar</span></h2>
+					<h2>Pick your <span class="highlight">grammar</span></h2>
+
+					<h3>A system of rules that defines the structure of a command</h3>
 
 					<aside class="notes">
-						* grammar = nouns verbs flags and how you use them
+						* Do nouns go before or after the verb?
+						* Do you hyphenate long flag names?
+						* Do you use sub-commands, or is a flat hierarchy?
+						* Got strong feelings about aliases?
 						* Follow what works in your native language
 						* Mostly be consistent
-						* Break consistenty in favor of domain at times
+						* Break consistency in favor of domain at times
 					</aside>
 				</section>
 
@@ -187,17 +184,23 @@ deleted custom emoticon "anxious"
 				<section id="emote-repos">
 <pre><code class="huge plain" data-trim data-noescape>
 $ emote add repo funk --url https://example.com/funk.json
-added 100 emoticons
+</code></pre>
 
-$ emote add repo --help
-</code></pre>											
+				<aside class="notes">
+					Don't make people lookup the help text for this
+					emote: name is the positional arg, everything else is flags
+				</aside>
 				</section>
 
-				<section id="mult-pos-args">
+				<section id="multi-pos-args">
 <pre><code class="huge plain" data-trim data-noescape>
 $ emote repo delete funk moar-funk
 deleted funk and moar-funk
 </code></pre>
+
+				<aside class="notes">
+					Here both positional arguments _are names_
+				</aside>
 				</section>
 
 				<section id="outputs">
@@ -263,7 +266,7 @@ monocle            ಠ_ರೃ
 </section>
 
 				<section id="alias">
-					<h2>Aliases can provide balance between brevity and discoverability</h2>
+					<h2><span class="highlight">Aliases</span> provide balance between brevity and discoverability</h2>
 				</section>
 
 				<section id="emote-list2">
@@ -274,6 +277,18 @@ shrug              ¯\_(ツ)_/¯
 tableflip          (╯°□°）╯︵ ┻━┻
 monocle            ಠ_ರೃ
 </code></pre>		
+				</section>
+
+				<section id="helptext">
+					<h2>Customize your help text</h2>
+					
+					<aside class="notes">
+						Frameworks can make it easy to customize
+						This is your chance, tell people how to be the most successful at using your CLI
+						Guide them down the happy path
+						I'll often repeat my best advice both in helptext and on my online documentation,
+						link them directly to online docs
+					</aside>
 				</section>
 
 				<section id="alias-helptext">
@@ -322,24 +337,62 @@ Your slack status is now ¯\_(ツ)_/¯
 				</section>
 
 				<section id="dont-litter">
-					<h2>Make <span class="highlight">tasks</span> easier,<br/> don't simply wrap an API</h2>
+					<h2>Combine commands to make <span class="highlight">tasks</span> easier</h2>
 
 					<aside class="notes">
 						* If you can fix things in the API directly, do it
 						* Sometimes, there is a flow and it makes sense to combine 2+ commands into a third
-						* travis command to encrypt a secret, they don't make you work with openssl, it's baked into the command.
+						* Allow the user to focus on the task, instead of getting lost in the steps
 					</aside>
 				</section>
 
-				<section id="code-gen">
-					<h2>code generation isn't enough</h2>
+				<section id="travis-encrypt">
+<pre><code class="huge plain" data-trim data-noescape>
+$ travis encrypt MY_SECRET_ENV=super_secret --add env
+</code></pre>
+
+					<ol>
+						<li>Download the public key for your travis repository</li>
+						<li>Encrypt the env var with the public key using openssl</li>
+						<li>Insert an entry into .travis.yml with the encrypted value</li>
+					</ol>
+				</section>
+
+					<section id="travis-evil">
+<pre><code class="huge plain" data-trim data-noescape>
+$ travis pubkey | jq -r .key > mykey.pub
+$ echo 'MY_SECRET_ENV=super_secret' \ 
+  | openssl rsautl -encrypt -pubin -inkey mykey.pub \
+  | travis env add
+</code></pre>
+
+				</section>
+
+				<section id="recap">
+					<h2>Pause and Reflect</h2>
+					
+					<ul style="list-style: none">
+						<li class="fragment">✅ Designed for Humans</li>
+						<li class="fragment">✅ Task Oriented</li>
+						<li class="fragment">❓ High Quality</li>
+					</ul>
 
 					<aside class="notes">
 						Title: CLIs people -LOVE-
-						People may use it, but it's only as good as the API being wrapped
-						Missing task oriented commands, the most useful
-						Everyone is reinventing the wheel for common tasks
-						It is lazy and it shows when it is your API
+						Easy to learn and remember
+						Solves their day-to-day tasks
+					</aside>
+				</section>
+
+				<section id="soapbox">
+					<h2>A great CLI needs to have <span class="highlight">high quality</span> code backing it</h2>
+
+					<aside class="notes">
+						First user touch point, needs to be rock solid
+						Can't just be the burden of new/jr developers who graduate to backend
+						Must be maintained so ... you will need testable code
+						As high quality code as backend
+						Respected, equal to backend or it will be shortchanged
 					</aside>
 				</section>
 
@@ -350,13 +403,13 @@ Your slack status is now ¯\_(ツ)_/¯
 						<li>spf13/cobra - Commands and Flags</li>
 						<li>spf13/viper - Configuration Management</li>
 						<li>spf13/afero - File System Abstraction</li>
+						<li>dustin/go-humanize - Natural Language Units</li>
 					</ul>
 
 					<p style="padding-top: 2em;">Thank you, Steve Francia! 💖</p>
 
 					<aside class="notes">
 						Defacto in most cloudy CLIs such as docker, kuberentes
-						Not designed to work with each other 😀
 					</aside>
 				</section>
 
@@ -502,6 +555,16 @@ fs.ReadFile("/etc/gopherfarts/config")
 						tests later
 						what can go wrong? 🤔
 					</aside>
+				</section>
+
+				<section>
+					<h2>Why use dustin/go-humanize?</h2>
+
+					<ul>
+						<li>Time: 6 hours ago</li>
+						<li>Size: 83 MB</li>
+						<li>Pluralize: 1 cat, 2 cats</li>
+					</ul>
 				</section>
 
 				<section id="package-structure">
