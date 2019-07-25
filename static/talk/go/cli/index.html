@@ -589,7 +589,7 @@ dest = "slack"
 
 					<h2 class="fragment">But I like yaml better</h2>
 <pre class="fragment"><code class="big yaml" data-trim data-noescape>
-destination: "slack"
+dest: "slack"
 
 emoticon:
   shrug: '¯\_(ツ)_/¯'
@@ -599,7 +599,7 @@ emoticon:
 					<h2 class="fragment">Excuse me, I need json for reasons...</h2>
 <pre class="fragment"><code class="big yaml" data-trim data-noescape>
 {
-	"destination": "slack",
+	"dest": "slack",
 	"emoticon": {
 		"shrug": "¯\_(ツ)_/¯",
 		"tableflip": "(╯°□°）╯︵ ┻━┻"
@@ -645,7 +645,6 @@ type App struct {
 
 func New() (*App, error) {
 	v := viper.New()
-	v.SetConfigName("emote")
 	v.AddConfigPath(".")
 
 	err := v.ReadInConfig()
@@ -672,18 +671,11 @@ func (a *App) Emote(name string, dest string) {
 				<section id="boilerplate2">
 					<h2>Emote CLI Wiring with Dynamic Commands</h2>
 <pre><code class="big go" data-trim data-noescape>				
-func main() {
+func buildEmoteCommand() *cobra.Command {
 	app, err := emoticons.New()
 	if err != nil {
 		log.Fatal(err)
 	}
-	cmd := buildEmoteCommand(app)
-	if err := cmd.Execute(); err != nil {
-		os.Exit(1)
-	}
-}
-
-func buildEmoteCommand(app *emote.App) *cobra.Command {
 	var dest string
 
 	emote := &cobra.Command{
@@ -694,11 +686,7 @@ func buildEmoteCommand(app *emote.App) *cobra.Command {
 		},
 		Args: cobra.ExactArgs(1),
 	}
-
-	emote.Flags().StringVar(&dest, "dest", "clipboard", "Where to send your emoticon")
-
-	return emote
-}
+...
 </code></pre>
 				</section>
 
@@ -721,13 +709,11 @@ import (
 )
 
 type Config struct {
-	Dest string
 	Emoticon map[string]string
 }
 
 func Load() (*Config, error) {
 	v := viper.New()
-	v.SetConfigName("emote")
 	v.AddConfigPath(".")
 
 	err := v.ReadInConfig()
@@ -766,9 +752,53 @@ func (a *App) Emote(name string, dest string) {
 </code></pre>
 				</section>
 
-				<section id="tests">
-					<h2>Testing Emote</h2>
+				<section id="default-flag">
+					<h2>Default Flags with Viper</h2>
+<pre><code class="big go" data-trim data-noescape>
+type Config struct {
+	Dest string // Set by --dest or config file if not present
+	Emoticon map[string]string
+}
 
+func (c *Config) Load(cmd *cobra.Command) error {
+	...
+
+	// Bind the cobra flags to our config file
+	v.BindPFlags(cmd.Flags())
+
+	...
+}
+</code></pre>
+				</section>
+
+				<section id="bind-viper-flag">
+					<h2>Final Emote Wiring</h2>
+<pre><code class="big go" data-trim data-noescape>
+func buildEmoteCommand() *cobra.Command {
+	app := emoticons.New()
+
+	emote := &cobra.Command{
+		Use: "emote",
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			return app.Config.Load(cmd)
+		},
+		Run: func(cmd *cobra.Command, args []string) {
+			emoticonName := args[0]
+			app.Emote(emoticonName)
+		},
+		Args: cobra.ExactArgs(1),
+	}
+
+	emote.Flags().StringVar(&app.Config.Dest, "dest", "clipboard", "Where to send your emoticon")
+
+	return emote
+}
+</code></pre>
+				</section>
+				
+				<section id="tests">
+						<h2>Testing Emote</h2>
+	
 <pre><code class="big go" data-trim data-noescape>
 package emoticons
 
@@ -796,8 +826,7 @@ func TestApp_Emote(t *testing.T) {
 	assert.Contains(t, out.String(), shrugEmoticon)
 }
 </code></pre>
-				</section>
-
+					</section>
 				<!--
 				<section id="afero-usage">
 					<h2>Replace ioutil with Afero</h2>
