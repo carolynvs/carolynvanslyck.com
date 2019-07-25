@@ -821,7 +821,7 @@ func TestApp_Emote(t *testing.T) {
 		},
 	}
 
-	app.Emote("shrug", "")
+	app.Emote("shrug")
 
 	assert.Contains(t, out.String(), shrugEmoticon)
 }
