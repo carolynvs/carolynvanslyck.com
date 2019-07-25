@@ -561,7 +561,7 @@ shrug := &cobra.Command{
 	Use: "shrug",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		// Much Better! ��
+		// Much Better! 👍
 		app := emoticons.App{}
 		app.Shrug(dest)
 
@@ -761,7 +761,7 @@ func New() (*App, error) {
 }
 
 func (a *App) Emote(name string, dest string) {
-	// Yay! This feels more intuitive ��
+	// Yay! This feels more intuitive 👍
 	emoticon := a.Config.Emoticon[name]
 </code></pre>
 				</section>
