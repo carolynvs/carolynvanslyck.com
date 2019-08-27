@@ -7,27 +7,27 @@ layout: single
 ---
 
 <div class="projects">
-  <div class="project" id="fosdem-gocli">
+  <div class="project" id="gocli">
     <div class="title">
         <a href="/talk/go/cli/">
             <img src="/talk/go/cli/images/console-love.png" alt="gopher holding laptop with heart on the screen" width="40"/>
             Designing Command-Line Tools People Love
         </a>
     </div>
-    <div class="locations">FOSDEM 2019</div>
+    <div class="locations">GopherCon 2019, FOSDEM 2019</div>
     <p class="description">
     It is a joy to build command-line tools that are not only easy to learn, but
     that other developers are willing to maintain. Often a team's engineering
     efforts are spent on the backend, while the cli doesn't receive the same
     level of attention. This can result in hard-to-test tools, and dumping
     maintenance of them to whoever most recently joined the team.</p>
-
-    <p class="description">
+    
+  <p class="description">
     Learn how to take full advantage of popular Go libraries, structure your Go
-    code to improve reuse and testability, publish binaries, and of course
+    code to improve reuse and testability, and of course
     design your commands to be user friendly.</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/l89Z0RYseFs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eMz0vni6PAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
   </div>
 
   <div class="project" id="gophersource">
