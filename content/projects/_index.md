@@ -8,6 +8,18 @@ layout: single
 <div class="projects">
     <div class="project">
         <div class="title">
+            <a href="https://porter.sh">
+                <img src="/images/porter.png" alt="porter logo" title="woman holder her hand out, palm up"/>
+                Porter
+            </a>
+        </div>
+        <div class="technologies">cnab, go, docker</div>
+        <p class="description">
+          I am the co-creator of <a href="https://porter.sh">Porter</a>, which packages your application artifact, client tools, configuration and deployment logic together as a versioned bundle that you can distribute, and then install with a single command.
+        </p>
+    </div>
+    <div class="project">
+        <div class="title">
             <a href="https://kubernetes.io">
                 <img src="/images/k8s.png" alt="kubernetes logo" title="Whales in Boats"/>
                 Kubernetes
@@ -15,8 +27,8 @@ layout: single
         </div>
         <div class="technologies">kubernetes, go, docker</div>
         <p class="description">
-          I am a chair for <a href="http://svc-cat.io">Kubernetes SIG Service Catalog</a>,
-          and a member of the Kubernetes Code of Conduct Committee.
+          I am an emeritus chair for <a href="http://svc-cat.io">Kubernetes SIG Service Catalog</a>,
+          and serve on the Kubernetes Code of Conduct Committee.
         </p>
     </div>
     <div class="project">
