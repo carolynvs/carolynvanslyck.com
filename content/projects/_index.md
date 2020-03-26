@@ -40,7 +40,7 @@ layout: single
         </div>
         <div class="technologies">go, dependency management</div>
         <p class="description">
-          I am a maintainer for dep, the upcoming dependency manager for Go.
+          I am a maintainer for dep, a dependency manager for Go.
         </p>
     </div>
     <div class="project">
