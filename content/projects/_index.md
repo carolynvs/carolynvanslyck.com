@@ -110,9 +110,9 @@ layout: single
         <center><a href="http://www.nuget.org/packages/nutritionix">Download from NuGet</a></center>
     </div>
 
-<h2 id="atlassian">Open Source Atlassian Plugins</h2>
+<h2 id="atlassian">Atlassian Plugins</h2>
 <p>
-  I can't stop writing plugins for my favorite Atlassian products. Partly because my favorite projects to work on are dev tools, "Hey I'm my own user!" and partly because Bamboo and Stash are new enough that there is lots of low-hanging fruit.
+  These are plugins that I wrote for Atlassian products back in the day. They aren't maintained anymore, but I keep them around because they were so much fun to write.
 </p>
 
 <div class="project">
@@ -130,7 +130,7 @@ layout: single
     	<p>
         Ideally functionality like this would <a href="https://jira.atlassian.com/browse/BAM-1223">provided directly by Bamboo</a>, however as that feature request was resolved after 7 years with "you will need to write your own", I decided to take them up on their offer.
       </p>
-    	<center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.trade_depot">Download the beta from Atlassian Marketplace</a></center>
+    	<center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.trade_depot">Download an archived version from Atlassian Marketplace</a></center>
     </div>
 </div>
 
@@ -150,7 +150,7 @@ layout: single
         <li>Failed Deployments And First Successful</li>
         <li>After X Deployment Failures</li>
       </ul>
-    	<center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.deployment-notifications">Download the latest version from Atlassian Marketplace</a></center>
+    	<center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.deployment-notifications">Download an archived version from Atlassian Marketplace</a></center>
     </div>
 </div>
 
@@ -169,7 +169,7 @@ layout: single
         <p>
           The goal is to prevent unnecessary merge commits, e.g. "Merge branch 'master' of mygitserver:owner/repo", from polluting a repository. I developed this because I personally prefer to pull using --rebase and wanted to enforce this policy on my Stash repositories.
         </p>
-        <center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">Download the latest version from Atlassian Marketplace</a></center>
+        <center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.reject-merge-commit-hook">Download an archived version from Atlassian Marketplace</a></center>
     </div>
 </div>
 
@@ -185,7 +185,7 @@ layout: single
     	<p>
         Force Field is a pre-receive hook plugin for Atlassian Stash. It protects specific branches from force pushes, e.g git push --force.
       </p>
-    	<center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.force-field">Download the latest version from Atlassian Marketplace</a></center>
+    	<center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.force-field">Download an archived version from Atlassian Marketplace</a></center>
     </div>
 </div>
 
@@ -201,7 +201,7 @@ layout: single
         <p>
           Integrates <a href="https://github.com/GitTools/GitVersion">GitVersion</a> into Bamboo, provides a task which generates a <a href="http://semver.org">semantic version</a> for your build and deployments.
         </p>
-        <center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.gitversion">Download the latest version from Atlassian Marketplace</a></center>
+        <center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.gitversion">Download an archived version from Atlassian Marketplace</a></center>
     </div>
 </div>
 
@@ -217,7 +217,7 @@ layout: single
         <p>
           <em>Chuck Norris has the only hook you'll ever need!</em> This Stash plugin prints a fact about Chuck Norris on each push.
         </p>
-        <center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.right-hook">Download the latest version from Atlassian Marketplace</a></center>
+        <center><a href="https://marketplace.atlassian.com/plugins/com.carolynvs.right-hook">Download an archived version from Atlassian Marketplace</a></center>
     </div>
 </div>
 </div>
