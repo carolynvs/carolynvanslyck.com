@@ -22,12 +22,10 @@ description: Professional Yak Shaver
   remote on the Microsoft Azure team. My passion is developer tools, and building vibrant
   inclusive open-source communities around them.
 <p style="font-size: 1.1rem;">
-  I am a maintainer for
-  <a href="https://svc-cat.io">Kubernetes Service Catalog</a> and the
-  <a href="https://docs.gomods.io">GoMods Athens Proxy</a>. I run
+  I am currently a maintainer for
+  <a href="https://porter.sh">Porter</a> and contribute to the Cloud Native Application Bundle (<a href="http://deislabs.io/cnab">CNAB</a>) Specification. I run
   <a href="https://womenwhogo.org">Women Who Go</a>,
-  and organize for the Chicago chapters of Women Who Go and
-  <a href="http://writespeakcode.com">Write/Speak/Code</a>.
+  and serve on the Kubernetes Code of Conduct Committee.
 </p>
 <p style="font-size: 1.1rem;">
   In between code reviews, I haul my cookies around the world to share my
