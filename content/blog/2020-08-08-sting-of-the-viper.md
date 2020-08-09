@@ -17,7 +17,7 @@ image: images/cobra+viper.png
 Cobra and Viper, two great libraries for working with command-line tools in Go
 that were never meant to work together. The sting of the viper 🐍. After lots of
 time reading their source code and a bit of plumbing code, I have been happily
-forcing these two sneks to get along for years.
+forcing these two [sneks] to get along for years.
 
 Let's start off with what each library is good at:
 
@@ -91,4 +91,4 @@ I hope this is helpful to anyone else trying to tame the two spf13 🐍 librarie
 a command-line tool. Happy coding! 🙌
 
 [sting of the viper]: https://github.com/carolynvs/stingoftheviper
-
+[sneks]: https://www.google.com/search?q=snek+cute
