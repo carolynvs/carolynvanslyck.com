@@ -67,7 +67,7 @@ directory. Also to avoid conflicts with ambient environment variables, I want to
 only match against environment variables that start with STING_. For example,
 `STING_NUMBER` can configure the `--number` flag.
 
-<script src="https://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=65:95"></script>
+<script src="https://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=65:101"></script>
 
 So far everything I have done is built-in to cobra and viper, but they aren't
 working together yet. I have only configured each separate library. Finally this
