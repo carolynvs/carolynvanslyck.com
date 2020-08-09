@@ -78,9 +78,7 @@ this case the variables color and number.
 
 <script src="https://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=103:119"></script>
 
-Other than the tiny workaround above for dealing with flags with hyphens in
-them, it replaces the hyphen with underscore since environment variables can't
-have hyphens, the code to merge them is fairly unobtrusive.
+The code to integrate cobra and viper is fairly unobtrusive, thankfully. Other than the tiny workaround above for dealing with flags with hyphens.
 
 I wrote a full working example from the walkthrough, [sting of the viper] with
 tests to demonstrate how this works so that you can poke around and see this
