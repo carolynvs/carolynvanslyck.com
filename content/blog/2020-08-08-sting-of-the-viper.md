@@ -33,21 +33,22 @@ command-line tool where the user can control configuration in a precedence
 order: **flags > environment variables > configuration files and the defaults set
 by the tool.**
 
-I have put together a working example that demonstrates how to accomplish this: [sting of the viper],. First I define a function to build my cobra command in `buildRootCommand`, having this outside
-of main helps me unit test it later.
+I have put together a working example that demonstrates how to accomplish this:
+[sting of the viper]. First I define a function to build my cobra command in
+`buildRootCommand`, having this outside of main helps me unit test it later.
 
-<script src="http://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=29:38"></script>
+<script src="https://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=29:38"></script>
 
 Ultimately I want to bind my configuration from the cobra flags, the viper
 environment variables and configuration files to a single data structure that I
-can read from. That way I don't have to deal with the precedence order of 
-flags > environment variables > config file > flag defaults myself. So the very first
-thing I do is define the configuration values that I want to work with, in this case I 
-have `color` and `number`
+can read from. That way I don't have to deal with the precedence order of flags > 
+environment variables > config file > flag defaults myself. So the very first
+thing I do is define the configuration values that I want to work with, in this
+case I have `color` and `number`.
 
 Now let's use cobra to define the command-line tool:
 
-<script src="http://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=40:61"></script>
+<script src="https://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=40:61"></script>
 
 A few things are happening here of interest, the rest is boilerplate cobra usage:
 
@@ -66,7 +67,7 @@ directory. Also to avoid conflicts with ambient environment variables, I want to
 only match against environment variables that start with STING_. For example,
 `STING_NUMBER` can configure the `--number` flag.
 
-<script src="http://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=65:95"></script>
+<script src="https://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=65:95"></script>
 
 So far everything I have done is built-in to cobra and viper, but they aren't
 working together yet. I have only configured each separate library. Finally this
@@ -75,7 +76,7 @@ command is run, and it merges cobra's data with viper's data. The final resolved
 value is still bound to the variables you set when you bound the cobra flag, in
 this case the variables color and number.
 
-<script src="http://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=103:119"></script>
+<script src="https://gist-it.appspot.com/http://github.com/carolynvs/stingoftheviper/raw/main/main.go?slice=103:119"></script>
 
 Other than the tiny workaround above for dealing with flags with hyphens in
 them, it replaces the hyphen with underscore since environment variables can't
