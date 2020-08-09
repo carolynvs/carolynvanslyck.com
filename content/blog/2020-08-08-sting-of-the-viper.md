@@ -2,7 +2,7 @@
 comments: false
 date: "2020-08-08"
 title: "Sting of the Viper: Getting Cobra and Viper to work together"
-slug: release-of-doom
+slug: sting-of-the-viper
 description: >
   Viper wasn't made to work with Cobra, but with a bit of wiring you can create
   a great user experience for your command-line tool with cascading configuration
