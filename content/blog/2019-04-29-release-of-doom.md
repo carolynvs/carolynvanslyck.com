@@ -167,5 +167,5 @@ between v0.4 to v0.5 and I hope we all learned a very valuable lesson here. 😅
 [releases]: https://porter.sh/faq/#how-does-your-release-naming-scheme-work
 [mustache]: https://mustache.github.io
 [k8s-example]:
-https://github.com/deislabs/porter/blob/master/pkg/kubernetes/testdata/install-input.yaml
-[terraform-examples]: https://github.com/deislabs/porter-terraform/tree/master/examples
+https://github.com/deislabs/porter-kubernetes/blob/main/pkg/kubernetes/testdata/install-input.yaml
+[terraform-examples]: https://github.com/deislabs/porter-terraform/tree/main/examples
