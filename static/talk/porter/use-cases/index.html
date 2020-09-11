@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The Devil is in the Deployments</title>
+
+		<meta name="description" content="Learn about Cloud Native Application Bundles (CNAB) and when they could improve your deployments and when you don't need them">
+		<meta name="author" content="Carolyn Van Slyck">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="icon" type="image/png" href="images/favicon.ico"/>
+		<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="../../revealjs/css/custom.css">
+
+		<!-- Open links outside of presentation -->
+		<base target="_blank">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2 class="blue">
+						The Devil is in the Deployments
+					</h2>
+					<p>What is CNAB and should you bother using it? 🤔</p>
+
+					<p id="speaker">
+						Carolyn Van Slyck<br/>
+						<hr style="width: 20em"/>
+						Principal Software Engineer at Microsoft<br/>
+						Maintainer of the CNAB Specification<br/>
+						Co-creator of Porter<br/>
+					</p>
+
+					<aside class="notes">
+					Instead of teaching the technology first, let's figure out if it's relevant to you
+					I helped shape the spec and wrote the implementation that's in the CNCF
+					So I get to make fun of it
+					</aside>
+				</section>
+
+				<section id="overview">
+					<h2>Overview</h2>
+
+					<ul>
+						<li>What is CNAB?</li>
+						<li>What problem does it solve?</li>
+						<li>When bundles may help</li>
+						<li>When they probably won't</li>
+					</ul>
+				</section>
+
+				<section id="cnab">
+					<h2>Cloud Native Application Bundles (CNAB)</h2>
+					<img src="images/cnab.png"/>
+					<p><a href="https://cnab.io">cnab.io</a></p>
+					<p>Package your application, deployment tools, configuration and deployment logic together as a versioned bundle that you can distribute, and then install with a single command! 🎩✨</p>
+
+					
+					<aside class="notes">
+						* docker for infra
+						* instead of a deep explanation, explain through showing what you do today
+						and what it looks like with a bundle
+					</aside>
+				</section>
+					
+				<section id="problem">
+					<h2>What Problems Do Bundles Solve?</h2>
+				
+					<ul>
+						<li>Package the application and everything it needs</li>
+						<li>Repeatable deployments</li>
+						<li>Standardized deployments</li>
+					</ul>
+					</table>
+				
+					<aside class="notes">
+						* _everything_, not just established environments. The first time too.
+						* Not just app. Infra. Deps. Tools. Scripts. Creds. Params.
+						* The orchestration of all of this that makes a sucessful, repeatable deployment
+						that anyone can run.
+					</aside>
+				</section>
+
+				<section id="porter">
+					<h2>What is Porter?</h2>
+
+					<img src="images/porter.png" width="16%"/>
+
+					<p>Porter is a command-line tool that implements the CNAB Specification and the project is in the CNCF</p>
+
+				</section>
+				
+				<section id="pros">
+					<h2>When can bundles help?</h2>
+
+					<figure style="text-align: center;">
+						<img src="images/constructor_pie_by_ironm17_dc79sk0.png" width="25%" />
+						<figcaption>Image by <a href="https://www.deviantart.com/ironm17">IronM17</a></figcaption>
+					</figure>
+
+				</section>
+
+				<section id="tools">
+					<h2>👍 Bundles package the deployment tools you need</h2>
+					<aside class="notes">
+				
+					</aside>
+				</section>
+				
+				<section id="logic">
+					<h2>👍 Bundles encapsulate the deployment logic</h2>
+				
+					<aside class="notes">
+				
+					</aside>
+				</section>
+				
+				<section id="inject">
+					<h2>👍 Bundles securely handle credentials and parameters</h2>
+					<aside class="notes">
+				
+					</aside>
+				</section>
+				
+				<section id="airgap">
+					<h2>👍 Bundles can jump the airgap</h2>
+					<aside class="notes">
+				
+					</aside>
+				</section>
+				
+				<section id="metadata">
+					<h2>👍 Bundles have crunchy metadata</h2>
+					<aside class="notes">
+				
+					</aside>
+				</section>
+				
+				<section id="cons">
+					<h2>When would you skip bundles?</h2>
+
+					<figure style="text-align: center;">
+						<img src="images/rainbow_dash_shrug_by_dropletx1_d3j6g5i.png" width="25%" />
+						<figcaption>Image by <a href="https://www.deviantart.com/dropletx1">dropletx1</a></figcaption>
+					</figure>
+
+				</section>
+
+				<section id="single-stack">
+					<h2>🤷‍♂‍ Single Stack and Satisfied</h2>
+
+<pre><code class="big bash" data-trim data-noescape>
+helm install myorg/myapp -f vars.yaml
+</code></pre>
+
+vs
+
+<pre><code class="big bash" data-trim data-noescape>
+porter install -t myorg/myapp -p myapp-params
+</code></pre>
+
+					<aside class="notes">
+						If you are chaining helm calls for example and passing outputs from out as inputs to another, Porter can help with that.
+					</aside>
+				</section>
+				
+				<section id="windows">
+					<h2>Windows ... Is Complicated</h2>
+				
+					<p>👍 Bundles can <strong>run</strong> on Windows</p>
+
+					<p>👎 Bundles currently only support linux containers</p>
+				
+					<p>🚗 Windows container support is on our roadmap</p>
+					
+					<aside class="notes">
+						* You can execute bundles on Windows. The docker container though is a linux container.
+					</aside>
+				</section>
+				
+				<section id="summary">
+					<aside class="notes">
+				
+					</aside>
+				</section>
+
+				<section id="takeout">
+					<h2>That's it!</h2>
+				
+					<p>Would you like to know more?</p>
+					<ul style="list-style-type: none;">
+						<li><a href="https://porter.sh">porter.sh</a></li>
+						<li><a href="https://cnab.io">cnab.io</a></li>
+					</ul>
+
+					<p><img src="../../../images/mlp-salute.png"/></p>
+				
+					<p class="comment">
+						My Little Pony™️ belongs to Hasbro.
+					</p>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				
+				<section id="references">
+					<h2>References</h2>
+				
+					
+				</section>
+
+			</div>
+			<slide-footer>
+				<div id="slides"><a href="http://carolynvs.com/bundle-uses">carolynvs.com/bundle-uses</a></div>
+				<div id="twitter"><a href="http://twitter.com/carolynvs">@carolynvs</a></div>
+			</slide-footer>
+		</div>
+
+		<script src="../../revealjs/lib/js/head.min.js"></script>
+		<script src="../../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				// use 16:9 aspect ratio
+				width: 1600,
+				height: 900,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				keyboard: {
+					190: null // Disable blank screen hell
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+					{ src: '../../revealjs/plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

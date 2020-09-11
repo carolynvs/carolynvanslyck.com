@@ -95,4 +95,8 @@ section slide-footer{
 	display: none; }
 .reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
 	opacity: 1;
-	display: inline; }
+  display: inline; }
+  
+#speaker {
+  margin-top: 5em;
+}
