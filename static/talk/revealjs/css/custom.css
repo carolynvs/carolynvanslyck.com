@@ -18,6 +18,11 @@
   line-height: 1.2em;
 }
 
+.reveal .bigger {
+  font-size: 1.6em;
+  line-height: 1.6em;
+}
+
 .reveal .huge {
   font-size: 2em;
   line-height: 2em;

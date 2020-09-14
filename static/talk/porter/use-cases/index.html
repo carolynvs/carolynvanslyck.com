@@ -94,7 +94,7 @@
 				<section id="problem">
 					<h2>What Problems Do Bundles Solve?</h2>
 				
-					<ul>
+					<ul style="margin-top: 2em;">
 						<li>Package the application and everything it needs</li>
 						<li>Repeatable deployments</li>
 						<li>Standardized deployments</li>
@@ -112,16 +112,68 @@
 				<section id="porter">
 					<h2>What is Porter?</h2>
 
-					<img src="images/porter.png" width="16%"/>
+					<img src="images/porter.png" width="200em" style="margin-top: 2em;"/>
+					<p><a href="https://porter.sh">porter.sh</a></p>
 
-					<p>Porter is a command-line tool that implements the CNAB Specification and the project is in the CNCF</p>
+					<p>Porter is a command-line tool that implements CNAB and the project is in the CNCF</p>
 
+				</section>
+				
+				<section id="porter-example">
+					<h2>What does it look like to use a bundle?</h2>
+				</section>
+
+				<section id="porter-explain">
+					<h2>Bundle! Explain yourself</h2>
+
+<pre><code class="big plaintext nohighlight hljs" data-trim data-noescape>
+$ porter explain --tag myorg/myapp:v1.17.1
+Name: myapp
+Description: A really good application
+Version: v1.17.1
+
+Credentials:
+Name         Description                       Required
+kubeconfig   A kubeconfig with cluster admin   true
+
+No parameters defined
+
+No outputs defined
+
+Actions:
+Name               Description                              Modifies Installation   Stateless
+maintenance-mode   Pauses the app and puts up a cute sign   true                    false
+</code></pre>
+				</section>
+
+				<section id="porter-install">
+					<h2>Install</h2>
+
+<pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
+</code></pre>
+				</section>
+
+				<section id="porter-upgrade">
+					<h2>Upgrade</h2>
+
+<pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter upgrade staging-app --param feature-flag-a=on --cred staging
+</code></pre>	
+				</section>
+					
+				<section id="porter-upgrade">
+					<h2>Custom Action</h2>
+
+<pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter invoke staging-app --action maintenance-mode --cred staging
+</code></pre>	
 				</section>
 				
 				<section id="pros">
 					<h2>When can bundles help?</h2>
 
-					<figure style="text-align: center;">
+					<figure style="margin-top: 2em;">
 						<img src="images/constructor_pie_by_ironm17_dc79sk0.png" width="25%" />
 						<figcaption>Image by <a href="https://www.deviantart.com/ironm17">IronM17</a></figcaption>
 					</figure>
@@ -129,36 +181,74 @@
 				</section>
 
 				<section id="tools">
-					<h2>👍 Bundles package the deployment tools you need</h2>
+					<h2>Bundles include your deployment tools</h2>
+					
 					<aside class="notes">
 				
 					</aside>
 				</section>
 				
+				<section id="tools-example">
+					<h2>Example: Create and configure a new team cluster</h2>
+					<ol style="margin-top: 2em;">
+						<li>Create a cluster with kubeadm, az, aws, gcloud, etc</li>
+						<li>Create a team secret store with az, vault, aws, gcloud, etc</li>
+						<li>Install Kubernetes Secrets Store CSI with helm</li>
+					</ol>
+				</section>
+
+				<section id="tools-vs">
+					<img src="images/porter-tools-bundled-vs.png"/>
+
+					<aside class="notes">
+						Can either embed the exact version or the bundle can detect and download
+					</aside>
+				</section>
+
 				<section id="logic">
-					<h2>👍 Bundles encapsulate the deployment logic</h2>
+					<h2>Bundles encapsulate the deployment logic</h2>
 				
 					<aside class="notes">
 				
 					</aside>
+				</section>
+
+				<section id="logic-unbundled">
+					<h2>Example: Create and configure a new team cluster</h2>
+
+					<ol>
+						<li>Find and clone the repository with the deployment scripts</li>
+    					<li>Set environment variables with credentials</li>
+						<li>Run the deployment script or use kubeadm, helm, etc directly</li>
+					</ol>
+
+					<aside class="notes">
+						May be copying values between tools, or running multiple scripts commands
+					</aside>
+				</section>
+
+				<section id="logic-bundled">
+<pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
+</code></pre>
 				</section>
 				
 				<section id="inject">
-					<h2>👍 Bundles securely handle credentials and parameters</h2>
+					<h2>Bundles securely handle credentials and parameters</h2>
 					<aside class="notes">
 				
 					</aside>
 				</section>
 				
 				<section id="airgap">
-					<h2>👍 Bundles can jump the airgap</h2>
+					<h2>Bundles can jump the airgap</h2>
 					<aside class="notes">
 				
 					</aside>
 				</section>
 				
 				<section id="metadata">
-					<h2>👍 Bundles have crunchy metadata</h2>
+					<h2>Bundles provide metadata</h2>
 					<aside class="notes">
 				
 					</aside>
@@ -175,16 +265,16 @@
 				</section>
 
 				<section id="single-stack">
-					<h2>🤷‍♂‍ Single Stack and Satisfied</h2>
+					<h2>Single Stack and Satisfied</h2>
 
-<pre><code class="big bash" data-trim data-noescape>
-helm install myorg/myapp -f vars.yaml
+<pre><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ helm install staging-app myorg/myapp -f vars.yaml
 </code></pre>
 
 vs
 
-<pre><code class="big bash" data-trim data-noescape>
-porter install -t myorg/myapp -p myapp-params
+<pre><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter install staging-app -t myorg/myapp:v1.17.1 -p myapp -c staging
 </code></pre>
 
 					<aside class="notes">
