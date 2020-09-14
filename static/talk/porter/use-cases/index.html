@@ -49,7 +49,6 @@
 					<h2 class="blue">
 						The Devil is in the Deployments
 					</h2>
-					<p>What is CNAB and should you bother using it? 🤔</p>
 
 					<p id="speaker">
 						Carolyn Van Slyck<br/>
@@ -78,10 +77,13 @@
 				</section>
 
 				<section id="cnab">
-					<h2>Cloud Native Application Bundles (CNAB)</h2>
+					<h2>Cloud Native Application Bundle Specification (CNAB)</h2>
 					<img src="images/cnab.png"/>
 					<p><a href="https://cnab.io">cnab.io</a></p>
-					<p>Package your application, deployment tools, configuration and deployment logic together as a versioned bundle that you can distribute, and then install with a single command! 🎩✨</p>
+					<p>
+						Package your application, deployment tools, configuration and deployment logic together 
+						as a versioned bundle that you can distribute, and then install with a single command! 🎩✨
+					</p>
 
 					
 					<aside class="notes">
@@ -95,9 +97,9 @@
 					<h2>What Problems Do Bundles Solve?</h2>
 				
 					<ul style="margin-top: 2em;">
-						<li>Package the application and everything it needs</li>
-						<li>Repeatable deployments</li>
-						<li>Standardized deployments</li>
+						<li class="fragment">Package deployments into a versioned distributable artifact</li>
+						<li class="fragment">Reduce complexity of deployments for the people running them</li>
+						<li class="fragment">Provide tools and workflows for secure, tamper-proof deployments</li>
 					</ul>
 					</table>
 				
@@ -115,8 +117,12 @@
 					<img src="images/porter.png" width="200em" style="margin-top: 2em;"/>
 					<p><a href="https://porter.sh">porter.sh</a></p>
 
-					<p>Porter is a command-line tool that implements CNAB and the project is in the CNCF</p>
+					<p>Porter is a command-line tool that implements CNAB. We are a project in the CNCF.</p>
 
+					<aside class="notes">
+						Using Porter as an example because it's one of the most popular OSS CNAB tools
+						that can demonstrate the full breadth of the CNAB spec
+					</aside>
 				</section>
 				
 				<section id="porter-example">
@@ -144,6 +150,10 @@ Actions:
 Name               Description                              Modifies Installation   Stateless
 maintenance-mode   Pauses the app and puts up a cute sign   true                    false
 </code></pre>
+
+					<aside class="notes">
+						distributed via docker/oci registries so no additional infrastructure necessary
+					</aside>
 				</section>
 
 				<section id="porter-install">
@@ -158,7 +168,7 @@ $ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
 					<h2>Upgrade</h2>
 
 <pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ porter upgrade staging-app --param feature-flag-a=on --cred staging
+$ porter upgrade staging-app --param feature-flag=on --cred staging
 </code></pre>	
 				</section>
 					
@@ -171,30 +181,38 @@ $ porter invoke staging-app --action maintenance-mode --cred staging
 				</section>
 				
 				<section id="pros">
-					<h2>When can bundles help?</h2>
+					<h2>How can bundles help?</h2>
 
 					<figure style="margin-top: 2em;">
 						<img src="images/constructor_pie_by_ironm17_dc79sk0.png" width="25%" />
 						<figcaption>Image by <a href="https://www.deviantart.com/ironm17">IronM17</a></figcaption>
 					</figure>
 
+					<aside class="notes">
+						Phew! That was what it looks like to use a bundle
+						How they work is something you can decide to look into if you decide bundles may help you
+					</aside>
 				</section>
 
 				<section id="tools">
-					<h2>Bundles include your deployment tools</h2>
+					<h2>Bundles have <span class="highlight">everything they need to deploy</span> <br/>packaged inside, including client tools</h2>
 					
 					<aside class="notes">
-				
+						
 					</aside>
 				</section>
 				
 				<section id="tools-example">
 					<h2>Example: Create and configure a new team cluster</h2>
 					<ol style="margin-top: 2em;">
-						<li>Create a cluster with kubeadm, az, aws, gcloud, etc</li>
-						<li>Create a team secret store with az, vault, aws, gcloud, etc</li>
-						<li>Install Kubernetes Secrets Store CSI with helm</li>
+						<li class="fragment">Create a cluster with kubeadm, aws, az, gcloud...</li>
+						<li class="fragment">Create a team secret store with vault, aws, aws, gcloud...</li>
+						<li class="fragment">Install Kubernetes Secrets Store CSI with helm</li>
 					</ol>
+
+					<aside class="notes">
+						You'd like a cluster, a secret store, and it connected to the cluster
+					</aside>
 				</section>
 
 				<section id="tools-vs">
@@ -202,11 +220,12 @@ $ porter invoke staging-app --action maintenance-mode --cred staging
 
 					<aside class="notes">
 						Can either embed the exact version or the bundle can detect and download
+						Juggle different versions of a tool
 					</aside>
 				</section>
 
 				<section id="logic">
-					<h2>Bundles encapsulate the deployment logic</h2>
+					<h2>Bundles <span class="highlight">encapsulate</span> the deployment logic</h2>
 				
 					<aside class="notes">
 				
@@ -217,9 +236,9 @@ $ porter invoke staging-app --action maintenance-mode --cred staging
 					<h2>Example: Create and configure a new team cluster</h2>
 
 					<ol>
-						<li>Find and clone the repository with the deployment scripts</li>
-    					<li>Set environment variables with credentials</li>
-						<li>Run the deployment script or use kubeadm, helm, etc directly</li>
+						<li class="fragment">Find and clone the repository with the deployment scripts</li>
+    					<li class="fragment">Set environment variables with credentials</li>
+						<li class="fragment">Run the deployment script or use kubeadm, helm, etc directly</li>
 					</ol>
 
 					<aside class="notes">
@@ -231,29 +250,137 @@ $ porter invoke staging-app --action maintenance-mode --cred staging
 <pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
 $ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
 </code></pre>
+
+					<aside class="notes">
+						all workflow, scripts... in the bundle
+						Always the same regardless of the stack, tools, team
+						* docker registry, credentials, parameters -> explain
+					</aside>
 				</section>
 				
+				<section id="wiring">
+					<h2>Porter: Less Glue Logic</h2>
+
+					<img src="images/wire-outputs-to-inputs.png" />
+
+					<aside class="notes">
+						* error checking
+						* scraping outputs
+						* sending outputs to next steps
+						* connecting tools that were not meant to work together like Lego
+					</aside>
+				</section>
+
 				<section id="inject">
-					<h2>Bundles securely handle credentials and parameters</h2>
+					<h2>Bundles <span class="highlight">manage credentials</span> securely</h2>
+
 					<aside class="notes">
 				
+					</aside>
+				</section>
+
+				<section id="inject-example">
+					<h2>Example: Create and configure a new team cluster</h2>
+					
+					<ul>
+						<li class="fragment">Read docs to know what credentials are required</li>
+						<li class="fragment">Use local environment variables, files or if lucky a remote secret store</li>
+						<li class="fragment">Specify credentials differently based on tools used</li>
+						<li class="fragment">Cleanup local machine after deployment</li>
+					</ul>
+					<aside class="notes">
+						* Varies widely based on your tooling and configuration
+						* I'm describing what's easiest and what I see devs do
+					</aside>
+				</section>
+
+				<section id="inject-bundled">
+					<h2>Credential Lifecycle</h2>
+					
+					<ol>
+						<li class="fragment"><code>porter explain</code> lists credentials required by the bundle</li>
+						<li class="fragment"><code>porter credentials generate</code> figures out where to find them</li>
+						<li class="fragment"><code>porter install</code> injects credentials just-in-time into the running bundle</li>
+					</ol>
+
+					<aside class="notes">
+						bundles execute in a container, the credentials are not exposed outside. The container is destroyed when the bundle completes.
 					</aside>
 				</section>
 				
 				<section id="airgap">
-					<h2>Bundles can jump the airgap</h2>
+					<h2>Bundles can jump an <span class="highlight">airgap</span></h2>
+
+					<img style="margin-top: 2em;" src="images/porter-airgap.png" />
 					<aside class="notes">
+						Production network isn't connected network that has the deployment artifacts
+					</aside>
+				</section>
 				
+				<section id="porter-airgap">
+<pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter archive myapp.tgz --tag staging/myapp:v1.17.1
+
+# physically move myapp.tgz across airgap
+
+$ porter publish --archive myapp.tgz --tag production/myapp:v1.17.1
+</code></pre>
+			
+					<aside class="notes">
+						everything goes into tgz
+						publish relocates everything on the other side
 					</aside>
 				</section>
 				
 				<section id="metadata">
-					<h2>Bundles provide metadata</h2>
+					<h2>Bundles provide <span class="highlight">metadata</span></h2>
+
 					<aside class="notes">
 				
 					</aside>
 				</section>
+
+				<section id="cnab-metadata">
+					<ul>
+						<li>Bundle Definition
+							<ul>
+								<li>Name</li>
+								<li>Version</li>
+								<li>Parameters/Credentials</li>
+								<li>Dependencies</li>
+								<li>Outputs</li>
+							</ul>
+						</li>
+						<li class="fragment">Bundle Execution
+							<ul>
+								<li>What is installed</li>
+								<li>Audit History</li>
+								<li>Deployment durations, e.g. myapp takes 2 minutes to deploy</li>
+								<li>Parameters used during the last deployment</li>
+							</ul>
+						</li>
+					</ul>
+
+					<aside class="notes">
 				
+					</aside>
+				</section>
+
+				<section id="porter-metadata">
+					<h2>Porter's <span class="highlight">declarative syntax</span> that provides more metadata</h2>
+
+					<ul style="margin-top: 2em;">
+						<li>Mixins: terraform, helm, kubectl, exec...</li>
+						<li>Commands, arguments and flags</li>
+						<li>Parameters and credentials</li>
+					</ul>
+					
+					<aside class="notes">
+						Limit what components in bundles are allowed
+						Watch for bad practices
+					</aside>
+				</section>
+
 				<section id="cons">
 					<h2>When would you skip bundles?</h2>
 
@@ -267,29 +394,37 @@ $ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
 				<section id="single-stack">
 					<h2>Single Stack and Satisfied</h2>
 
+					<ul style="margin-top: 2em;">
+						<li class="fragment">Aren't creating your cluster or infrastructure</li>
+						<li class="fragment">Aren't making multiple helm calls or using other tools</li>
+						<li class="fragment">Aren't collecting outputs and using it as input to another command</li>
+					</ul>
+				</section>
+
+				<section id="single-stack-vs">
+
 <pre><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
 $ helm install staging-app myorg/myapp -f vars.yaml
 </code></pre>
 
-vs
+<p class="huge">🤷‍♀️</p>
 
 <pre><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
 $ porter install staging-app -t myorg/myapp:v1.17.1 -p myapp -c staging
 </code></pre>
 
 					<aside class="notes">
-						If you are chaining helm calls for example and passing outputs from out as inputs to another, Porter can help with that.
 					</aside>
 				</section>
 				
 				<section id="windows">
-					<h2>Windows ... Is Complicated</h2>
+					<h2>Windows is Complicated Right Now</h2>
 				
-					<p>👍 Bundles can <strong>run</strong> on Windows</p>
+					<p style="margin-top: 2em;" class="fragment">👍 Bundles can <strong>run</strong> on Windows</p>
 
-					<p>👎 Bundles currently only support linux containers</p>
+					<p class="fragment">👎 Bundles currently only support linux containers</p>
 				
-					<p>🚗 Windows container support is on our roadmap</p>
+					<p class="fragment">🚗 Windows container support is on our roadmap</p>
 					
 					<aside class="notes">
 						* You can execute bundles on Windows. The docker container though is a linux container.
@@ -297,35 +432,45 @@ $ porter install staging-app -t myorg/myapp:v1.17.1 -p myapp -c staging
 				</section>
 				
 				<section id="summary">
-					<aside class="notes">
-				
-					</aside>
-				</section>
+					<h2>Bundles In Review</h2>
 
-				<section id="takeout">
-					<h2>That's it!</h2>
-				
-					<p>Would you like to know more?</p>
-					<ul style="list-style-type: none;">
-						<li><a href="https://porter.sh">porter.sh</a></li>
-						<li><a href="https://cnab.io">cnab.io</a></li>
+					<ul>
+						<li class="fragment">Contain everything you need to deploy: artifacts, tools, logic</li>
+						<li class="fragment">Manage credentials securely</li>
+						<li class="fragment">Supports airgap deployments</li>
+						<li class="fragment">Metadata gives your organization insight and control</li>
 					</ul>
 
-					<p><img src="../../../images/mlp-salute.png"/></p>
-				
-					<p class="comment">
-						My Little Pony™️ belongs to Hasbro.
-					</p>
 					<aside class="notes">
-						
+						Not an exhaustive list
+						Hopefully this helps you make a decision if you want to learn more about bundles
 					</aside>
 				</section>
 
-				
-				<section id="references">
-					<h2>References</h2>
-				
-					
+				<section id="resources">
+					<h2>Resources</h2>
+
+					<ul style="margin-top: 2em;">
+						<li>Try it out @ <a href="https://porter.sh">porter.sh</a></li>
+						<li>Ask questions @ <a href="https://porter.sh/community">porter.sh/community</a></li>
+						<li>Read the spec @ <a href="https://cnab.io">cnab.io</a></li>
+					</ul>
+
+					<aside class="notes">
+						These sites have more information since I recklessly showed you about bundles without
+						going into the implementation details first. *gasp*
+						If you have questions, I've included our community page where you can find the 
+						mailing list and Slack.
+					</aside>
+				</section>
+				<section id="takeout">
+					<h2>Thank you!</h2>
+
+					<figure style="margin-top: 2em">
+						<img src="../../../images/mlp-salute.png" width=""/>
+						<figcaption>My Little Pony™️ belongs to Hasbro.</figcaption>
+					</figure>
+			
 				</section>
 
 			</div>

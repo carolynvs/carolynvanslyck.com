@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-.reveal .highlight {
+.reveal .highlight, li > code {
   white-space: nowrap;
   color: #9575d1;
 }
