@@ -80,11 +80,6 @@
 					<h2>Cloud Native Application Bundle Specification (CNAB)</h2>
 					<img src="images/cnab.png"/>
 					<p><a href="https://cnab.io">cnab.io</a></p>
-					<p>
-						Package your application, deployment tools, configuration and deployment logic together 
-						as a versioned bundle that you can distribute, and then install with a single command! 🎩✨
-					</p>
-
 					
 					<aside class="notes">
 						* docker for infra
@@ -117,11 +112,14 @@
 					<img src="images/porter.png" width="200em" style="margin-top: 2em;"/>
 					<p><a href="https://porter.sh">porter.sh</a></p>
 
-					<p>Porter is a command-line tool that implements CNAB. We are a project in the CNCF.</p>
+					<p>
+						Package your application, deployment tools, configuration and deployment logic together 
+						as a versioned bundle that you can distribute, and then install with a single command! 🎩✨
+					</p>
 
 					<aside class="notes">
 						Using Porter as an example because it's one of the most popular OSS CNAB tools
-						that can demonstrate the full breadth of the CNAB spec
+						in the CNCF that can demonstrate the full breadth of the CNAB spec
 					</aside>
 				</section>
 				
@@ -180,6 +178,32 @@ $ porter invoke staging-app --action maintenance-mode --cred staging
 </code></pre>	
 				</section>
 				
+				<section id="wiring">
+					<h2>What does a bundle look like?</h2>
+
+					<img src="images/wire-outputs-to-inputs.png" />
+
+					<aside class="notes">
+						* error checking
+						* scraping outputs
+						* sending outputs to next steps
+						* connecting tools that were not meant to work together like Lego
+					</aside>
+				</section>
+
+				<section id="wiring">
+					<h2>What does a bundle look like?</h2>
+
+					<img src="images/wire-outputs-to-inputs.png" />
+
+					<aside class="notes">
+						* error checking
+						* scraping outputs
+						* sending outputs to next steps
+						* connecting tools that were not meant to work together like Lego
+					</aside>
+				</section>
+
 				<section id="pros">
 					<h2>How can bundles help?</h2>
 
@@ -219,8 +243,8 @@ $ porter invoke staging-app --action maintenance-mode --cred staging
 					<img src="images/porter-tools-bundled-vs.png"/>
 
 					<aside class="notes">
-						Can either embed the exact version or the bundle can detect and download
-						Juggle different versions of a tool
+						Every app needs differnt tools, over time you may be maintaining
+						a lot of tooling on a machine that does deployments
 					</aside>
 				</section>
 
@@ -235,11 +259,15 @@ $ porter invoke staging-app --action maintenance-mode --cred staging
 				<section id="logic-unbundled">
 					<h2>Example: Create and configure a new team cluster</h2>
 
-					<ol>
-						<li class="fragment">Find and clone the repository with the deployment scripts</li>
-    					<li class="fragment">Set environment variables with credentials</li>
-						<li class="fragment">Run the deployment script or use kubeadm, helm, etc directly</li>
+					<ol style="margin-top: 2em;">
+						<li class="fragment">Clone a repository? The app's or a devops one?</li>
+						<li class="fragment">Set environment variables, and save config files to specific locations?</li>
+						<li class="fragment">Call multiple helm and terraform commands?
+						<li class="fragment">Or a custom script?</li>
+						<li class="fragment">Or a utility docker container with a bunch of flags?</li>
 					</ol>
+
+					<p class="fragment">Every app's deployment is a snowflake ❄️</p>
 
 					<aside class="notes">
 						May be copying values between tools, or running multiple scripts commands
@@ -255,19 +283,6 @@ $ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
 						all workflow, scripts... in the bundle
 						Always the same regardless of the stack, tools, team
 						* docker registry, credentials, parameters -> explain
-					</aside>
-				</section>
-				
-				<section id="wiring">
-					<h2>Porter: Less Glue Logic</h2>
-
-					<img src="images/wire-outputs-to-inputs.png" />
-
-					<aside class="notes">
-						* error checking
-						* scraping outputs
-						* sending outputs to next steps
-						* connecting tools that were not meant to work together like Lego
 					</aside>
 				</section>
 
@@ -307,7 +322,7 @@ $ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
 						bundles execute in a container, the credentials are not exposed outside. The container is destroyed when the bundle completes.
 					</aside>
 				</section>
-				
+
 				<section id="airgap">
 					<h2>Bundles can jump an <span class="highlight">airgap</span></h2>
 
