@@ -22,6 +22,7 @@
 		<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css">
 
 		<link rel="stylesheet" href="../../revealjs/css/custom.css">
+		<link rel="stylesheet" href="custom.css">
 
 		<!-- Open links outside of presentation -->
 		<base target="_blank">
@@ -59,9 +60,8 @@
 					</p>
 
 					<aside class="notes">
-					Instead of teaching the technology first, let's figure out if it's relevant to you
-					I helped shape the spec and wrote the implementation that's in the CNCF
-					So I get to make fun of it
+						Talk about where deployments can be difficult still
+						Where we are trying to improve them
 					</aside>
 				</section>
 
@@ -69,11 +69,15 @@
 					<h2>Overview</h2>
 
 					<ul>
-						<li>What is CNAB?</li>
-						<li>What problem does it solve?</li>
+						<li>What is CNAB</li>
+						<li>What problems it solves</li>
 						<li>When bundles may help</li>
 						<li>When they probably won't</li>
 					</ul>
+
+					<aside class="notes">
+						Instead of teaching the technology first, let's figure out if it's relevant to you
+					</aside>
 				</section>
 
 				<section id="cnab">
@@ -82,16 +86,15 @@
 					<p><a href="https://cnab.io">cnab.io</a></p>
 					
 					<aside class="notes">
-						* docker for infra
-						* instead of a deep explanation, explain through showing what you do today
-						and what it looks like with a bundle
+						Docker for applications
+						Docker for complex deployments with multiple components and systems
 					</aside>
 				</section>
 					
 				<section id="problem">
 					<h2>What Problems Do Bundles Solve?</h2>
 				
-					<ul style="margin-top: 2em;">
+					<ul>
 						<li class="fragment">Package deployments into a versioned distributable artifact</li>
 						<li class="fragment">Reduce complexity of deployments for the people running them</li>
 						<li class="fragment">Provide tools and workflows for secure, tamper-proof deployments</li>
@@ -99,8 +102,7 @@
 					</table>
 				
 					<aside class="notes">
-						* _everything_, not just established environments. The first time too.
-						* Not just app. Infra. Deps. Tools. Scripts. Creds. Params.
+						* Not just one application. Suite. Infra. Deps. Tools. Scripts. Creds. Params.
 						* The orchestration of all of this that makes a sucessful, repeatable deployment
 						that anyone can run.
 					</aside>
@@ -109,7 +111,7 @@
 				<section id="porter">
 					<h2>What is Porter?</h2>
 
-					<img src="images/porter.png" width="200em" style="margin-top: 2em;"/>
+					<img src="images/porter.png" width="200em"/>
 					<p><a href="https://porter.sh">porter.sh</a></p>
 
 					<p>
@@ -123,8 +125,100 @@
 					</aside>
 				</section>
 				
-				<section id="porter-example">
-					<h2>What does it look like to use a bundle?</h2>
+				<section id="yay-bundles">
+					<h2>Why I use bundles</h2>
+
+					<figure>
+						<img src="images/constructor_pie_by_ironm17_dc79sk0.png" width="25%" />
+						<figcaption>Image by <a href="https://www.deviantart.com/ironm17">IronM17</a></figcaption>
+					</figure>
+				</section>
+
+				<section id="tools">
+					<h2>Bundles contain <span class="highlight">everything they need to deploy</span></h2>
+					
+					<aside class="notes">
+						don't have to install tools
+						manage multiple versions
+						get teammates to stay on the same version
+					</aside>
+				</section>
+				
+				<section id="tools-example">
+					<h2>Example: Create and configure a new team cluster</h2>
+					<ol>
+						<li class="fragment">Create a cluster with kubeadm, aws, az, gcloud...</li>
+						<li class="fragment">Create a team secret store with vault, aws, aws, gcloud...</li>
+						<li class="fragment">Install Kubernetes Secrets Store CSI with helm</li>
+					</ol>
+
+					<aside class="notes">
+						You'd like a cluster, a secret store, and it connected to the cluster
+					</aside>
+				</section>
+
+				<section id="tools-vs">
+					<img src="images/porter-tools-bundled-vs.png"/>
+
+					<aside class="notes">
+						This is just one app, every app introduces more tools
+					</aside>
+				</section>
+
+				<section id="logic">
+					<h2>Bundles <span class="highlight">encapsulate</span> the deployment logic</h2>
+				
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section id="logic-unbundled">
+					<h2>Example: Create and configure a new team cluster</h2>
+
+					<ol>
+						<li class="fragment">Clone a repository? The app's or a devops one?</li>
+						<li class="fragment">Set environment variables, and save config files to specific locations?</li>
+						<li class="fragment">Call multiple helm and terraform commands?
+						<li class="fragment">Or a custom script?</li>
+						<li class="fragment">Or a utility docker container with a bunch of flags?</li>
+					</ol>
+
+					<p class="fragment">Every deployment is a snowflake ❄️</p>
+
+					<aside class="notes">
+						May be copying values between tools, or running multiple scripts commands
+					</aside>
+				</section>
+
+				<section id="logic-bundled">
+<pre><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
+</code></pre>
+
+						<ul style="margin-top: 2em;">
+							<li class="fragment">I only need the bundle tag</li>
+							<li class="fragment">I don't need to be familar with the app or tooling</li>
+							<li class="fragment">This is much less intimidating when I'm on-call 😅</li>
+						</ul>
+					<aside class="notes">
+						all workflow, scripts... in the bundle
+						Always the same regardless of the stack, tools, team
+						* docker registry, credentials, parameters -> explain
+
+						Knowing that everything has been taken care of and is IN THE BUNDLE 
+						makes me feel like less is riding on me
+					</aside>
+				</section>
+
+				<section id="registries">
+					<h2>Distributed via OCI Registries </h2>
+
+					<ul>
+						<li class="fragment">No new infra to support</li>
+						<li class="fragment">Easy to find</li>
+						<li class="fragment">Familiar to think about 🐳</li>
+					</ul>
 				</section>
 
 				<section id="porter-explain">
@@ -150,147 +244,17 @@ maintenance-mode   Pauses the app and puts up a cute sign   true                
 </code></pre>
 
 					<aside class="notes">
-						distributed via docker/oci registries so no additional infrastructure necessary
-					</aside>
-				</section>
-
-				<section id="porter-install">
-					<h2>Install</h2>
-
-<pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
-</code></pre>
-				</section>
-
-				<section id="porter-upgrade">
-					<h2>Upgrade</h2>
-
-<pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ porter upgrade staging-app --param feature-flag=on --cred staging
-</code></pre>	
-				</section>
-					
-				<section id="porter-upgrade">
-					<h2>Custom Action</h2>
-
-<pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ porter invoke staging-app --action maintenance-mode --cred staging
-</code></pre>	
-				</section>
-				
-				<section id="wiring">
-					<h2>What does a bundle look like?</h2>
-
-					<img src="images/wire-outputs-to-inputs.png" />
-
-					<aside class="notes">
-						* error checking
-						* scraping outputs
-						* sending outputs to next steps
-						* connecting tools that were not meant to work together like Lego
-					</aside>
-				</section>
-
-				<section id="wiring">
-					<h2>What does a bundle look like?</h2>
-
-					<img src="images/wire-outputs-to-inputs.png" />
-
-					<aside class="notes">
-						* error checking
-						* scraping outputs
-						* sending outputs to next steps
-						* connecting tools that were not meant to work together like Lego
-					</aside>
-				</section>
-
-				<section id="pros">
-					<h2>How can bundles help?</h2>
-
-					<figure style="margin-top: 2em;">
-						<img src="images/constructor_pie_by_ironm17_dc79sk0.png" width="25%" />
-						<figcaption>Image by <a href="https://www.deviantart.com/ironm17">IronM17</a></figcaption>
-					</figure>
-
-					<aside class="notes">
-						Phew! That was what it looks like to use a bundle
-						How they work is something you can decide to look into if you decide bundles may help you
-					</aside>
-				</section>
-
-				<section id="tools">
-					<h2>Bundles have <span class="highlight">everything they need to deploy</span> <br/>packaged inside, including client tools</h2>
-					
-					<aside class="notes">
-						
-					</aside>
-				</section>
-				
-				<section id="tools-example">
-					<h2>Example: Create and configure a new team cluster</h2>
-					<ol style="margin-top: 2em;">
-						<li class="fragment">Create a cluster with kubeadm, aws, az, gcloud...</li>
-						<li class="fragment">Create a team secret store with vault, aws, aws, gcloud...</li>
-						<li class="fragment">Install Kubernetes Secrets Store CSI with helm</li>
-					</ol>
-
-					<aside class="notes">
-						You'd like a cluster, a secret store, and it connected to the cluster
-					</aside>
-				</section>
-
-				<section id="tools-vs">
-					<img src="images/porter-tools-bundled-vs.png"/>
-
-					<aside class="notes">
-						Every app needs differnt tools, over time you may be maintaining
-						a lot of tooling on a machine that does deployments
-					</aside>
-				</section>
-
-				<section id="logic">
-					<h2>Bundles <span class="highlight">encapsulate</span> the deployment logic</h2>
-				
-					<aside class="notes">
-				
-					</aside>
-				</section>
-
-				<section id="logic-unbundled">
-					<h2>Example: Create and configure a new team cluster</h2>
-
-					<ol style="margin-top: 2em;">
-						<li class="fragment">Clone a repository? The app's or a devops one?</li>
-						<li class="fragment">Set environment variables, and save config files to specific locations?</li>
-						<li class="fragment">Call multiple helm and terraform commands?
-						<li class="fragment">Or a custom script?</li>
-						<li class="fragment">Or a utility docker container with a bunch of flags?</li>
-					</ol>
-
-					<p class="fragment">Every app's deployment is a snowflake ❄️</p>
-
-					<aside class="notes">
-						May be copying values between tools, or running multiple scripts commands
-					</aside>
-				</section>
-
-				<section id="logic-bundled">
-<pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
-</code></pre>
-
-					<aside class="notes">
-						all workflow, scripts... in the bundle
-						Always the same regardless of the stack, tools, team
-						* docker registry, credentials, parameters -> explain
+						Great for when I haven't deployed the bundle before, or it's been a while
 					</aside>
 				</section>
 
 				<section id="inject">
-					<h2>Bundles <span class="highlight">manage credentials</span> securely</h2>
+					<h2><span class="highlight">Secret management</span> that I can manage</h2>
 
 					<aside class="notes">
-				
+						Lots of solutions out there for secrets, and yet how many of us have 
+						plaintext secrets in env vars on our latops RIGHT NOW?
+						We do what's easiest
 					</aside>
 				</section>
 
@@ -310,28 +274,81 @@ $ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
 				</section>
 
 				<section id="inject-bundled">
-					<h2>Credential Lifecycle</h2>
-					
 					<ol>
-						<li class="fragment"><code>porter explain</code> lists credentials required by the bundle</li>
-						<li class="fragment"><code>porter credentials generate</code> figures out where to find them</li>
-						<li class="fragment"><code>porter install</code> injects credentials just-in-time into the running bundle</li>
+						<li class="fragment"><span class="blue">porter credentials generate</span> walks you through where to find credentials</li>
+						<li class="fragment"><span class="blue">porter install</span> injects credentials just-in-time into the running bundle</li>
+						<li class="fragment">Credentials are destroyed with the bundle when its done</li>
 					</ol>
 
 					<aside class="notes">
 						bundles execute in a container, the credentials are not exposed outside. The container is destroyed when the bundle completes.
+						I'm super excited about this because I'm actually using this on my dev machines and it's making 
+						my life easier.
 					</aside>
 				</section>
 
+				<section id="wiring">
+					<h2>Focus on the deployment, not the bash</h2>
+					
+					<ul>
+						<li class="fragment">Declarative syntax with built-in helpers</li>
+						<li class="fragment">Error checking</li>
+						<li class="fragment">Capture outputs with regex, json</li>
+						<li class="fragment">Consume state, outputs, parameters, credentials</li>
+						<li class="fragment">Connect unrelated tools like Lego™️</li>
+					</ul>
+				</section>
+
+				<section id="wiring-example">
+					<img src="images/wire-outputs-to-inputs.png" />
+				</section>
+
+<!--
+				<section id="porter-install">
+					<h2>Install</h2>
+
+<pre style="margin-top: 3em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
+</code></pre>
+				</section>
+
+				<section id="porter-upgrade">
+					<h2>Upgrade</h2>
+
+<pre style="margin-top: 3em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter upgrade staging-app --param feature-flag=on --cred staging
+</code></pre>	
+				</section>
+					
+				<section id="porter-upgrade">
+					<h2>Custom Action</h2>
+
+<pre style="margin-top: 3em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
+$ porter invoke staging-app --action maintenance-mode --cred staging
+</code></pre>	
+				</section>
+-->
+
+				<section id="enterprisy-stuff">
+					<h2>Why companies like bundles</h2>
+
+					<ul>
+						<li>Deploy across an airgap</li>
+						<li>Repeatable deployments</li>
+						<li>Supply chain security</li>
+						<li>Metadata for analysis and enforcement</li>
+					</ul>
+				</section>
+<!--
 				<section id="airgap">
 					<h2>Bundles can jump an <span class="highlight">airgap</span></h2>
 
-					<img style="margin-top: 2em;" src="images/porter-airgap.png" />
+					<img src="images/porter-airgap.png" />
 					<aside class="notes">
 						Production network isn't connected network that has the deployment artifacts
 					</aside>
 				</section>
-				
+
 				<section id="porter-airgap">
 <pre style="margin-top: 5em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
 $ porter archive myapp.tgz --tag staging/myapp:v1.17.1
@@ -340,7 +357,7 @@ $ porter archive myapp.tgz --tag staging/myapp:v1.17.1
 
 $ porter publish --archive myapp.tgz --tag production/myapp:v1.17.1
 </code></pre>
-			
+	
 					<aside class="notes">
 						everything goes into tgz
 						publish relocates everything on the other side
@@ -384,7 +401,7 @@ $ porter publish --archive myapp.tgz --tag production/myapp:v1.17.1
 				<section id="porter-metadata">
 					<h2>Porter's <span class="highlight">declarative syntax</span> that provides more metadata</h2>
 
-					<ul style="margin-top: 2em;">
+					<ul>
 						<li>Mixins: terraform, helm, kubectl, exec...</li>
 						<li>Commands, arguments and flags</li>
 						<li>Parameters and credentials</li>
@@ -395,7 +412,7 @@ $ porter publish --archive myapp.tgz --tag production/myapp:v1.17.1
 						Watch for bad practices
 					</aside>
 				</section>
-
+-->
 				<section id="cons">
 					<h2>When would you skip bundles?</h2>
 
@@ -409,10 +426,11 @@ $ porter publish --archive myapp.tgz --tag production/myapp:v1.17.1
 				<section id="single-stack">
 					<h2>Single Stack and Satisfied</h2>
 
-					<ul style="margin-top: 2em;">
+					<ul>
 						<li class="fragment">Aren't creating your cluster or infrastructure</li>
 						<li class="fragment">Aren't making multiple helm calls or using other tools</li>
 						<li class="fragment">Aren't collecting outputs and using it as input to another command</li>
+						<li class="fragment">Don't need that enterprisy stuff I just mentioned</li>
 					</ul>
 				</section>
 
@@ -435,7 +453,7 @@ $ porter install staging-app -t myorg/myapp:v1.17.1 -p myapp -c staging
 				<section id="windows">
 					<h2>Windows is Complicated Right Now</h2>
 				
-					<p style="margin-top: 2em;" class="fragment">👍 Bundles can <strong>run</strong> on Windows</p>
+					<p class="fragment">👍 Bundles can <strong>run</strong> on Windows</p>
 
 					<p class="fragment">👎 Bundles currently only support linux containers</p>
 				
@@ -450,10 +468,11 @@ $ porter install staging-app -t myorg/myapp:v1.17.1 -p myapp -c staging
 					<h2>Bundles In Review</h2>
 
 					<ul>
-						<li class="fragment">Contain everything you need to deploy: artifacts, tools, logic</li>
+						<li>Contain everything you need to deploy: artifacts, tools, logic</li>
+						<li class="fragment">Distributed over OCI registries</li>
 						<li class="fragment">Manage credentials securely</li>
-						<li class="fragment">Supports airgap deployments</li>
-						<li class="fragment">Metadata gives your organization insight and control</li>
+						<li class="fragment">Flexible authoring experience</li>
+						<li class="fragment">Tamper-proof, repeatable deployments</li>
 					</ul>
 
 					<aside class="notes">
@@ -465,7 +484,7 @@ $ porter install staging-app -t myorg/myapp:v1.17.1 -p myapp -c staging
 				<section id="resources">
 					<h2>Resources</h2>
 
-					<ul style="margin-top: 2em;">
+					<ul>
 						<li>Try it out @ <a href="https://porter.sh">porter.sh</a></li>
 						<li>Ask questions @ <a href="https://porter.sh/community">porter.sh/community</a></li>
 						<li>Read the spec @ <a href="https://cnab.io">cnab.io</a></li>
