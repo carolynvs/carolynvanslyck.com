@@ -95,7 +95,7 @@
 					<h2>What Problems Do Bundles Solve?</h2>
 				
 					<ul>
-						<li class="fragment">Package deployments into a versioned distributable artifact</li>
+						<li>Package deployments into a versioned distributable artifact</li>
 						<li class="fragment">Reduce complexity of deployments for the people running them</li>
 						<li class="fragment">Provide tools and workflows for secure, tamper-proof deployments</li>
 					</ul>
@@ -147,7 +147,7 @@
 				<section id="tools-example">
 					<h2>Example: Create and configure a new team cluster</h2>
 					<ol>
-						<li class="fragment">Create a cluster with kubeadm, aws, az, gcloud...</li>
+						<li>Create a cluster with kubeadm, aws, az, gcloud...</li>
 						<li class="fragment">Create a team secret store with vault, aws, aws, gcloud...</li>
 						<li class="fragment">Install Kubernetes Secrets Store CSI with helm</li>
 					</ol>
@@ -177,7 +177,7 @@
 					<h2>Example: Create and configure a new team cluster</h2>
 
 					<ol>
-						<li class="fragment">Clone a repository? The app's or a devops one?</li>
+						<li>Clone a repository? The app's or a devops one?</li>
 						<li class="fragment">Set environment variables, and save config files to specific locations?</li>
 						<li class="fragment">Call multiple helm and terraform commands?
 						<li class="fragment">Or a custom script?</li>
@@ -199,7 +199,7 @@ $ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
 						<ul style="margin-top: 2em;">
 							<li class="fragment">I only need the bundle tag</li>
 							<li class="fragment">I don't need to be familar with the app or tooling</li>
-							<li class="fragment">This is much less intimidating when I'm on-call 😅</li>
+							<li class="fragment">This is much less intimidating to learn 😅</li>
 						</ul>
 					<aside class="notes">
 						all workflow, scripts... in the bundle
@@ -275,9 +275,9 @@ maintenance-mode   Pauses the app and puts up a cute sign   true                
 
 				<section id="inject-bundled">
 					<ol>
-						<liac><span class="blue">porter credentials generate</span> walks you through where to find credentials</li>
+						<li><span class="blue">porter credentials generate</span> walks you through where to find credentials</li>
 						<li class="fragment"><span class="blue">porter install</span> injects credentials just-in-time into the running bundle</li>
-						<li class="fragment">Credentials are destroyed with the bundle when its done</li>
+						<li class="fragment">Credentials are destroyed with the bundle when it is done</li>
 					</ol>
 
 					<aside class="notes">
@@ -291,16 +291,22 @@ maintenance-mode   Pauses the app and puts up a cute sign   true                
 					<h2>Focus on the deployment, not the bash</h2>
 					
 					<ul>
-						<li class="fragment">Declarative syntax with built-in helpers</li>
+						<li>Declarative syntax with built-in helpers</li>
 						<li class="fragment">Error checking</li>
 						<li class="fragment">Capture outputs with regex, json</li>
 						<li class="fragment">Consume state, outputs, parameters, credentials</li>
 						<li class="fragment">Connect unrelated tools like Lego™️</li>
 					</ul>
+
 				</section>
 
 				<section id="wiring-example">
 					<img src="images/wire-outputs-to-inputs.png" />
+
+					<aside class="notes">
+						optionally yaml instead of bash
+						workflow instead of how to chain together commands
+					</aside>
 				</section>
 
 <!--
@@ -334,9 +340,9 @@ $ porter invoke staging-app --action maintenance-mode --cred staging
 
 					<ul>
 						<li>Deploy across an airgap</li>
-						<li>Repeatable deployments</li>
-						<li>Supply chain security</li>
-						<li>Metadata for analysis and enforcement</li>
+						<li class="fragment">Repeatable deployments</li>
+						<li class="fragment">Supply chain security</li>
+						<li class="fragment">Metadata for analysis and enforcement</li>
 					</ul>
 				</section>
 <!--
@@ -430,7 +436,7 @@ $ porter publish --archive myapp.tgz --tag production/myapp:v1.17.1
 						<li class="fragment">Aren't creating your cluster or infrastructure</li>
 						<li class="fragment">Aren't making multiple helm calls or using other tools</li>
 						<li class="fragment">Aren't collecting outputs and using it as input to another command</li>
-						<li class="fragment">Don't need that enterprisy stuff I just mentioned</li>
+						<li class="fragment">Don't need that enterprisy stuff</li>
 					</ul>
 				</section>
 
@@ -491,10 +497,8 @@ $ porter install staging-app -t myorg/myapp:v1.17.1 -p myapp -c staging
 					</ul>
 
 					<aside class="notes">
-						These sites have more information since I recklessly showed you about bundles without
-						going into the implementation details first. *gasp*
-						If you have questions, I've included our community page where you can find the 
-						mailing list and Slack.
+						Try a quickstart
+						Watch a video to learn more
 						If you have ideas and want to shape how bundles work, nows the time
 					</aside>
 				</section>
