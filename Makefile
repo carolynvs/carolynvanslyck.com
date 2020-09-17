@@ -2,10 +2,13 @@ SHELL=/bin/bash
 
 default: serve
 
-build:
+build: clean
 	hugo build
 
-serve:
+serve: clean
 	hugo serve -b http://localhost/
+
+clean:
+	-rm -r public/
 
 .PHONY: build serve
