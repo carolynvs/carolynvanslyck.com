@@ -35,7 +35,7 @@ layout: single
       <li>Deploy your app along with its infra: cloud storage, dns entry, load balancer, ssl cert.</li>
       <li>Get software and its dependencies into airgapped networks.</li>
       <li>Manage disparate operational tech, such as Helm or Terraform, across teams and departments.</li>
-      <li>Secure our pipeline.</li>
+      <li>Secure your pipeline.</li>
     </ul>
   </p>
     
