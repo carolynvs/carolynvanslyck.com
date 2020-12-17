@@ -9,7 +9,7 @@ layout: single
     <div class="project">
         <div class="title">
             <a href="https://porter.sh">
-                <img src="/images/porter.png" alt="porter logo" title="woman holder her hand out, palm up"/>
+                <img src="/images/porter.png" alt="porter logo" title="cartoon cat head, smiling wearing a red bellhop hat"/>
                 Porter
             </a>
         </div>
@@ -27,8 +27,9 @@ layout: single
         </div>
         <div class="technologies">kubernetes, go, docker</div>
         <p class="description">
+          I lead the contributor growth working group as part of <a href="https://github.com/cncf/sig-contributor-strategy/">CNCF SIG Contributor Strategy</a>.
           I am an emeritus chair for <a href="http://svc-cat.io">Kubernetes SIG Service Catalog</a>,
-          and serve on the Kubernetes Code of Conduct Committee.
+          and the Kubernetes Code of Conduct Committee.
         </p>
     </div>
     <div class="project">
@@ -40,7 +41,7 @@ layout: single
         </div>
         <div class="technologies">go, dependency management</div>
         <p class="description">
-          I am a maintainer for dep, a dependency manager for Go.
+          I was a maintainer for dep, a dependency manager for Go.
         </p>
     </div>
     <div class="project">

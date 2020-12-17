@@ -4,11 +4,11 @@ date: "2019-04-29"
 title: "Mega Release of Doom - Porter"
 slug: release-of-doom
 description: "What happens when you don't ship for over 100 commits? Pretty awesome stuff actually."
-image: images/porter-logo.png
+image: images/porter-logo-old.png
 ---
 
 <figure style="text-align: center; float: right; margin: 5px">
-  <img src="/images/porter-logo.png" width="150" alt="Porter Logo" />
+  <img src="/images/porter-logo-old.png" width="150" alt="Porter Logo" />
 </figure>
 
 > This is part of a miniseries explaining what I am working on lately:

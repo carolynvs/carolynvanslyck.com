@@ -134,6 +134,7 @@ hr {
   margin-left: 0;
   display: inline;
   background-color: white;
+  max-width: 64px;
 }
 
 .project a {

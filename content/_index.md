@@ -24,8 +24,7 @@ description: Professional Yak Shaver
 <p style="font-size: 1.1rem;">
   I am a maintainer for
   <a href="https://porter.sh">Porter</a> and the Cloud Native Application Bundle (<a href="http://deislabs.io/cnab">CNAB</a>) Specification. I run
-  <a href="https://womenwhogo.org">Women Who Go</a>, am a lead for <a href="https://github.com/cncf/sig-contributor-strategy">CNCF SIG Contributor Strategy</a>,
-  and serve on the Kubernetes Code of Conduct Committee.
+  <a href="https://womenwhogo.org">Women Who Go</a> and am a lead for <a href="https://github.com/cncf/sig-contributor-strategy">CNCF SIG Contributor Strategy</a>.
 </p>
 <p style="font-size: 1.1rem;">
   In between code reviews, I haul my cookies around the world to share my

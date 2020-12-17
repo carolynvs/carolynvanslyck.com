@@ -9,6 +9,46 @@ layout: single
 <div class="projects">
   <div class="project" id="gocli">
     <div class="title">
+        <a href="/talk/porter/use-cases/">
+            <img src="/images/porter.png" alt="porter logo" title="cartoon cat head, smiling wearing a red bellhop hat" width="40"/>
+            The Devil is in the Deployments
+        </a>
+    </div>
+    <div class="locations">Kubernetes Virtual Summit 2020 by <a href="https://mediaops.com" target="blank">MediaOps</a></div>
+    <p class="description">
+      Can you deploy your entire app from scratch with a Helm install? Or do you
+      have cloud infra and hosted services that you rely on? The cloudy bits that make
+      your app cloud native.
+    </p>
+    <p class="description">
+      Cloud Native Application Bundles, the CNAB spec, was designed to solve
+      deployment problems that we all have been quietly battling with, mostly with
+      hope and bash. Bundles come in handy when deploying applications that don't live
+      neatly inside of just Kubernetes.
+    </p>
+    <p class="description">
+      Let's learn when bundles make sense, when they don't, and what your day could
+      look like if you were using them:
+    </p>
+    <ul>
+      <li>Install tools to manage your app: helm, aws/azure/gcloud, terraform.</li>
+      <li>Deploy your app along with its infra: cloud storage, dns entry, load balancer, ssl cert.</li>
+      <li>Get software and its dependencies into airgapped networks.</li>
+      <li>Manage disparate operational tech, such as Helm or Terraform, across teams and departments.</li>
+      <li>Secure our pipeline.</li>
+    </ul>
+  </p>
+    
+  <p class="description">
+    Learn how to take full advantage of popular Go libraries, structure your Go
+    code to improve reuse and testability, and of course
+    design your commands to be user friendly.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wNl8m3h9I4E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  </div>
+
+  <div class="project" id="gocli">
+    <div class="title">
         <a href="/talk/go/cli/">
             <img src="/talk/go/cli/images/console-love.png" alt="gopher holding laptop with heart on the screen" width="40"/>
             Designing Command-Line Tools People Love
