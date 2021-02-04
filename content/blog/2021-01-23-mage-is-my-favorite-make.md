@@ -13,12 +13,12 @@ image: images/mage-twitter.png
   <figcaption><a href="https://magefile.org">magefile.org</a></figcaption>
 </figure>
 
-I am fangirling over a new build tool, [Mage](https://magefile.org), and need to tell _everyone_ why.
-Mage is very similar to make, but you write Go instead of bash. 
-Instead of typing `make build` it is `mage build`.
-Mage understands targets, prerequisites, file modification timestamps, etc.
+I am fangirling over a build tool, [Mage](https://magefile.org), and need to tell _everyone_ why.
+Mage is very similar to make, only you write Go instead of bash.
+To the end user it has the same user experience, `make build` instead of `mage build`, so it's an easy switch for your fingers.
+It behaves the same as well, handling targets, prerequisites, file modification timestamps in the same way so there aren't many surprises to be had.
 
-So if it is basically make, why am I migrating all my projects from make to Mage and telling my friends?
+Now if Mage is basically make, why am I migrating all my projects from make to Mage and telling my friends?
 
 * [Cross Platform](#cross-platform)
 * [Go](#go)
@@ -36,22 +36,25 @@ You won't see instructions on a project's readme on how to install make and bash
 They just say "clone the repo and run make".
 It sounds so easy, and I have done that for years but there is a bit of a lie in there that I have a problem with.
 
-Make isn't installed by default on Windows.
-The bash commands in your Makefile won't work on Windows.
-So eventually a contributor tries to join your project, and there is a 100 foot wall in front of them that you inadvertently built.
-You tell them that if they want to contribute, they **just** need to leave the developer environment that they are familiar and proficient upon.
-They need to figure out hyper-v or docker, install WSL, install a linux distro, learn bash, figure out how to edit files that are now stored on the WSL side. They **just** need to set up an entirely new machine to contribute to your project.
-And I am not okay with that.
+Make isn't installed by default on Windows. _le gasp!_
+The bash commands in your Makefile won't work on Windows without some heavy customization either.
+When a contributor joins your project with a Windows machine, there is a 100 foot wall in front of them that you inadvertently built.
+If they want to contribute, they **just** need to leave the developer environment that they are familiar and proficient upon.
+They need to figure out hyper-v or docker, install WSL, install a linux distro, learn bash, and figure out how to edit files that are now stored on the WSL side. They **just** need to set up an entirely new machine to contribute to your project.
+And I am not okay with that! 😰
 
-Here's what the new contributor experience looks like with Mage, for developers on any platform.
-Install Go.
-Run `go run mage.go TARGET`.
-Done! 🚀
+Here's what the new contributor experience looks like with Mage, for developers on any platform:
 
-<p align="center"><strong>This is the new contributor experience that I want for people</strong></p>
+Install Go
 
-I like to have a reusable target that installs mage on their computer as well.
-It gets us real close to the simplicity of _just clone and run make_, while being accessible to everyone.
+go run mage.go TARGET
+
+Success! 🚀
+
+<h3 align="center">This is the new contributor experience that I want for people</h3>
+
+I like to have a reusable target that installs mage on their computer to streamline set up even further.
+This gets us real close to the simplicity of _just clone and run make_, while being accessible to everyone.
 
 1. Install Go.
 1. Run `go run mage.go EnsureMage`.
@@ -59,10 +62,9 @@ It gets us real close to the simplicity of _just clone and run make_, while bein
 
 So far I have only looked at this from an inclusion perspective, which unfortunately may not be as important to everyone as it is to me. 🤷‍♀️
 Maybe you don't care if experienced Windows developers become contributors, improving your code for your Windows users without you ever having to deal with Windows yourself.
-Sadly the _If they are using Windows, that's their problem_ mentality hasn't gone away.
-Either way, there are other benefits to Mage, even if you don't give a fig about Windows users.
+Sadly the _If they are using Windows, that's their problem_ mentality is still prevalant in open-source.
 
-Let me show you what's got me excited about Mage.
+Either way, there are other benefits to Mage, even if you don't give a fig about Windows users. Let me show you what's got me excited about Mage. 🧙‍♂️
 
 ### Go
 
@@ -71,26 +73,44 @@ For me, writing bash is not the best use of my skills and time.
 I know Go better, so why not use what I know?
 
 Bonus: I am _much_ better at graceful error handling in Go than in bash.
-My Makefiles rarely do more than fail on first error and leave it up to the user to fix...
+My Makefiles rarely do more than fail on first error and leave it up to the user to fix... 🙈
 
-My Magefiles check for preconditions like _Is Docker running and if not start the Docker Desktop process? Check if the container exists before running a new one with the same name. Evaluating the error message for conditions that I can recover from_, and other generally useful things.
+<h3 align="center">The quality of my build scripts have moved from rudimentary commands to production code</h3>
 
-<p align="center"><strong>The quality of my build scripts have moved from rudimentary commands to production code</strong></p>
+My Magefiles check for edge cases such as:
 
-I know that there people who are better at bash than me and manage to do this just fine.
-Good for them! I'll stick with Go.
+> Is Docker running and if not start the Docker Desktop process?
+
+> Does the container exists with the same name?
+
+> Is the error message a conditions that I can recover from?
+
+I know that there people who are better at bash than me and I am happy for them! I'm gonna stick with Go. 😁
 
 ### Shell Helpers
 
-Out of the box, Mage provides a package, sh, that helps you quickly run commands so that you aren't futzing with `exec.Cmd` all the time which would be a lot more verbose.
-You can use `sh.Run("kubectl", "apply", "-f", "deployment.yaml")` to run a command.
-If you need to capture the output of a command, then there is `output, err := sh.Output("docker", "logs", "mycontainer")`.
+Out of the box, Mage provides a package, sh, that helps you quickly run commands so that you aren't futzing with `exec.Cmd` all the time, which would be a lot more verbose. This package gives Mage the ease of use of make.
 
-These bring the ease of use of make, running a series of commands just like you do from the terminal, to Mage.
+#### Run a Command
+
+Running a command for the most part looks like what you would type at the command line:
+
+```go
+// kubectl apply -f deployment.yaml
+sh.Run("kubectl", "apply", "-f", "deployment.yaml")
+```
+
+#### Capture a Command's Output
+
+It is straightforward to capture the output of a command as well:
+
+```go
+output, err := sh.Output("docker", "logs", "mycontainer")
+```
 
 ### Reusable Packages
 
-Often I have a set of repositories for a project, that all need some common build logic.
+Often I have a set of repositories for a project that all need some common build logic.
 Usually it ends up with a tools repo with git submodules to include it, or curling it from another repo, or just unabashedly duplicating it in each repo.
 Now that my build script is in Go, I can create a package with useful functions and import it into my other Magefiles with `import "github.com/carolynvs/buildhelpers"`.
 
@@ -102,7 +122,7 @@ ___
 
 ## Using Mage
 
-Enough of the sell, sorry about that I'm just excited about Mage. If this sounds like an improvement to you, then read on to learn how to get started with Mage. If not, well then don't @ me and enjoy your Makefiles. 😇
+I hope by now you are a wee bit interested in trying out Mage. If this sounds like an improvement to you, then read on to learn how to get started. If not, well then don't @ me and enjoy your Makefiles. 😇
 
 ### Anatomy of a Magefile
 
@@ -110,7 +130,7 @@ Let's see what a Magefile looks like.
 It's a file named **magefile.go**, usually at the root of your repository.
 
 In this example I am using it to work with a project written in Go, but I have been happily using it on other repositories where Go isn't involved at all.
-Mage is suitable for any project, just like make.
+Mage is suitable for any project.
 
 <script src="https://gist-it.appspot.com/github.com/carolynvs/mage-example/raw/main/magefile.go"></script>
 
@@ -132,13 +152,12 @@ The `mg.Deps` call tells mage that Lint is a prerequisite of Build.
 
 <script src="https://gist-it.appspot.com/github.com/carolynvs/mage-example/raw/main/magefile.go?slice=14:27&footer=0"></script>
 
-The lint target is configured to install golint if it's not already installed.
-This uses my custom helper library.
+The lint target uses my helper library to install golint if it's not already installed.
 
 <script src="https://gist-it.appspot.com/github.com/carolynvs/mage-example/raw/main/magefile.go?slice=28:32&footer=0"></script>
 
 Below is the output when I run mage.
-The `-v` flag prints the executed targets and commands, instead of only the command output.
+The `-v` flag prints the executed targets and commands, instead of just the command output.
 
 ```console
 $ mage -v
@@ -168,14 +187,11 @@ Targets are case-insensitive, so both `mage EnsureMage` and `mage ensuremage` wi
 
 ___
 
-I am in the process of migrating Porter from make to Mage, and using it for any new project.
+I am in the process of migrating Porter from make to Mage, and using it for all my new projects.
 After having a few new contributors go through the setup successfully and with a LOT less pain than previously, it is clear that this will attract and keep new contributors.
 
-My helper library for Mage has been evolving and improving over time.
-Once it's ready to show people, I'll follow-up with another post on why I wrote it and how to use it with Mage.
-
-In the meantime, I would love to hear from anyone who tries Mage.
-I'm not associated with the project at all, but it would be great to hear how it works for other people, any problems you ran into, or improvements you have made yourself!
+It would be great to  hear from anyone who tries Mage, or is already using it.
+I'm not associated with the project at all, but I would love to hear how it works for other people, any problems you ran into, or improvements you have made yourself!
 
 <p align="right">
 Happy Building! 🌈✨<br/>
