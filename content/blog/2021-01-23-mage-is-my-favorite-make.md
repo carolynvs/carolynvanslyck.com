@@ -15,7 +15,7 @@ image: images/mage-twitter.png
 
 I am fangirling over a build tool, [Mage](https://magefile.org), and need to tell _everyone_ why.
 Mage is very similar to make, only you write Go instead of bash.
-To the end user it has the same user experience, `make build` instead of `mage build`, so it's an easy switch for your fingers.
+To the end user it has the same user experience, `mage build` instead of `make build`, so it's an easy switch for your fingers.
 It behaves the same as well, handling targets, prerequisites, file modification timestamps in the same way so there aren't many surprises to be had.
 
 Now if Mage is basically make, why am I migrating all my projects from make to Mage and telling my friends?
