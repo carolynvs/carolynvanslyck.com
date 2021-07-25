@@ -4,7 +4,11 @@ description: Professional Yak Shaver
 ---
 
 <div class="hero">
-  <a href="/images/carolynvs.jpg"><img src="/images/carolynvs.small.jpg" class="borderless" alt="photo of carolyn" width="200px"/></a>
+  <div class="profile-photo">
+    <a href="/images/carolynvs.jpg">
+      <img src="/images/carolynvs.small.jpg" class="borderless" alt="photo of carolyn" />
+    </a>
+  </div>
   <ul class="tiles">
       <li><span>🦄</span><p>I am a polyglot developer</p></li>
       <li><span>👨‍🚒</span><p>I love contributing to open source software</p></li>

@@ -240,14 +240,19 @@ pre code, li pre code, p pre code {
 }
 
 .hero {
-  display:flex; 
-  justify-content:center; 
+  display: flex; 
+  justify-content: center;
   align-items:center; 
   flex-direction: row
 }
 
 .hero > * {
-  flex-basis: 0;
+  flex-basis: 50%;
+}
+
+.profile-photo {
+  min-width: 10em;
+  max-width: 25%;
 }
 
 .tiles {
@@ -269,6 +274,7 @@ pre code, li pre code, p pre code {
   color: var(--dark-text);
   border-radius: 5px;
   padding: 1em;
+  line-height: 1.2em;
 
   min-width: 10em;
   flex-basis: 0;
@@ -282,6 +288,7 @@ pre code, li pre code, p pre code {
 .tiles span {
   display: block;
   font-size: 2em;
+  margin: 10px;
 }
 
 .tiles p {
