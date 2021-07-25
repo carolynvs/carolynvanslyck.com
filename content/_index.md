@@ -3,9 +3,9 @@ title: Carolyn Van Slyck
 description: Professional Yak Shaver
 ---
 
-<div style="display:flex; justify-content:center; align-items:center; flex-direction: row">
-  <a href="/images/carolynvs.jpg" style="flex: 1 0 0;"><img src="/images/carolynvs.small.jpg" class="borderless" alt="photo of carolyn" width="200px"/></a>
-  <ul class="tiles" style="flex: 1 1 0;">
+<div class="hero">
+  <a href="/images/carolynvs.jpg"><img src="/images/carolynvs.small.jpg" class="borderless" alt="photo of carolyn" width="200px"/></a>
+  <ul class="tiles">
       <li><span>🦄</span><p>I am a polyglot developer</p></li>
       <li><span>👨‍🚒</span><p>I love contributing to open source software</p></li>
       <li><span>🐳</span><p>I play in the developer tools space</p></li>

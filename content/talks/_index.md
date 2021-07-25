@@ -37,15 +37,18 @@ layout: single
       <li>Manage disparate operational tech, such as Helm or Terraform, across teams and departments.</li>
       <li>Secure your pipeline.</li>
     </ul>
-  </p>
+  </div>
     
   <p class="description">
     Learn how to take full advantage of popular Go libraries, structure your Go
     code to improve reuse and testability, and of course
     design your commands to be user friendly.</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wNl8m3h9I4E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  <div class="embedded-video">
+    <iframe src="https://www.youtube.com/embed/wNl8m3h9I4E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
   </div>
+</div>
 
   <div class="project" id="gocli">
     <div class="title">
@@ -60,14 +63,17 @@ layout: single
     that other developers are willing to maintain. Often a team's engineering
     efforts are spent on the backend, while the cli doesn't receive the same
     level of attention. This can result in hard-to-test tools, and dumping
-    maintenance of them to whoever most recently joined the team.</p>
+    maintenance of them to whoever most recently joined the team.
+    </p>
     
   <p class="description">
     Learn how to take full advantage of popular Go libraries, structure your Go
     code to improve reuse and testability, and of course
     design your commands to be user friendly.</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eMz0vni6PAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  <div class="embedded-video">
+    <iframe src="https://www.youtube.com/embed/eMz0vni6PAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
 
   <div class="project" id="gophersource">
@@ -81,7 +87,9 @@ layout: single
     <p class="description">
     Go’s reputation for having a great community often precedes it. At the same time figuring out how to contribute and influence upstream Go is intimidating. A band of plucky gophers are working together to change that, clearing the way for more community involvement, and I want you to join us!</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ybrItw6KnZk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  <div class="embedded-video">
+    <iframe src="https://www.youtube.com/embed/ybrItw6KnZk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
   </div>
 
   <div class="project" id="oss101-workshop">
@@ -122,7 +130,9 @@ layout: single
 
   <p class="description">Whether you are a Kubernetes user looking to script common commands, a developer building custom Kubernetes resources, or a provider looking to encapsulate specific functionality for your users, come learn how to write your own custom commands using kubectl plugins.</p>
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/PZmTPRRfW5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  <div class="embedded-video">
+    <iframe src="https://www.youtube.com/embed/PZmTPRRfW5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
   </div>
 
   <div class="project" id="oss-101">
@@ -176,7 +186,7 @@ layout: single
       how I became a maintainer for dep (the Go Dependency Manager), and my adventures
       running a my little pony themed bare metal Kubernetes cluster.
     </p>
-    <center><a href="https://changelog.com/gotime/55">Listen to Go Time 55: Dep, Cross-platform, and Getting Started</a></center>
+    <p align="center"><a href="https://changelog.com/gotime/55">Listen to Go Time 55: Dep, Cross-platform, and Getting Started</a></p>
   </div>
 
   <div class="project" id="dep-in-10">
@@ -190,8 +200,12 @@ layout: single
     <p class="description">
       The upcoming Go dependency manager, <a href="https://github.com/golang/dep/">dep</a>, is ready for you to try out! Learn how to get started with dep, whether you are used to go get or another dependency manager.
     </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eZwR8qr2BfI" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+
+  <div class="embedded-video">
+    <iframe src="https://www.youtube.com/embed/eZwR8qr2BfI" frameborder="0" allowfullscreen></iframe>
   </div>
+  </div>
+
   <div class="project" id="GoWin">
     <div class="title">
         <a href="/talk/devex/gowin/">
@@ -210,8 +224,12 @@ layout: single
       Lucky for us, Go has strong support for cross-platform development. So let's start writing cross-platform first and welcome our Windows
       neighbors. Learn some of the Windows quirks that you should take into account, and the Go goodies to help you conquer them.
     </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UOeeR7odY1I" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+
+  <div class="embedded-video">
+  <iframe src="https://www.youtube.com/embed/UOeeR7odY1I" frameborder="0" allowfullscreen></iframe>
   </div>
+  </div>
+
   <div class="project" id="ThinkOutsideTheContainer">
     <div class="title">
         <a href="/talk/carina/think-outside-the-container/#/howtowhale">
@@ -234,8 +252,11 @@ layout: single
       You’ll leave knowing how you can use Docker on the side, even if you haven’t tackled Dockerizing your application.
     </p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/B9bAWsCslqg" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  <div class="embedded-video">
+  <iframe src="https://www.youtube.com/embed/B9bAWsCslqg" frameborder="0" allowfullscreen></iframe>
   </div>
+  </div>
+
   <div class="project" id="JupyterHubCarina">
       <div class="title">
           <a href="/talk/carina/jupyterhub/">
@@ -249,6 +270,7 @@ layout: single
       <p class="description">
         Learn how <a href="http://howtowhale.com">howtowhale.com</a> uses JupyterHub and Carina to teach Docker, with zero setup and immediate results. With these essential building blocks, you too can create the ultimate learning environment.</p>
   </div>
+
   <div class="project" id="IntroductionToCarina">
       <div class="title">
           <a href="/talk/carina/lightning/">
@@ -259,6 +281,8 @@ layout: single
       <div class="locations">DevOps Chicago Meetup, ChicagoRuby Meetup March 2016</div>
       <p class="description">A lightning fast introduction to Carina by Rackspace, which provides Docker Containers as a Service. Learn how to "think above the whale" and start <em>doing the Dockers</em> in just a few easy commands.</p>
 
-<iframe src="https://player.vimeo.com/video/162183519?color=ff9933&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allowfullscreen style="width: 560; margin-right: auto; margin-left: auto;display:block;"></iframe>
+  <div class="embedded-video">
+  <iframe src="https://player.vimeo.com/video/162183519?color=ff9933&title=0&byline=0&portrait=0" frameborder="0" allowfullscreen></iframe>
+  </div>
   </div>
 </div>
