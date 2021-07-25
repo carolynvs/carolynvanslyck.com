@@ -3,20 +3,23 @@ title: Carolyn Van Slyck
 description: Professional Yak Shaver
 ---
 
-<div style="display:flex; justify-content:center; align-items:center;">
-
-  <a href="/images/carolynvs.jpg"><img src="/images/carolynvs.small.jpg" class="borderless" alt="photo of carolyn" width="200px"/></a>
-
-  <ul style="list-style-type:none; font-size: 1.3rem; line-height: 2rem;">
-      <li>🦄 I am a polyglot developer</li>
-      <li>👨‍🚒 I love contributing to open source software</li>
-      <li>🐳 I play in the developer tools space</li>
-      <li>🦁 I have a soft spot for fuzzy animals</li>
+<div class="hero">
+  <div class="profile-photo">
+    <a href="/images/carolynvs.jpg">
+      <img src="/images/carolynvs.small.jpg" class="borderless" alt="photo of carolyn" />
+    </a>
+  </div>
+  <ul class="tiles">
+      <li><span>🦄</span><p>I am a polyglot developer</p></li>
+      <li><span>👨‍🚒</span><p>I love contributing to open source software</p></li>
+      <li><span>🐳</span><p>I play in the developer tools space</p></li>
+      <li><span>🦁</span><p>I have a soft spot for fuzzy animals</p></li>
   </ul>
 </div>
 
 <hr />
 
+<div class="wall-of-text">
 <p style="font-size: 1.1rem;">
   I am a software developer based in the wilds of suburban Chicago, working
   remote on the Microsoft Azure team. My passion is developer tools, and building vibrant
@@ -30,6 +33,7 @@ description: Professional Yak Shaver
   In between code reviews, I haul my cookies around the world to share my
   love of Go, containers, and excessive emoji. 🌈 ✨
 </p>
+</div>
 
 <div id="social-media">
     <a href="https://github.com/carolynvs" class="fa fa-github fa-2x" title="GitHub"></a>

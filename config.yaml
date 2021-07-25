@@ -10,3 +10,8 @@ buildFuture: true
 
 params:
   image: images/carolynvs.twitter.jpg
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

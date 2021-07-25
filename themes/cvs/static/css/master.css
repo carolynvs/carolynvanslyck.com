@@ -1,3 +1,5 @@
+@import url(variables.css);
+
 body {
   font-family: Lato, Arial, sans-serif; }
 
@@ -8,7 +10,7 @@ button, .button {
   font-family: Lato, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #222; }
+  color: var(--main-text); }
 
 .form-centered {
   max-width: 400px;
@@ -182,7 +184,7 @@ header {
   white-space: nowrap;
   text-align: center; }
   header h1 {
-    color: #b22222;
+    color: var(--dark-background);
     max-width: 880px;
     margin-left: auto;
     margin-right: auto;
@@ -194,7 +196,7 @@ header {
   header h1 a:hover,
   header h1 a:visited {
     text-decoration: none;
-    color: #b22222;
+    color: var(--dark-background);
   }
   header p {
     max-width: 740px;

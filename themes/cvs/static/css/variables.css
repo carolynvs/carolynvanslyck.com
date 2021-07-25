@@ -1,0 +1,10 @@
+:root {
+    --main-background: #FBFCFF;
+    --dark-link: #274156;
+    --bright-link: #1C6E8C;
+    --light-background: #F5F3F6;
+    /*--dark-background: #605856;*/
+    --dark-background: #533747;
+    --dark-text: #222;
+    --light-text: white;
+  }
