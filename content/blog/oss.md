@@ -1,5 +1,6 @@
 ---
 title: oss
+draft: true
 ---
 
 * my open source journey
