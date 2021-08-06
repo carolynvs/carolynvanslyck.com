@@ -145,6 +145,9 @@ draft: true
     * people will want things from you that press that work/not work boundary
     * it's awkward to make a commitment to a project and then have work not back you up or change their mind
     * uses a lot of different skill sets that you may not be ready/interested in doing a bunch at work
+
+    You spend a lot of emotional and personal capital building trust in a community and you make a commitment when you become a maintainer or project leader. But when work decides to change priorities, you are left wondering what to do with a commitment that was based on the assumption of being paid to do this full time. When you leave 
+    
 * Resources:
     * kubernetes contributor experience
     * cncf tag contributor strategy
