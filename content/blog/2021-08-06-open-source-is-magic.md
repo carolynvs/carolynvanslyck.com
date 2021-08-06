@@ -38,6 +38,8 @@ In one of my first programming jobs, we occasionally were allowed to use open-so
 
 At work we used Atlassian software for everything, and once again I was intrigued by the concept of open-source software. Atlassian actually let me _see their source code_ and learn for myself how it all really worked. I read the entire code base for Bamboo and Stash, writing plugins to fit these tools better into the workflows and developer experience that I envisioned for my team. I distributed these plugins with an open-source license so that someone else on the internet could tinker with what I had made.
 
+<p align=center><strong>Everyone felt that they were owed my nights and weekends</strong></p>
+
 For a while, I was the lucky recipient of frantic emails from real companies demanding that I immediately update a plugin to be compatible with a new version of some Atlassian product. I never understood why they felt that they had any right to contact a stranger out of the blue and demand free work. But ooh boy did I learn quickly that everyone felt that they were owed my nights and weekends.
 
 This was also my first taste of working with another type of open source: **Source Code Available**. The Atlassian projects with which plugin authors were integrating were 100% controlled by Atlassian. There wasn't a way for us to submit patches, suggestions, beg for them to please stop breaking the plugin interfaces, etc. We could read the code, but not modify it.
@@ -62,7 +64,17 @@ When I searched for my next job, it wasn't just for any job that fit my skills. 
 
 With a taste of the heady highs of being paid to work on open-source software, I decided to jump off the .NET ship and move into containers, Kubernetes and something called Cloud Native. In March 2017 I was presented with a unique opportunity, a dependency manager for Go called dep. The project was young, getting popular, but also overwhelmed and in need of contributors. I figured that working on a popular open-source project would help build my credentials and be the foot in the door to the type of jobs I was looking for.
 
+<p align=center><strong>Pay Attention. Learn. Be Helpful.</strong></p>
+
 I quit my job and contributed to dep full time, eventually becoming a maintainer. My contributions were not ground breaking advances in solving hard graph problems (I left that to Sam Boyer). Rather I followed the maintainers around on GitHub and Slack, and when they answered a question, I paid attention. When someone asked that question again, I answered it. Eventually I collected the common questions and [turned it into a FAQ](https://github.com/golang/dep/pull/401). I also spent a lot of time reading the source code, walking through it in the debugger to understand how it worked, trying out pulling dependencies for people when they ran into problems, and figured out if there was a workaround to be had or a bug/gap in dep. I did everything I could to build up enough domain knowledge so that I could eventually submit pull requests that weren't just copy/pasted answers from someone else, but new features, complex bug fixes. Somehow I went from a newbie to someone whose contributions were a net help to the project. Or at least I sincerely hope I did.
+
+<div align=center>
+<blockquote>
+Fool me once, shame on you.<br>
+Fool me twice, shame on me.<br>
+Fool me thrice and hey cut that out, Google!<br>
+</blockquote>
+</div>
 
 Sadly poor little dep didn't reach its goals. The Go team at Google decided to create a dependency management solution built-in to Go that didn't allow for community alternatives. RIP dep, it was fun while it lasted. 💔
 
