@@ -14,15 +14,15 @@ image: images/mlp-applejack-confused.png
 
 > This is part two in the series [Open Source: The Nice and Accurate Advice of Carolyn Van Slyck]({{< ref "2021-08-06-open-source-journey.md" >}})
 
-It feels like common wisdom lately that _obviously_ you should want to contribute to open source. But it isn't always clear why! It is unpaid work, so what do you get out of it? These are all going to seem like selfish reasons to get into open source. And they are! There are lots of warm fuzzy reasons to give your time away for free, but this is your life, if you are going to give up time that could be better spent doing things that you love, it better be for a good reason.
+It feels like common wisdom lately that _obviously_ you should want to contribute to open source. But it isn't always clear why! It is unpaid work, so what do you get out of it? These are all going to seem like selfish reasons to get into open source. And they are! There are lots of warm fuzzy reasons to give your time away for free, but this is your life, if you are going to give up time that could be better spent doing other things, it better be for a good reason.
 
 Just keep in mind a short list of things that you should be doing _before_ giving your time away: taking care of yourself, your health, and your needs (yup, you are allowed to have those), eating, bathing, exercising, occasionally seeing the outdoors, family and friends.
 
 ## Experience
 
-Most don't have day jobs that pay you to work on exactly the right thing to line you up for that next step in your career. You could be a student looking to build experience for that first job, switching careers or roles, or your current job isn't handing out stretch projects with newer technology. 
+Most don't have day jobs that pay you to work on exactly the right thing to line you up for that next step in your career. You could be a student looking to build experience for that first job, switching careers or roles, or your current job isn't handing out stretch projects with interesting technology. 
 
-One tried and true solution is to write yet another TODO app, or buy a domain and promise yourself that you will create something neat as a side project. The problem with that is that coming up with what to write is hard and when you are done, interviewers won't value your random project as much as a project that has name recognition, or even better something that they actually use themselves. Contributing to an established open source project with an active community increases the likelihood that mentioning it on your cover letter or resume will yield interested questions, or even a thank you because they use a feature that you wrote.
+One tried and true solution is to write yet another TODO app, or buy a domain and promise yourself that you will create something neat as a side project. The problem with that is that coming up with what to write is hard and when you are done, interviewers won't value your random project as much as a project that has name recognition, or even better something that they actually use themselves. Contributing to an established open source project with an active community increases the likelihood that mentioning it on your cover letter or resume will yield interested questions, or a thanks for feature you wrote.
 
 When I interviewed at Microsoft after working on the Go package manager dep, more than one interviewer asked me questions about the project, and said that they use it. Every minute spent chatting about that open source work is one less minute white boarding. I know that I'm going to come off a lot better talking about my project than doing interpretive dance with a dry erase marker.
 
@@ -34,11 +34,11 @@ This is especially relevant for my non-"cishet white man" readers out there. Goi
 
 Whereas if you don't look quite the same as your interviewers, you are in the position of re-proving yourself to every interviewer. Questions like "Did your husband write your startup's software for you?", a real question from my interview with StackOverflow, or how much of what you accomplished was a "team effort" start to creep in. Instead of talking about what you could do for the company if hired, you are stuck digging yourself out of a hole trying to get on the same footing that Chad walked in at.
 
-In my experience, this effect is lessened when you are associated with a popular open source project. When they already like, use and value a project to which you contribute, especially when your name is visibly known for specific features or work, then their respect for that project is often transferred to you. Suddenly you are getting the benefit of the doubt, and interviews feel a lot less adversarial.
+In my experience, this effect is lessened when you are associated with a popular open source project. When they already like, use and, value a project to which you contribute, especially when your name is visibly known for specific features or work, then their respect for that project is often transferred to you. Suddenly you are getting the benefit of the doubt, and interviews feel a lot less adversarial.
 
 ## Where everybody knows your name 🎵
 
-If you haven't noticed the pattern here, I'm saying that contributing to open source makes it less awful to look for a job. I still hate interviewing, still get rejected because I'm "not technical enough", or "not a good fit but you would be perfect for marketing". It has gotten better, but still has room for improvement. 😂
+If you haven't noticed the pattern here, I'm saying that contributing to open source makes it less awful to look for a job. I still hate interviewing, still get rejected because I'm "not technical enough", or "not a good fit but you would be perfect for marketing". It has gotten better, but still has room for improvement. 😂 You can read more about how [my involvement in open source helped me switch career paths]({{< ref "2017-10-22-i-did-a-thing.md" >}}) and judge for yourself.
 
 Let's say that you are contributing to a project, a popular project even, but you are just quietly submitting PRs, not really interacting with anyone other than the minimum to get it merged. You will get bonus points for experience and your work may even be seen as valuable, but you are missing out on one of the biggest values to contributing: name recognition.
 
@@ -72,7 +72,7 @@ If contributing to open source is a magic way to improve your career prospects, 
 
 ## Friendship
 
-I want to end on a high note here because this is another powerful reason to contribute to open source and engage with the community. If you let yourself, you'll make friends. Not just workplace proximity associates but people who you will still talk to after switching jobs. A lot of the people I have relied upon for social interaction while hiding in my home throughout the pandemic has been friends made from open-source communities. You can build strong relationships with some of the kindest, unique people because, if you pick the right community to spend your time with, it attracts some pretty great people. This is why I love the Kubernetes, CNCF, and Go communities. They have not only welcomed me but offered friendship. 💖
+I want to end on a high note here because this is another powerful reason to contribute to open source and engage with the community. If you let yourself, you'll make friends. Not just workplace proximity associates but people who you will still talk to after switching jobs. A lot of the people I have relied upon for social interaction while hiding in my home throughout the pandemic has been friends made from open-source communities. You can build strong relationships with some of the kindest, most unique people because, if you pick the right community to spend your time with, it attracts some pretty great people. This is why I love the Kubernetes, CNCF, and Go communities. They have not only welcomed me but offered friendship. 💖
 
 Take a minute, think about what you could gain from contributing to open source, and make a decision. Are you in?
 
