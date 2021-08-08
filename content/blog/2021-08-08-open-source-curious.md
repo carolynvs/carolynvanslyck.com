@@ -32,19 +32,19 @@ In open source there are also opportunities to grow as a leader. There are all s
 
 This is especially relevant for my non-"cishet white man" readers out there. Going into a interview, you are often at a disadvantage immediately compared to say ... Chad. Chad not only looks just like his interviewer, but he probably has a similar background, accent, in-jokes and hairstyle. Interviewer bias often results in interviewers who are more likely to believe that Chad has done the things he has said, assume that he's as competent as the resume implies, and judge Chad on his potential.
 
-Whereas if you don't look quite the same as your interviewers, you are in the position of re-proving yourself to every interviewer. Questions like "Did your husband write your startup's software for you?", a real question from my interview with StackOverflow. Or unwarranted questions about how much of what you accomplished was a "team effort" start to creep in. Instead of talking about what you could do for the company if hired, you are stuck digging yourself out of a hole trying to get on the same footing that Chad walked in at.
+Whereas if you don't look quite the same as your interviewers, you are in the position of re-proving yourself to every interviewer. Questions like "Did your husband write your startup's software for you?", a real question from my interview with StackOverflow, or how much of what you accomplished was a "team effort" start to creep in. Instead of talking about what you could do for the company if hired, you are stuck digging yourself out of a hole trying to get on the same footing that Chad walked in at.
 
 In my experience, this effect is lessened when you are associated with a popular open source project. When they already like, use and value a project to which you contribute, especially when your name is visibly known for specific features or work, then their respect for that project is often transferred to you. Suddenly you are getting the benefit of the doubt, and interviews feel a lot less adversarial.
 
 ## Where everybody knows your name 🎵
 
-If you haven't noticed the pattern here, I'm saying that contributing to open source makes it less awful to look for a job. I still hate interviewing, still get rejected because I'm "not technical enough", or "not a good fit but you would be perfect for marketing". It's gotten better, with continued room for improvement. 😂
+If you haven't noticed the pattern here, I'm saying that contributing to open source makes it less awful to look for a job. I still hate interviewing, still get rejected because I'm "not technical enough", or "not a good fit but you would be perfect for marketing". It's gotten better, but still has room for improvement. 😂
 
 Let's say that you are contributing to a project, a popular project even, but you are just quietly submitting PRs, not really interacting with anyone other than the minimum to get it merged. You will get bonus points for experience and your work may even be seen as valuable, but you are missing out on one of the biggest values to contributing: name recognition.
 
 <p align="center"><strong>You have earned their trust</strong></p>
 
-Now let's say that you are contributing to that popular open-source project and also taking the time to answer people's questions, participate in design discussions, providing feedback on pre-releases and showing up to meetings. _That_ is going to get people to remember your name. Among other contributors and even users of the project, you are person who they hopefully have positive feelings about because you have helped them out. You wrote a feature they needed, answered their questions, fixed a bug, reviewed their code, etc. You have earned their trust.
+Now let's say that you are contributing to that popular open-source project and also taking the time to answer people's questions, participate in design discussions, providing feedback on pre-releases and showing up to meetings. _That_ is going to get people to remember your name. Among other contributors and even users of the project, you can become someone with whom they hopefully have positive feelings about because you have helped them out. You wrote a feature they needed, answered their questions, fixed a bug, reviewed their code, etc. You have earned their trust.
 
 When they tweet about a position that just opened up on their team, you could conceivably DM them and ask for a referral. When you interview at their company, their colleagues may even know your name because they've seen your PRs or you chatting in a Slack channel that they are in.
 
@@ -52,7 +52,7 @@ Interviewing with someone who feels like they know you is a completely different
 
 ## Surprise Networking!
 
-I hate to break it to you, but that thing everyone tells you to do to land an interview, the thing that feels awkward, unnatural, and you don't know how to do it? That's right, you are networking! So why doesn't it feel so dirty? Because instead of "networking", you were helping people. A lot of us freeze up when we have to talk about ourselves, meet new people, and have unscripted social interactions. But ground those interactions in a way that takes the spotlight off of you and puts is squarely on something you'd much rather focus on, technology, and what previously felt impossible, just happens naturally.
+I hate to break it to you, but that thing everyone tells you to do to land an interview? The thing that feels awkward, unnatural, and you don't know how to do it? You know, networking. Contributing to open source and participating in the community is networking. So why doesn't it feel so dirty? Because instead of focusing on "networking", you were helping people. A lot of us freeze up when we have to talk about ourselves, meet new people, and have unscripted social interactions. But ground those interactions in something that takes the spotlight off of you and puts is squarely on something you'd much rather focus on, technology, and the impossible happens naturally.
 
 ![the is this is pigeon meme, where the guy is labeled introvert, the butterfly is helping people and he asks is this networking?](/images/networking-meme.jpg)
 
