@@ -4,7 +4,7 @@ date: "2021-08-08"
 title: "Why would you contribute to open source?"
 slug: open-source-curious
 description: >
-    It feels like common wisdom lately that _obviously_ you should want to contribute to open source. But it isn't always clear why! It is unpaid work, so what do you get out of it?
+    Should you contribute to open source? What do you get out of it and is it for you?
 image: images/mlp-applejack-confused.png
 ---
 
