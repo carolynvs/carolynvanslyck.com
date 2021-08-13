@@ -21,13 +21,15 @@ Just keep in mind a short list of things that you should be doing _before_ givin
 
 ## Experience
 
-Most don't have day jobs that pay you to work on exactly the right thing to line you up for that next step in your career. You could be a student looking to build experience for that first job, switching careers or roles, or your current job isn't handing out stretch projects with interesting technology. 
+You may not have a job that pays you to work on exactly the right thing to line you up for that next step in your career. You could be a student looking to build experience for that first job, switching careers or roles, or your current job isn't handing out stretch projects with interesting technology. 
 
-One tried and true solution is to write yet another TODO app, or buy a domain and promise yourself that you will create something neat as a side project. The problem with that is that coming up with what to write is hard and when you are done, interviewers won't value your random project as much as a project that has name recognition, or even better something that they actually use themselves. Contributing to an established open source project with an active community increases the likelihood that mentioning it on your cover letter or resume will yield interested questions, or a thanks for feature you wrote.
+One tried and true solution is to write yet another TODO app, or buy a domain and promise yourself that this time you will totally finish that side project. The problem with that is that coming up with what to write is hard and when you are done, interviewers won't value your random project as much as a project that has name recognition, or even better something that they actually use themselves.
 
-When I interviewed at Microsoft after working on the Go package manager dep, more than one interviewer asked me questions about the project, and said that they use it. Every minute spent chatting about that open source work is one less minute white boarding. I know that I'm going to come off a lot better talking about my project than doing interpretive dance with a dry erase marker.
+Contributing to an established open source project with an active community increases the likelihood that mentioning it on your cover letter or resume will yield interested questions, or even a thanks for feature you wrote. In open source there are also opportunities to grow as a leader. There are all sorts of roles that can help you lean how to delegate, run meetings, build consensus, make tough decisions, and communicate effectively. These skills are worth their weight in gold and can be invaluable for landing a promotion.
 
-In open source there are also opportunities to grow as a leader. There are all sorts of roles in open source that can help you lean how to delegate, run meetings, build consensus, make tough decisions, and communicate effectively. These skills are worth their weight in gold, and when applied at work, can be invaluable for landing a promotion.
+<p align="center"><strong>I make a better impression talking about my work than doing interpretive dance with a dry erase marker</strong></p>
+
+When I interviewed at Microsoft after working on the Go package manager dep, more than one interviewer asked me questions about the project, and said that they use it. Every minute spent chatting about that open source work is one less minute white boarding. Let me tell you, I make a better impression talking about my work than doing interpretive dance with a dry erase marker.
 
 ## Proving your worth
 
@@ -35,7 +37,8 @@ This is especially relevant for my non-"cishet white man" readers out there. Goi
 
 Whereas if you don't look quite the same as your interviewers, you are in the position of re-proving yourself to every interviewer. Questions like "Did your husband write your startup's software for you?", a real question from my interview with StackOverflow, or how much of what you accomplished was a "team effort" start to creep in. Instead of talking about what you could do for the company if hired, you are stuck digging yourself out of a hole trying to get on the same footing that Chad walked in at.
 
-In my experience, this effect is lessened when you are associated with a popular open source project. When they already like, use and, value a project to which you contribute, especially when your name is visibly known for specific features or work, then their respect for that project is often transferred to you. Suddenly you are getting the benefit of the doubt, and interviews feel a lot less adversarial.
+In my experience, this effect is lessened when you are associated with a popular open source project. When they already like, use and, value a project to which you contribute, especially when your name is visibly known for specific features or work, then their respect for that project is often transferred to you. Suddenly you are getting the benefit of the doubt, and interviews feel a lot less adversarial. Being able to walk into an interview and not have to immediately defend your existence, is novel and _just wonderful_. 💕
+
 
 ## Where everybody knows your name 🎵
 
@@ -53,7 +56,7 @@ Interviewing with someone who feels like they know you is a completely different
 
 ## Surprise Networking!
 
-I hate to break it to you, but that thing everyone tells you to do to land an interview? The thing that feels awkward, unnatural, and you don't know how to do it? You know, networking. Contributing to open source and participating in the community is networking. So why doesn't it feel so dirty? Because instead of focusing on "networking", you were helping people. A lot of us freeze up when we have to talk about ourselves, meet new people, and have unscripted social interactions. But ground those interactions in something that takes the spotlight off of you and puts is squarely on something you'd much rather focus on, technology, and the impossible happens naturally.
+I hate to break it to you, but that thing everyone tells you to do to land an interview? The thing that feels awkward, unnatural, and you don't know how to do it? You know what I'm talking about... networking. 😱 Contributing to open source and participating in the community is networking. So why doesn't it feel so dirty? Because instead of focusing on "networking", you are helping people. A lot of us freeze up when we have to talk about ourselves, meet new people, and have unscripted social interactions. But ground those interactions in something that takes the spotlight off of you and puts it squarely on something you'd much rather focus on, technology, and the impossible happens naturally.
 
 ![the is this is pigeon meme, where the guy is labeled introvert, the butterfly is helping people and he asks is this networking?](/images/networking-meme.jpg)
 
@@ -69,11 +72,11 @@ If contributing to open source is a magic way to improve your career prospects, 
 
 4. Lack of opportunity. What I stumbled up on with dep, an early stage visible project that had active users looking for contributors and with a vacuum at the maintainer level was a unicorn. It is why I spent my time between jobs working on it full time, because I recognized it as the valuable opportunity that it was. Don't let the apparent lack of opportunity hold you back though. In the next post I'll go over how to find a project.
 
-5. You can't afford to be visible on the internet. It isn't always pleasant or safe to be a target on the internet. And simply existing as Black, a woman or non-binary person, disabled, or queer in tech can really paint a target on your back. I use BlockParty on twitter, don't accept DMs, avoid sites like HN or Reddit, and generally think real hard about what I say in front of which audience. I held off on writing this series because every time I blog, it inevitably attracts assholes. I don't blame you for noping out of that shit.
+5. You can't afford to be visible on the internet. It isn't always pleasant or safe to be a target on the internet. And simply existing as Black, a woman or non-binary person, disabled, queer, etc in tech can really paint a target on your back. I use BlockParty on twitter, don't accept DMs, avoid sites like HN or Reddit, and generally think real hard about what I say in front of which audience. I held off on writing this series because every time I blog, it inevitably attracts assholes. I don't blame you for noping out of that shit.
 
 ## Friendship
 
-I want to end on a high note here because this is another powerful reason to contribute to open source and engage with the community. If you let yourself, you'll make friends. Not just workplace proximity associates but people who you will still talk to after switching jobs. A lot of the people I have relied upon for social interaction while hiding in my home throughout the pandemic has been friends made from open-source communities. You can build strong relationships with some of the kindest, most unique people because, if you pick the right community to spend your time with, it attracts some pretty great people. This is why I love the Kubernetes, CNCF, and Go communities. They have not only welcomed me but offered friendship. 💖
+I want to end on a high note here because this is another powerful reason to contribute to open source and engage with the community. If you let yourself, you'll make friends. Not just workplace proximity associates but people who you will still talk to after switching jobs. A lot of the people I have relied upon for social interaction while hiding in my home throughout the pandemic has been friends made from open-source communities. You can build strong relationships with some of the kindest, most unique people because healthy open source communities attract some pretty great people. This is why I love the Kubernetes, CNCF, and Go communities. They have not only welcomed me but offered friendship. 💖
 
 Take a minute, think about what you could gain from contributing to open source, and make a decision. Are you in?
 
