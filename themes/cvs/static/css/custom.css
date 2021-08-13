@@ -330,3 +330,22 @@ pre code, li pre code, p pre code {
   height: 100%;
   border: 0;
 }
+
+#post figure {
+  text-align: center;
+  float: right;
+  margin: 5px;
+}
+
+#post figure img {
+  max-width:300px;
+  max-height:200px;
+  width: auto;
+  height: auto;
+}
+
+@media screen and (max-width: 600px) {
+  #post figure {
+    float: none;
+  }
+}

@@ -8,16 +8,16 @@ description: >
 image: images/open-source-is-magic.png
 ---
 
-<figure style="text-align: center; float: right; margin: 5px">
-  <img src="/images/open-source-is-magic.png" width="300px" alt="All the characters from My Little Ponies standing together, captioned Our Little Project: Open Source is Magic" />
-</figure>
-
 Hi, my name is Carolyn Van Slyck and Microsoft pays me to write open-source software. 👋 This _sounds_ super cool and maybe you are wondering how you too can trick a multi-national corporation into paying you to work in open source.
 
 From the outside you don't often get a clear view of what it is really like to actually do open source. You see people tweeting memes about [geese] and [KEPs], having fun and somehow software gets shipped. In this blog series, I want to give people a glimpse into what it is like to be in open source, both the exciting parts and the other stuff that we don't often advertise.
 
+<figure>
+  <img src="/images/open-source-is-magic.png" alt="All the characters from My Little Ponies standing together, captioned Our Little Project: Open Source is Magic" />
+</figure>
+
 * [Part 1: My Open Source Journey](#)
-* Part 2: Why would you contribute to open source?
+* [Part 2: Why would you contribute to open source?]({{< ref "2021-08-08-open-source-curious.md" >}})
 * Part 3: How do you get started in open source?
 * Part 4: How do you become a better contributor?
 * Part 5: What is it like being an open source maintainer?
@@ -115,3 +115,5 @@ Being an opinionated dork who likes to help others, I have also let myself be su
 I do all this because the playing field in tech needs to be leveled. Serving in these roles enables me to give people the opportunities and space they need to grow and excel in their career. In my mind, none of this is worth doing just for the tech. Writing software is worthwhile because of its positive impact on people. Building communities that include people who are normally not invited, gives them a seat at the table to make decisions, scales and amplifies the positive changes that I want to see.
 
 And that is my story of how I went from an accidental contributor to running my own projects with welcoming, inclusive communities. Apologies for the wall of text, turns out I still feel the need to prove that I belong in this space. 😬 Thank you for reading this far! My next post in this series will tackle how to break into open source.
+
+[Next: Why would you contribute to open source?]({{< ref "2021-08-08-open-source-curious.md" >}})
