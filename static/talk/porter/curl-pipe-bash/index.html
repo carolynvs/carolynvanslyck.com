@@ -123,10 +123,12 @@
 				<section id="checksums">
 					<h2>In checksums we trust, right?</h2>
 
-					<li class="fragment">First download the file</li>
-					<li class="fragment">Then compare the checksum</li>
-					<li class="fragment">Ok now you can read it</li>
-					<li class="fragment">Finally run it</li>
+					<ul>
+						<li class="fragment">First download the file</li>
+						<li class="fragment">Then compare the checksum</li>
+						<li class="fragment">Ok now you can read it</li>
+						<li class="fragment">Finally run it</li>
+					</ul>
 					<aside class="notes">
 						* not copy paste friendly
 						* reading bash doesn't always yield comprehension
@@ -160,8 +162,81 @@ You know who could really benefit from a one-liner? Cloud Native Deployments
 					</aside>
 				</section>
 
+				<section id="ship-logic">
+					<h2>Ship your deployment logic</h2>
+
+					<p>You release artifacts, installation docs, why not the deployment logic?</p>
+				</section>
+
+				<section id="explain-bundle">
+					<h2>Bundles can explain themselves</h2>
+
+					<ul>
+						<li class="fragment">Credentials</li>
+						<li class="fragment">Parameters</li>
+						<li class="fragment">Components Used</li>
+					</ul>
+
+					<aside class="notes">
+						* what secrets it will use, it can only access what you give it
+						* how you can customize the installation
+						* does it use arbitrary bash scripts? just helm and kubectl?
+						* doesn't run on the host, brings its own tooling
+					</aside>
+				</section>
+
+				<section id="the-app">
+					<h2>Let's install something!</h2>
+
+					<ul>
+						<li>Runs on Kubernetes</li>
+						<li>Installed with Helm</li>
+						<li>Connected to a cloud database</li>
+						<li>Fronted by CloudFlare</li>
+					</ul>
+
+					<aside class="notes">
+    * Explain that a bundle can work with any tool. 
+	* It could have just as easily been serverless functions, virtual machines, etc.
+					</aside>
+				</section>
+
+				<section id="write-it">
+					<h2>Create our bundle</h2>
+
+					cut to recorded demo that looks at the bundle
+					show porter.yaml using mixins
+					call out that mixins pass data
+
+					<aside class="notes">
+						This is what you ship
+    * Emphasis on how to transform that mega bash script that gets piped to bash into something that exposes more metadata and is parameterized.
+    * Show how Porter Mixins chain together the other tools and existing scripts. Contrast what is deployed with our bundle to what our bash installation script was deploying. Namely, an entire working deployment instead of just the application itself.
+					</aside>
+				</section>
+
+				<section id="publish-it">
+					<h2>Distribute our bundle</h2>
+
+					demo build and publish
+				</section>
+
+				<section id="install-it">
+					<h2></h2>
+
+					show porter explain output for our bundle
+
+					call out the credentials it needs
+					run credentials generate and point to a keyvault instance
+					run install
+					
+					<aside class="notes">
+						explain that now we are a user and we want to install it
+					</aside>
+				</section>
+
 				<section id="use-cases">
-					<h2>Ship your Deployment Logic</h2>
+					<h2>Who would use this?</h2>
 
 					<ul>
 						<li class="fragment">Quickstarts - Do I want to use this?</li>
@@ -174,7 +249,7 @@ You know who could really benefit from a one-liner? Cloud Native Deployments
 * At your own company, the people who know how to install and manage the software aren't the ones tasked with doing so.
 					</aside>
 				</section>
-
+				
 				<section id="takeout">
 					<h2>Thank you!</h2>
 
