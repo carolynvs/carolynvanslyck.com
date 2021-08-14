@@ -70,6 +70,111 @@
 					</aside>
 				</section>
 
+				<section id="problem-statement">
+					<h2>curl https://example.com/install-it-quick.sh | bash</h2>
+
+					<aside class="notes">
+						Real quick: this is what I'm talking about
+					</aside>
+				</section>
+
+				<section id="yolo">
+					<h2>Why we secretly like curl | bash</h2>
+
+					<ul>
+						<li class="fragment">Instant gratification</li>
+						<li class="fragment">No experience required</li>
+						<li class="fragment">High likelihood of success</li>
+					</ul>
+					<aside class="notes">
+						* Why we secretly like curl | bash (1m)
+						* It is a one-liner to install.
+						* Requires little to no knowledge of the installation logic or tooling.
+						* We believe that the project maintainers can automate the installation better than us on the first try.
+					</aside>
+				</section>
+
+				<section id="reading-is-hard">
+					<h2></h2>
+				</section>
+
+				<section id="oops">
+					<h2>Would you give an internet rando root on your machine?</h2> 
+					<h2 class="fragment">Oops, you just did...</h2>
+
+					<aside class="notes">
+						The script can do anything you can.
+						You may think it will just install the app but you just gave it access to:
+						* env variables and files with tokens and passwords
+						* full control over your filesystem
+						* full access to your network and connected devices
+						* impersonating you
+					</aside>
+				</section>
+
+				<section id="pipe-detection">
+					<h2>The code you read may not be the code you get</h2>
+
+					<aside class="notes">
+						that's fine I'll just read the file first...
+					</aside>
+				</section>
+
+				<section id="checksums">
+					<h2>In checksums we trust, right?</h2>
+
+					<li class="fragment">First download the file</li>
+					<li class="fragment">Then compare the checksum</li>
+					<li class="fragment">Ok now you can read it</li>
+					<li class="fragment">Finally run it</li>
+					<aside class="notes">
+						* not copy paste friendly
+						* reading bash doesn't always yield comprehension
+						* still running as you
+					</aside>
+				</section>
+
+				<section id="cloud-native-deployments">
+					<h2>Okay now make it cloud native</h2>
+
+					picture reading the docs, then blocks of tools, tableflip
+					<aside class="notes">
+You know who could really benefit from a one-liner? Cloud Native Deployments
+    * Most of us don't want to read a series of docs, and install extra tools to try something out.
+    * Next we have to figure out how to script coordinating these tools. For example, creating a database, and then passing the connection string as a helm chart value.
+    * Lots of people stop there and decide it is more work than they are willing to invest. Especially initially when they don't know if they want to use the software.
+					</aside>
+				</section>
+
+				<section id="porter">
+					<h2>Let's make those one-liners safe!</h2>
+
+					porter logo
+
+					<p>Package your application artifact, client tools, configuration and deployment logic together as a versioned bundle that you can distribute, and then install with a single command</p>
+					<aside class="notes">
+    * Flip the reflexive "You can't do that, it's not safe" to "How can we make it safe?"
+    * Porter is one way have a safer one-line installer.
+    * With bundles, a project can release not only its artifacts and install docs, but also a bundle that includes real-world deployment logic to deploy the application to the cloud.
+    * Bundles provide a way to understand what is inside that package and safely execute it.
+					</aside>
+				</section>
+
+				<section id="use-cases">
+					<h2>Ship your Deployment Logic</h2>
+
+					<ul>
+						<li class="fragment">Quickstarts - Do I want to use this?</li>
+						<li class="fragment">Customer Installations - Do they want to manage this?</li>
+						<li class="fragment">Your Own Deployments - Hey I didn't write this!</li>
+					</ul>
+					<aside class="notes">
+* Winning over potential adopters
+* Customers have to install and manage your software, what can you provide beyond docs to make them more successful?
+* At your own company, the people who know how to install and manage the software aren't the ones tasked with doing so.
+					</aside>
+				</section>
+
 				<section id="takeout">
 					<h2>Thank you!</h2>
 
