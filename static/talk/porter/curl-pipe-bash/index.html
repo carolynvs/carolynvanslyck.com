@@ -55,11 +55,13 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h2 class="blue">
+					<h2 class="blue" style="margin-bottom: 0;">
 						A safer curl | bash for the cloud
 					</h2>
 
-					<p id="speaker">
+					<img src="tabbycats2.png" width="400px" alt="Cartoon cat, gray wearing a blue beanie, hipster glasses and has a white coffee mug. Their name is Snuggly Squirrel."/>
+
+					<p>
 						Carolyn Van Slyck<br/>
 						<hr style="width: 20em"/>
 						Principal Software Engineer at Microsoft<br/>
@@ -94,15 +96,12 @@
 					</aside>
 				</section>
 
-				<section id="reading-is-hard">
-					<h2></h2>
-				</section>
-
 				<section id="oops">
 					<h2>Would you give an internet rando root on your machine?</h2> 
-					<h2 class="fragment">Oops, you just did...</h2>
 
 					<aside class="notes">
+						drawing of what the script needs vs what is exposed to it
+
 						The script can do anything you can.
 						You may think it will just install the app but you just gave it access to:
 						* env variables and files with tokens and passwords
@@ -115,6 +114,7 @@
 				<section id="pipe-detection">
 					<h2>The code you read may not be the code you get</h2>
 
+					<a href="https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/">idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side</a>
 					<aside class="notes">
 						that's fine I'll just read the file first...
 					</aside>
@@ -123,12 +123,12 @@
 				<section id="checksums">
 					<h2>In checksums we trust, right?</h2>
 
-					<ul>
+					<ol>
 						<li class="fragment">First download the file</li>
 						<li class="fragment">Then compare the checksum</li>
 						<li class="fragment">Ok now you can read it</li>
 						<li class="fragment">Finally run it</li>
-					</ul>
+					</ol>
 					<aside class="notes">
 						* not copy paste friendly
 						* reading bash doesn't always yield comprehension
@@ -137,9 +137,13 @@
 				</section>
 
 				<section id="cloud-native-deployments">
-					<h2>Okay now make it cloud native</h2>
+					<h2>But what if I really want to?</h2>
 
-					picture reading the docs, then blocks of tools, tableflip
+					<ul>
+						<li>Reading is hard 🤦‍♀️</li>
+						<li>Cloud Native deployments can be pretty complex</li>
+						<li>I want it to be easier for people to try out my project</li>
+					</ul>
 					<aside class="notes">
 You know who could really benefit from a one-liner? Cloud Native Deployments
     * Most of us don't want to read a series of docs, and install extra tools to try something out.
@@ -148,45 +152,53 @@ You know who could really benefit from a one-liner? Cloud Native Deployments
 					</aside>
 				</section>
 
-				<section id="porter">
+				<section id="safety-first">
 					<h2>Let's make those one-liners safe!</h2>
 
-					porter logo
-
-					<p>Package your application artifact, client tools, configuration and deployment logic together as a versioned bundle that you can distribute, and then install with a single command</p>
-					<aside class="notes">
-    * Flip the reflexive "You can't do that, it's not safe" to "How can we make it safe?"
-    * Porter is one way have a safer one-line installer.
-    * With bundles, a project can release not only its artifacts and install docs, but also a bundle that includes real-world deployment logic to deploy the application to the cloud.
-    * Bundles provide a way to understand what is inside that package and safely execute it.
-					</aside>
-				</section>
-
-				<section id="ship-logic">
-					<h2>Ship your deployment logic</h2>
-
-					<p>You release artifacts, installation docs, why not the deployment logic?</p>
-				</section>
-
-				<section id="explain-bundle">
-					<h2>Bundles can explain themselves</h2>
-
 					<ul>
-						<li class="fragment">Credentials</li>
-						<li class="fragment">Parameters</li>
-						<li class="fragment">Components Used</li>
+						<li class="fragment">Isolate the installer</li>
+						<li class="fragment">Automatic digest/signature checking</li>
+						<li class="fragment">Insight into what the installer will do</li>
 					</ul>
 
 					<aside class="notes">
-						* what secrets it will use, it can only access what you give it
-						* how you can customize the installation
-						* does it use arbitrary bash scripts? just helm and kubectl?
-						* doesn't run on the host, brings its own tooling
+						* Flip the reflexive "You can't do that, it's not safe" to "How can we make it safe?"
+						* Isolate the installer, only giving access to what it needs
+						* Something that does the boring stuff like signature/digest checking for us
+						* Provide insight into what's in the installer
+					</aside>
+				</section>
+
+				<section id="porter">
+					<h2 style="margin-bottom: 0;">Porter</h2>
+					<img src="/images/porter.png" style="width: 150px;"/>
+
+					<p>Package your application artifact, client tools, configuration and deployment logic together as a versioned bundle that you can distribute, and then install with a single command</p>
+					<aside class="notes">
+	* Porter is a CNCF Sandbox project
+	* It's used to create cloud native application bundles, i.e. cloud installers
+	* Doesn't replace any of your tools, it adds a layer of packaging and security to what you use today
+	* Works with any tooling or stack. You can work with VMs, containers, clusters, bare metal, IOT, serverless, whatever you can script.
+					</aside>
+				</section>
+
+				<section id="tabbycats">
+					<h2>Let's install TabbyCats Tracker!</h2>
+
+					<p>
+					<img src="tabbycats2.png" width="400px" alt="Cartoon cat, gray wearing a blue beanie, hipster glasses and has a white coffee mug. Their name is Snuggly Squirrel."/>
+					</p>
+
+					<a href="https://tabbycats.club">tabbycats.club</a>
+
+					<aside class="notes">
+						Open a new tab and show tabbycats
+
+						Demo the final app we want to install
 					</aside>
 				</section>
 
 				<section id="the-app">
-					<h2>Let's install something!</h2>
 
 					<ul>
 						<li>Runs on Kubernetes</li>
@@ -196,29 +208,11 @@ You know who could really benefit from a one-liner? Cloud Native Deployments
 					</ul>
 
 					<aside class="notes">
+						convert to logos
+
     * Explain that a bundle can work with any tool. 
 	* It could have just as easily been serverless functions, virtual machines, etc.
 					</aside>
-				</section>
-
-				<section id="write-it">
-					<h2>Create our bundle</h2>
-
-					cut to recorded demo that looks at the bundle
-					show porter.yaml using mixins
-					call out that mixins pass data
-
-					<aside class="notes">
-						This is what you ship
-    * Emphasis on how to transform that mega bash script that gets piped to bash into something that exposes more metadata and is parameterized.
-    * Show how Porter Mixins chain together the other tools and existing scripts. Contrast what is deployed with our bundle to what our bash installation script was deploying. Namely, an entire working deployment instead of just the application itself.
-					</aside>
-				</section>
-
-				<section id="publish-it">
-					<h2>Distribute our bundle</h2>
-
-					demo build and publish
 				</section>
 
 				<section id="install-it">
@@ -242,11 +236,65 @@ You know who could really benefit from a one-liner? Cloud Native Deployments
 						<li class="fragment">Quickstarts - Do I want to use this?</li>
 						<li class="fragment">Customer Installations - Do they want to manage this?</li>
 						<li class="fragment">Your Own Deployments - Hey I didn't write this!</li>
+						<li class="fragment">Side Projects - I forgot how to deploy this...</li>
 					</ul>
 					<aside class="notes">
+						make 4 boxes with each item
+
+
 * Winning over potential adopters
 * Customers have to install and manage your software, what can you provide beyond docs to make them more successful?
 * At your own company, the people who know how to install and manage the software aren't the ones tasked with doing so.
+					</aside>
+				</section>
+				
+				<section id="write-it">
+					<h2>Create our bundle</h2>
+
+					cut to recorded demo that looks at the bundle
+					show porter.yaml using mixins
+					call out that mixins pass data
+
+					<aside class="notes">
+						open porter.yaml
+						Show credentials declaration
+						Parameters that can be customized
+						Mixins declared
+						Actions
+
+						call out that this is how porter explain operates
+					</aside>
+				</section>
+
+				<section id="explain-bundle">
+					<h2>Bundles can explain themselves</h2>
+
+					<ul>
+						<li class="fragment">Credentials</li>
+						<li class="fragment">Parameters</li>
+						<li class="fragment">Components Used</li>
+					</ul>
+
+					<aside class="notes">
+						* what secrets it will use, it can only access what you give it
+						* how you can customize the installation
+						* does it use arbitrary bash scripts? just helm and kubectl?
+						* doesn't run on the host, brings its own tooling
+					</aside>
+				</section>
+
+				<section id="bundle-security">
+					<h2>Bundles borrow security features from existing tooling</h2>
+
+					<ul>
+						<li class="fragment">Runs in a container</li>
+						<li class="fragment">Distributed via OCI Registry</li>
+						<li class="fragment">Porter compares digests for you</li>
+						<li class="fragment">We are working on signing support</li>
+					</ul>
+
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				
