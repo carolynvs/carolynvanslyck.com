@@ -55,11 +55,11 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h2 class="blue" style="margin-bottom: 0;">
+					<h2 class="purple" style="margin-bottom: 0;">
 						A safer curl | bash for the cloud
 					</h2>
 
-					<img src="tabbycats2.png" width="400px" alt="Cartoon cat, gray wearing a blue beanie, hipster glasses and has a white coffee mug. Their name is Snuggly Squirrel."/>
+					<img src="images/tabbycats2.png" width="400px" alt="Cartoon cat, gray wearing a blue beanie, hipster glasses and has a white coffee mug. Their name is Snuggly Squirrel."/>
 
 					<p>
 						Carolyn Van Slyck<br/>
@@ -103,7 +103,7 @@
 				</section>
 
 				<section id="oops">
-					<h2>Would you give an internet rando root on your machine?</h2>
+					<h2>Would you give an internet rando <span class="blue">root</span> on your laptop?</h2>
 
 					<aside class="notes">
 						Let's say someone on the internet offered to help install something for you real quick.
@@ -121,9 +121,12 @@
 				</section>
 
 				<section id="pipe-detection">
-					<h2>The code you read may not be the code you get</h2>
+					<h2>The code you <span class="blue">read</span> may not be the code you <span class="blue">run</span></h2>
 
-					<a href="https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/">idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side</a>
+					<a href="https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/">
+					<img src="https://www.idontplaydarts.com/images/bashmov.gif" width="800px"/><br/>
+					idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side
+					</a>
 					<aside class="notes">
 						Okay, so what if you read the script first and then run it? Just open the
 						script in your browser, look it over and go "yeah this looks like how I expected"
@@ -217,31 +220,32 @@
 						* The icing would be if it could provide reliable insight into what is actually in 
 						the installer so that they don't have to read the source.
 
-						There are a couple tools out there that can meet most of our requirements above here.
-						Since I'm a maintainer for Porter, a CNCF sandbox project, that's what I know best. 
-						Lets see how close we can get to that curl pipe bash experience.
+						There are a couple tools out there that can meet most of our requirements, one of which 
+						is the CNCF sandbox project, Porter. Let's see how close we can get to making a safer
+						installation experience for our users.
 					</aside>
 				</section>
 
 				<section id="porter">
 					<h2 style="margin-bottom: 0;">Porter</h2>
-					<img src="/images/porter.png" style="width: 150px;"/>
+					<img src="/images/porter-cat-standing.png" style="width: 300px;"/>
 
-					<p>Package your application artifact, client tools, configuration and deployment logic 
-						together as a versioned bundle that you can distribute, and then install 
-						with a single command</p>
+					<p><span class="blue">Package your application</span> artifact, client tools, configuration and deployment logic</p>
+					<p>together <span class="blue">as a versioned bundle</span> that you can distribute,</p>
+					<p>and then <span class="blue">install with a single command</span></p>
 
 					<aside class="notes">
 						Porter is a command line tool that makes cloud installers.
 						It packages your application, which could be a website, microservice, an IOT app, whatever
 						along with any necessary client tools, configuration and all the deployment logic necessary to 
 						properly install your app into a bundle. The bundle is versioned, distributed by OCI (docker) registries,
-						and can be installed with 3 commands for a first time user, and just one command after that.
+						and can be installed with 3 commands for a first time user, and just one command the second 
+						time around.
 
 						It doesn't replace any of your existing tools. Porter works with any tooling or stack. 
 						You can use with VMs, containers, clusters, bare metal, IOT, serverless, whatever you can script,
-						it all goes in the bundle. What Porter does is provide packaging, distribution
-						and a layer of security around what you use today.
+						it all goes in the bundle. Porter provides packaging, distribution
+						and a layer of security around what you already use today.
 					</aside>
 				</section>
 
@@ -249,32 +253,37 @@
 					<h2>Let's install TabbyCats Tracker!</h2>
 
 					<p>
-					<img src="tabbycats2.png" width="400px" alt="Cartoon cat, gray wearing a blue beanie, hipster glasses and has a white coffee mug. Their name is Snuggly Squirrel."/>
+					<img src="images/tabbycats2.png" width="400px" alt="Cartoon cat, gray wearing a blue beanie, hipster glasses and has a white coffee mug. Their name is Snuggly Squirrel."/>
 					</p>
 
-					<a href="https://tabbycats.club">tabbycats.club</a>
+					<a href="https://tabbycats.club" class="purple">tabbycats.club</a>
 
 					<aside class="notes">
-						Open a new tab and show tabbycats
+						So I have a nifty app that I'd like to share with the world: TabbyCats Tracker!
+						TabbyCats is a browser extension that shows you a different cute cat on each new
+						tab that you open.
 
-						Demo the final app we want to install
+						TabbyCats Tracker is an app that lets you save your favorites and share your
+						top tabby cats with your friends.
 					</aside>
 				</section>
 
 				<section id="the-app">
+					<h2>TabbyCats Tracker</h2>
 
-					<ul>
-						<li>Runs on Kubernetes</li>
-						<li>Installed with Helm</li>
-						<li>Connected to a cloud database</li>
-						<li>Fronted by CloudFlare</li>
-					</ul>
+					<table>
+						<tr>
+							<td><img src="images/terraform.png" width="200px" alt="Terraform logo" title="Terraform"></td>
+							<td><img src="images/kubernetes-logo.png" width="200px" alt="Kubernetes logo" title="Kubernetes"></td>
+							<td><img src="images/cosmosdb.png" width="200px" alt="CosmosDB logo" title="CosmosDB"></td>
+							<td><img src="images/helm-horizontal-white.png" width="200px" alt="Helm logo" title="Helm"></td>
+						</tr>
+					</table>
 
 					<aside class="notes">
-						convert to logos
-
-    * Explain that a bundle can work with any tool. 
-	* It could have just as easily been serverless functions, virtual machines, etc.
+						Tabby Tracker runs on Kubernetes and is installed with a Helm chart.
+						Because I was resume padding a bit, it uses a cloud database to
+						save your tabbys.
 					</aside>
 				</section>
 
@@ -288,26 +297,50 @@
 					run install
 					
 					<aside class="notes">
-						explain that now we are a user and we want to install it
-					</aside>
-				</section>
+						Now let's use Porter to install Tabby Tracker _safely_. No curl pipe bash for us!
+						
+						First, I will use porter explain to learn how to install the bundle. Bundles
+						have metadata that describes what the bundle is, its version, the credentials
+						it needs to install, any parameters that you can use to customize the installation,
+						its dependencies (bundles can rely on other bundles and porter will handle installing that for you),
+						and also any custom actions defined. All bundles have install, upgrade and uninstall but you
+						could define extra actions like status, or database dumps/backups, any extra operational logic that
+						someone would find useful when managing an installation of your app.
 
-				<section id="use-cases">
-					<h2>Who would use this?</h2>
+						Looking over my bundle, I see that I'll need an Azure service principal,
+						and I can pick which region to use. Looks like the bundle will use
+						terraform to create a Kubernetes cluster and a database, and then it will
+						install the app with Helm. When it's done the bundle will output the kubeconfig
+						for the cluster, and a connection string for the database.
 
-					<ul>
-						<li class="fragment">Quickstarts - Do I want to use this?</li>
-						<li class="fragment">Customer Installations - Do they want to manage this?</li>
-						<li class="fragment">Your Own Deployments - Hey I didn't write this!</li>
-						<li class="fragment">Side Projects - I forgot how to deploy this...</li>
-					</ul>
-					<aside class="notes">
-						make 4 boxes with each item
+						That seems legit. Next, I'm going to tell Porter where it can lookup any credentials
+						that the bundle needs, in this case an Azure service principal. Instead of storing
+						them in environment variables on my computer, I'm going to put them into a secret store.
+						Here I have Azure KeyVault setup with secrets for the service principal. I'm using Azure here but
+						I could have used any secret store, like Hashicorp Vault.
+						
+						I'm going to create a "credential set" in porter, that is a mapping between the credentials used by the bundle,
+						and where porter can locate those credentials. I'll run porter credentials generate, and
+						give it my bundle. Porter will walk me through each credential and where its stored.
 
+						This is an extra step for installing something that you wouldn't have to do with curl pipe bash.
+						Remember that one of our goals was isolating the installation script from our local computer?
+						It shouldn't be able to just snoop around and find juicy environment variables hiding my cloud credentials.
+						When Porter runs a bundle, the bundle executes inside a docker container. Any credentials that the bundle
+						needs, must be explicitly passed in. A credential set lets me store a hint for porter on how to find
+						my credentials, maybe I have one for my azure credentials, another for aws, or github. I can define it
+						once and then when I run a bundle that needs access, I can give the bundle that credential set without
+						having to respecify each time how to read them out of a secret store.
 
-* Winning over potential adopters
-* Customers have to install and manage your software, what can you provide beyond docs to make them more successful?
-* At your own company, the people who know how to install and manage the software aren't the ones tasked with doing so.
+						Now that all this security stuff is out of the way, here's the "one-liner" to replace our curl pipe bash.
+						I can run porter install, give it my credentials, and the bundle to install and that's it. Even though
+						the bundle is using helm and terraform, I don't have to have that installed on my machine, because the bundle,
+						a docker container, has the right versions of each CLI installed inside along with my terraform files, and Helm
+						charts. Everything my app needs to install is inside that bundle. It doesn't matter what I'm installing,
+						it's just the same porter install command.
+
+						Cool, now that my app is installed, let's check it out. As you can see I am still an _aspiring_ web designer 
+						but hopefully all my saved tabby cats makes up for my horrible CSS skills.
 					</aside>
 				</section>
 				
@@ -319,30 +352,50 @@
 					call out that mixins pass data
 
 					<aside class="notes">
-						open porter.yaml
-						Show credentials declaration
-						Parameters that can be customized
-						Mixins declared
-						Actions
+						Let's see what it takes to create a bundle.
 
-						call out that this is how porter explain operates
+						A bundle is defined by a porter.yaml file. This manifest contains
+						not just the metadata about the bundle, like here you can see
+						that I've declared that TabbyCats Tracker needs an Azure service principal,
+						and has a region parameter.
+
+						Keep going and it also declares what tools are inside the bundle by declaring
+						"mixins". Mixins are building blocks for bundles and help you use existing tools
+						like terraform and helm here, inside a bundle and have it work the way you'd expect.
+						Mixins install the tools inside the bundle's docker image, and map between the yaml
+						you see here, and the final CLI commands executed.
+
+						Mixins can make it easier to write the bundle, for example since we are using helm
+						inside of the install action, it will automatically call helm install. They also help
+						you extract data from a step and pass it into the next step in your installation.
+
+						Here my terraform module created a cluster and database, and I'm grabbing those
+						out of that step and making them available to the helm chart that is run next.
+
+						Normally this type of stuff is all done with a bit of glue bash, and the mixins
+						make it easier to focus on the logic for your installation.
+
+						The porter explain command that we ran earlier, uses all the metadata in this file
+						to generate an explanation of what the bundle is, what tools it is using and the credentials
+						that the bundle needs.
 					</aside>
 				</section>
 
-				<section id="explain-bundle">
-					<h2>Bundles can explain themselves</h2>
+				<section id="recap">
+					<h2>Are we safer? Yes!</h2>
 
-					<ul>
-						<li class="fragment">Credentials</li>
-						<li class="fragment">Parameters</li>
-						<li class="fragment">Components Used</li>
+					<ul style="list-style: none;">
+						<li>✅ Isolate the installer</li>
+						<li>✅ Automatic digest/signature checking</li>
+						<li>✅ Insight into what the installer will do</li>
 					</ul>
 
 					<aside class="notes">
-						* what secrets it will use, it can only access what you give it
-						* how you can customize the installation
-						* does it use arbitrary bash scripts? just helm and kubectl?
-						* doesn't run on the host, brings its own tooling
+						So did we hit the mark? If I'm looking for a safer way to quickly install
+						rando software from the internet, does Porter meet our requirements?
+
+						We wanted to: isolate the installer, automatically check signatures and digests,
+						and give us insight into what the installer will actually do.
 					</aside>
 				</section>
 
@@ -357,18 +410,148 @@
 					</ul>
 
 					<aside class="notes">
-						
+						Bundles really just borrow security features from existing tools.
+						We can check off "isolated installer", they run in a container and
+						only have access to what we explicitly provide, like some cloud credentials.
+						They are distributed over OCI (or docker) registries. This is existing infrastructure
+						that we already know how to run, can scan for vulerabilities, check digests (which Porter does for you),
+						and we are working on being able to sign bundles with Notary so that Porter can even check
+						the bundle signature and verify that it was created by a trusted publisher.
+
+						That checks off our first two security concerns.
+					</aside>
+				</section>
+
+				<section id="explain-bundle">
+					<h2>Bundles can explain themselves</h2>
+
+					<ul>
+						<li class="fragment">Credentials</li>
+						<li class="fragment">Parameters</li>
+						<li class="fragment">Components Used</li>
+					</ul>
+
+					<aside class="notes">
+						And with the porter explain command, we can see what's in the bundle,
+						and how to run it. Which is way better IMO than reading bash.
 					</aside>
 				</section>
 				
+				<section id="replacement">
+					<h2>Could it replace curl | bash? Sometimes!</h2>
+
+					<ul style="list-style: none;">
+						<li><span style="font-size: larger">🤷‍♀️</span>2-3 commands to install first time, 1 command going forward</li>
+						<li>✅ Same command regardless of what you are installing</li>
+						<li>✅ Magic installer that just works</li>
+					</ul>
+
+					<aside class="notes">
+						Great, so it's safer than curl | bash but is the experience what we were aiming for?
+						It isn't always a one-liner. The first time you run a new bundle, you're going to run 
+						porter explain to see what credentials it needs, and then create a credential set with 
+						the credentials it needs if you don't have one already. But for bundles that you have
+						worked with before, it is just porter install. I'm calling it close enough.
+
+						It's always the same command, just porter install, regardless of the tech stack tucked
+						away inside the bundle. So we are doing good there.
+
+						And finally, what we really wanted all along was a magic installer. Someone with no experience
+						with the application or its deployment tools can run install and get a working installation 
+						in no time. So yup! you can use Porter as a safer curl | bash for cloud native deployments.
+
+						Mission accomplished!
+					</aside>
+				</section>
+
+				<section id="use-cases">
+					<h2 style="margin-bottom: 0;">Who would use this?</h2>
+
+					<img src="images/use-cases.png"/>
+
+					<aside class="notes">
+						So I said that this is a safer curl pipe bash _for the cloud_. It's not really intended
+						to install a CLI on your local machine for example. What bundles can help make safer and
+						easier would be:
+
+						* QuickStarts! Help someone get your software setup for them to try out.
+						
+						* Customer Installations: In addition to writing an installation guide, you can
+						also give them an installer, that not only helps them install it the first time,
+						but track upgrades over time, and manage any other operational concerns, like status
+						troubleshooting or backups.
+						
+						* Your Own Applications: Just like an external customer would appeciate a little help
+						setting up and running your software, the same applies to people on your team. The people who
+						manage your software in production aren't always the developers who wrote it. Being able
+						to upgrade to a patch version, or quickly flip a parameter to crank up the log level to 11,
+						with a single command is just plain useful. A team can share a Porter installation, so that
+						if one person installs an app in a new environment on Monday, another team member can see
+						what was done, and pick up where they left off without a handoff.
+						
+						* You could also use bundles for a side project. I don't know about you but when I work on
+						a project, one weekend I'll figure out how to setup all the infrastructure, configure the
+						secrets for my application, only to get distracted. Tear it all down so I'm not paying for 
+						it when I'm not developing it, and then try to pick it back up weeks later and by this point,
+						I've totally forgotten how to get a working installation of my app. With a bundle I can capture
+						all that deployment logic in the bundle, and not lose any progress. I can just re-run porter install,
+						and I'm all set up again.
+
+						That's really what it comes down to for me. It's why I like bundles. I can ship not just
+						a binary or docker image with an installation guide. I can just ship an entire installer
+						that has all the tools it needs, and knows how to do a proper installation, not just what's
+						easiest to document (come on you know that there's a gap between the two).
+					</aside>
+				</section>
+
+				<section id="try-it-out">
+					<h2>Try it out!</h2>
+
+					<ul>
+						<li><a href="https://porter.sh/quickstart">porter.sh/quickstart</a></li>
+						<li><a href="https://porter.sh/learning">porter.sh/learning</a></li>
+						<li>Run <a href="https://porter.sh/cli/porter_create/">porter create</a> to make your first bundle</li>
+						<li><a href="https://porter.sh/author-bundles">porter.sh/author-bundles</a></li>
+						<li><a href="https://porter.sh/community">porter.sh/community</a></li>
+					</ul>
+
+					<aside class="notes">
+						Here are some resources for getting started making your own installers!
+
+						The quickstart will walk you through how to use Porter to install bundles.
+						If you like videos, our learning page has demos and more talks that cover Porter in general.
+						When you are ready to make your first bundle, run porter create to get started.
+						Then head over to our authoring bundles page for details on what you can do in a porter bundle.
+
+						If you have questions, our community page has links to our slack channel, forums,
+						and mailing list where you can ask questions and connet with other users.
+					</aside>
+				</section>
+
 				<section id="takeout">
 					<h2>Thank you!</h2>
 
 					<figure style="margin-top: 2em">
-						<img src="../../../images/mlp-salute.png" width=""/>
+						<img src="/images/mlp-salute.png" width=""/>
 						<figcaption>My Little Pony™️ belongs to Hasbro.</figcaption>
 					</figure>
 			
+					<aside class="notes">
+						Thank you for going on a bit of a user experience journey with me,
+						asking ourselves an important question that is relevant to any software,
+						not just for installing it.
+
+						How can we make the tasks that people are GOING TO DO regardless
+						of what you say, more secure?
+						
+						Rather than telling someone, nope that's a bad thing
+						and you are a bad person for wanting to do it. Let's aim to understand 
+						why they want to do this task, what they are trying
+						to accomplish, and if there are alternate user experiences that we could
+						provide to make it safe?
+
+						Thanks everyone!
+					</aside>
 				</section>
 
 			</div>
@@ -378,8 +561,8 @@
 			</slide-footer>
 		</div>
 
-		<script src="../../revealjs/lib/js/head.min.js"></script>
-		<script src="../../revealjs/js/reveal.js"></script>
+		<script src="/talk/revealjs/lib/js/head.min.js"></script>
+		<script src="/talk/revealjs/js/reveal.js"></script>
 
 		<script>
 
