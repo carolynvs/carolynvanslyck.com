@@ -108,7 +108,7 @@
 					<aside class="notes">
 						Let's say someone on the internet offered to help install something for you real quick.
 						All you need to do is hand over your laptop for 5 seconds. I don't know about you, 
-						but I don't hand over my laptop to my husband and I _trust him_. Mostly. ï¿½‰
+						but I don't hand over my laptop to my husband and I _trust him_. Mostly. ï¿½ï¿½
 
 						When we think about handing over your laptop to a stranger, its easy to see why its risky.
 						They would have access to everything on there: your documents, pictures, environment variables
@@ -141,15 +141,26 @@
 					<h2>In checksums we trust, right?</h2>
 
 					<ol>
-						<li class="fragment">First download the file</li>
-						<li class="fragment">Then compare the checksum</li>
-						<li class="fragment">Ok now you can read it</li>
-						<li class="fragment">Finally run it</li>
+						<li class="fragment">Download the script</li>
+						<li class="fragment">Compare the checksum</li>
+						<li class="fragment">Read the script</li>
+						<li class="fragment">Run the script</li>
 					</ol>
 					<aside class="notes">
-						* not copy paste friendly
-						* reading bash doesn't always yield comprehension
-						* still running as you
+						Instead of using that handy one liner, here's a safer way to run an installation script:
+						1. First, download the script.
+						2. Then if they provided a checksum of the script, compare the checksum of the file you
+						just downloaded against it and ensure that they match.
+						3. Ok, _now_ you can read the downloaded script. Scan that lovely bash and nod your head 
+						like you totes get what it's doing.
+						4. Finally, you can run the script.
+
+						Like... that works but eh, I personally find it annoying.
+						1. The copy/paste -> success experience from the one liner is lost.
+						2. No one really wants to read bash, and depending on the complexity of the script
+						even after reading it you may not be completely sure what it's going to do.
+						3. Most importantly, when you do finally run the script, it's executing as your user.
+						So if you did miss something when slogging through that bash? oops.
 					</aside>
 				</section>
 
@@ -162,10 +173,28 @@
 						<li>I want it to be easier for people to try out my project</li>
 					</ul>
 					<aside class="notes">
-You know who could really benefit from a one-liner? Cloud Native Deployments
-    * Most of us don't want to read a series of docs, and install extra tools to try something out.
-    * Next we have to figure out how to script coordinating these tools. For example, creating a database, and then passing the connection string as a helm chart value.
-    * Lots of people stop there and decide it is more work than they are willing to invest. Especially initially when they don't know if they want to use the software.
+						Alright so we aren't supposed to curl pipe bash but... What if I really want to anyway?
+						Have you ever wanted to try out some software, and the installation instructions are like
+						15 steps where you have to install 3 CLIs, copy your credentials yet again into more environment variables
+						that you will forget about and leave around forever, and it requires a database that you
+						don't feel like figuring out how to setup, and really now that you think about it, maybe 
+						you'll just try this out some other time because this is just one more yak to shave and you
+						have work to do.
+
+						You know who could really benefit from a one-liner? Cloud Native Deployments 
+						Often they are complex, with dependencies, dedicated CLIs,
+						magic configuration, credentials... Most of us don't want to read a series of docs, 
+						and install extra tools to try something out. We _really_ don't want to figure out how to 
+						script coordinating these tools. For example, creating a database, and then passing the 
+						connection string as a helm chart value. 
+						
+						Lots of potential users stop there and decide it is more work than they are willing to invest. 
+						Especially when they are figuring out which software they want to use, and they are installing a
+						couple and trying them out to see how they work.
+
+						So I know that I just said that we shouldn't curl pipe bash, but if we could
+						just provide our users a great experience to quickly setup and try out our software, that
+						would be great, right?
 					</aside>
 				</section>
 
@@ -179,10 +208,18 @@ You know who could really benefit from a one-liner? Cloud Native Deployments
 					</ul>
 
 					<aside class="notes">
-						* Flip the reflexive "You can't do that, it's not safe" to "How can we make it safe?"
-						* Isolate the installer, only giving access to what it needs
-						* Something that does the boring stuff like signature/digest checking for us
-						* Provide insight into what's in the installer
+						So let's flip the reflexive "You can't do that, it's not safe" to "How can we make it safe?"
+						What would we need to do that?
+						* We need to isolate the installer, only giving access to what it needs, instead
+						of being able to read god knows what that is hiding on my laptop.
+						* Ideally we also want something that does the boring stuff like checking signatures or digests
+						for us.
+						* The icing would be if it could provide reliable insight into what is actually in 
+						the installer so that they don't have to read the source.
+
+						There are a couple tools out there that can meet most of our requirements above here.
+						Since I'm a maintainer for Porter, a CNCF sandbox project, that's what I know best. 
+						Lets see how close we can get to that curl pipe bash experience.
 					</aside>
 				</section>
 
@@ -190,12 +227,21 @@ You know who could really benefit from a one-liner? Cloud Native Deployments
 					<h2 style="margin-bottom: 0;">Porter</h2>
 					<img src="/images/porter.png" style="width: 150px;"/>
 
-					<p>Package your application artifact, client tools, configuration and deployment logic together as a versioned bundle that you can distribute, and then install with a single command</p>
+					<p>Package your application artifact, client tools, configuration and deployment logic 
+						together as a versioned bundle that you can distribute, and then install 
+						with a single command</p>
+
 					<aside class="notes">
-	* Porter is a CNCF Sandbox project
-	* It's used to create cloud native application bundles, i.e. cloud installers
-	* Doesn't replace any of your tools, it adds a layer of packaging and security to what you use today
-	* Works with any tooling or stack. You can work with VMs, containers, clusters, bare metal, IOT, serverless, whatever you can script.
+						Porter is a command line tool that makes cloud installers.
+						It packages your application, which could be a website, microservice, an IOT app, whatever
+						along with any necessary client tools, configuration and all the deployment logic necessary to 
+						properly install your app into a bundle. The bundle is versioned, distributed by OCI (docker) registries,
+						and can be installed with 3 commands for a first time user, and just one command after that.
+
+						It doesn't replace any of your existing tools. Porter works with any tooling or stack. 
+						You can use with VMs, containers, clusters, bare metal, IOT, serverless, whatever you can script,
+						it all goes in the bundle. What Porter does is provide packaging, distribution
+						and a layer of security around what you use today.
 					</aside>
 				</section>
 
