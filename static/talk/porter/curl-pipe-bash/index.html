@@ -76,7 +76,11 @@
 					<h2>curl https://example.com/install-it-quick.sh | bash</h2>
 
 					<aside class="notes">
-						Real quick: this is what I'm talking about
+						First let's talk about what "curl pipe bash" is. That's when you copy/paste 
+						a command that looks like the one here. We all use scripts like this because
+						they quickly install software that you aren't familiar with.
+						curl downloads the script, and then the script contents are "piped" to bash
+						where they are immediately executed.
 					</aside>
 				</section>
 
@@ -89,25 +93,30 @@
 						<li class="fragment">High likelihood of success</li>
 					</ul>
 					<aside class="notes">
-						* Why we secretly like curl | bash (1m)
+						Honestly I really like installation scripts because:
 						* It is a one-liner to install.
 						* Requires little to no knowledge of the installation logic or tooling.
 						* We believe that the project maintainers can automate the installation better than us on the first try.
+
+						Let's review though why using curl pipe bash is a security risk.
 					</aside>
 				</section>
 
 				<section id="oops">
-					<h2>Would you give an internet rando root on your machine?</h2> 
+					<h2>Would you give an internet rando root on your machine?</h2>
 
 					<aside class="notes">
-						drawing of what the script needs vs what is exposed to it
+						Let's say someone on the internet offered to help install something for you real quick.
+						All you need to do is hand over your laptop for 5 seconds. I don't know about you, 
+						but I don't hand over my laptop to my husband and I _trust him_. Mostly. ï¿½‰
 
-						The script can do anything you can.
-						You may think it will just install the app but you just gave it access to:
-						* env variables and files with tokens and passwords
-						* full control over your filesystem
-						* full access to your network and connected devices
-						* impersonating you
+						When we think about handing over your laptop to a stranger, its easy to see why its risky.
+						They would have access to everything on there: your documents, pictures, environment variables
+						containing security tokens and passwords, you're logged into a bunch of sites, maybe even your
+						work VPN. It's clear that stranger could do anything with your laptop that you yourself could do.
+
+						That doesn't change when you switch from a physical laptop to a quick copy/paste of an installation 
+						script. Oops.
 					</aside>
 				</section>
 
@@ -116,7 +125,15 @@
 
 					<a href="https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/">idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side</a>
 					<aside class="notes">
-						that's fine I'll just read the file first...
+						Okay, so what if you read the script first and then run it? Just open the
+						script in your browser, look it over and go "yeah this looks like how I expected"
+						and then copy/paste that one liner.
+
+						Here's a fun fact: a web server can detect that you are piping that web request
+						to bash. I'll provide a link later with the details but a malicious server could
+						detect that you are piping to bash and then decide to give you a different file.
+						Not that file that you just read in your browser, but whatever it wants. And
+						then you are right back to where you started. Letting randos run amok on your computer.
 					</aside>
 				</section>
 
