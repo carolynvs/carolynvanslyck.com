@@ -69,6 +69,11 @@
 					</p>
 
 					<aside class="notes">
+						Hi, I'm Carolyn Van Slyck a Principal Software Engineer at Microsoft.
+						Today I wanted to think through how we can have our cake and eat it too.
+						Namely I love curl | bash for its simplicity, and a lot of cloud native software
+						could benefit from having a more straightforward installation. But common wisdom 
+						says that curling a script and piping it to bash isn't safe. But what if it could be?
 					</aside>
 				</section>
 
@@ -76,7 +81,7 @@
 					<h2>curl https://example.com/install-it-quick.sh | bash</h2>
 
 					<aside class="notes">
-						First let's talk about what "curl pipe bash" is. That's when you copy/paste 
+						First let's talk about what "curl | bash" is. That's when you copy/paste 
 						a command that looks like the one here. We all use scripts like this because
 						they quickly install software that you aren't familiar with.
 						curl downloads the script, and then the script contents are "piped" to bash
@@ -93,7 +98,7 @@
 						<li class="fragment">High likelihood of success</li>
 					</ul>
 					<aside class="notes">
-						Honestly I really like installation scripts because:
+						Personally I really like installation scripts because:
 						* It is a one-liner to install.
 						* Requires little to no knowledge of the installation logic or tooling.
 						* We believe that the project maintainers can automate the installation better than us on the first try.

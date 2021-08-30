@@ -1,0 +1,65 @@
+Hi, I'm Carolyn Van Slyck a Principal Software Engineer at Microsoft.
+
+Today I want to think through how we can have our cake and eat it too. 
+
+(PAUSE)
+
+Namely I want to install software quickly AND securely.
+
+I have to admit that I'm a sucker for running an installation script by using curl | bash.
+
+I know that I shouldn't... but it's so easy and I'm so lazy!
+
+This laziness extends beyond just installing dev tools on my laptop.
+
+A lot of cloud native software could benefit from having a more straightforward installation process.
+
+Common wisdom says that curling a script and piping it to bash isn't safe, so that's out.
+
+But what if we could make installers that are as easy to use as curl | pipe, but were a whole lot more safe?
+
+(SLIDE)
+
+First, let's talk about what "curl | bash" is.
+
+That's when you copy/paste a command that looks like the one here.
+
+We all use scripts like this because they quickly install software that you aren't familiar with.
+
+Curl downloads the script, and then the script contents are "piped" to bash where they are immediately executed.
+
+(SLIDE)
+
+Personally I really like installation scripts:
+
+* I can copy/paste my way to victory with just a single command.
+
+* They require little to no knowledge of the installation logic or tooling.
+
+* And yeah, I believe that the project maintainers can automate the installation better than me on the first try.
+
+(NOD)
+
+Let's review though why using curl | bash is a security risk.
+
+(SLIDE)
+
+What if someone on the internet offered to help install an application you wanted and they would do it for you.
+
+All you need to do is hand over your laptop for 5 seconds, they'll type super fast and boom, it's installed.
+
+I don't know about you, but I don't hand over my laptop to my husband and I _trust him_.
+
+Mostly.
+
+When we think about handing over your laptop to a stranger, its easy to see why its risky.
+
+They would have access to everything on there: documents, pictures, environment variables containing security tokens and passwords, you're logged into a bunch of sites, maybe even your work VPN.
+
+It's clear they could do anything with your laptop that you yourself could do.
+
+That doesn't change when you switch from a physical laptop to a quick copy/paste of an installation script.
+
+When you use magic installation scripts, you are giving the script full access to your laptop and anything your laptop has access to.
+
+Oops.
