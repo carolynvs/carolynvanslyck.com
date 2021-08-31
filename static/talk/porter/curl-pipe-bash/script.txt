@@ -6,7 +6,7 @@ Today I want to think through how we can have our cake and eat it too.
 
 Namely I want to install software quickly AND securely.
 
-I have to admit that I'm a sucker for running an installation script by using curl | bash.
+I have to admit that I'm a sucker for running an installation script by using curl pipe bash.
 
 I know that I shouldn't... but it's so easy and I'm so lazy!
 
@@ -16,11 +16,11 @@ A lot of cloud native software could benefit from having a more straightforward 
 
 Common wisdom says that curling a script and piping it to bash isn't safe, so that's out.
 
-But what if we could make installers that are as easy to use as curl | pipe, but were a whole lot more safe?
+But what if we could make installers that are as easy to use as curl pipe pipe, but were a whole lot more safe?
 
 (SLIDE)
 
-First, let's talk about what "curl | bash" is.
+First, let's talk about what "curl pipe bash" is.
 
 That's when you copy/paste a command that looks like the one here.
 
@@ -40,7 +40,7 @@ Personally I really like installation scripts:
 
 (NOD)
 
-Let's review though why using curl | bash is a security risk.
+Let's review though why using curl pipe bash is a security risk.
 
 (SLIDE)
 
@@ -63,3 +63,220 @@ That doesn't change when you switch from a physical laptop to a quick copy/paste
 When you use magic installation scripts, you are giving the script full access to your laptop and anything your laptop has access to.
 
 Oops.
+
+[SLIDE]
+
+Okay, so what if you read the script first and then run it?
+
+You open the script in your browser, look it over and go "yup! This looks like how I expected" and then run the script.
+
+Here's a fun fact: a web server can detect that you are piping that web request to bash.
+
+A malicious server can detect that you are piping to bash and then decide to give you a different file.
+
+Not that file that you just read in your browser, but whatever it wants.
+
+And then you are right back to where you started.
+
+Letting randos run amok on your computer.
+
+[SLIDE]
+
+Instead of using that handy one liner, here's a safer way to run an installation script:
+
+1. First, download the script.
+
+2. Then if they provided a checksum of the script, compare the checksum of the file you just downloaded against it and ensure that they match.
+
+3. Ok, _now_ you can read the downloaded script. Scan that lovely bash and nod your head like you totes get what it's doing.
+
+4. Finally, you can run the script.
+
+And... that works but [SHRUG], I personally find it annoying.
+
+1. The copy/paste -> success experience from the one liner is lost.
+
+2. No one really wants to read bash, and depending on the complexity of the script even after reading it you may not be completely sure what it's going to do.
+
+3. Most importantly, when you do finally run the script, it's executing as your user.
+
+[SLIDE]
+
+Alright so we aren't supposed to curl pipe bash but... What if I really want to anyway?
+
+Have you ever wanted to try out some software, and the installation instructions are like 15 steps where you have to install 3 CLIs, copy your credentials yet again into more environment variables that you will forget about and leave around forever, and it requires a database that you don't feel like figuring out how to setup, and really now that you think about it, maybe you'll just try this out some other time because this is just one more yak to shave and you have work to do.
+
+You know who could really benefit from a one-liner?
+
+Cloud Native Deployments. Often they are complex, with dependencies, dedicated CLIs, magic configuration, credentials...
+
+Most of us don't want to read a series of docs, and install extra tools to try something out.
+
+We _really_ don't want to figure out how to script coordinating these tools. 
+
+For example, creating a database, and then passing the connection string as a helm chart value. 
+
+Lots of potential users stop there and decide it is more work than they are willing to invest.
+
+Especially when they are figuring out which software they want to use, and they are installing a couple and trying them out to see how they work.
+
+So I know that I just said that we shouldn't curl pipe bash, but if we could just provide our users a great experience to quickly setup and try out our software, that would be great, right?
+
+[SLIDE]
+
+So let's flip the reflexive "You can't do that, it's not safe" to "How can we make it safe?"
+
+What would we need to do that?
+
+We need to isolate the installer, only giving access to what it needs, instead of being able to read god knows what that is hiding on my laptop.
+
+We want something that does the boring stuff like checking signatures or digests
+for us.
+
+We also want reliable insight into what is actually in the installer so that they don't have to read the source.
+
+There are a couple tools out there that can meet most of our requirements, one of which is the CNCF sandbox project, Porter.
+
+Let's see how close we can get to making a safer installation experience for our users.
+
+[SLIDE]
+
+Porter is a command line tool that makes cloud installers.
+
+It packages your application, which could be a website, microservice, an IOT app, whatever along with any necessary client tools, configuration and all the deployment logic necessary to properly install your app into a bundle. 
+
+The bundle is versioned, distributed by OCI (docker) registries,
+and can be installed with a single command.
+
+It doesn't replace any of your existing tools. Porter works with any tooling or stack.
+
+You can use with VMs, containers, clusters, bare metal, IOT, serverless, whatever you can script, it all goes in the bundle. Porter provides packaging, distribution and a layer of security around what you already use today.
+
+[SLIDE
+
+Let's say that I have a nifty app that I'd like to share with the world: TabbyCats Tracker!
+
+TabbyCats is a browser extension that shows you a different cute cat on each new tab that you open.
+
+TabbyCats Tracker is an app that lets you save your favorites and share your top tabby cats with your friends.
+
+[SLIDE]
+
+Tabby Tracker runs on Kubernetes and is installed with a Helm chart.
+
+And because I was resume padding a bit, it uses a cloud database to save your tabbies.
+
+[SLIDE]
+
+[DEMO]
+
+So did we hit the mark? If I'm looking for a safer way to quickly install rando software from the internet, does Porter meet our requirements?
+
+We wanted to: isolate the installer, automatically check signatures and digests, and give us insight into what the installer will actually do.
+
+[SLIDE]
+
+Bundles really just borrow security features from existing tools.
+
+We can check off "isolated installer", they run in a container and only have access to what we explicitly provide, like some cloud credentials.
+
+Bundles are distributed over OCI (or docker) registries.
+
+This is existing infrastructure that we already know how to run, [PAUSE] can scan for vulerabilities, [PAUSE] check digests (which Porter does for you).
+
+We are also working on signing bundles with Notary so that Porter can check the bundle signature and verify that it was created by a trusted publisher.
+
+That checks off our first two security concerns.
+
+[SLIDE]
+
+And with the porter explain command, we can see what's in the bundle,
+and how to run it.
+
+Which is waaay better in my opinion than reading bash.
+
+[SLIDE]
+
+Great, so it's safer than curl pipe bash but is the experience what we were aiming for?
+
+It isn't always a one-liner.
+
+The first time you run a new bundle, you're going to run  porter explain to see what credentials it needs, and then create a credential set with 
+the credentials it needs if you don't have one already.
+
+But for bundles that you have worked with before, it is just porter install. 
+
+[SHRUG] I'm calling it close enough!
+
+It's always the same command, just porter install, regardless of the tech stack tucked away inside the bundle. So we are doing good there.
+
+And finally, what we really wanted all along was a magic installer.
+
+Someone with no experience with the application or its deployment tools can run install and get a working installation in no time.
+
+So there you go! A safer curl pipe bash for cloud native deployments.
+
+[SPREAD HANDS] Mission accomplished!
+
+[SLIDE]
+
+So I said that this is a safer curl pipe bash _for the cloud_.
+
+It's not really intended to install a CLI on your local machine for example. 
+What bundles can help make safer and easier would be:
+
+QuickStarts! Help someone get your software setup for them to try out.
+
+Customer Installations: In addition to writing an installation guide, you can also give them an installer, that not only helps them install it the first time, but track upgrades over time, and manage any other operational concerns, like status troubleshooting or backups.
+
+Your Own Applications: Just like an external customer would appreciate a little help setting up and running your software, the same applies to people on your team.
+
+The people who manage your software in production aren't always the developers who wrote it.
+
+Being able to upgrade to a patch version, or quickly flip a parameter to crank up the log level to 11, with a single command is just plain useful.
+
+A team can share a Porter installation, so that when someone installs an app in a new environment on Monday, another team member can see
+what was done, and pick up where they left off without a handoff.
+
+You could also use bundles for a side project.
+
+I don't know about you but when I work on a project, one weekend I'll figure out how to setup all the infrastructure, configure the secrets for my application, only to get distracted.
+
+Tear it all down so I'm not paying for it when I'm not developing it, and then try to pick it back up weeks later and by this point, I have totally forgotten how to get a working installation of my app.
+
+With a bundle I can capture all that deployment logic in the bundle, and not lose any progress. 
+
+I can just re-run porter install, and I'm all set up again.
+
+That's really what it comes down to for me.
+
+It's why I like bundles. I can ship not just a binary or docker image with an installation guide.
+
+I can just ship an entire installer that has all the tools it needs, and knows how to do a proper installation, not just what's easiest to document (come on you know that there's a gap between the two).
+
+[SLIDE]
+
+Here are some resources for getting started making your own installers!
+
+The quickstart will walk you through how to use Porter to install bundles.
+
+If you like videos, our learning page has demos and more talks that cover Porter in general.
+
+When you are ready to make your first bundle, run porter create to get started.
+
+Then head over to our authoring bundles page for details on what you can do in a porter bundle.
+
+If you have questions, our community page has links to our slack channel, forums, and mailing list where you can ask questions and connect with other users.
+
+[SLIDE]
+
+Thank you for going on a bit of a user experience journey with me, asking ourselves an important question that is relevant to any software.
+
+How can we make the tasks that people are GOING TO DO regardless of what you say, [PAUSE] more secure?
+
+Rather than telling someone, nope [CROSS HANDS] that's a bad thing and you are a [POINT] bad person for wanting to do it.
+
+Let's aim to understand why they want to do this task, what they are trying to accomplish, and if there are alternate user experiences that we could provide to make it safe?
+
+Thanks everyone! [SINGLE WAVE]
+
