@@ -1,0 +1,20 @@
+.reveal ul, .reveal ol {
+    line-height: 1.5em;
+}
+
+.reveal h2 {
+    margin-bottom: 2em;
+}
+
+.reveal .highlight {
+    color: #6dbcdb;
+  }
+  
+
+  .reveal h2 {
+    color: #8BC34A;
+  }
+
+#slides a {
+    color: #9575d1;
+  }
