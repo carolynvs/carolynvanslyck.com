@@ -8,7 +8,7 @@ description: >
 image: images/open-source-is-magic.png
 ---
 
-Hi, my name is Carolyn Van Slyck and Microsoft pays me to write open-source software. 👋 This _sounds_ super cool and maybe you are wondering how you too can trick a multi-national corporation into paying you to work in open source.
+Hi, my name is Carolyn Van Slyck and Microsoft pays me to write open-source software. 👋 This _sounds_ super cool and maybe you are wondering how you too can trick a multi-national corporation into paying you to work in open source too.
 
 From the outside you don't often get a clear view of what it is really like to actually do open source. You see people tweeting memes about [geese] and [KEPs], having fun and somehow software gets shipped. In this blog series, I want to give people a glimpse into what it is like to be in open source, both the exciting parts and the other stuff that we don't often advertise.
 
@@ -17,13 +17,16 @@ From the outside you don't often get a clear view of what it is really like to a
 </figure>
 
 * [Part 1: My Open Source Journey](#)
-* [Part 2: Why would you contribute to open source?]({{< ref "2021-08-08-open-source-curious.md" >}})
-* Part 3: How do you get started in open source?
+* [Part 2: Why would you contribute to open source?][2]
+* [Part 3: Joining an open-source project][3]
 * Part 4: How do you become a better contributor?
 * Part 5: What is it like being an open source maintainer?
 * Part 6: How do you become a better maintainer?
 * Part 7: What is it like being a project lead?
 * Part 8: Do you want to do open source for a living?
+
+[2]: {{< ref "2021-08-08-open-source-curious.md" >}}
+[3]: {{< ref "2021-10-10-new-project-new-you.md" >}}
 
 I have been in and out of open source for the past 20 years as a contributor, maintainer, and project lead. Hopefully my journey through open source shows is that there is no one right way to "do open source". Superficially, open source is about putting code out there with an open-source license, allowing people to not only read the source code, but modify it to suit their own purposes. As you will see, there are a lot of different ways to build on top of that.
 
