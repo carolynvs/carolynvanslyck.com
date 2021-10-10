@@ -100,7 +100,7 @@ Over the next couple months I found a gap in the project (a CLI of course) and n
 
 Unfortunately, shortly after dragging myself up that mountain, Microsoft decided that they weren't interested Service Catalog anymore. They wanted me to work on another project, and I had to step down. This was a tough but important lesson about being paid to work in open source. You end up making commitments that feel personal and end up breaking them because the company wasn't quite as committed as you.
 
-[dream]: https://carolynvanslyck.com/blog/2017/10/i-did-a-thing/)
+[dream]: {{< ref "2017-10-22-i-did-a-thing.md" >}}
 
 ## Community Driven Open Source
 
