@@ -5,11 +5,11 @@ title: "New Project, New You: Joining an open-source project"
 slug: new-project-new-you
 description: >
   This isn’t the usual, “how to get into open source” advice, so if this isn’t your first rodeo, stay put, this applies to you too.
-image: /images/mlp-let-me-in.webp
+image: /images/mlp-let-me-in.png
 ---
 
 <figure>
-  <img src="/images/mlp-let-me-in.webp" alt="TODO" />
+  <img src="/images/mlp-let-me-in.png" alt="Twilight Sparkle, a purple cartoon unicorn, looks suprised because another pony fan, in a Twilight Sparkle t-shirt, is standing outside her room, with their face pressed up against the window with their arms raised, banging on the window to be let in." />
   <figcaption><a href="https://mlp.fandom.com/wiki/Once_Upon_a_Zeppelin">My Little Ponies: Once upon a zeppelin</a></figcaption>
 </figure>
 
