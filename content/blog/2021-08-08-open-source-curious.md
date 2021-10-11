@@ -15,7 +15,7 @@ image: images/mlp-applejack-confused.png
 
 > This is part two in the series [Open Source: The Nice and Accurate Advice of Carolyn Van Slyck]({{< ref "2021-08-06-open-source-journey.md" >}})
 
-It feels like common wisdom lately that _obviously_ you should want to contribute to open source. But it isn't always clear why! It is unpaid work, so what do you get out of it? These are all going to seem like selfish reasons to get into open source. And they are! There are lots of warm fuzzy reasons to give your time away for free, but this is your life, if you are going to give up time that could be better spent doing other things, it better be for a good reason.
+It feels like common wisdom lately that _obviously_ you should want to contribute to open source. But it isn't always clear why! It is unpaid work, so what do you get out of it? These are all going to seem like selfish reasons to get into open source. And they are. There are lots of warm fuzzy reasons to give your time away for free, but this is your life, if you are going to give up time that could be better spent doing other things, it better be for a good reason.
 
 Just keep in mind a short list of things that you should be doing _before_ giving your time away: taking care of yourself, your health, and your needs (yup, you are allowed to have those), eating, bathing, exercising, occasionally seeing the outdoors, family and friends.
 
@@ -81,3 +81,5 @@ I want to end on a high note here because this is another powerful reason to con
 Take a minute, think about what you could gain from contributing to open source, and make a decision. Are you in?
 
 ![All the characters from My Little Ponies standing together, captioned Our Little Project: Open Source is Magic](/images/open-source-is-magic.png)
+
+[Next: New Project, New Me: Joining an open-source project]({{< ref "2021-10-10-new-project-new-you.md" >}})
