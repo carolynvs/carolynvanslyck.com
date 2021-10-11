@@ -86,18 +86,18 @@ However, if those aren't available, never fear! The best way to get started on a
 2. Try out the software. Run through some tutorials, and then make something that uses it. For example, if you were trying out Porter, make a bundle, install it, and then upgrade to a new version.
 3. Now think about which parts were hard, or confusing. Once you have figured how to do something, ask yourself if there was anything missing or not fully explained in the docs that would have helped you be successful more quickly.
 
-Maybe the docs have gotten out of date, and the instructions didn't quite work without modifications. Sometimes a project will have reference docs that explain the available commands, or config file syntax but are missing high level explanations of the concepts, or task oriented tutorials.
+Maybe the docs have gotten out of date, and the instructions didn't quite work without modifications. Sometimes a project will have reference docs that explain the available commands, or config file syntax but are missing high level explanations of the concepts, or task-oriented tutorials.
 
 Check the issue backlog to see if anyone else has run into the same problem. If you ran into it too, give it a 👍. If not, create an issue, explain what you had trouble with and what would have helped you understand it better.
 
-If there was a small bug in the docs or setup instructions, many projects don't need an issue first (check the contributing file to know for sure), and would welcome a quick pull request to fix it. Though when you aren't sure what the correct solution should be, create an issue first and discuss it with the maintainers.
+If there was a small bug in the docs or setup instructions, many projects don't need an issue first (check the contributing file to know for sure), and would welcome a quick pull request to fix it. When you aren't sure what the correct solution should be, create an issue first and discuss it with the maintainers.
 
 ## Be Helpful
 
 Here are some other ideas for finding ways to contribute when you aren't yet an expert.
 
 ### Help other new users
-Once know how to setup the project and have figured a few things out, keep an eye out for questions from new users in Slack and answer the ones that you can. Point people to a good doc page or example of what they are trying to do, or share what you have learned from setting up your own environment.
+Once know how to setup the project and have figured a few things out, keep an eye out for questions from new users in Slack and answer the ones that you can. Point people to the relevant documentation, examples of what they are trying to do, or share what you have learned from setting up your own environment.
 
 Don't answer questions that you aren't sure that you know the answer though. Lurk, be patient, and wait for the right question.
 
@@ -108,6 +108,6 @@ If the project has a FAQ, submit a pull request adding the question and answer. 
 
 ## What next?
 
-After that first pull request, you may be thinking to yourself "Now _that_ was awkward..." so let's assess how it went. If there were some red flags hinting that you should spend your time elsewhere, pay attention to your gut. It is okay to decide that this project just isn't for you.
+After that first pull request, you may be thinking to yourself "_Now, that was awkward_"... so let's assess how it went. If there were some red flags hinting that you should spend your time elsewhere, pay attention to your gut. It is okay to decide that this project just isn't for you.
 
-But if it was only weird because you were trying to collaborate to strangers on the internet, then buckle up! Next up I will lay down some advice for how to improve as a contributor and how to settle into a project. Stay tuned!
+But if it was only weird because you were trying to collaborate with strangers on the internet, then buckle up! Next up I will lay down some advice for how to improve as a contributor and how to settle into a project. Stay tuned!
