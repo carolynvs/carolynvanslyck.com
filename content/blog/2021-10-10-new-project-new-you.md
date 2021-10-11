@@ -6,6 +6,7 @@ slug: new-project-new-you
 description: >
   This isn’t the usual, “how to get into open source” advice, so if this isn’t your first rodeo, stay put, this applies to you too.
 image: /images/mlp-let-me-in.png
+cardStyle: summary_large_image
 ---
 
 <figure>
