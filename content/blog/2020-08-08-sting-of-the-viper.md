@@ -25,8 +25,8 @@ Let's start off with what each library is good at:
 * [spf13/viper]: Manages configuration, understands how to read it from config
   files and environment variables
 
-[spf13/cobra]: https://github.com/spf3/cobra
-[spf13/viper]: https://github.com/spf3/viper
+[spf13/cobra]: https://github.com/spf13/cobra
+[spf13/viper]: https://github.com/spf13/viper
 
 What most of us really want is a combination of these two libraries. A
 command-line tool where the user can control configuration in a precedence
