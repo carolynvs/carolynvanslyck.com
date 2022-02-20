@@ -5,7 +5,7 @@ title: "Add Issues and Pull Requests to a GitHub Project"
 slug: add-to-github-project
 description: >
   Automatically add issues and pull requests to your GitHub project
-image: images/manufacturetocat.png
+image: images/add-to-project-twittercard.png
 cardStyle: summary_large_image
 ---
 
