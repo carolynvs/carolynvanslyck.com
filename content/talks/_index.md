@@ -7,7 +7,56 @@ layout: single
 ---
 
 <div class="projects">
-  <div class="project" id="gocli">
+  <div class="project" id="contributor-pipeline">
+    <div class="title"><a href="https://static.sched.com/hosted_files/kccnceu2021/56/slides.pdf">Build Your Contributor Pipeline</a></div>
+    <div class="locations">KubeCon North America 2021</div>
+    <p class="description">
+      Would you like to attract new contributors to your project and grow your contributor base? CNCF SIG Contributor Strategy has developed best practices to improve your contributor pipeline and can help you adapt them to your project’s needs.
+    </p>
+
+  <ul>
+    <li>Attract new contributors to your project with good first issues.</li>
+    <li>Create onboarding materials, such as a contributing guide and onboarding tutorial, to guide their first  <li>contribution towards success.</li>
+    <li>Improve the contributor experience, encouraging people to join your community and stick around after their first pull request.</li>
+    <li>Publish a contribution ladder so they see a path from new contributor to maintainer and other project roles.</li>
+    <li>Find a balance between your time commitments as a maintainer and helping new contributors.</li>
+  </ul>
+
+  <p class="description">
+    Whether you are a new sandbox project or an established graduated projects like Kubernetes, you will come away with a realistic actionable way to sustainably grow your community.
+  </p>
+
+  <div class="embedded-video">
+    <iframe src="https://www.youtube.com/embed/IilnJ6C2MnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+  </div>
+
+  </div>
+
+  <div class="project" id="project-paperwork">
+    <div class="title"><strong>CNCF Project Paperwork Working Session</strong></div>
+    <div class="locations">KubeCon North America 2020</div>
+    <p class="description">
+      At each stage from Sandbox to Graduated, you’ll need to add community and process documentation 
+      – and there’s even more that’s good to have even if it’s not required. Let us help you create 
+      this “project paperwork” now instead of waiting for a deadline. With just a little planning, 
+      it doesn’t need to overwhelm you.
+    </p>
+    <p class="description">
+      TAG Contributor Strategy will walk you through required and desired community docs, 
+      how to use the new template repo, and which docs you need at which level. We’ll also 
+      be on hand to answer your questions and provide 1-on-1 help and editorial support. 
+      You can get your project ready, and we’ll show you how.
+    </p>
+    
+  <div class="embedded-video">
+    <iframe src="https://www.youtube.com/embed/ujglnZgOfXk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+  </div>
+
+  </div>
+
+  <div class="project" id="porter-use-cases">
     <div class="title">
         <a href="/talk/porter/use-cases/">
             <img src="/images/porter.png" alt="porter logo" title="cartoon cat head, smiling wearing a red bellhop hat" width="40"/>
@@ -37,18 +86,12 @@ layout: single
       <li>Manage disparate operational tech, such as Helm or Terraform, across teams and departments.</li>
       <li>Secure your pipeline.</li>
     </ul>
-  </div>
-    
-  <p class="description">
-    Learn how to take full advantage of popular Go libraries, structure your Go
-    code to improve reuse and testability, and of course
-    design your commands to be user friendly.</p>
 
   <div class="embedded-video">
     <iframe src="https://www.youtube.com/embed/wNl8m3h9I4E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
     </iframe>
   </div>
-</div>
+  </div>
 
   <div class="project" id="gocli">
     <div class="title">
