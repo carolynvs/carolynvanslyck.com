@@ -234,45 +234,6 @@ maintenance-mode   Pauses the app and puts up a cute sign   true                
 					</aside>
 				</section>
 
-				<section id="inject">
-					<h2><span class="highlight">Secret management</span> that I can manage</h2>
-
-					<aside class="notes">
-						Lots of solutions out there for secrets, and yet how many of us have 
-						plaintext secrets in env vars on our latops RIGHT NOW?
-						We do what's easiest
-					</aside>
-				</section>
-
-				<section id="inject-example">
-					<h2>Example: Create and configure a new team cluster</h2>
-					
-					<ul>
-						<li>Read docs to know what credentials are required</li>
-						<li class="fragment">Use local environment variables, files or if lucky a remote secret store</li>
-						<li class="fragment">Specify credentials differently based on tools used</li>
-						<li class="fragment">Cleanup local machine after deployment</li>
-					</ul>
-					<aside class="notes">
-						* Varies widely based on your tooling and configuration
-						* I'm describing what's easiest and what I see devs do
-					</aside>
-				</section>
-
-				<section id="inject-bundled">
-					<ol>
-						<li><span class="blue">porter credentials generate</span> walks you through where to find credentials</li>
-						<li class="fragment"><span class="blue">porter install</span> injects credentials just-in-time into the running bundle</li>
-						<li class="fragment">Credentials are destroyed with the bundle when it is done</li>
-					</ol>
-
-					<aside class="notes">
-						bundles execute in a container, the credentials are not exposed outside. The container is destroyed when the bundle completes.
-						I'm super excited about this because I'm actually using this on my dev machines and it's making 
-						my life easier.
-					</aside>
-				</section>
-
 				<section id="enterprisy-stuff">
 					<h2>Why companies like bundles</h2>
 
@@ -398,7 +359,6 @@ $ porter publish --archive myapp.tgz --tag production/myapp:v1.17.1
 
 					<figure style="margin-top: 2em">
 						<img src="../../../images/mlp-salute.png" width=""/>
-						<figcaption>My Little Pony™️ belongs to Hasbro.</figcaption>
 					</figure>
 			
 				</section>
