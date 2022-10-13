@@ -56,15 +56,13 @@
 			<div class="slides">
 				<section>
 					<h2 class="blue">
-						The Devil is in the Deployments
+						Porter: The Devil is in the Deployments
 					</h2>
 
+					<img src="images/porter.png" width="300px"/>
 					<p id="speaker">
 						Carolyn Van Slyck<br/>
-						<hr style="width: 20em"/>
-						Principal Software Engineer at Microsoft<br/>
-						Maintainer of the CNAB Specification<br/>
-						Co-creator of Porter<br/>
+		
 					</p>
 
 					<aside class="notes">
@@ -77,7 +75,7 @@
 					<h2>Overview</h2>
 
 					<ul>
-						<li>What is CNAB</li>
+						<li>What is Porter</li>
 						<li>What problems it solves</li>
 						<li>When bundles may help</li>
 						<li>When they probably won't</li>
@@ -88,17 +86,6 @@
 					</aside>
 				</section>
 
-				<section id="cnab">
-					<h2>Cloud Native Application Bundle Specification (CNAB)</h2>
-					<img src="images/cnab.png"/>
-					<p><a href="https://cnab.io">cnab.io</a></p>
-					
-					<aside class="notes">
-						Docker for applications
-						Docker for complex deployments with multiple components and systems
-					</aside>
-				</section>
-					
 				<section id="problem">
 					<h2>What Problems Do Bundles Solve?</h2>
 				
@@ -123,23 +110,14 @@
 					<p><a href="https://porter.sh">porter.sh</a></p>
 
 					<p>
-						Package your application, deployment tools, configuration and deployment logic together 
-						as a versioned bundle that you can distribute, and then install with a single command! 🎩✨
+						Package your application, client tools, configuration, and deployment logic 
+						into an installer that you can distribute and run with a single command 🎩✨
 					</p>
 
 					<aside class="notes">
 						Using Porter as an example because it's one of the most popular OSS CNAB tools
 						in the CNCF that can demonstrate the full breadth of the CNAB spec
 					</aside>
-				</section>
-				
-				<section id="yay-bundles">
-					<h2>Why I use bundles</h2>
-
-					<figure>
-						<img src="images/constructor_pie_by_ironm17_dc79sk0.png" width="25%" />
-						<figcaption>Image by <a href="https://www.deviantart.com/ironm17">IronM17</a></figcaption>
-					</figure>
 				</section>
 
 				<section id="tools">
@@ -295,54 +273,6 @@ maintenance-mode   Pauses the app and puts up a cute sign   true                
 					</aside>
 				</section>
 
-				<section id="wiring">
-					<h2>Focus on the deployment, not the bash</h2>
-					
-					<ul>
-						<li>Declarative syntax with built-in helpers</li>
-						<li class="fragment">Error checking</li>
-						<li class="fragment">Capture outputs with regex, json</li>
-						<li class="fragment">Consume state, outputs, parameters, credentials</li>
-						<li class="fragment">Connect unrelated tools like Lego™️</li>
-					</ul>
-
-				</section>
-
-				<section id="wiring-example">
-					<img src="images/wire-outputs-to-inputs.png" />
-
-					<aside class="notes">
-						optionally yaml instead of bash
-						workflow instead of how to chain together commands
-					</aside>
-				</section>
-
-<!--
-				<section id="porter-install">
-					<h2>Install</h2>
-
-<pre style="margin-top: 3em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ porter install staging-app --tag myorg/myapp:v1.17.1 --cred staging
-</code></pre>
-				</section>
-
-				<section id="porter-upgrade">
-					<h2>Upgrade</h2>
-
-<pre style="margin-top: 3em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ porter upgrade staging-app --param feature-flag=on --cred staging
-</code></pre>	
-				</section>
-					
-				<section id="porter-upgrade">
-					<h2>Custom Action</h2>
-
-<pre style="margin-top: 3em;"><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ porter invoke staging-app --action maintenance-mode --cred staging
-</code></pre>	
-				</section>
--->
-
 				<section id="enterprisy-stuff">
 					<h2>Why companies like bundles</h2>
 
@@ -353,7 +283,7 @@ $ porter invoke staging-app --action maintenance-mode --cred staging
 						<li class="fragment">Metadata for analysis and enforcement</li>
 					</ul>
 				</section>
-<!--
+
 				<section id="airgap">
 					<h2>Bundles can jump an <span class="highlight">airgap</span></h2>
 
@@ -426,83 +356,36 @@ $ porter publish --archive myapp.tgz --tag production/myapp:v1.17.1
 						Watch for bad practices
 					</aside>
 				</section>
--->
-				<section id="cons">
-					<h2>When would you skip bundles?</h2>
 
-					<figure style="text-align: center;">
-						<img src="images/rainbow_dash_shrug_by_dropletx1_d3j6g5i.png" width="25%" />
-						<figcaption>Image by <a href="https://www.deviantart.com/dropletx1">dropletx1</a></figcaption>
-					</figure>
+				<section id="yay-bundles">
+					<h2>Porter in the Wild</h2>
 
-				</section>
-
-				<section id="single-stack">
-					<h2>Single Stack and Satisfied</h2>
-
-					<ul>
-						<li class="fragment">Aren't creating your cluster or infrastructure</li>
-						<li class="fragment">Aren't making multiple helm calls or using other tools</li>
-						<li class="fragment">Aren't collecting outputs and using it as input to another command</li>
-						<li class="fragment">Don't need that enterprisy stuff</li>
-					</ul>
-				</section>
-
-				<section id="single-stack-vs">
-
-<pre><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ helm install staging-app myorg/myapp -f vars.yaml
-</code></pre>
-
-<p class="huge">🤷‍♀️</p>
-
-<pre><code class="bigger plaintext nohighlight hljs" data-trim data-noescape>
-$ porter install staging-app -t myorg/myapp:v1.17.1 -p myapp -c staging
-</code></pre>
-
-					<aside class="notes">
-					</aside>
-				</section>
-				
-				<section id="windows">
-					<h2>Windows is Complicated Right Now</h2>
-				
-					<p class="fragment">👍 Bundles can <strong>run</strong> on Windows</p>
-
-					<p class="fragment">👎 Bundles currently only support linux containers</p>
-				
-					<p class="fragment">🚗 Windows container support is on our roadmap</p>
 					
-					<aside class="notes">
-						* You can execute bundles on Windows. The docker container though is a linux container.
-					</aside>
+					<ul>
+						<li>Production
+							<ul>
+								<li>Azure Marketplace / ARC</li>
+								<li>Azure Trusted Research Environments</li>
+								<li>Azure Service Operator</li>
+								<li>F5</li>
+								<li>Ernst and Young</li>
+							</ul>
+						</li>
+						<li>In Discussion</li>
+							<ul>
+								<li>Microsoft 365 Security</li>
+								<li>Azure Customer Workload Validation</li>
+								<li>Price Waterhouse Cooper</li>
+								<li>HP Container Marketplace</li>
+							</ul>
+					</ul>
 				</section>
 				
-				<section id="summary">
-					<h2>Bundles In Review</h2>
-
-					<ul>
-						<li>Contain everything you need to deploy: artifacts, tools, logic</li>
-						<li class="fragment">Distributed over OCI registries</li>
-						<li class="fragment">Manage credentials securely</li>
-						<li class="fragment">Flexible authoring experience</li>
-						<li class="fragment">Tamper-proof, repeatable deployments</li>
-					</ul>
-
-					<aside class="notes">
-						Not an exhaustive list
-						Hopefully this helps you make a decision if you want to learn more about bundles
-					</aside>
-				</section>
-
 				<section id="resources">
-					<h2>Resources</h2>
 
-					<ul>
-						<li>Try it out @ <a href="https://porter.sh">porter.sh</a></li>
-						<li>Ask questions @ <a href="https://porter.sh/community">porter.sh/community</a></li>
-						<li>Read the spec @ <a href="https://cnab.io">cnab.io</a></li>
-					</ul>
+					<p>Try it out @ <a href="https://getporter.org/quickstart">getporter.org/quickstart</a>
+						
+					</p>
 
 					<aside class="notes">
 						Try a quickstart
