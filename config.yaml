@@ -9,7 +9,7 @@ permalinks:
 buildFuture: true
 
 params:
-  image: images/carolynvs.twitter.jpg
+  image: images/carolynvs.square.jpg
 
 markup:
   goldmark:
