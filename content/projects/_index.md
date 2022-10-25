@@ -8,14 +8,14 @@ layout: single
 <div class="projects">
     <div class="project">
         <div class="title">
-            <a href="https://porter.sh">
+            <a href="https://getporter.org">
                 <img src="/images/porter.png" alt="porter logo" title="cartoon cat head, smiling wearing a red bellhop hat"/>
                 Porter
             </a>
         </div>
         <div class="technologies">cnab, go, docker</div>
         <p class="description">
-          I am the co-creator of <a href="https://porter.sh">Porter</a>, which packages your application artifact, client tools, configuration and deployment logic together as a versioned bundle that you can distribute, and then install with a single command.
+          I am the co-creator of <a href="https://getporter.org">Porter</a>, which packages your application artifact, client tools, configuration and deployment logic together as a versioned bundle that you can distribute, and then install with a single command.
         </p>
     </div>
     <div class="project">

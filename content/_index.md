@@ -25,7 +25,7 @@ description: Professional Yak Shaver
   inclusive open-source communities around them.
 <p style="font-size: 1.1rem;">
   I am a maintainer for
-  <a href="https://porter.sh">Porter</a> and the Cloud Native Application Bundle (<a href="http://deislabs.io/cnab">CNAB</a>) Specification. I run
+  <a href="https://getporter.org">Porter</a> and the Cloud Native Application Bundle (<a href="http://deislabs.io/cnab">CNAB</a>) Specification. I run
   <a href="https://womenwhogo.org">Women Who Go</a> and am a tech lead for <a href="https://contribute.cncf.io/about/">CNCF Contributor Strategy</a>.
 </p>
 <p style="font-size: 1.1rem;">
