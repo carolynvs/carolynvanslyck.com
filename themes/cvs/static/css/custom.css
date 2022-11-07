@@ -118,6 +118,12 @@ hr {
   color: #00ACED;
 }
 
+#social-media a.fa-mastodon,
+#social-media a.fa-mastodon:hover,
+#social-media a.fa-mastodon:visited {
+  color: #5B4BE1;
+}
+
 .project, .talk {
   padding-bottom: 1em;
 }

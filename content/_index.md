@@ -35,7 +35,8 @@ description: Professional Yak Shaver
 </div>
 
 <div id="social-media">
-    <a href="https://github.com/carolynvs" class="fa fa-github fa-2x" title="GitHub"></a>
-    <a href="https://www.linkedin.com/in/vanslyck" class="fa fa-linkedin fa-2x" title="LinkedIn"></a>
-    <a href="https://twitter.com/carolynvs" class="fa fa-twitter fa-2x" title="Twitter"></a>
+    <a href="https://github.com/carolynvs" class="fab fa-github fa-2x" title="GitHub"></a>
+    <a href="https://www.linkedin.com/in/vanslyck" class="fab fa-linkedin fa-2x" title="LinkedIn"></a>
+    <a href="https://twitter.com/carolynvs" class="fab fa-twitter fa-2x" title="Twitter"></a>
+    <a href="https://hachyderm.io/@carolynvs" rel="me" class="fab fa-mastodon fa-2x"></a>
 </div>
